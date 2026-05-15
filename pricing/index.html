@@ -1,1 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Fit2Trade</title>
+  <meta name="description" content="Simple, transparent pricing for Fit2Trade. Pay per location, not per employee. Calculate your exact monthly cost in seconds." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
 
+  /* ── Shared page chrome ─────────────────────────────────── */
+  .page-hero{background:var(--black);padding:calc(var(--nav-h) + 72px) 0 64px;text-align:center}
+  .page-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:14px}
+  .page-hero h1 em{font-style:normal;color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(135deg,#8DD5C5,#2E6052)}
+  .page-hero p{font-size:1.05rem;color:rgba(255,255,255,.45);max-width:460px;margin:0 auto 36px;line-height:1.7}
+
+  /* billing + currency toggles */
+  .toggles-row{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:4px}
+  .billing-toggle{display:flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:4px;gap:2px}
+  .bt-btn{padding:8px 20px;border-radius:100px;font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);cursor:pointer;transition:all var(--t);position:relative;white-space:nowrap;border:none;background:transparent}
+  .bt-btn.is-active{background:var(--white);color:var(--ink)}
+  .bt-badge{display:inline-block;background:#22C55E;color:var(--white);font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:100px;margin-left:5px;vertical-align:middle}
+  .currency-toggle{display:flex;gap:6px}
+  .ct-btn{padding:7px 16px;border-radius:100px;font-size:.85rem;font-weight:700;color:rgba(255,255,255,.45);cursor:pointer;border:1px solid rgba(255,255,255,.12);background:transparent;transition:all var(--t)}
+  .ct-btn.is-active{background:rgba(255,255,255,.12);color:var(--white);border-color:rgba(255,255,255,.25)}
+
+  /* ── CALCULATOR ──────────────────────────────────────────── */
+  .calc-section{padding:var(--section) 0;background:var(--surface)}
+  .calc-inner{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+  .calc-controls{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-xl);padding:40px}
+  .calc-title{font-size:1.1rem;font-weight:900;color:var(--ink);letter-spacing:-.025em;margin-bottom:28px}
+
+  /* sliders */
+  .slider-group{margin-bottom:28px}
+  .slider-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .slider-label span{font-size:.88rem;font-weight:700;color:var(--ink)}
+  .slider-value{font-size:1.1rem;font-weight:900;color:var(--green);letter-spacing:-.03em}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--border-lt);outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--green);cursor:pointer;box-shadow:0 2px 8px rgba(46,96,82,.35);transition:transform var(--t)}
+  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+  input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--green);cursor:pointer;border:none;box-shadow:0 2px 8px rgba(46,96,82,.35)}
+  .slider-ticks{display:flex;justify-content:space-between;margin-top:4px}
+  .slider-tick{font-size:.72rem;color:var(--muted)}
+
+  /* product toggles */
+  .products-label{font-size:.77rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .product-toggles{display:flex;flex-direction:column;gap:8px}
+  .pt-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--border-lt);cursor:pointer;transition:background var(--t),border-color var(--t);user-select:none}
+  .pt-row.is-on{background:var(--green-tint);border-color:rgba(46,96,82,.35)}
+  .pt-row.is-locked{cursor:default;background:var(--surface);border-color:var(--border-lt)}
+  .pt-left{display:flex;align-items:center;gap:10px}
+  .pt-name{font-size:.9rem;font-weight:700;color:var(--ink)}
+  .pt-sub{font-size:.75rem;color:var(--muted)}
+  .pt-toggle{width:36px;height:20px;border-radius:10px;background:var(--border-lt);position:relative;transition:background var(--t);flex-shrink:0}
+  .pt-toggle::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--white);transition:transform var(--t);box-shadow:0 1px 4px rgba(0,0,0,.2)}
+  .pt-row.is-on .pt-toggle{background:var(--green)}
+  .pt-row.is-on .pt-toggle::after{transform:translateX(16px)}
+  .pt-price{font-size:.78rem;font-weight:700;color:var(--muted);white-space:nowrap}
+  .pt-row.is-on .pt-price{color:var(--green)}
+
+  /* output panel */
+  .calc-output{position:sticky;top:calc(var(--nav-h) + 20px)}
+  .output-card{background:var(--ink);border-radius:var(--r-xl);padding:36px;color:var(--white)}
+  .output-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px}
+  .output-price{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--white);margin-bottom:4px}
+  .output-price sup{font-size:.5em;vertical-align:top;margin-top:.25em}
+  .output-period{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:24px}
+  .output-annual{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.2);border-radius:var(--r);padding:10px 14px;margin-bottom:24px;display:none}
+  .output-annual.is-visible{display:block}
+  .oa-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#86EFAC;margin-bottom:2px}
+  .oa-value{font-size:1rem;font-weight:900;color:var(--white)}
+  .oa-save{font-size:.78rem;color:#86EFAC;margin-top:2px}
+  .output-breakdown{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+  .ob-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.835rem}
+  .ob-label{color:rgba(255,255,255,.5)}
+  .ob-amount{font-weight:700;color:var(--white)}
+  .ob-row.ob-total{border-top:1px solid rgba(255,255,255,.1);padding-top:8px;margin-top:4px}
+  .ob-row.ob-total .ob-label{color:rgba(255,255,255,.8);font-weight:700}
+  .ob-row.ob-total .ob-amount{font-size:1rem}
+  .output-risk{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.18);border-radius:var(--r);padding:12px 14px;margin-bottom:22px}
+  .or-icon{font-size:.85rem;color:#FCD34D;margin-bottom:4px}
+  .or-text{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.55}
+  .or-text strong{color:#FCD34D}
+  .output-cta{display:block;text-align:center;padding:14px;border-radius:100px;background:var(--green);color:var(--white);font-size:.9rem;font-weight:700;transition:all var(--t);text-decoration:none;margin-bottom:10px}
+  .output-cta:hover{background:#25503F;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .output-trial{font-size:.75rem;color:rgba(255,255,255,.3);text-align:center}
+
+  /* ── PRICING TABLES ─────────────────────────────────────── */
+  .tables-section{padding:var(--section) 0;background:var(--white)}
+  .product-section{margin-bottom:64px}.product-section:last-child{margin-bottom:0}
+  .prod-section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border-lt);gap:20px}
+  .psh-name{font-size:1.3rem;font-weight:900;color:var(--ink);letter-spacing:-.03em}
+  .psh-tagline{font-size:.875rem;color:var(--muted);margin-top:4px}
+  .psh-link{font-size:.82rem;font-weight:700;color:var(--green);flex-shrink:0}
+  .unit-price{display:inline-flex;align-items:baseline;gap:4px}
+  .up-amount{font-size:2.2rem;font-weight:900;color:var(--ink);letter-spacing:-.04em}
+  .up-unit{font-size:.82rem;color:var(--muted)}
+  .formula-row{display:flex;align-items:center;gap:12px;margin:16px 0;flex-wrap:wrap}
+  .formula-block{background:var(--surface);border:1px solid var(--border-lt);border-radius:var(--r);padding:14px 18px;text-align:center}
+  .fb-amount{font-size:1.4rem;font-weight:900;color:var(--ink);letter-spacing:-.03em}
+  .fb-label{font-size:.72rem;color:var(--muted);margin-top:2px}
+  .formula-op{font-size:1.2rem;color:var(--muted);font-weight:300}
+  .formula-eq{font-size:.82rem;color:var(--muted);font-weight:600}
+  .includes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+  .include-item{display:flex;align-items:center;gap:8px;font-size:.845rem;color:var(--ink-2)}
+  .include-item::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0}
+
+  /* operate tiers */
+  .operate-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+  .ot-card{background:var(--surface);border:1px solid var(--border-lt);border-radius:var(--r);padding:22px;position:relative}
+  .ot-card--mid{background:var(--green-tint);border-color:rgba(46,96,82,.3)}
+  .ot-pop{position:absolute;top:-10px;left:16px;background:var(--green);color:var(--white);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+  .ot-name{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+  .ot-price{font-size:1.6rem;font-weight:900;color:var(--ink);letter-spacing:-.035em;margin-bottom:2px}
+  .ot-period{font-size:.75rem;color:var(--muted);margin-bottom:10px}
+  .ot-feat{font-size:.8rem;color:var(--muted)}
+
+  /* bundle row */
+  .bundle-row{background:var(--ink);border-radius:var(--r);padding:22px 28px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .br-left strong{font-size:.95rem;color:var(--white);font-weight:800;display:block;margin-bottom:3px}
+  .br-left span{font-size:.8rem;color:rgba(255,255,255,.45)}
+  .br-price{text-align:right;flex-shrink:0}
+  .br-amount{font-size:1.5rem;font-weight:900;color:var(--white);letter-spacing:-.03em}
+  .br-save{font-size:.75rem;color:#86EFAC;margin-top:2px}
+
+  /* add-ons grid */
+  .addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+  .addon-card{background:var(--surface);border:1px solid var(--border-lt);border-radius:var(--r);padding:20px}
+  .ac-name{font-size:.9rem;font-weight:800;color:var(--ink);margin-bottom:3px}
+  .ac-tagline{font-size:.76rem;color:var(--muted);margin-bottom:14px;line-height:1.5}
+  .ac-price{font-size:1.5rem;font-weight:900;color:var(--ink);letter-spacing:-.03em;margin-bottom:2px}
+  .ac-unit{font-size:.72rem;color:var(--muted)}
+  .ac-link{display:inline-block;font-size:.76rem;font-weight:700;color:var(--green);margin-top:10px}
+
+  /* services */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+  .svc-card{background:var(--surface);border:1px solid var(--border-lt);border-radius:var(--r);padding:22px}
+  .svc-name{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+  .svc-desc{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:14px}
+  .svc-price{font-size:1.3rem;font-weight:900;color:var(--ink);letter-spacing:-.03em}
+  .svc-unit{font-size:.72rem;color:var(--muted);display:block;margin-top:2px}
+
+  /* CU pricing */
+  .cu-section{padding:var(--section) 0;background:var(--ink)}
+  .cu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+  .cu-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-xl);padding:28px;display:flex;flex-direction:column;position:relative}
+  .cu-card--mid{background:rgba(46,96,82,.12);border-color:rgba(46,96,82,.4)}
+  .cu-pop2{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--white);font-size:.64rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 12px;border-radius:100px;white-space:nowrap}
+  .cu-tier{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7DBDAD;margin-bottom:6px}
+  .cu-name{font-size:1.1rem;font-weight:900;color:var(--white);letter-spacing:-.02em;margin-bottom:10px}
+  .cu-price{font-size:1.9rem;font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1;margin-bottom:3px}
+  .cu-period{font-size:.76rem;color:rgba(255,255,255,.35);margin-bottom:4px}
+  .cu-ideal{font-size:.77rem;font-style:italic;color:rgba(255,255,255,.35);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .cu-feats{display:flex;flex-direction:column;gap:7px;flex:1;margin-bottom:20px}
+  .cu-feat{display:flex;align-items:flex-start;gap:8px;font-size:.81rem;color:rgba(255,255,255,.6);line-height:1.4}
+  .cu-feat::before{content:"✓";color:#7DBDAD;font-weight:700;flex-shrink:0}
+  .cu-feat-sec{font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-top:8px;margin-bottom:2px}
+  .cu-btn{display:block;text-align:center;padding:11px;border-radius:100px;font-size:.85rem;font-weight:700;transition:all var(--t);text-decoration:none}
+  .cu-btn--o{border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6)}.cu-btn--o:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
+  .cu-btn--g{background:var(--green);color:var(--white)}.cu-btn--g:hover{background:#25503F;transform:translateY(-1px)}
+
+  /* FAQ */
+  .faq-section{padding:var(--section) 0;background:var(--surface)}
+  .faq-list{max-width:780px;margin:48px auto 0}
+  details.faq-item{border-bottom:1px solid var(--border)}
+  details.faq-item:first-child{border-top:1px solid var(--border)}
+  summary.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 4px;font-size:.975rem;font-weight:700;color:var(--ink);cursor:pointer;list-style:none;gap:14px;letter-spacing:-.015em}
+  summary.faq-q::-webkit-details-marker{display:none}
+  .faq-icon{width:26px;height:26px;border-radius:50%;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.95rem;color:var(--muted);transition:all var(--t);line-height:1}
+  details[open] .faq-icon{background:var(--green-tint);border-color:var(--green);color:var(--green);transform:rotate(45deg)}
+  .faq-a{padding:0 4px 20px;font-size:.9rem;color:var(--muted);line-height:1.72}
+
+  /* CTA */
+  .pricing-cta{padding:var(--section) 0;background:var(--green);text-align:center}
+  .pricing-cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:12px}
+  .pricing-cta p{font-size:1.05rem;color:rgba(255,255,255,.7);max-width:440px;margin:0 auto 32px}
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn--white{background:var(--white);color:var(--green);border-radius:100px}.btn--white:hover{background:var(--surface);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+  .btn--white-ol{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35);border-radius:100px}.btn--white-ol:hover{border-color:var(--white);background:rgba(255,255,255,.07)}
+
+  /* Responsive */
+  @media(max-width:960px){
+    .calc-inner{grid-template-columns:1fr}.calc-output{position:static}
+    .includes-grid{grid-template-columns:repeat(2,1fr)}.operate-tiers{grid-template-columns:1fr}
+    .addons-grid{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:repeat(2,1fr)}
+    .cu-grid{grid-template-columns:1fr;max-width:380px;margin-inline:auto}
+    .prod-section-header{flex-direction:column;align-items:flex-start}
+  }
+  @media(max-width:600px){
+    .addons-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}
+    .formula-row{gap:8px}.toggles-row{gap:12px}
+    .cta-btns{flex-direction:column;align-items:center}.cta-btns .btn{width:100%;max-width:290px;justify-content:center}
+    .bundle-row{flex-direction:column;align-items:flex-start}.br-price{text-align:left}
+  }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI, MCC &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; nursing homes</span></a></li>
+            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/public-sector/" class="dd-link"><strong>Public Sector</strong><span>Councils, agencies &amp; semi-states</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S Management System</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link" style="color:rgba(255,255,255,1)">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Pricing that pays<br><em>for itself.</em></h1>
+    <p>Pay per location, not per employee. Calculate your exact monthly cost below&thinsp;&mdash;&thinsp;no form, no call required.</p>
+    <div class="toggles-row">
+      <div class="billing-toggle" role="group" aria-label="Billing period">
+        <button class="bt-btn is-active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+        <button class="bt-btn" id="btn-annual" onclick="setBilling('annual')">Annual <span class="bt-badge">Save 10%</span></button>
+      </div>
+      <div class="currency-toggle" role="group" aria-label="Currency">
+        <button class="ct-btn is-active" id="btn-eur" onclick="setCurrency('EUR')">&#8364; EUR</button>
+        <button class="ct-btn" id="btn-gbp" onclick="setCurrency('GBP')">&#163; GBP</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="container">
+    <div class="calc-inner">
+
+      <!-- Controls -->
+      <div class="calc-controls">
+        <div class="calc-title">Configure your plan</div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Locations</span>
+            <span class="slider-value" id="loc-val">1</span>
+          </div>
+          <input type="range" id="loc-slider" min="1" max="50" value="1" oninput="updateCalc()" />
+          <div class="slider-ticks"><span>1</span><span>10</span><span>20</span><span>30</span><span>50</span></div>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Employees</span>
+            <span class="slider-value" id="emp-val">10</span>
+          </div>
+          <input type="range" id="emp-slider" min="1" max="500" value="10" oninput="updateCalc()" />
+          <div class="slider-ticks"><span>1</span><span>100</span><span>200</span><span>300</span><span>500</span></div>
+        </div>
+
+        <div class="products-label">Products</div>
+        <div class="product-toggles">
+          <div class="pt-row is-on is-locked" id="pt-ensure">
+            <div class="pt-left">
+              <div>
+                <div class="pt-name">Ensure &mdash; H&amp;S Management</div>
+                <div class="pt-sub" id="pt-ensure-sub"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="pt-price" id="pt-ensure-price"></span>
+              <div class="pt-toggle" style="background:var(--green)"><div style="position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--white);transform:translateX(16px);box-shadow:0 1px 4px rgba(0,0,0,.2)"></div></div>
+            </div>
+          </div>
+          <div class="pt-row" id="pt-operate" onclick="toggleProduct('operate')">
+            <div class="pt-left">
+              <div>
+                <div class="pt-name">Operate &mdash; Ops Management</div>
+                <div class="pt-sub" id="pt-operate-sub"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="pt-price" id="pt-operate-price"></span>
+              <div class="pt-toggle" id="pt-operate-toggle"></div>
+            </div>
+          </div>
+          <div class="pt-row" id="pt-educate" onclick="toggleProduct('educate')">
+            <div class="pt-left">
+              <div>
+                <div class="pt-name">Educate &mdash; Training LMS</div>
+                <div class="pt-sub" id="pt-educate-sub"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="pt-price" id="pt-educate-price"></span>
+              <div class="pt-toggle" id="pt-educate-toggle"></div>
+            </div>
+          </div>
+          <div class="pt-row" id="pt-elevate" onclick="toggleProduct('elevate')">
+            <div class="pt-left">
+              <div>
+                <div class="pt-name">Elevate &mdash; Employee Wellbeing</div>
+                <div class="pt-sub" id="pt-elevate-sub"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="pt-price" id="pt-elevate-price"></span>
+              <div class="pt-toggle" id="pt-elevate-toggle"></div>
+            </div>
+          </div>
+          <div class="pt-row" id="pt-engage" onclick="toggleProduct('engage')">
+            <div class="pt-left">
+              <div>
+                <div class="pt-name">Engage &mdash; Employee Comms</div>
+                <div class="pt-sub" id="pt-engage-sub"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="pt-price" id="pt-engage-price"></span>
+              <div class="pt-toggle" id="pt-engage-toggle"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Output -->
+      <div class="calc-output">
+        <div class="output-card">
+          <div class="output-label" id="out-label">Monthly cost</div>
+          <div class="output-price"><sup id="out-sym">&#8364;</sup><span id="out-price">99</span></div>
+          <div class="output-period" id="out-period">/month &mdash; billed monthly</div>
+
+          <div class="output-annual" id="out-annual-box">
+            <div class="oa-label">Annual total</div>
+            <div class="oa-value" id="out-annual-total"></div>
+            <div class="oa-save" id="out-annual-save"></div>
+          </div>
+
+          <div class="output-breakdown" id="out-breakdown"></div>
+
+          <div class="output-risk">
+            <div class="or-icon">&#9888;&#65039;</div>
+            <div class="or-text">A single HSA improvement notice costs <strong>&#8364;1,000&ndash;&#8364;15,000</strong>. Your annual Fit2Trade cost: <strong id="out-risk-annual"></strong>.</div>
+          </div>
+
+          <a href="/contact/" class="output-cta">Book a demo &amp; confirm pricing</a>
+          <div class="output-trial">No setup fees &middot; Cancel at renewal &middot; Live in 48 hrs</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLES -->
+<section class="tables-section">
+  <div class="container">
+
+    <!-- Ensure -->
+    <div class="product-section">
+      <div class="prod-section-header">
+        <div>
+          <div class="psh-name">Ensure &mdash; H&amp;S Management</div>
+          <div class="psh-tagline">Safety statements, risk assessments, incident reporting, digital routines and audits.</div>
+        </div>
+        <a href="/products/ensure/" class="psh-link">See full product &rarr;</a>
+      </div>
+      <div class="formula-row">
+        <div class="formula-block">
+          <div class="fb-amount" id="tbl-ensure-loc"></div>
+          <div class="fb-label">per location / month</div>
+        </div>
+        <div class="formula-op">+</div>
+        <div class="formula-block">
+          <div class="fb-amount" id="tbl-ensure-emp"></div>
+          <div class="fb-label">per employee / month</div>
+        </div>
+        <div class="formula-eq">&nbsp;= your Ensure cost</div>
+      </div>
+      <p style="font-size:.83rem;color:var(--muted);margin:.5rem 0 1.2rem">All employees at a location are included in the per-employee rate&thinsp;&mdash;&thinsp;no additional per-user fee for new starters replacing leavers.</p>
+      <div class="includes-grid">
+        <div class="include-item">Digital Safety Statement</div>
+        <div class="include-item">AI Risk Assessments</div>
+        <div class="include-item">Incident &amp; Accident Log</div>
+        <div class="include-item">Daily H&amp;S Routines</div>
+        <div class="include-item">Near-Miss Reporting</div>
+        <div class="include-item">Corrective Action Tracking</div>
+        <div class="include-item">Food Safety (HACCP)</div>
+        <div class="include-item">H&amp;S Audit Dashboard</div>
+        <div class="include-item">Multi-site Reporting</div>
+      </div>
+    </div>
+
+    <!-- Operate -->
+    <div class="product-section">
+      <div class="prod-section-header">
+        <div>
+          <div class="psh-name">Operate &mdash; Operational Management</div>
+          <div class="psh-tagline">Brand audits, operational routines and visit reporting for multi-site and franchise operators.</div>
+        </div>
+        <a href="/products/operate/" class="psh-link">See full product &rarr;</a>
+      </div>
+      <div class="operate-tiers">
+        <div class="ot-card">
+          <div class="ot-name">Operate Lite</div>
+          <div class="ot-price" id="tbl-op-lite"></div>
+          <div class="ot-period">per site / month</div>
+          <div class="ot-feat">Up to 5 digital checklists per site</div>
+        </div>
+        <div class="ot-card ot-card--mid">
+          <div class="ot-pop">Most popular</div>
+          <div class="ot-name">Operate Standard</div>
+          <div class="ot-price" id="tbl-op-std"></div>
+          <div class="ot-period">per site / month</div>
+          <div class="ot-feat">Up to 20 digital checklists per site</div>
+        </div>
+        <div class="ot-card">
+          <div class="ot-name">Operate Plus</div>
+          <div class="ot-price" id="tbl-op-plus"></div>
+          <div class="ot-period">per site / month</div>
+          <div class="ot-feat">Unlimited checklists per site</div>
+        </div>
+      </div>
+      <div class="bundle-row">
+        <div class="br-left">
+          <strong>Ensure + Operate Standard bundle</strong>
+          <span>H&amp;S management and operational routines in one system &mdash; same login, shared dashboard</span>
+        </div>
+        <div class="br-price">
+          <div class="br-amount"><span id="tbl-bundle"></span> <span style="font-size:.75rem;font-weight:400;color:rgba(255,255,255,.4)">/site/month + <span id="tbl-bundle-emp"></span>/employee</span></div>
+          <div class="br-save" id="tbl-bundle-save"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- People add-ons -->
+    <div class="product-section">
+      <div class="prod-section-header">
+        <div>
+          <div class="psh-name">People products &mdash; add per employee</div>
+          <div class="psh-tagline">Each product adds a flat per-employee monthly cost on top of your Ensure base. Add any combination.</div>
+        </div>
+      </div>
+      <div class="addons-grid">
+        <div class="addon-card">
+          <div class="ac-name">Educate</div>
+          <p class="ac-tagline">100+ compliance and professional development courses. Training matrix and certification tracking.</p>
+          <div class="ac-price" id="tbl-educate"></div>
+          <div class="ac-unit">per employee / month</div>
+          <a href="/products/educate/" class="ac-link">See Educate &rarr;</a>
+        </div>
+        <div class="addon-card">
+          <div class="ac-name">Elevate</div>
+          <p class="ac-tagline">Confidential employee wellbeing portal. Mental health, physical health and work-life balance modules.</p>
+          <div class="ac-price" id="tbl-elevate"></div>
+          <div class="ac-unit">per employee / month</div>
+          <a href="/products/elevate/" class="ac-link">See Elevate &rarr;</a>
+        </div>
+        <div class="addon-card">
+          <div class="ac-name">Engage</div>
+          <p class="ac-tagline">Company news, benefits, vacancies and resources. No email address needed for frontline staff.</p>
+          <div class="ac-price" id="tbl-engage"></div>
+          <div class="ac-unit">per employee / month</div>
+          <a href="/products/engage/" class="ac-link">See Engage &rarr;</a>
+        </div>
+        <div class="addon-card">
+          <div class="ac-name">Embark</div>
+          <p class="ac-tagline">Digital employee induction. Handbook, policies and onboarding courses completed before day one.</p>
+          <div class="ac-price" id="tbl-embark"></div>
+          <div class="ac-unit">per employee / month</div>
+          <a href="/products/educate/" class="ac-link">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="product-section">
+      <div class="prod-section-header">
+        <div>
+          <div class="psh-name">One-off services</div>
+          <div class="psh-tagline">Expert-delivered services billed individually &mdash; not part of the monthly subscription.</div>
+        </div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-name">H&amp;S Audit</div>
+          <p class="svc-desc">Expert audit of your H&amp;S policies, systems and procedures. H&amp;S, Food Safety and Fire Safety options.</p>
+          <div class="svc-price" id="tbl-audit"></div>
+          <span class="svc-unit">from, per audit</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-name">Online Courses</div>
+          <p class="svc-desc">Individual compliance, DEI, healthcare or corporate courses purchased per employee without a subscription.</p>
+          <div class="svc-price" id="tbl-courses"></div>
+          <span class="svc-unit">per employee / per course</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-name">Practical Assessments</div>
+          <p class="svc-desc">Manual handling, first aid, fire extinguisher and DSE practical sign-offs conducted at your premises.</p>
+          <div class="svc-price" id="tbl-practicals"></div>
+          <span class="svc-unit">per person / per sign-off</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-name">Entry &mdash; Contractor Induction</div>
+          <p class="svc-desc">Online induction, assessment, digital certification and tracking for contractors visiting your sites.</p>
+          <div class="svc-price" id="tbl-entry"></div>
+          <span class="svc-unit">per contractor</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDIT UNION PRICING -->
+<section class="cu-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">Credit Unions</span>
+      <h2 class="h2" style="color:var(--white)">Fixed annual pricing<br>for credit unions.</h2>
+      <p class="lead lead--light">Credit unions have a unique compliance structure. We package it differently &mdash; one flat annual fee per credit union, covering all training, MCC tracking, H&amp;S and operations.</p>
+    </div>
+    <div class="cu-grid">
+      <div class="cu-card">
+        <div class="cu-tier">CU Essential</div>
+        <div class="cu-name">Training &amp; MCC</div>
+        <div class="cu-price">&#8364;1,999</div>
+        <div class="cu-period">per credit union / year</div>
+        <p class="cu-ideal">Get the basics right with minimal admin.</p>
+        <div class="cu-feats">
+          <div class="cu-feat">Mandatory Regulatory Programme (AML, GDPR, Cyber, Fraud)</div>
+          <div class="cu-feat">CBI-Expected Programme (ethics, conduct, governance)</div>
+          <div class="cu-feat">H&amp;S Compliance Programme</div>
+          <div class="cu-feat">MCC Tracker &mdash; all 8 product areas</div>
+        </div>
+        <a href="/solutions/credit-unions/" class="cu-btn cu-btn--o">See what&rsquo;s included &rsaquo;</a>
+      </div>
+      <div class="cu-card cu-card--mid">
+        <div class="cu-pop2">Most popular</div>
+        <div class="cu-tier">CU Enhanced</div>
+        <div class="cu-name">Training + H&amp;S</div>
+        <div class="cu-price">&#8364;2,999</div>
+        <div class="cu-period">per credit union / year</div>
+        <p class="cu-ideal">Training plus full H&amp;S compliance.</p>
+        <div class="cu-feats">
+          <div class="cu-feat-sec">Everything in Essential, plus</div>
+          <div class="cu-feat">Digital Safety Statement</div>
+          <div class="cu-feat">30+ Risk Assessments</div>
+          <div class="cu-feat">Incident &amp; Accident Management</div>
+          <div class="cu-feat">Digital H&amp;S Checklists</div>
+        </div>
+        <a href="/solutions/credit-unions/" class="cu-btn cu-btn--g">See what&rsquo;s included &rsaquo;</a>
+      </div>
+      <div class="cu-card">
+        <div class="cu-tier">CU Complete</div>
+        <div class="cu-name">Full Visibility</div>
+        <div class="cu-price">&#8364;4,999</div>
+        <div class="cu-period">per credit union / year</div>
+        <p class="cu-ideal">Full operational oversight across all branches.</p>
+        <div class="cu-feats">
+          <div class="cu-feat-sec">Everything in Enhanced, plus</div>
+          <div class="cu-feat">PCI, GDPR &amp; Data Handling Checks</div>
+          <div class="cu-feat">Opening &amp; Closing Checklists</div>
+          <div class="cu-feat">Cash Handling &amp; Security Checks</div>
+          <div class="cu-feat">Annual H&amp;S Audit*</div>
+        </div>
+        <a href="/solutions/credit-unions/" class="cu-btn cu-btn--o">See what&rsquo;s included &rsaquo;</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:16px;font-size:.76rem;color:rgba(255,255,255,.2)">*Annual H&amp;S Audit from &#8364;799 separately. DORA packs available as add-ons from &#8364;1,495/branch/year. All prices ex. VAT.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head section-head--center"><span class="eyebrow">Pricing questions</span><h2 class="h2">Common questions</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-q">What exactly counts as a &#8220;location&#8221;?<span class="faq-icon">+</span></summary><p class="faq-a">A location is any physical address where your business operates&thinsp;&mdash;&thinsp;a store, restaurant, care home, childcare setting, credit union branch or office. If you operate from a single premises, that&rsquo;s one location. A chain of 15 supermarkets is 15 locations. All employees assigned to a location are included in that location&rsquo;s subscription&thinsp;&mdash;&thinsp;there&rsquo;s no per-seat cap.</p></details>
+      <details class="faq-item"><summary class="faq-q">How does the employee count work for new starters?<span class="faq-icon">+</span></summary><p class="faq-a">Your employee count is your typical steady-state headcount. If someone leaves and is replaced by a new starter, the replacement doesn&rsquo;t add to your bill. If you grow your headcount, pricing adjusts at renewal. We don&rsquo;t charge per training completion or per course&thinsp;&mdash;&thinsp;the per-employee rate covers unlimited training within your chosen products.</p></details>
+      <details class="faq-item"><summary class="faq-q">Is the 10% annual discount applied to the whole bill?<span class="faq-icon">+</span></summary><p class="faq-a">Yes&thinsp;&mdash;&thinsp;the 10% discount applies to your total monthly cost multiplied by 12, giving you one reduced annual figure. For example, if your monthly cost is &#8364;500, your annual price would be &#8364;500 &times; 12 = &#8364;6,000, minus 10% = &#8364;5,400. That&rsquo;s &#8364;600 saved each year.</p></details>
+      <details class="faq-item"><summary class="faq-q">Are there setup fees or minimum contract lengths?<span class="faq-icon">+</span></summary><p class="faq-a">No setup fees. Your account is configured and templates are loaded by our team as part of onboarding&thinsp;&mdash;&thinsp;included in your subscription. For monthly billing, you can cancel with 30 days&rsquo; notice. For annual billing, you commit for 12 months and can adjust products at renewal. There&rsquo;s no minimum term beyond your chosen billing cycle.</p></details>
+      <details class="faq-item"><summary class="faq-q">Do you offer volume discounts for large networks?<span class="faq-icon">+</span></summary><p class="faq-a">Yes&thinsp;&mdash;&thinsp;volume pricing applies for 10 or more locations. The per-location rate reduces as your network grows. Exact discounts are confirmed during your demo once we know your site count and product mix. Franchise networks and large multi-site operators typically benefit significantly from volume pricing.</p></details>
+      <details class="faq-item"><summary class="faq-q">Can I start with one product and add others later?<span class="faq-icon">+</span></summary><p class="faq-a">Yes&thinsp;&mdash;&thinsp;every product can be added to your subscription at any point. Most customers start with Ensure alone, add Educate within the first few months, and build out from there. Adding a product mid-contract is pro-rated to your next billing cycle, so you&rsquo;re never paying for something before you use it.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pricing-cta">
+  <div class="container">
+    <h2>Ready to see your exact price?</h2>
+    <p>Book a 15-minute call. We&rsquo;ll confirm pricing for your specific sites and products&thinsp;&mdash;&thinsp;no hard sell.</p>
+    <div class="cta-btns">
+      <a href="/contact/" class="btn btn--white btn--lg">Book a Demo &amp; Get a Quote</a>
+      <a href="/products/" class="btn btn--white-ol btn--lg">Explore all products</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Solutions</p><ul class="ft-links"><li><a href="/solutions/credit-unions/" class="ft-link">Credit Unions</a></li><li><a href="/solutions/retail/" class="ft-link">Retail</a></li><li><a href="/solutions/hospitality/" class="ft-link">Hospitality</a></li><li><a href="/solutions/healthcare/" class="ft-link">Healthcare</a></li><li><a href="/solutions/childcare/" class="ft-link">Childcare</a></li><li><a href="/solutions/public-sector/" class="ft-link">Public Sector</a></li></ul></div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li><li><a href="/products/enclose/" class="ft-link">Enclose</a></li><li><a href="/products/elevate/" class="ft-link">Elevate</a></li><li><a href="/products/engage/" class="ft-link">Engage</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/pricing/" class="ft-link">Pricing</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+// ── State ──────────────────────────────────────────────────────
+var state = {
+  billing:  'monthly',
+  currency: 'EUR',
+  locs:     1,
+  emps:     10,
+  products: { ensure: true, operate: false, educate: false, elevate: false, engage: false }
+};
+
+// ── Price tables ───────────────────────────────────────────────
+var P = {
+  EUR: {
+    ensure_loc: 99, ensure_emp: 2,
+    op_lite: 39, op_std: 59, op_plus: 79,
+    bundle_addon: 50,   // added to ensure_loc when both selected
+    educate: 5, elevate: 2, engage: 2, embark: 1,
+    audit: 499, courses: 50, practicals: 35, entry: 25,
+    sym: '€', risk_lo: '€1,000', risk_hi: '€15,000'
+  },
+  GBP: {
+    ensure_loc: 85, ensure_emp: 2,
+    op_lite: 33, op_std: 50, op_plus: 68,
+    bundle_addon: 43,
+    educate: 4, elevate: 2, engage: 2, embark: 1,
+    audit: 425, courses: 45, practicals: 30, entry: 22,
+    sym: '£', risk_lo: '£1,000', risk_hi: '£15,000'
+  }
+};
+
+// ── Helpers ────────────────────────────────────────────────────
+function p(){ return P[state.currency]; }
+function fmt(n){ return p().sym + n.toLocaleString('en-IE', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+function disc(n){ return state.billing === 'annual' ? Math.round(n * 0.9 * 10) / 10 : n; }
+
+// ── Calculate ──────────────────────────────────────────────────
+function calcMonthly(){
+  var pr = p(), l = state.locs, e = state.emps, s = state.products;
+  var total = 0;
+  var breakdown = [];
+
+  // Ensure (always on)
+  var ensure_cost = l * pr.ensure_loc + e * pr.ensure_emp;
+  total += ensure_cost;
+  breakdown.push({ label: 'Ensure (' + l + (l===1?' loc':' locs') + ' + ' + e + (e===1?' emp':' emps') + ')', amt: ensure_cost });
+
+  // Operate
+  if(s.operate){
+    var op_cost = s.ensure ? l * pr.bundle_addon : l * pr.op_std;
+    total += op_cost;
+    breakdown.push({ label: s.ensure ? 'Operate (bundle add-on)' : 'Operate (' + l + (l===1?' site':' sites') + ')', amt: op_cost });
+  }
+
+  // Per-employee add-ons
+  var addon_products = [
+    { key: 'educate', name: 'Educate', rate: pr.educate },
+    { key: 'elevate', name: 'Elevate', rate: pr.elevate },
+    { key: 'engage',  name: 'Engage',  rate: pr.engage  }
+  ];
+  addon_products.forEach(function(a){
+    if(s[a.key]){
+      var cost = e * a.rate;
+      total += cost;
+      breakdown.push({ label: a.name + ' (' + e + (e===1?' emp':' emps') + ')', amt: cost });
+    }
+  });
+
+  return { total: total, breakdown: breakdown };
+}
+
+// ── Render ─────────────────────────────────────────────────────
+function updateCalc(){
+  state.locs = parseInt(document.getElementById('loc-slider').value);
+  state.emps = parseInt(document.getElementById('emp-slider').value);
+  document.getElementById('loc-val').textContent = state.locs;
+  document.getElementById('emp-val').textContent = state.emps;
+
+  var pr = p();
+  var res = calcMonthly();
+  var monthly = res.total;
+  var displayMonthly = disc(monthly);
+  var annual = displayMonthly * 12;
+  var rawAnnual = monthly * 12;
+  var saving = rawAnnual - annual;
+
+  // Main price
+  document.getElementById('out-sym').textContent = pr.sym;
+  document.getElementById('out-price').textContent = Math.round(displayMonthly).toLocaleString('en-IE');
+  document.getElementById('out-label').textContent = state.billing === 'annual' ? 'Monthly (billed annually)' : 'Monthly cost';
+  document.getElementById('out-period').textContent = state.billing === 'annual'
+    ? '/month \u2014 billed as ' + fmt(Math.round(annual)) + '/year'
+    : '/month \u2014 billed monthly';
+
+  // Annual box
+  var annualBox = document.getElementById('out-annual-box');
+  if(state.billing === 'annual'){
+    annualBox.classList.add('is-visible');
+    document.getElementById('out-annual-total').textContent = fmt(Math.round(annual)) + '/year';
+    document.getElementById('out-annual-save').textContent = 'Saving ' + fmt(Math.round(saving)) + ' vs. monthly billing';
+  } else {
+    annualBox.classList.remove('is-visible');
+  }
+
+  // Breakdown
+  var bd = document.getElementById('out-breakdown');
+  var html = '';
+  res.breakdown.forEach(function(row){
+    html += '<div class="ob-row"><span class="ob-label">' + row.label + '</span><span class="ob-amount">' + fmt(Math.round(disc(row.amt))) + '/mo</span></div>';
+  });
+  if(res.breakdown.length > 1){
+    html += '<div class="ob-row ob-total"><span class="ob-label">Total</span><span class="ob-amount">' + fmt(Math.round(displayMonthly)) + '/mo</span></div>';
+  }
+  bd.innerHTML = html;
+
+  // Risk comparison
+  document.getElementById('out-risk-annual').textContent = fmt(Math.round(annual));
+
+  // Product sub labels + per-unit prices
+  document.getElementById('pt-ensure-sub').textContent = state.locs + (state.locs===1?' location':' locations') + ' + ' + state.emps + (state.emps===1?' employee':' employees');
+  document.getElementById('pt-ensure-price').textContent = fmt(Math.round(disc(state.locs * pr.ensure_loc + state.emps * pr.ensure_emp))) + '/mo';
+
+  var op_unit_price = state.products.ensure ? pr.bundle_addon : pr.op_std;
+  document.getElementById('pt-operate-sub').textContent = state.products.ensure ? 'Bundle add-on: ' + fmt(op_unit_price) + '/site/mo' : fmt(pr.op_std) + '/site/mo';
+  document.getElementById('pt-operate-price').textContent = fmt(Math.round(disc(state.locs * op_unit_price))) + '/mo';
+
+  document.getElementById('pt-educate-sub').textContent = fmt(pr.educate) + '/employee/mo';
+  document.getElementById('pt-educate-price').textContent = fmt(Math.round(disc(state.emps * pr.educate))) + '/mo';
+
+  document.getElementById('pt-elevate-sub').textContent = fmt(pr.elevate) + '/employee/mo';
+  document.getElementById('pt-elevate-price').textContent = fmt(Math.round(disc(state.emps * pr.elevate))) + '/mo';
+
+  document.getElementById('pt-engage-sub').textContent = fmt(pr.engage) + '/employee/mo';
+  document.getElementById('pt-engage-price').textContent = fmt(Math.round(disc(state.emps * pr.engage))) + '/mo';
+
+  updateTables();
+}
+
+function updateTables(){
+  var pr = p();
+  // Ensure
+  document.getElementById('tbl-ensure-loc').textContent = fmt(pr.ensure_loc);
+  document.getElementById('tbl-ensure-emp').textContent = fmt(pr.ensure_emp);
+  // Operate
+  document.getElementById('tbl-op-lite').textContent  = fmt(pr.op_lite);
+  document.getElementById('tbl-op-std').textContent   = fmt(pr.op_std);
+  document.getElementById('tbl-op-plus').textContent  = fmt(pr.op_plus);
+  var bundle_site = pr.ensure_loc + pr.bundle_addon;
+  document.getElementById('tbl-bundle').textContent = fmt(bundle_site);
+  document.getElementById('tbl-bundle-emp').textContent = fmt(pr.ensure_emp);
+  document.getElementById('tbl-bundle-save').textContent = 'Save ' + fmt(pr.op_std - pr.bundle_addon) + '/site vs. buying separately';
+  // Add-ons
+  document.getElementById('tbl-educate').textContent  = fmt(pr.educate);
+  document.getElementById('tbl-elevate').textContent  = fmt(pr.elevate);
+  document.getElementById('tbl-engage').textContent   = fmt(pr.engage);
+  document.getElementById('tbl-embark').textContent   = fmt(pr.embark);
+  // Services
+  document.getElementById('tbl-audit').textContent      = fmt(pr.audit);
+  document.getElementById('tbl-courses').textContent    = fmt(pr.courses);
+  document.getElementById('tbl-practicals').textContent = fmt(pr.practicals);
+  document.getElementById('tbl-entry').textContent      = fmt(pr.entry);
+}
+
+// ── Toggle handlers ────────────────────────────────────────────
+function setBilling(mode){
+  state.billing = mode;
+  document.getElementById('btn-monthly').classList.toggle('is-active', mode === 'monthly');
+  document.getElementById('btn-annual').classList.toggle('is-active', mode === 'annual');
+  updateCalc();
+}
+
+function setCurrency(cur){
+  state.currency = cur;
+  document.getElementById('btn-eur').classList.toggle('is-active', cur === 'EUR');
+  document.getElementById('btn-gbp').classList.toggle('is-active', cur === 'GBP');
+  updateCalc();
+}
+
+function toggleProduct(key){
+  if(key === 'ensure') return;
+  state.products[key] = !state.products[key];
+  var row = document.getElementById('pt-' + key);
+  row.classList.toggle('is-on', state.products[key]);
+  updateCalc();
+}
+
+// ── Init ───────────────────────────────────────────────────────
+updateCalc();
+</script>
+</body>
+</html>
