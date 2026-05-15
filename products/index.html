@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — One Platform. Six Powerful Solutions | Fit2Trade</title>
+  <meta name="description" content="Explore the Fit2Trade product suite — Ensure, Operate, Educate, Enclose, Elevate and Engage. One platform, one login, built for frontline industries." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* ── Page hero — lighter than product pages ───────────── */
+    .hub-hero {
+      background: var(--black);
+      padding: calc(var(--nav-h) + 100px) 0 96px;
+      text-align: center;
+    }
+    .hub-eyebrow {
+      display: inline-block;
+      font-size: .73rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #7DBDAD; margin-bottom: 18px;
+    }
+    .hub-h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.04;
+      letter-spacing: -.04em; color: var(--white);
+      margin-bottom: 20px;
+    }
+    .hub-h1 .accent {
+      color: transparent;
+      -webkit-background-clip: text; background-clip: text;
+      background-image: linear-gradient(135deg, #8DD5C5 0%, #2E6052 100%);
+    }
+    .hub-sub {
+      font-size: 1.15rem; color: rgba(255,255,255,.48);
+      line-height: 1.7; max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .hub-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Platform philosophy strip ────────────────────────── */
+    .philosophy-strip {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-lt);
+      padding: 0;
+    }
+    .philosophy-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-left: 1px solid var(--border-lt);
+    }
+    .philosophy-item {
+      padding: 40px 36px;
+      border-right: 1px solid var(--border-lt);
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .philosophy-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--green-tint); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .philosophy-title {
+      font-size: .97rem; font-weight: 800;
+      color: var(--ink); letter-spacing: -.02em; margin-bottom: 5px;
+    }
+    .philosophy-text { font-size: .845rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Product groups ───────────────────────────────────── */
+    .products-hub { padding: var(--section) 0; background: var(--white); }
+    .product-group { margin-bottom: 80px; }
+    .product-group:last-child { margin-bottom: 0; }
+
+    .group-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-lt);
+      margin-bottom: 28px;
+      gap: 20px;
+    }
+    .group-label {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 8px;
+    }
+    .group-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 900; color: var(--ink);
+      letter-spacing: -.03em; line-height: 1.1;
+    }
+    .group-desc {
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.65; max-width: 480px; margin-top: 8px;
+    }
+    .group-link {
+      font-size: .82rem; font-weight: 700;
+      color: var(--green); white-space: nowrap;
+      flex-shrink: 0; padding-bottom: 2px;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color var(--t);
+    }
+    .group-link:hover { border-color: var(--green); }
+
+    /* Two-column card grid within group */
+    .group-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    /* Product card — horizontal layout */
+    .prod-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-lt);
+      text-decoration: none;
+      color: inherit;
+      background: var(--white);
+      transition: box-shadow var(--t), transform var(--t), border-color var(--t);
+    }
+    .prod-card:hover {
+      box-shadow: 0 16px 48px rgba(0,0,0,.09);
+      transform: translateY(-4px);
+      border-color: rgba(46,96,82,.2);
+    }
+    .prod-card-img {
+      overflow: hidden;
+      position: relative;
+    }
+    .prod-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .prod-card:hover .prod-card-img img { transform: scale(1.06); }
+    .prod-card-body {
+      padding: 24px 24px 24px 22px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .prod-card-tag {
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 5px;
+    }
+    .prod-card-name {
+      font-size: 1.3rem; font-weight: 900;
+      color: var(--ink); letter-spacing: -.03em;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .prod-card-desc {
+      font-size: .845rem; color: var(--muted);
+      line-height: 1.6; flex: 1; margin-bottom: 16px;
+    }
+    .prod-card-pills {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+    }
+    .prod-pill {
+      font-size: .7rem; font-weight: 600;
+      background: var(--surface); border: 1px solid var(--border-lt);
+      border-radius: 100px; padding: 3px 10px;
+      color: var(--ink-2);
+    }
+    .prod-card-cta {
+      font-size: .82rem; font-weight: 700;
+      color: var(--green); display: flex;
+      align-items: center; gap: 5px;
+      transition: gap var(--t);
+    }
+    .prod-card:hover .prod-card-cta { gap: 9px; }
+
+    /* ── "Start with Ensure" spotlight ───────────────────── */
+    .spotlight {
+      background: var(--surface);
+      padding: var(--section) 0;
+      border-top: 1px solid var(--border-lt);
+    }
+    .spotlight-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .spotlight-img {
+      border-radius: var(--r-xl); overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.10);
+      border: 1px solid var(--border-lt);
+    }
+    .spotlight-img img { width: 100%; display: block; }
+    .spotlight-label {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 14px;
+    }
+    .spotlight-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; color: var(--ink);
+      letter-spacing: -.035em; line-height: 1.08;
+      margin-bottom: 16px;
+    }
+    .spotlight-body {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.72; margin-bottom: 24px;
+    }
+    .spotlight-steps {
+      display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;
+    }
+    .spotlight-step {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .spotlight-step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--green); color: var(--white);
+      font-size: .78rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .spotlight-step-text strong {
+      display: block; font-size: .9rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 2px;
+    }
+    .spotlight-step-text span {
+      font-size: .83rem; color: var(--muted); line-height: 1.5;
+    }
+
+    /* ── Compare table ────────────────────────────────────── */
+    .compare-section { padding: var(--section) 0; background: var(--black); }
+    .compare-section .h2 { color: var(--white); }
+    .compare-section .lead { color: rgba(255,255,255,.45); }
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      margin-top: 52px;
+    }
+    .compare-table th {
+      padding: 14px 20px; text-align: left;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .compare-table th:first-child { width: 28%; }
+    .compare-table td {
+      padding: 14px 20px; font-size: .875rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      vertical-align: middle;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: rgba(255,255,255,.02); }
+    .compare-table td:first-child {
+      font-weight: 700; color: var(--white);
+      letter-spacing: -.01em;
+    }
+    .compare-table td:not(:first-child) { color: rgba(255,255,255,.5); }
+    .compare-table .check { color: #7DBDAD; font-size: 1rem; }
+    .compare-table .dash  { color: rgba(255,255,255,.2); }
+    .compare-table .badge {
+      display: inline-block; font-size: .65rem;
+      font-weight: 700; padding: 2px 7px;
+      border-radius: 100px; background: rgba(46,96,82,.25);
+      color: #7DBDAD; margin-left: 6px;
+      vertical-align: middle; letter-spacing: .05em;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    .hub-cta-section {
+      padding: var(--section) 0;
+      background: var(--green); text-align: center;
+    }
+    .hub-cta-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900; color: var(--white);
+      letter-spacing: -.035em; margin-bottom: 14px;
+    }
+    .hub-cta-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,.7);
+      max-width: 480px; margin: 0 auto 36px;
+    }
+    .hub-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn--white { background: var(--white); color: var(--green); border-radius: 100px; }
+    .btn--white:hover { background: var(--surface); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,0,0,.15); }
+    .btn--white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.4); border-radius: 100px; }
+    .btn--white-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media(max-width:1100px) {
+      .prod-card { grid-template-columns: 140px 1fr; }
+    }
+    @media(max-width:960px) {
+      .philosophy-inner { grid-template-columns: 1fr; border-left: none; }
+      .philosophy-item  { border-right: none; border-bottom: 1px solid var(--border-lt); }
+      .philosophy-item:last-child { border-bottom: none; }
+      .group-cards { grid-template-columns: 1fr; }
+      .spotlight-inner { grid-template-columns: 1fr; gap: 48px; }
+      .compare-table th:nth-child(n+4), .compare-table td:nth-child(n+4) { display: none; }
+    }
+    @media(max-width:640px) {
+      .prod-card { grid-template-columns: 1fr; }
+      .prod-card-img { height: 160px; }
+      .group-header { flex-direction: column; align-items: flex-start; }
+      .hub-ctas { flex-direction: column; align-items: center; }
+      .hub-ctas .btn { width: 100%; max-width: 320px; justify-content: center; }
+      .compare-table th:nth-child(n+3), .compare-table td:nth-child(n+3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; pharmacies</span></a></li>
+            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/sports/"        class="dd-link"><strong>Sports</strong><span>GAA and sports clubs</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0" style="color:rgba(255,255,255,1)">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S &amp; Food Safety</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing Portal</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement Portal</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/"  class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/"  class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Request a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item">
+      <div class="mob-link" data-mob="mob-prod">Products <span>+</span></div>
+      <ul class="mob-sub" id="mob-prod">
+        <li><a href="/products/ensure/"  class="mob-sub-link">ENSURE</a></li>
+        <li><a href="/products/operate/" class="mob-sub-link">OPERATE</a></li>
+        <li><a href="/products/educate/" class="mob-sub-link">EDUCATE</a></li>
+        <li><a href="/products/enclose/" class="mob-sub-link">ENCLOSE</a></li>
+        <li><a href="/products/elevate/" class="mob-sub-link">ELEVATE</a></li>
+        <li><a href="/products/engage/"  class="mob-sub-link">ENGAGE</a></li>
+      </ul>
+    </li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Request a Demo</a></div>
+</nav>
+
+<!-- HUB HERO -->
+<section class="hub-hero">
+  <div class="container">
+    <div class="hub-eyebrow">The Fit2Trade Platform</div>
+    <h1 class="hub-h1">One platform.<br><span class="accent">Six powerful products.</span></h1>
+    <p class="hub-sub">Everything a frontline business needs to stay compliant, develop its people and run excellent operations — under one login, on any device.</p>
+    <div class="hub-ctas">
+      <a href="/contact/" class="btn btn--green btn--lg">Request a Demo</a>
+      <a href="#products" class="btn btn--ghost btn--lg">Explore products ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY STRIP -->
+<div class="philosophy-strip">
+  <div class="container" style="padding-inline:0;max-width:100%">
+    <div class="philosophy-inner">
+      <div class="philosophy-item">
+        <div class="philosophy-icon">🔑</div>
+        <div>
+          <div class="philosophy-title">One login for everything</div>
+          <p class="philosophy-text">Employees access training, wellbeing, compliance and company news through a single sign-on. No app-switching, no password fatigue.</p>
+        </div>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-icon">📱</div>
+        <div>
+          <div class="philosophy-title">Built for frontline workers first</div>
+          <p class="philosophy-text">Every product is designed for people who work on shop floors, in kitchens and on care wards — not for desk workers with a company laptop.</p>
+        </div>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-icon">🧩</div>
+        <div>
+          <div class="philosophy-title">Start with one. Add when ready.</div>
+          <p class="philosophy-text">Most customers start with Ensure and add products over time. There's no obligation to buy the full suite — each product delivers value independently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT GROUPS -->
+<section class="products-hub" id="products">
+  <div class="container">
+
+    <!-- Group 1: Safety & Compliance -->
+    <div class="product-group">
+      <div class="group-header">
+        <div>
+          <div class="group-label">Safety &amp; Compliance</div>
+          <h2 class="group-title">Keep your workplace safe<br>and your licences in order.</h2>
+          <p class="group-desc">The compliance backbone of the platform. Most customers start here — Ensure is the most deployed product in the suite.</p>
+        </div>
+        <a href="/solutions/" class="group-link">View solutions by industry →</a>
+      </div>
+      <div class="group-cards">
+
+        <a href="/products/ensure/" class="prod-card reveal">
+          <div class="prod-card-img">
+            <img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Ensure-Digital-Health-and-Safety-portal.jpg" alt="Ensure H&S Management" loading="lazy" />
+          </div>
+          <div class="prod-card-body">
+            <div>
+              <div class="prod-card-tag">H&amp;S Management System</div>
+              <div class="prod-card-name">Ensure.</div>
+              <p class="prod-card-desc">Replace paper with real-time safety routines, incident reporting, risk assessments and audits. Eight tools in one system.</p>
+              <div class="prod-card-pills">
+                <span class="prod-pill">Digital routines</span>
+                <span class="prod-pill">Incident reporting</span>
+                <span class="prod-pill">Risk assessments</span>
+                <span class="prod-pill">H&amp;S audits</span>
+              </div>
+            </div>
+            <span class="prod-card-cta">Learn more →</span>
+          </div>
+        </a>
+
+        <a href="/products/enclose/" class="prod-card reveal reveal-delay-1">
+          <div class="prod-card-img">
+            <img src="https://www.fit2trade.com/wp-content/uploads/2025/01/ENCLOSE-Licence-Management-Made-Easy-FIt2Trade-scaled.jpg" alt="Enclose Licence Compliance" loading="lazy" />
+          </div>
+          <div class="prod-card-body">
+            <div>
+              <div class="prod-card-tag">Licence Compliance Hub</div>
+              <div class="prod-card-name">Enclose.</div>
+              <p class="prod-card-desc">Every organisational licence — tracked, alerted 60 days before expiry and instantly accessible for any inspection.</p>
+              <div class="prod-card-pills">
+                <span class="prod-pill">Expiry alerts</span>
+                <span class="prod-pill">Traffic-light status</span>
+                <span class="prod-pill">Multi-site</span>
+                <span class="prod-pill">Transparent pricing</span>
+              </div>
+            </div>
+            <span class="prod-card-cta">Learn more →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Group 2: People Development -->
+    <div class="product-group">
+      <div class="group-header">
+        <div>
+          <div class="group-label">People Development</div>
+          <h2 class="group-title">Train, support and engage<br>your whole workforce.</h2>
+          <p class="group-desc">Three products that work together to develop your people — whether they're in the office, the shop floor or working remotely.</p>
+        </div>
+        <a href="/products/educate/" class="group-link">Start with Educate →</a>
+      </div>
+      <div class="group-cards">
+
+        <a href="/products/educate/" class="prod-card reveal">
+          <div class="prod-card-img">
+            <img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Online-compliance-training-scaled.jpg" alt="Educate LMS" loading="lazy" />
+          </div>
+          <div class="prod-card-body">
+            <div>
+              <div class="prod-card-tag">Learning Management System</div>
+              <div class="prod-card-name">Educate.</div>
+              <p class="prod-card-desc">100+ compliance and professional development courses. Mobile-first, bite-sized and branded to your organisation.</p>
+              <div class="prod-card-pills">
+                <span class="prod-pill">100+ courses</span>
+                <span class="prod-pill">Audit-ready reports</span>
+                <span class="prod-pill">Certification alerts</span>
+                <span class="prod-pill">SCORM support</span>
+              </div>
+            </div>
+            <span class="prod-card-cta">Learn more →</span>
+          </div>
+        </a>
+
+        <a href="/products/elevate/" class="prod-card reveal reveal-delay-1">
+          <div class="prod-card-img">
+            <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/pexels-gary-barnes-6231993-scaled.jpg" alt="Elevate Wellbeing" loading="lazy" />
+          </div>
+          <div class="prod-card-body">
+            <div>
+              <div class="prod-card-tag">Employee Wellbeing Portal</div>
+              <div class="prod-card-name">Elevate.</div>
+              <p class="prod-card-desc">A confidential wellbeing programme employees actually use — covering physical health, mental health, work-life balance and community.</p>
+              <div class="prod-card-pills">
+                <span class="prod-pill">50+ modules</span>
+                <span class="prod-pill">4 pillars</span>
+                <span class="prod-pill">100% confidential</span>
+                <span class="prod-pill">Voluntary</span>
+              </div>
+            </div>
+            <span class="prod-card-cta">Learn more →</span>
+          </div>
+        </a>
+
+        <a href="/products/engage/" class="prod-card reveal" style="grid-column: 1 / -1; grid-template-columns: 260px 1fr;">
+          <div class="prod-card-img">
+            <img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Fit2Trade-Employee-Engagement-Platform-scaled.jpg" alt="Engage Employee Platform" loading="lazy" />
+          </div>
+          <div class="prod-card-body">
+            <div>
+              <div class="prod-card-tag">Employee Engagement Platform</div>
+              <div class="prod-card-name">Engage.</div>
+              <p class="prod-card-desc">Company news, benefits, vacancies and resources — all on the phones your frontline workers already carry. No company email needed. The single gateway that connects employees to everything else in the platform.</p>
+              <div class="prod-card-pills">
+                <span class="prod-pill">Company news</span>
+                <span class="prod-pill">Benefits &amp; perks</span>
+                <span class="prod-pill">Internal vacancies</span>
+                <span class="prod-pill">Operational resources</span>
+                <span class="prod-pill">No email needed</span>
+              </div>
+            </div>
+            <span class="prod-card-cta">Learn more →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Group 3: Operations -->
+    <div class="product-group">
+      <div class="group-header">
+        <div>
+          <div class="group-label">Operations</div>
+          <h2 class="group-title">Consistent standards.<br>Across every site. Every day.</h2>
+          <p class="group-desc">For area managers, operations directors and franchise operators who need real-time visibility without being physically present at every location.</p>
+        </div>
+        <a href="/products/operate/" class="group-link">See Operate →</a>
+      </div>
+      <div class="group-cards" style="grid-template-columns:1fr">
+
+        <a href="/products/operate/" class="prod-card reveal" style="grid-template-columns: 320px 1fr;">
+          <div class="prod-card-img">
+            <img src="https://www.fit2trade.com/wp-content/uploads/2024/08/Operate-Digital-Management-System-by-Fit2Trade.jpg" alt="Operate Ops Management" loading="lazy" />
+          </div>
+          <div class="prod-card-body">
+            <div>
+              <div class="prod-card-tag">Operational Management App</div>
+              <div class="prod-card-name">Operate.</div>
+              <p class="prod-card-desc">Digital brand audits, loss prevention routines and remote site management — without the clipboard, the email chains or the post-visit write-up. Built for franchise operators and multi-site retail and hospitality businesses.</p>
+              <div class="prod-card-pills">
+                <span class="prod-pill">Brand excellence</span>
+                <span class="prod-pill">Loss prevention</span>
+                <span class="prod-pill">Visit reporting</span>
+                <span class="prod-pill">PCI compliance</span>
+                <span class="prod-pill">Performance dashboard</span>
+              </div>
+            </div>
+            <span class="prod-card-cta">Learn more →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPOTLIGHT: START WITH ENSURE -->
+<section class="spotlight">
+  <div class="container">
+    <div class="spotlight-inner">
+      <div class="spotlight-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Ensure-no-more-folders.jpeg" alt="Start with Ensure" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="spotlight-label">Where to start</div>
+        <h2 class="spotlight-title">Not sure which product to begin with?<br>Start with Ensure.</h2>
+        <p class="spotlight-body">Over 80% of Fit2Trade customers begin their journey with Ensure — the H&S management system. It delivers immediate value, satisfies regulatory requirements and gives you a foundation to build on.</p>
+        <div class="spotlight-steps">
+          <div class="spotlight-step">
+            <div class="spotlight-step-num">1</div>
+            <div class="spotlight-step-text"><strong>Start with Ensure</strong><span>Replace paper H&S processes. Get compliant. Get visible across all sites.</span></div>
+          </div>
+          <div class="spotlight-step">
+            <div class="spotlight-step-num">2</div>
+            <div class="spotlight-step-text"><strong>Add Educate</strong><span>Layer on compliance and professional development training for your whole team.</span></div>
+          </div>
+          <div class="spotlight-step">
+            <div class="spotlight-step-num">3</div>
+            <div class="spotlight-step-text"><strong>Build out with people products</strong><span>Add Elevate, Engage and Operate as your needs grow. Everything works together from day one.</span></div>
+          </div>
+        </div>
+        <a href="/products/ensure/" class="btn btn--green btn--lg">Explore Ensure →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section class="compare-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">Quick compare</span>
+      <h2 class="h2 h2--light">Which products do you need?</h2>
+      <p class="lead lead--light">A quick reference to help you identify which products address your specific challenges.</p>
+    </div>
+    <div style="overflow-x:auto;margin-top:52px">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>If you need to…</th>
+            <th>Ensure</th>
+            <th>Educate</th>
+            <th>Elevate</th>
+            <th>Engage</th>
+            <th>Operate</th>
+            <th>Enclose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Replace paper safety checklists</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td><td class="dash">–</td></tr>
+          <tr><td>Prove compliance to inspectors</td><td class="check">✓</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+          <tr><td>Track employee training completion</td><td class="dash">–</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr><td>Deliver compliance courses online</td><td class="dash">–</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr><td>Support employee mental health</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr><td>Reduce absenteeism &amp; turnover</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr><td>Communicate with frontline workers</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr><td>Manage brand standards across sites</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td><td class="dash">–</td></tr>
+          <tr><td>Track licence expiry dates</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+          <tr><td>Reduce insurance premiums <span class="badge">EVIDENCE</span></td><td class="check">✓</td><td class="check">✓</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="hub-cta-section">
+  <div class="container">
+    <h2 class="hub-cta-title">Not sure where to start?<br>We'll help you figure it out.</h2>
+    <p class="hub-cta-sub">Book a 15-minute call. We'll listen to your challenges and recommend exactly which products make sense for your business — no pressure.</p>
+    <div class="hub-cta-btns">
+      <a href="/contact/" class="btn btn--white btn--lg">Book a Call</a>
+      <a href="/pricing/"  class="btn btn--white-outline btn--lg">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-col-title">Products</p>
+        <ul class="ft-links">
+          <li><a href="/products/ensure/"  class="ft-link">Ensure</a></li>
+          <li><a href="/products/operate/" class="ft-link">Operate</a></li>
+          <li><a href="/products/educate/" class="ft-link">Educate</a></li>
+          <li><a href="/products/enclose/" class="ft-link">Enclose</a></li>
+          <li><a href="/products/elevate/" class="ft-link">Elevate</a></li>
+          <li><a href="/products/engage/"  class="ft-link">Engage</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Company</p>
+        <ul class="ft-links">
+          <li><a href="/about/"    class="ft-link">About us</a></li>
+          <li><a href="/careers/"  class="ft-link">Careers</a></li>
+          <li><a href="/pricing/"  class="ft-link">Pricing</a></li>
+          <li><a href="/contact/"  class="ft-link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Solutions</p>
+        <ul class="ft-links">
+          <li><a href="/solutions/retail/"      class="ft-link">Retail</a></li>
+          <li><a href="/solutions/hospitality/" class="ft-link">Hospitality</a></li>
+          <li><a href="/solutions/healthcare/"  class="ft-link">Healthcare</a></li>
+          <li><a href="/solutions/childcare/"   class="ft-link">Childcare</a></li>
+          <li><a href="/solutions/sports/"      class="ft-link">Sports</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Legal</p>
+        <ul class="ft-links">
+          <li><a href="/terms/"         class="ft-link">Terms</a></li>
+          <li><a href="/privacy/"       class="ft-link">Privacy</a></li>
+          <li><a href="/cookie-policy/" class="ft-link">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p>
+      <nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
