@@ -1,148 +1,126 @@
 /* ============================================================
-   FIT2TRADE — main.js
-   Handles: sticky nav, mobile menu, scroll reveals, year
+   FIT2TRADE — main.js v2
    ============================================================ */
-
 (function () {
   'use strict';
 
-  /* ── Year ─────────────────────────────────────────────────── */
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  /* ── Copyright year ───────────────────────────────────────── */
+  const yr = document.getElementById('year');
+  if (yr) yr.textContent = new Date().getFullYear();
 
   /* ── Sticky header ────────────────────────────────────────── */
   const header = document.getElementById('site-header');
-  const SCROLL_THRESHOLD = 60;
 
-  function updateHeader() {
-    if (window.scrollY > SCROLL_THRESHOLD) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+  function tickHeader() {
+    header.classList.toggle('scrolled', window.scrollY > 56);
   }
-
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader(); // Run on load
+  window.addEventListener('scroll', tickHeader, { passive: true });
+  tickHeader();
 
   /* ── Mobile nav ───────────────────────────────────────────── */
   const toggle    = document.getElementById('nav-toggle');
   const mobileNav = document.getElementById('mobile-nav');
 
   toggle.addEventListener('click', function () {
-    const isOpen = mobileNav.classList.toggle('open');
-    toggle.classList.toggle('active', isOpen);
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const open = mobileNav.classList.toggle('open');
+    toggle.classList.toggle('active', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  // Mobile accordion sub-menus
-  document.querySelectorAll('[data-toggle]').forEach(function (btn) {
+  // Accordion sub-menus (data-mob attribute)
+  document.querySelectorAll('[data-mob]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      const targetId = btn.dataset.toggle;
-      const sub = document.getElementById(targetId);
+      const id   = btn.dataset.mob;
+      const sub  = document.getElementById(id);
       if (!sub) return;
-      const isOpen = sub.classList.toggle('open');
-      const indicator = btn.querySelector('span');
-      if (indicator) indicator.textContent = isOpen ? '−' : '+';
+      const open = sub.classList.toggle('open');
+      const ind  = btn.querySelector('span');
+      if (ind) ind.textContent = open ? '−' : '+';
     });
   });
 
-  // Close mobile nav on link click
-  mobileNav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      mobileNav.classList.remove('open');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+  // Close nav on any link tap
+  mobileNav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeNav);
   });
 
-  // Close on Escape key
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-      mobileNav.classList.remove('open');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      toggle.focus();
-    }
+    if (e.key === 'Escape') closeNav();
   });
 
-  /* ── Scroll reveal (IntersectionObserver) ─────────────────── */
-  if ('IntersectionObserver' in window) {
-    const revealEls = document.querySelectorAll('.reveal');
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Fire once
+  /* ── Scroll reveal ────────────────────────────────────────── */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
         }
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    revealEls.forEach(function (el) { observer.observe(el); });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   } else {
-    // Fallback: show everything immediately
     document.querySelectorAll('.reveal').forEach(function (el) {
       el.classList.add('visible');
     });
   }
 
-  /* ── Netlify form handling ────────────────────────────────── */
-  // Netlify handles form submission natively when JS is off.
-  // This progressive enhancement prevents a full page reload
-  // and shows the success message inline instead.
-  const form        = document.getElementById('contact-form');
-  const successMsg  = document.getElementById('form-success');
+  /* ── Netlify form — AJAX submission ──────────────────────── */
+  const form    = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
 
-  if (form && successMsg) {
+  if (form && success) {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const submitBtn = form.querySelector('[type="submit"]');
-      const original  = submitBtn.textContent;
-      submitBtn.textContent = 'Sending…';
-      submitBtn.disabled    = true;
+      const btn   = form.querySelector('[type="submit"]');
+      const label = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled    = true;
 
       try {
-        const data = new FormData(form);
-
-        const response = await fetch('/', {
-          method: 'POST',
+        const res = await fetch('/', {
+          method:  'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(data).toString()
+          body:    new URLSearchParams(new FormData(form)).toString()
         });
 
-        if (response.ok) {
-          form.style.display        = 'none';
-          successMsg.style.display  = 'block';
+        if (res.ok) {
+          form.style.display    = 'none';
+          success.style.display = 'block';
         } else {
-          throw new Error('Network response was not ok');
+          throw new Error();
         }
-      } catch (err) {
-        console.error('Form error:', err);
-        submitBtn.textContent = original;
-        submitBtn.disabled    = false;
-        alert('Something went wrong. Please try again or email us directly at info@fit2trade.com');
+      } catch {
+        btn.textContent = label;
+        btn.disabled    = false;
+        alert('Something went wrong — please try again or email info@fit2trade.com');
       }
     });
   }
 
-  /* ── Smooth scroll for anchor links ──────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
+  /* ── Smooth scroll for # links ────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 72;
-        const top    = target.getBoundingClientRect().top + window.scrollY - offset - 16;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-      }
+      if (!target) return;
+      e.preventDefault();
+      const navH = parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10
+      ) || 68;
+      window.scrollTo({
+        top:      target.getBoundingClientRect().top + window.scrollY - navH - 12,
+        behavior: 'smooth'
+      });
     });
   });
 
