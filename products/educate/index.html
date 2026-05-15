@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUCATE — Learning Management System | Fit2Trade</title>
+  <meta name="description" content="An AI-powered LMS designed for frontline workers. 100+ compliance and professional development courses. Mobile-first, bite-sized, and zero IT setup required." />
+  <meta property="og:title"       content="EDUCATE — Learning Management System | Fit2Trade" />
+  <meta property="og:description" content="Compliance training your team will actually complete. 100+ courses, branded portal, zero IT setup." />
+  <meta property="og:image"       content="https://www.fit2trade.com/wp-content/uploads/2022/11/Online-compliance-training-scaled.jpg" />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    /* ── Educate page-specific styles ────────────────────── */
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.35);
+      margin-bottom: 22px; justify-content: center;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); transition: color var(--t); }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+    .breadcrumb-sep { opacity: 0.3; }
+
+    /* Smaller hero */
+    .hero-inner { min-height: 72vh; padding-bottom: 0; }
+    .hero-inner .hero-h1 { font-size: clamp(2.6rem, 5.5vw, 4.8rem); }
+    .hero-inner .hero-content { padding-bottom: 64px; }
+
+    /* Stats strip */
+    .stats-strip { background: var(--white); border-bottom: 1px solid var(--border-lt); }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid var(--border-lt);
+    }
+    .stat-item { padding: 36px 28px; border-right: 1px solid var(--border-lt); text-align: center; }
+    .stat-num {
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900;
+      color: var(--ink); letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px;
+    }
+    .stat-num span { color: var(--green); }
+    .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; line-height: 1.4; }
+
+    /* Two-audience split sections */
+    .audience-section { padding: var(--section) 0; }
+    .audience-section:nth-child(odd) { background: var(--white); }
+    .audience-section:nth-child(even) { background: var(--surface); }
+
+    .audience-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .audience-row.is-flipped { direction: rtl; }
+    .audience-row.is-flipped > * { direction: ltr; }
+
+    .audience-img {
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+      border: 1px solid var(--border-lt);
+    }
+    .audience-img img { width: 100%; display: block; }
+
+    .audience-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--green);
+      background: var(--green-tint); padding: 4px 12px;
+      border-radius: 100px; margin-bottom: 18px;
+    }
+    .audience-h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem); font-weight: 900;
+      color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 14px;
+    }
+    .audience-body {
+      font-size: 1rem; color: var(--muted); line-height: 1.72; margin-bottom: 24px;
+    }
+    .audience-bullets { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .audience-bullet {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.9rem; color: var(--ink-2); line-height: 1.5;
+    }
+    .audience-bullet::before {
+      content: '';
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      background: var(--green-tint);
+      border: 1.5px solid var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 5.2l1.8 1.8 3.2-3.5' stroke='%232E6052' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+      background-size: 10px; background-repeat: no-repeat; background-position: center;
+    }
+
+    /* Course library */
+    .courses-lib-section { padding: var(--section) 0; background: var(--black); }
+    .courses-lib-section .h2 { color: var(--white); }
+    .courses-lib-section .lead { color: rgba(255,255,255,0.45); }
+
+    .course-cats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-top: 52px;
+    }
+    .course-cat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r-lg); padding: 30px;
+      transition: background var(--t), border-color var(--t), transform var(--t);
+    }
+    .course-cat-card:hover {
+      background: rgba(46,96,82,0.09);
+      border-color: rgba(46,96,82,0.3);
+      transform: translateY(-3px);
+    }
+    .cat-icon { font-size: 1.6rem; margin-bottom: 14px; display: block; }
+    .cat-name {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #7DBDAD; margin-bottom: 16px;
+    }
+    .cat-courses { display: flex; flex-direction: column; }
+    .cat-course {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 0; font-size: 0.875rem; color: rgba(255,255,255,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      text-decoration: none; transition: color var(--t), padding-left var(--t);
+    }
+    .cat-course:last-child { border-bottom: none; }
+    .cat-course:hover { color: var(--white); padding-left: 4px; }
+    .cat-course::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: #7DBDAD; flex-shrink: 0; opacity: 0.5;
+    }
+    .course-lib-footer {
+      text-align: center; margin-top: 44px;
+      padding-top: 44px; border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .course-lib-footer p {
+      font-size: 0.9rem; color: rgba(255,255,255,0.4); margin-bottom: 20px;
+    }
+
+    /* Platform features: two-column employee vs manager */
+    .platform-section { padding: var(--section) 0; background: var(--surface); }
+    .platform-cols {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 52px;
+    }
+    .platform-col {
+      background: var(--white); border-radius: var(--r-lg);
+      border: 1px solid var(--border-lt); overflow: hidden;
+    }
+    .platform-col-head {
+      padding: 28px 32px 24px;
+      border-bottom: 1px solid var(--border-lt);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .platform-col-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--green-tint); display: flex;
+      align-items: center; justify-content: center; font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .platform-col-title { font-size: 1.1rem; font-weight: 800; color: var(--ink); letter-spacing: -0.025em; }
+    .platform-col-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    .platform-features { padding: 8px 16px 20px; }
+    .platform-feat {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px; border-radius: var(--r-sm);
+      transition: background var(--t);
+    }
+    .platform-feat:hover { background: var(--surface); }
+    .platform-feat-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--green-tint); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.95rem; flex-shrink: 0; margin-top: 1px;
+    }
+    .platform-feat-text { flex: 1; }
+    .platform-feat-name { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+    .platform-feat-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+    /* Technical / integrations */
+    .tech-section { padding: var(--section) 0; background: var(--white); }
+    .tech-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 14px; margin-top: 52px;
+    }
+    .tech-card {
+      padding: 28px 22px; background: var(--surface);
+      border-radius: var(--r); border: 1px solid var(--border-lt);
+      transition: box-shadow var(--t), border-color var(--t), transform var(--t);
+    }
+    .tech-card:hover {
+      box-shadow: 0 10px 32px rgba(0,0,0,0.07);
+      border-color: rgba(46,96,82,0.2); transform: translateY(-3px);
+    }
+    .tech-icon { font-size: 1.6rem; margin-bottom: 14px; display: block; }
+    .tech-title { font-size: 0.97rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 7px; }
+    .tech-text { font-size: 0.845rem; color: var(--muted); line-height: 1.65; }
+
+    /* Testimonial row */
+    .testimonial-single {
+      padding: var(--section) 0;
+      background: var(--surface);
+    }
+    .t-single-card {
+      max-width: 780px; margin-inline: auto;
+      background: var(--white); border-radius: var(--r-xl);
+      border: 1px solid var(--border-lt);
+      padding: 56px 64px; text-align: center;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.05);
+    }
+    .t-single-mark {
+      font-size: 3.5rem; line-height: 1;
+      color: var(--green); opacity: 0.3;
+      font-family: Georgia, serif; display: block; margin-bottom: 18px;
+    }
+    .t-single-text {
+      font-size: 1.15rem; line-height: 1.75; color: var(--ink-2);
+      font-style: italic; margin-bottom: 32px;
+    }
+    .t-single-author { display: flex; align-items: center; gap: 14px; justify-content: center; }
+    .t-single-av {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--green); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.88rem; font-weight: 800; flex-shrink: 0;
+    }
+    .t-single-name { font-size: 0.93rem; font-weight: 700; color: var(--ink); text-align: left; }
+    .t-single-role { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+    /* Demo section */
+    .demo-section { padding: var(--section) 0; background: var(--black); position: relative; overflow: hidden; }
+    .demo-section::before {
+      content: ''; position: absolute; bottom: -30%; left: -10%;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,96,82,0.07), transparent 70%);
+      pointer-events: none;
+    }
+    .demo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; }
+    .demo-info .h2 { color: var(--white); margin-bottom: 14px; }
+    .demo-info .lead { color: rgba(255,255,255,0.42); }
+    .demo-checklist { margin-top: 36px; display: flex; flex-direction: column; gap: 14px; }
+    .demo-check-item { display: flex; align-items: center; gap: 12px; font-size: 0.93rem; color: rgba(255,255,255,0.65); }
+    .demo-check-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(46,96,82,0.2); border: 1px solid rgba(46,96,82,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.75rem; color: #7DBDAD;
+    }
+
+    /* Interests checkboxes */
+    .interests-group { margin-bottom: 18px; }
+    .interests-label {
+      display: block; font-size: 0.77rem; font-weight: 600;
+      color: rgba(255,255,255,0.45); letter-spacing: 0.07em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .interests-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .interest-opt {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-sm); cursor: pointer;
+      transition: background var(--t), border-color var(--t);
+      font-size: 0.84rem; color: rgba(255,255,255,0.6);
+    }
+    .interest-opt:has(input:checked) {
+      background: rgba(46,96,82,0.12); border-color: rgba(46,96,82,0.4); color: var(--white);
+    }
+    .interest-opt input { accent-color: var(--green); flex-shrink: 0; }
+
+    /* FAQ */
+    .faq-section { padding: var(--section) 0; background: var(--surface); }
+    .faq-list { max-width: 780px; margin: 48px auto 0; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:first-child { border-top: 1px solid var(--border); }
+    summary.faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 4px; font-size: 1rem; font-weight: 700;
+      color: var(--ink); cursor: pointer; list-style: none; gap: 16px; letter-spacing: -0.015em;
+    }
+    summary.faq-q::-webkit-details-marker { display: none; }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--surface);
+      border: 1px solid var(--border); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 1rem; color: var(--muted);
+      transition: background var(--t), border-color var(--t), transform var(--t);
+      font-weight: 400; line-height: 1;
+    }
+    details[open] .faq-icon { background: var(--green-tint); border-color: var(--green); color: var(--green); transform: rotate(45deg); }
+    .faq-a { padding: 0 4px 22px; font-size: 0.93rem; color: var(--muted); line-height: 1.72; }
+
+    /* Final CTA */
+    .final-cta { padding: var(--section) 0; background: var(--green); text-align: center; }
+    .final-cta-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: var(--white); letter-spacing: -0.035em; margin-bottom: 14px; }
+    .final-cta-sub { font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 36px; }
+    .final-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn--white { background: var(--white); color: var(--green); border-radius: 100px; }
+    .btn--white:hover { background: var(--surface); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,0,0,0.15); }
+    .btn--white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); border-radius: 100px; }
+    .btn--white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .stats-inner    { grid-template-columns: repeat(2, 1fr); }
+      .course-cats    { grid-template-columns: repeat(2, 1fr); }
+      .platform-cols  { grid-template-columns: 1fr; }
+      .tech-grid      { grid-template-columns: repeat(2, 1fr); }
+      .demo-inner     { grid-template-columns: 1fr; gap: 48px; }
+      .t-single-card  { padding: 40px 36px; }
+    }
+    @media (max-width: 768px) {
+      .audience-row        { grid-template-columns: 1fr; gap: 36px; direction: ltr !important; }
+      .audience-row .audience-img { order: -1; }
+      .course-cats         { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .stats-inner         { grid-template-columns: 1fr 1fr; }
+      .tech-grid           { grid-template-columns: 1fr; }
+      .interests-options   { grid-template-columns: 1fr; }
+      .t-single-card       { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     HEADER
+     ================================================================ -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Fit2Trade home">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+      </a>
+      <ul class="nav-menu" role="menubar">
+        <li class="nav-item">
+          <span class="nav-link" tabindex="0" aria-haspopup="true">Solutions for
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <ul class="dropdown dropdown--wide" role="menu">
+            <li><a href="/solutions/credit-unions/"  class="dd-link"><strong>Credit Unions</strong><span>CBI &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"         class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"    class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"     class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; pharmacies</span></a></li>
+            <li><a href="/solutions/childcare/"      class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/sports/"         class="dd-link"><strong>Sports</strong><span>GAA and sports clubs</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" tabindex="0" aria-haspopup="true">Products
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <ul class="dropdown" role="menu">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S &amp; Food Safety Management</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management App</span></a></li>
+            <li><a href="/products/educate/" class="dd-link" style="color:var(--green)"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing Portal</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement Portal</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" tabindex="0" aria-haspopup="true">Courses
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <ul class="dropdown dropdown--wide" role="menu">
+            <li><a href="/courses/compliance/"      class="dd-link"><strong>Compliance</strong><span>H&amp;S, food safety, retail</span></a></li>
+            <li><a href="/courses/corporate/"       class="dd-link"><strong>Corporate</strong><span>Ethics, GDPR, DEI</span></a></li>
+            <li><a href="/courses/ai-skills/"       class="dd-link"><strong>AI &amp; Future Skills</strong><span>Future skills diploma</span></a></li>
+            <li><a href="/courses/business-skills/" class="dd-link"><strong>Business Skills</strong><span>Leadership, sales, marketing</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/"  class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/"  class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login/"  class="nav-login">Login</a>
+        <a href="#demo"    class="btn btn--green btn--sm">Request a Demo</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <ul>
+    <li class="mob-item"><a href="/"          class="mob-link">Home</a></li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/solutions/" class="mob-link">Solutions</a></li>
+    <li class="mob-item"><a href="/courses/"  class="mob-link">Courses</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions">
+    <a href="/login/" class="btn btn--ghost">Login</a>
+    <a href="#demo"   class="btn btn--green">Request a Demo</a>
+  </div>
+</nav>
+
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero hero-inner" id="hero">
+  <div class="hero-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/products/">Products</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:rgba(255,255,255,0.6)">Educate</span>
+    </nav>
+
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Learning Management System
+    </div>
+
+    <h1 class="hero-h1">
+      Compliance training your team<br>
+      <span class="accent">will actually complete.</span>
+    </h1>
+
+    <p class="hero-sub">
+      An AI-powered LMS built for frontline workers — not office desks. Bite-sized courses on any device, a branded portal your people trust, and the audit trail your managers need.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#demo"     class="btn btn--green btn--lg">Request a Demo</a>
+      <a href="/courses/" class="btn btn--ghost btn--lg">Browse Courses</a>
+    </div>
+
+  </div>
+
+  <div class="hero-shot">
+    <img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Online-compliance-training-scaled.jpg"
+         alt="Fit2Trade Educate LMS on mobile and desktop" loading="eager" />
+  </div>
+</section>
+
+
+<!-- ================================================================
+     STATS STRIP
+     ================================================================ -->
+<div class="stats-strip">
+  <div class="container" style="padding-inline:0; max-width:100%;">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num"><span>100</span>+</div>
+        <div class="stat-label">Ready-to-use courses</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>6</span></div>
+        <div class="stat-label">Course categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Any<span>.</span></div>
+        <div class="stat-label">Device. No app download.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Zero<span>.</span></div>
+        <div class="stat-label">IT setup required</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     FOR EMPLOYEES
+     ================================================================ -->
+<section class="audience-section" id="for-employees">
+  <div class="container">
+    <div class="audience-row">
+
+      <div class="audience-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Educate..jpg"
+             alt="Employee learning on mobile" loading="lazy" />
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="audience-tag">👤 For employees</div>
+        <h2 class="audience-h3">Training that fits around the job — not the other way around</h2>
+        <p class="audience-body">
+          Frontline workers don't sit at desks. Educate is designed for the shop floor, the kitchen and the care home — short, focused modules that employees can complete between tasks, on their own phone.
+        </p>
+        <ul class="audience-bullets">
+          <li class="audience-bullet">Watch and learn from any smartphone, tablet or desktop</li>
+          <li class="audience-bullet">Bite-sized modules — most under 15 minutes</li>
+          <li class="audience-bullet">Earn a downloadable certificate on completion</li>
+          <li class="audience-bullet">Online assessments confirm knowledge transfer</li>
+          <li class="audience-bullet">New starters receive induction on their very first day</li>
+          <li class="audience-bullet">Learning paths guide progression course by course</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See the employee experience</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOR MANAGERS
+     ================================================================ -->
+<section class="audience-section" id="for-managers">
+  <div class="container">
+    <div class="audience-row is-flipped">
+
+      <div class="audience-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Audit-ready-reports.jpg"
+             alt="Manager compliance dashboard" loading="lazy" />
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="audience-tag">📊 For managers</div>
+        <h2 class="audience-h3">Prove compliance at a glance. No chasing. No spreadsheets.</h2>
+        <p class="audience-body">
+          Your management portal gives you a real-time picture of who has completed what — by person, department, site or course. When an inspector arrives, you're ready in seconds.
+        </p>
+        <ul class="audience-bullets">
+          <li class="audience-bullet">Live dashboards by department, location or individual</li>
+          <li class="audience-bullet">One-click audit-ready reports — exportable instantly</li>
+          <li class="audience-bullet">Certification expiry alerts before they lapse</li>
+          <li class="audience-bullet">Assign content to new and existing users in moments</li>
+          <li class="audience-bullet">Practical sign-off workflows for hands-on assessments</li>
+          <li class="audience-bullet">Your org chart built into the portal from day one</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See the manager view</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     COURSE LIBRARY
+     ================================================================ -->
+<section class="courses-lib-section" id="courses">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">Course Library</span>
+      <h2 class="h2 h2--light">100+ courses.<br>Ready for your industry.</h2>
+      <p class="lead lead--light">Every course is written by compliance specialists and updated when regulations change. No generic content — built for your sector.</p>
+    </div>
+
+    <div class="course-cats">
+
+      <div class="course-cat-card reveal">
+        <span class="cat-icon" aria-hidden="true">🦺</span>
+        <div class="cat-name">Safety</div>
+        <div class="cat-courses">
+          <a href="/courses/manual-handling/"  class="cat-course">Manual Handling</a>
+          <a href="/courses/fire-safety/"      class="cat-course">Fire Safety</a>
+          <a href="/courses/health-safety/"    class="cat-course">Health &amp; Safety Awareness</a>
+          <a href="/courses/chemical-hazards/" class="cat-course">Chemical Hazards</a>
+          <a href="/courses/"                  class="cat-course" style="color:#7DBDAD">+ more courses →</a>
+        </div>
+      </div>
+
+      <div class="course-cat-card reveal reveal-delay-1">
+        <span class="cat-icon" aria-hidden="true">🍽️</span>
+        <div class="cat-name">Food Safety</div>
+        <div class="cat-courses">
+          <a href="/courses/allergens/"            class="cat-course">Allergen Awareness</a>
+          <a href="/courses/basic-food-safety/"    class="cat-course">Basic Food Hygiene</a>
+          <a href="/courses/haccp/"                class="cat-course">HACCP</a>
+          <a href="/courses/food-safety-managers/" class="cat-course">Food Safety for Managers</a>
+          <a href="/courses/"                      class="cat-course" style="color:#7DBDAD">+ more courses →</a>
+        </div>
+      </div>
+
+      <div class="course-cat-card reveal reveal-delay-2">
+        <span class="cat-icon" aria-hidden="true">🏢</span>
+        <div class="cat-name">Corporate</div>
+        <div class="cat-courses">
+          <a href="/courses/anti-bribery/"          class="cat-course">Anti-Bribery &amp; Corruption</a>
+          <a href="/courses/anti-money-laundering/" class="cat-course">Anti-Money Laundering</a>
+          <a href="/courses/fraud-awareness/"       class="cat-course">Fraud Awareness</a>
+          <a href="/courses/competition-law/"       class="cat-course">Competition Law</a>
+          <a href="/courses/"                       class="cat-course" style="color:#7DBDAD">+ more courses →</a>
+        </div>
+      </div>
+
+      <div class="course-cat-card reveal">
+        <span class="cat-icon" aria-hidden="true">⚖️</span>
+        <div class="cat-name">Ethics &amp; Inclusion</div>
+        <div class="cat-courses">
+          <a href="/courses/acting-ethically/"    class="cat-course">Acting Ethically</a>
+          <a href="/courses/dignity-at-work/"     class="cat-course">Dignity at Work</a>
+          <a href="/courses/diversity-inclusion/" class="cat-course">Diversity &amp; Inclusion</a>
+          <a href="/courses/unconscious-bias/"    class="cat-course">Unconscious Bias</a>
+          <a href="/courses/"                     class="cat-course" style="color:#7DBDAD">+ more courses →</a>
+        </div>
+      </div>
+
+      <div class="course-cat-card reveal reveal-delay-1">
+        <span class="cat-icon" aria-hidden="true">🔒</span>
+        <div class="cat-name">Privacy &amp; Cyber</div>
+        <div class="cat-courses">
+          <a href="/courses/data-privacy/"      class="cat-course">Data Privacy</a>
+          <a href="/courses/gdpr/"              class="cat-course">GDPR</a>
+          <a href="/courses/cyber-security/"    class="cat-course">Cyber Security</a>
+          <a href="/courses/physical-security/" class="cat-course">Physical Security</a>
+          <a href="/courses/"                   class="cat-course" style="color:#7DBDAD">+ more courses →</a>
+        </div>
+      </div>
+
+      <div class="course-cat-card reveal reveal-delay-2">
+        <span class="cat-icon" aria-hidden="true">🏥</span>
+        <div class="cat-name">Healthcare</div>
+        <div class="cat-courses">
+          <a href="/courses/first-aid/"            class="cat-course">Emergency First Aid</a>
+          <a href="/courses/infection-prevention/" class="cat-course">Infection Prevention</a>
+          <a href="/courses/patient-handling/"     class="cat-course">Patient Handling</a>
+          <a href="/courses/vulnerable-persons/"   class="cat-course">Safeguarding Vulnerable Adults</a>
+          <a href="/courses/"                      class="cat-course" style="color:#7DBDAD">+ more courses →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="course-lib-footer">
+      <p>Can't see your topic? We also offer AI &amp; Future Skills, Business Skills, Leadership and custom course creation.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="/courses/"  class="btn btn--green btn--lg">Browse all 100+ courses</a>
+        <a href="/services/enhance/" class="btn btn--ghost btn--lg">Custom course creation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     PLATFORM FEATURES — employee vs manager split
+     ================================================================ -->
+<section class="platform-section" id="platform">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">The platform</span>
+      <h2 class="h2">Built for everyone in your organisation</h2>
+      <p class="lead">Simple enough for a first-day employee. Powerful enough for a multi-site compliance team.</p>
+    </div>
+    <div class="platform-cols">
+
+      <!-- Employee column -->
+      <div class="platform-col reveal">
+        <div class="platform-col-head">
+          <div class="platform-col-icon" aria-hidden="true">👤</div>
+          <div>
+            <div class="platform-col-title">For employees</div>
+            <div class="platform-col-sub">Simple, fast and built for mobile</div>
+          </div>
+        </div>
+        <div class="platform-features">
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">📱</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Mobile learning</div>
+              <div class="platform-feat-desc">Works on any device — no app download needed. Designed for the shop floor, not a desk.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">⏱️</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Bite-sized modules</div>
+              <div class="platform-feat-desc">Short, focused lessons that get to the point quickly — no unnecessary padding or gimmicks.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">🎓</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Digital certification</div>
+              <div class="platform-feat-desc">Employees earn and download their certificate on completion, updated with each recertification.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">🗺️</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Learning paths</div>
+              <div class="platform-feat-desc">Courses can be sequenced so employees progress through a structured programme automatically.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">✅</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Knowledge assessments</div>
+              <div class="platform-feat-desc">Built-in quizzes confirm understanding before certifying — not just clicking through slides.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">🔑</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">One-click login</div>
+              <div class="platform-feat-desc">Simple single sign-on means employees spend time learning, not recovering passwords.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manager column -->
+      <div class="platform-col reveal reveal-delay-1">
+        <div class="platform-col-head">
+          <div class="platform-col-icon" aria-hidden="true">📊</div>
+          <div>
+            <div class="platform-col-title">For managers</div>
+            <div class="platform-col-sub">Full visibility, zero chasing</div>
+          </div>
+        </div>
+        <div class="platform-features">
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">📈</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Audit-ready reporting</div>
+              <div class="platform-feat-desc">Export compliance reports by person, department or site — in the format inspectors expect.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">🏢</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Branded portal</div>
+              <div class="platform-feat-desc">Your learning portal is built to reflect your brand — logo, colours and custom welcome content.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">📅</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Certification expiry alerts</div>
+              <div class="platform-feat-desc">Automated reminders before certifications lapse — you'll never have an untrained employee slip through.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">👥</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Easy user management</div>
+              <div class="platform-feat-desc">Add, edit, archive or remove users in seconds. Your org chart is pre-built into the system at setup.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">✍️</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Practical sign-off</div>
+              <div class="platform-feat-desc">Assessors can sign off practical competencies directly in the platform — useful for manual handling, food safety, first aid.</div>
+            </div>
+          </div>
+          <div class="platform-feat">
+            <div class="platform-feat-icon" aria-hidden="true">🎨</div>
+            <div class="platform-feat-text">
+              <div class="platform-feat-name">Custom course creation</div>
+              <div class="platform-feat-desc">We build bespoke courses for your brand, products or internal procedures — <a href="/services/enhance/" style="color:var(--green)">learn about ENHANCE →</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     TECHNICAL / INTEGRATIONS
+     ================================================================ -->
+<section class="tech-section" id="technical">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Under the hood</span>
+      <h2 class="h2">Enterprise-grade. Zero IT headache.</h2>
+      <p class="lead">Educate is hosted and maintained by Fit2Trade. No servers to manage, no integrations to build, no version updates to apply.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-card reveal">
+        <span class="tech-icon" aria-hidden="true">☁️</span>
+        <h3 class="tech-title">Hosted by Microsoft Azure</h3>
+        <p class="tech-text">Your LMS runs on Microsoft's enterprise cloud — 99.9% uptime, EU data residency and security you can trust.</p>
+      </div>
+      <div class="tech-card reveal reveal-delay-1">
+        <span class="tech-icon" aria-hidden="true">🔌</span>
+        <h3 class="tech-title">SCORM, AICC &amp; xAPI</h3>
+        <p class="tech-text">Import your existing SCORM content or export courses to use in other systems. Full interoperability built in.</p>
+      </div>
+      <div class="tech-card reveal reveal-delay-2">
+        <span class="tech-icon" aria-hidden="true">🤖</span>
+        <h3 class="tech-title">AI-powered</h3>
+        <p class="tech-text">Our AI tools surface learning gaps, suggest courses and keep content current as regulations evolve — automatically.</p>
+      </div>
+      <div class="tech-card reveal reveal-delay-3">
+        <span class="tech-icon" aria-hidden="true">🛡️</span>
+        <h3 class="tech-title">GDPR compliant</h3>
+        <p class="tech-text">Data processed and stored in the EU. Full DPA available. SOC 2 aligned security practices throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     TESTIMONIAL
+     ================================================================ -->
+<section class="testimonial-single">
+  <div class="container">
+    <div class="t-single-card reveal">
+      <span class="t-single-mark" aria-hidden="true">&ldquo;</span>
+      <p class="t-single-text">
+        At Insomnia, we're delighted with our customised programs for our employees.
+        Fit2trade makes achieving compliance across our nationwide network of stores simple —
+        our managers can see exactly who is trained and who isn't, from anywhere.
+      </p>
+      <div class="t-single-author">
+        <div class="t-single-av" aria-hidden="true">CS</div>
+        <div>
+          <div class="t-single-name">Clare Sheridan</div>
+          <div class="t-single-role">HR Manager, Insomnia Coffee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     DEMO FORM — Netlify
+     ================================================================ -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="demo-inner">
+
+      <div class="demo-info">
+        <span class="eyebrow eyebrow--light">Book a demo</span>
+        <h2 class="h2 h2--light">See Educate in 15 minutes</h2>
+        <p class="lead lead--light">
+          We'll walk you through the platform using your industry as the example — so you leave knowing exactly how Educate works for your team.
+        </p>
+        <div class="demo-checklist">
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            Live tour tailored to your industry
+          </div>
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            We'll show the employee <em>and</em> manager view
+          </div>
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            See the exact courses relevant to your sector
+          </div>
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            Pricing and setup timeline confirmed on the call
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form
+          name="educate-demo"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="contact-form"
+          id="demo-form"
+        >
+          <input type="hidden" name="form-name" value="educate-demo" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+
+          <div class="f-row">
+            <div>
+              <label class="f-label" for="d-first">First name *</label>
+              <input class="f-input" type="text" id="d-first" name="first_name" required placeholder="Jane" />
+            </div>
+            <div>
+              <label class="f-label" for="d-last">Last name *</label>
+              <input class="f-input" type="text" id="d-last" name="last_name" required placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="d-email">Work email *</label>
+            <input class="f-input" type="email" id="d-email" name="email" required placeholder="jane@company.com" />
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="d-role">Your role *</label>
+            <select class="f-select" id="d-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>HR Manager / L&amp;D Manager</option>
+              <option>Operations Manager</option>
+              <option>Compliance Officer</option>
+              <option>Business Owner / Director</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="d-employees">Number of employees *</label>
+            <select class="f-select" id="d-employees" name="employees" required>
+              <option value="" disabled selected>Select range</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+
+          <div class="interests-group">
+            <span class="interests-label">What are you most interested in?</span>
+            <div class="interests-options">
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Online Courses" /> Online Courses
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="LMS Platform" /> LMS Platform
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Custom Course Creation" /> Custom Courses
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="SCORM Import" /> SCORM Import
+              </label>
+            </div>
+          </div>
+
+          <div class="f-consent">
+            <input type="checkbox" id="d-consent" name="consent" required />
+            <label for="d-consent">I agree to the <a href="/privacy/">privacy notice</a> and <a href="/terms/">terms</a>. My data will only be used to respond to my demo request.</label>
+          </div>
+
+          <button type="submit" class="btn btn--green btn--lg f-submit">Book My Demo</button>
+        </form>
+
+        <div class="form-success" id="demo-success">
+          <div class="form-success-icon" aria-hidden="true">🗓️</div>
+          <h3>You're booked in.</h3>
+          <p>We'll be in touch within one business day to confirm your demo time.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FAQ
+     ================================================================ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Common questions</span>
+      <h2 class="h2">Questions about Educate</h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          How quickly can we go live?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Most customers are live within 3–5 business days. We set up your branded portal, load your org structure, assign your first course library and give your admin team a walkthrough. Your employees can start learning the same week.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Do employees need to download an app?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">No — Educate runs in any modern browser on any device. Employees click a link, log in with one click and start learning. Nothing to install, nothing to update. This dramatically increases completion rates compared to app-based systems.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Can we use our own course content?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Yes. Educate supports SCORM, AICC and xAPI — so you can import existing content from any authoring tool. We also offer our ENHANCE service to build bespoke courses for your brand, products or internal procedures if you want something purpose-built.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          How are certifications handled when they expire?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Certifications are set with expiry dates that match regulatory requirements (e.g. Manual Handling typically every 3 years). Before a certificate expires, both the employee and their manager receive automated reminders. The employee is then automatically assigned the refresher course.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          We have multiple sites — can managers only see their own teams?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Yes. The permission structure in Educate mirrors your org chart. Site managers see only their site's data. Regional managers see their region. Head office sees everything. You control who can assign content, run reports and manage users at each level.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Does Educate integrate with our HR or payroll system?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Educate is designed to be standalone — zero IT setup required. For larger organisations that want to sync user data with HR systems, we support CSV imports and our team can discuss API integration options during your demo.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FINAL CTA
+     ================================================================ -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-cta-title">Ready to train smarter?</h2>
+    <p class="final-cta-sub">Join hundreds of businesses that use Educate to meet their compliance obligations — and actually engage their people.</p>
+    <div class="final-cta-btns">
+      <a href="#demo"     class="btn btn--white btn--lg">Book a Demo</a>
+      <a href="/courses/" class="btn btn--white-outline btn--lg">Browse Courses</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo"
+             src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png"
+             alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-col-title">Company</p>
+        <ul class="ft-links">
+          <li><a href="/about/"            class="ft-link">About us</a></li>
+          <li><a href="/about/our-values/" class="ft-link">Our Values</a></li>
+          <li><a href="/careers/"          class="ft-link">Careers</a></li>
+          <li><a href="/sustainability/"   class="ft-link">Sustainability</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Products</p>
+        <ul class="ft-links">
+          <li><a href="/products/ensure/"  class="ft-link">Ensure</a></li>
+          <li><a href="/products/operate/" class="ft-link">Operate</a></li>
+          <li><a href="/products/educate/" class="ft-link" style="color:#7DBDAD">Educate</a></li>
+          <li><a href="/products/elevate/" class="ft-link">Elevate</a></li>
+          <li><a href="/products/engage/"  class="ft-link">Engage</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Resources</p>
+        <ul class="ft-links">
+          <li><a href="/blog/"     class="ft-link">Blog</a></li>
+          <li><a href="/courses/"  class="ft-link">All Courses</a></li>
+          <li><a href="/pricing/"  class="ft-link">Pricing</a></li>
+          <li><a href="/contact/"  class="ft-link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Legal</p>
+        <ul class="ft-links">
+          <li><a href="/terms/"         class="ft-link">Terms</a></li>
+          <li><a href="/privacy/"       class="ft-link">Privacy Policy</a></li>
+          <li><a href="/cookie-policy/" class="ft-link">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p>
+      <nav class="ft-legal" aria-label="Legal links">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/cookie-policy/">Cookies</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>
+  (function () {
+    const form    = document.getElementById('demo-form');
+    const success = document.getElementById('demo-success');
+    if (!form || !success) return;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = form.querySelector('[type="submit"]');
+      const lbl = btn.textContent;
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+        if (res.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+        else throw new Error();
+      } catch { btn.textContent = lbl; btn.disabled = false; alert('Something went wrong — please try again or email info@fit2trade.com'); }
+    });
+  })();
+</script>
+</body>
+</html>
