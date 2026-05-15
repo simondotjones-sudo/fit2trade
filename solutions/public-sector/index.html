@@ -1,1 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Sector Compliance &#8212; GDPR, FOI &amp; H&amp;S Solutions | Fit2Trade</title>
+  <meta name="description" content="Digital compliance for Irish public sector bodies. GDPR, Freedom of Information, Protected Disclosures, H&amp;S management and governance training for county councils, agencies and semi-state bodies." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/solutions.css" />
+  <style>
+    .dual-challenge{padding:var(--section) 0;background:var(--white)}
+    .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+    .dual-card{border-radius:var(--r-xl);padding:40px;border:1px solid var(--border-lt)}
+    .dual-card--gov{background:var(--surface)}
+    .dual-card--hs{background:var(--ink);border-color:rgba(255,255,255,.07)}
+    .dual-card-icon{font-size:2rem;margin-bottom:16px}
+    .dual-card-title{font-size:1.2rem;font-weight:900;letter-spacing:-.025em;margin-bottom:10px}
+    .dual-card--gov .dual-card-title{color:var(--ink)}
+    .dual-card--hs  .dual-card-title{color:var(--white)}
+    .dual-card-desc{font-size:.9rem;line-height:1.7;margin-bottom:20px}
+    .dual-card--gov .dual-card-desc{color:var(--muted)}
+    .dual-card--hs  .dual-card-desc{color:rgba(255,255,255,.5)}
+    .dual-items{display:flex;flex-direction:column;gap:8px}
+    .dual-item{display:flex;align-items:center;gap:10px;font-size:.855rem}
+    .dual-card--gov .dual-item{color:var(--ink-2)}
+    .dual-card--hs  .dual-item{color:rgba(255,255,255,.65)}
+    .dual-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .dual-card--gov .dual-dot{background:var(--green)}
+    .dual-card--hs  .dual-dot{background:#7DBDAD}
+    .obligation-table{width:100%;border-collapse:collapse;margin-top:48px;background:var(--white);border-radius:var(--r-xl);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07);border:1px solid var(--border-lt)}
+    .obligation-table th{padding:14px 22px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);background:var(--ink);border-bottom:1px solid rgba(255,255,255,.07)}
+    .obligation-table th:first-child{width:25%}
+    .obligation-table td{padding:15px 22px;font-size:.875rem;border-bottom:1px solid var(--border-lt);vertical-align:middle}
+    .obligation-table tr:last-child td{border-bottom:none}
+    .obligation-table tr:hover td{background:var(--surface)}
+    .obligation-table td:first-child{font-weight:700;color:var(--ink)}
+    .obligation-table td:not(:first-child){color:var(--muted)}
+    .obl-badge{display:inline-block;font-size:.67rem;font-weight:700;padding:3px 9px;border-radius:100px;white-space:nowrap}
+    .obl-badge--required{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA}
+    .obl-badge--expected{background:var(--green-tint);color:var(--green);border:1px solid rgba(46,96,82,.2)}
+    .workforce-strip{padding:var(--section) 0;background:var(--black)}
+    .workforce-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+    .wf-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:26px 22px;transition:background var(--t),border-color var(--t)}
+    .wf-card:hover{background:rgba(46,96,82,.09);border-color:rgba(46,96,82,.3)}
+    .wf-icon{font-size:1.5rem;margin-bottom:12px}
+    .wf-title{font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:6px}
+    .wf-desc{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.6}
+    @media(max-width:768px){.dual-grid{grid-template-columns:1fr}.workforce-cards{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.workforce-cards{grid-template-columns:1fr}.obligation-table th:nth-child(n+3),.obligation-table td:nth-child(n+3){display:none}}
+  </style>
+</head>
+<body>
 
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI, MCC &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; nursing homes</span></a></li>
+            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/public-sector/" class="dd-link" style="color:var(--green)"><strong>Public Sector</strong><span>Councils, agencies &amp; semi-states</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S Management System</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="#demo" class="btn btn--green btn--sm">Book a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item"><div class="mob-link" data-mob="mob-sol">Solutions for <span>+</span></div>
+      <ul class="mob-sub" id="mob-sol">
+        <li><a href="/solutions/credit-unions/" class="mob-sub-link">Credit Unions</a></li>
+        <li><a href="/solutions/retail/"        class="mob-sub-link">Retail</a></li>
+        <li><a href="/solutions/hospitality/"   class="mob-sub-link">Hospitality</a></li>
+        <li><a href="/solutions/healthcare/"    class="mob-sub-link">Healthcare</a></li>
+        <li><a href="/solutions/childcare/"     class="mob-sub-link">Childcare</a></li>
+        <li><a href="/solutions/public-sector/" class="mob-sub-link">Public Sector</a></li>
+      </ul>
+    </li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="#demo" class="btn btn--green">Book a Demo</a></div>
+</nav>
+
+<section class="hero-industry">
+  <div class="hero-industry-bg" style="background-image:url('https://www.fit2trade.com/wp-content/uploads/2024/09/Fit2Govern.jpg');background-position:center 40%"></div>
+  <div class="container">
+    <div class="hero-industry-content">
+      <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">&#8250;</span><a href="/solutions/">Solutions</a><span class="breadcrumb-sep">&#8250;</span><span style="color:rgba(255,255,255,.65)">Public Sector</span></nav>
+      <div class="regulator-pills">
+        <span class="reg-pill"><span class="reg-pill-dot"></span>Data Protection Commission</span>
+        <span class="reg-pill"><span class="reg-pill-dot"></span>HSA</span>
+        <span class="reg-pill"><span class="reg-pill-dot"></span>Office of the Information Commissioner</span>
+        <span class="reg-pill"><span class="reg-pill-dot"></span>SIPO</span>
+      </div>
+      <h1 class="hero-industry-h1">Public accountability<br>demands public<br><span class="accent">compliance.</span></h1>
+      <p class="hero-industry-sub">Public sector bodies face a dual compliance burden: governance obligations (GDPR, FOI, Protected Disclosures, ethics) and frontline H&amp;S requirements for staff across offices, depots, outdoor works and public-facing services. Fit2Trade covers both &#8212; in one system.</p>
+      <div class="hero-industry-ctas">
+        <a href="#demo"      class="btn btn--green btn--lg">Book a Demo</a>
+        <a href="#checklist" class="btn btn--ghost btn--lg">See the compliance checklist &#8595;</a>
+      </div>
+      <div class="hero-industry-trust">
+        <div class="trust-logos">
+          <span class="trust-logo-pill">County Councils</span>
+          <span class="trust-logo-pill">Government Agencies</span>
+          <span class="trust-logo-pill">Semi-State Bodies</span>
+        </div>
+        <span class="trust-text">trusted across the Irish public sector</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="container" style="padding-inline:0;max-width:100%">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num">FOI<span>.</span></div><div class="stat-label">Requests can expose compliance gaps publicly</div></div>
+      <div class="stat-item"><div class="stat-num">DPC<span>.</span></div><div class="stat-label">Can investigate &amp; fine public bodies for GDPR failures</div></div>
+      <div class="stat-item"><div class="stat-num">HSA<span>.</span></div><div class="stat-label">Inspects outdoor workers, depots and offices</div></div>
+      <div class="stat-item"><div class="stat-num">One<span>.</span></div><div class="stat-label">Portal for governance and H&amp;S compliance</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="dual-challenge">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The public sector challenge</span>
+      <h2 class="h2">Two compliance worlds.<br>One system that covers both.</h2>
+      <p class="lead">Private sector organisations face compliance. Public sector organisations face compliance &#8212; and public accountability. Every failure is potentially subject to Freedom of Information requests, media coverage and political scrutiny.</p>
+    </div>
+    <div class="dual-grid">
+      <div class="dual-card dual-card--gov reveal">
+        <div class="dual-card-icon">&#127963;</div>
+        <div class="dual-card-title">Governance &amp; Legal Compliance</div>
+        <p class="dual-card-desc">Obligations that every public sector body must meet under Irish statute. Each one carries legal liability if training records, policies or procedures cannot be demonstrated.</p>
+        <div class="dual-items">
+          <div class="dual-item"><span class="dual-dot"></span>GDPR &amp; Data Protection Act 2018</div>
+          <div class="dual-item"><span class="dual-dot"></span>Freedom of Information Act 2014</div>
+          <div class="dual-item"><span class="dual-dot"></span>Protected Disclosures Act 2014</div>
+          <div class="dual-item"><span class="dual-dot"></span>Ethics in Public Office Acts 1995 &amp; 2001</div>
+          <div class="dual-item"><span class="dual-dot"></span>Anti-Bribery &amp; Corruption obligations</div>
+          <div class="dual-item"><span class="dual-dot"></span>Dignity at work &amp; anti-harassment policies</div>
+        </div>
+      </div>
+      <div class="dual-card dual-card--hs reveal reveal-delay-1">
+        <div class="dual-card-icon">&#9970;&#65039;</div>
+        <div class="dual-card-title" style="color:var(--white)">Health &amp; Safety Compliance</div>
+        <p class="dual-card-desc" style="color:rgba(255,255,255,.5)">The Safety, Health and Welfare at Work Act applies to public sector bodies exactly as it does to private employers. With dispersed workforces across offices, depots, outdoor works and public facilities, managing H&amp;S is genuinely complex.</p>
+        <div class="dual-items">
+          <div class="dual-item" style="color:rgba(255,255,255,.65)"><span class="dual-dot" style="background:#7DBDAD"></span>Safety Statement &amp; Risk Assessments</div>
+          <div class="dual-item" style="color:rgba(255,255,255,.65)"><span class="dual-dot" style="background:#7DBDAD"></span>Outdoor workers &amp; lone working procedures</div>
+          <div class="dual-item" style="color:rgba(255,255,255,.65)"><span class="dual-dot" style="background:#7DBDAD"></span>Manual handling &amp; ergonomics training</div>
+          <div class="dual-item" style="color:rgba(255,255,255,.65)"><span class="dual-dot" style="background:#7DBDAD"></span>Fire safety &amp; emergency procedures</div>
+          <div class="dual-item" style="color:rgba(255,255,255,.65)"><span class="dual-dot" style="background:#7DBDAD"></span>Incident &amp; accident reporting</div>
+          <div class="dual-item" style="color:rgba(255,255,255,.65)"><span class="dual-dot" style="background:#7DBDAD"></span>Display Screen Equipment (DSE/VDU)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="checklist-section" id="checklist">
+  <div class="container">
+    <div class="checklist-head">
+      <span class="eyebrow">Compliance checklist</span>
+      <h2 class="h2">What auditors, the DPC, the OIC<br>and the HSA can ask to see</h2>
+      <p class="lead">This is the compliance evidence an Irish public sector body must be able to produce on demand. Every item is covered by Fit2Trade.</p>
+    </div>
+    <div class="checklist-wrap reveal">
+      <div class="checklist-top">
+        <div class="ct-empty"></div>
+        <div class="ct-ask-head">Compliance requirement</div>
+        <div class="ct-status-head">How Fit2Trade delivers it</div>
+        <div class="ct-badge-head">Product</div>
+      </div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">GDPR Training Records<small>Evidence that all staff processing personal data have completed GDPR training &#8212; DPC requirement</small></div><div class="ci-status">GDPR for Public Sector course completed online. Completion dates and certificates per employee.</div><div class="ci-badge">Educate</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Freedom of Information Training<small>FOI officers and relevant staff trained on obligations under the FOI Act 2014</small></div><div class="ci-status">FOI awareness training tracked and certificated. Policy acknowledgement by relevant staff roles.</div><div class="ci-badge">Educate</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Protected Disclosures Policy &amp; Awareness<small>Obligations under the Protected Disclosures Acts 2014 &amp; 2022 &#8212; all employees must be aware</small></div><div class="ci-status">Protected Disclosures training completed digitally. Policy acknowledged by all staff with date stamp.</div><div class="ci-badge">Educate</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Ethics in Public Office<small>Ethics obligations under the Ethics in Public Office Acts &#8212; designated positions and board members</small></div><div class="ci-status">Ethics training for public sector employees. Completion tracked per designated role.</div><div class="ci-badge">Educate</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Safety Statement<small>Written safety statement under SHWWA 2005 &#8212; covering all work locations and activities</small></div><div class="ci-status">Digital safety statement, location-specific. Staff-acknowledged. Updated when new risks are identified.</div><div class="ci-badge">Ensure</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Risk Assessments<small>Written risk assessments for offices, depots, outdoor work, public facilities and lone working</small></div><div class="ci-status">AI-assisted digital risk assessments. Reviewed on schedule. Full audit trail of versions and sign-offs.</div><div class="ci-badge">Ensure</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Incident &amp; Accident Log<small>Record of all workplace accidents and near misses &#8212; HSA reportable incidents must be logged</small></div><div class="ci-status">Digital incident log. HSA-reportable accident forms generated automatically. Complete investigation trail.</div><div class="ci-badge">Ensure</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Manual Handling Training Records<small>For all staff who lift, carry or handle loads &#8212; outdoor workers, stores, maintenance</small></div><div class="ci-status">Manual handling training completed online. Completion dates and certificates tracked per employee.</div><div class="ci-badge">Educate</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Fire Safety Records<small>Fire drill logs, fire warden training, fire equipment inspection records</small></div><div class="ci-status">Digital fire safety routines &#8212; drills logged, equipment checks scheduled monthly, warden training tracked.</div><div class="ci-badge">Ensure</div></div>
+      <div class="checklist-item"><div class="ci-check">&#10003;</div><div class="ci-ask">Dignity at Work Policy &amp; Training<small>Anti-harassment, bullying and discrimination training obligations for all staff</small></div><div class="ci-status">Dignity at work and harassment prevention training. Policy acknowledged digitally by all employees.</div><div class="ci-badge">Educate</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" style="background:var(--white);padding:var(--section) 0">
+  <div class="container">
+    <div class="feat-row">
+      <div class="feat-img reveal"><img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Audit-ready-reports.jpg" alt="Public sector compliance dashboard" loading="lazy" /></div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Governance Compliance</div>
+        <h3 class="feat-h3">Every governance obligation. One auditable digital record.</h3>
+        <p class="feat-body">A Freedom of Information request or a DPC investigation will ask for evidence of training, policy acknowledgement and compliance records. With Fit2Trade, everything is stored digitally, timestamped and exportable on demand &#8212; because public accountability can&#39;t wait for a paper search.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">GDPR, FOI, Protected Disclosures and ethics training all in one system</li>
+          <li class="feat-bullet">Digital policy acknowledgement by every employee &#8212; with date and name</li>
+          <li class="feat-bullet">Compliance reports exportable for internal audit, CAG reviews or DPC investigations</li>
+          <li class="feat-bullet">Training completion tracked per employee, per department, per location</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See governance compliance</a>
+      </div>
+    </div>
+    <div class="feat-row is-flipped">
+      <div class="feat-img reveal"><img src="https://www.fit2trade.com/wp-content/uploads/2022/01/View-compliance-by-location.jpg" alt="Multi-site H&S public sector" loading="lazy" /></div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">H&amp;S for Multi-Site Operations</div>
+        <h3 class="feat-h3">From the council chamber to the road maintenance depot. Covered.</h3>
+        <p class="feat-body">Public sector bodies often manage the most diverse range of work environments of any organisation &#8212; offices, libraries, leisure centres, outdoor maintenance teams, depots, public facilities. Each requires its own safety management approach. Fit2Trade handles all of them from a single portal.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Separate safety statements and risk assessments per location type</li>
+          <li class="feat-bullet">Outdoor worker lone working procedures and check-in routines</li>
+          <li class="feat-bullet">Department-specific training requirements managed separately</li>
+          <li class="feat-bullet">Central management overview across all locations in real time</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See multi-site H&amp;S</a>
+      </div>
+    </div>
+    <div class="feat-row">
+      <div class="feat-img reveal"><img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Online-compliance-training-scaled.jpg" alt="Public sector compliance training" loading="lazy" /></div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Training That Reaches Everyone</div>
+        <h3 class="feat-h3">Office staff. Outdoor crew. Part-time and seasonal workers. All trained.</h3>
+        <p class="feat-body">Getting all staff through their mandatory training is a logistical challenge when your workforce is spread across multiple locations, shifts and employment types. Fit2Trade&#39;s mobile-first training platform means every employee can complete their required courses on any device &#8212; from the site office to the roadside van.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Training assigned automatically by role, location and department</li>
+          <li class="feat-bullet">Completion reminders sent automatically &#8212; managers see who is outstanding</li>
+          <li class="feat-bullet">Seasonal and contract staff onboarded with the same compliance requirements</li>
+          <li class="feat-bullet">Full training history retained for any audit, investigation or insurance claim</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See the training platform</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="workforce-strip">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">Who Fit2Trade serves in the public sector</span>
+      <h2 class="h2 h2--light">Built for the full range<br>of public sector bodies.</h2>
+      <p class="lead lead--light">Whether you&#39;re a county council with 1,500 employees, a government agency with specialist compliance requirements, or a semi-state body managing public-facing services &#8212; Fit2Trade is configured for your organisation.</p>
+    </div>
+    <div class="workforce-cards">
+      <div class="wf-card reveal"><div class="wf-icon">&#127963;</div><div class="wf-title">County and City Councils</div><p class="wf-desc">Multi-site H&amp;S, outdoor workers, depots, libraries, leisure centres, planning and administration. The full scope of local authority compliance in one portal.</p></div>
+      <div class="wf-card reveal reveal-delay-1"><div class="wf-icon">&#127961;&#65039;</div><div class="wf-title">Government Departments &amp; Agencies</div><p class="wf-desc">GDPR, FOI, ethics, Protected Disclosures and H&amp;S training for office-based and mixed workforces. Full audit trails for CAG reviews.</p></div>
+      <div class="wf-card reveal reveal-delay-2"><div class="wf-icon">&#9878;&#65039;</div><div class="wf-title">Semi-State Bodies</div><p class="wf-desc">Commercial semi-states face private sector compliance expectations plus public accountability. Fit2Trade bridges both worlds.</p></div>
+      <div class="wf-card reveal reveal-delay-3"><div class="wf-icon">&#127979;</div><div class="wf-title">Educational Institutions</div><p class="wf-desc">Secondary schools, ETBs and third-level institutions. Staff training, safeguarding policies, fire safety and H&amp;S documentation.</p></div>
+      <div class="wf-card reveal"><div class="wf-icon">&#127973;</div><div class="wf-title">Healthcare Agencies</div><p class="wf-desc">HSE-affiliated bodies and funded agencies with mandatory training requirements across clinical and non-clinical staff categories.</p></div>
+      <div class="wf-card reveal reveal-delay-1"><div class="wf-icon">&#9874;&#65039;</div><div class="wf-title">Public Works &amp; Infrastructure</div><p class="wf-desc">Road maintenance, utilities and infrastructure teams with outdoor workers, heavy equipment and lone working H&amp;S requirements.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="courses-sol">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">Compliance training</span>
+      <h2 class="h2 h2--light">Public sector&#8212;specific courses.<br>Ready to deploy immediately.</h2>
+      <p class="lead lead--light">Each course is written for the Irish public sector context &#8212; using the correct legislation, the correct terminology and the correct regulatory bodies. Not adapted from generic corporate training.</p>
+    </div>
+    <div class="courses-sol-grid">
+      <a href="/courses/gdpr/" class="course-card-sol reveal"><span class="cc-icon">&#128274;</span><div class="cc-name">GDPR for Public Sector</div><p class="cc-desc">Data subject rights, lawful bases for processing, breaches, DPIA and DPC obligations under Irish law.</p><div class="cc-tag">Governance</div></a>
+      <a href="/courses/foi/" class="course-card-sol reveal reveal-delay-1"><span class="cc-icon">&#128196;</span><div class="cc-name">Freedom of Information</div><p class="cc-desc">FOI Act 2014 obligations, handling requests, exemptions and the role of the Information Commissioner.</p><div class="cc-tag">Governance</div></a>
+      <a href="/courses/protected-disclosures/" class="course-card-sol reveal reveal-delay-2"><span class="cc-icon">&#128483;&#65039;</span><div class="cc-name">Protected Disclosures</div><p class="cc-desc">Employee rights and employer obligations under the Protected Disclosures Acts 2014 and 2022.</p><div class="cc-tag">Governance</div></a>
+      <a href="/courses/ethics/" class="course-card-sol reveal reveal-delay-3"><span class="cc-icon">&#9878;&#65039;</span><div class="cc-name">Governance &amp; Risk Awareness</div><p class="cc-desc">Ethics in Public Office Acts, conflicts of interest, gifts, SIPO obligations and governance standards.</p><div class="cc-tag">Governance</div></a>
+      <a href="/courses/manual-handling/" class="course-card-sol reveal"><span class="cc-icon">&#127947;</span><div class="cc-name">Manual Handling</div><p class="cc-desc">Safe lifting for office, depot and outdoor workers. Required under SHWWA Regulations 2007.</p><div class="cc-tag">H&amp;S</div></a>
+      <a href="/courses/fire-safety/" class="course-card-sol reveal reveal-delay-1"><span class="cc-icon">&#128293;</span><div class="cc-name">Fire Safety Awareness</div><p class="cc-desc">Evacuation procedures, fire warden roles, extinguisher use and emergency response planning.</p><div class="cc-tag">H&amp;S</div></a>
+      <a href="/courses/health-safety/" class="course-card-sol reveal reveal-delay-2"><span class="cc-icon">&#9937;&#65039;</span><div class="cc-name">H&amp;S Awareness</div><p class="cc-desc">Workplace hazard identification, risk awareness and employee obligations under SHWWA 2005.</p><div class="cc-tag">H&amp;S</div></a>
+      <a href="/courses/dignity-at-work/" class="course-card-sol reveal reveal-delay-3"><span class="cc-icon">&#129309;</span><div class="cc-name">Dignity at Work</div><p class="cc-desc">Bullying, harassment and discrimination prevention. Required under the Employment Equality Acts.</p><div class="cc-tag">Governance</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="demo-sol" id="demo">
+  <div class="container">
+    <div class="demo-sol-inner">
+      <div class="demo-sol-info">
+        <span class="eyebrow">Book a demo</span>
+        <h2 class="h2">See how public sector bodies manage compliance with Fit2Trade</h2>
+        <p class="lead">We&#39;ll configure the demo around your organisation type &#8212; local authority, government agency or semi-state &#8212; and show you exactly how Fit2Trade handles your specific governance and H&amp;S obligations.</p>
+        <div class="demo-checklist">
+          <div class="demo-check-item"><div class="demo-check-icon">&#10003;</div>Demo tailored to your organisation type</div>
+          <div class="demo-check-item"><div class="demo-check-icon">&#10003;</div>We&#39;ll show GDPR, FOI and H&amp;S management together</div>
+          <div class="demo-check-item"><div class="demo-check-icon">&#10003;</div>See one-click compliance report for audit purposes</div>
+          <div class="demo-check-item"><div class="demo-check-icon">&#10003;</div>Pricing confirmed for your staff numbers</div>
+        </div>
+      </div>
+      <div>
+        <form name="public-sector-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form-light" id="demo-form">
+          <input type="hidden" name="form-name" value="public-sector-demo" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+          <div class="f-row">
+            <div><label class="f-label" for="d-first">First name *</label><input class="f-input" type="text" id="d-first" name="first_name" required placeholder="Jane" /></div>
+            <div><label class="f-label" for="d-last">Last name *</label><input class="f-input" type="text" id="d-last" name="last_name" required placeholder="Smith" /></div>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-email">Work email *</label><input class="f-input" type="email" id="d-email" name="email" required placeholder="jane@council.ie" /></div>
+          <div class="f-group"><label class="f-label" for="d-org">Organisation *</label><input class="f-input" type="text" id="d-org" name="organisation" required placeholder="Anytown County Council" /></div>
+          <div class="f-group"><label class="f-label" for="d-type">Organisation type *</label>
+            <select class="f-select" id="d-type" name="org_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>County / City Council</option><option>Government Department</option>
+              <option>Government Agency</option><option>Semi-State Body</option>
+              <option>Educational Institution / ETB</option><option>HSE-affiliated body</option>
+              <option>Other public sector body</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-staff">Number of employees *</label>
+            <select class="f-select" id="d-staff" name="employees" required>
+              <option value="" disabled selected>Select range</option>
+              <option>Under 50</option><option>50&#8211;200</option><option>201&#8211;500</option><option>501&#8211;1,500</option><option>1,500+</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-interest">Primary compliance need</label>
+            <select class="f-select" id="d-interest" name="interest">
+              <option value="" disabled selected>Select area</option>
+              <option>GDPR &amp; Data Protection</option><option>Freedom of Information</option>
+              <option>Protected Disclosures</option><option>H&amp;S Management</option>
+              <option>All governance + H&amp;S</option>
+            </select>
+          </div>
+          <div class="f-consent" style="color:var(--muted)"><input type="checkbox" id="d-consent" name="consent" required /><label for="d-consent">I agree to the <a href="/privacy/" style="color:var(--green)">privacy notice</a> and <a href="/terms/" style="color:var(--green)">terms</a>.</label></div>
+          <button type="submit" class="btn btn--green btn--lg f-submit">Book My Demo</button>
+        </form>
+        <div class="form-success" id="demo-success" style="display:none"><div class="form-success-icon">&#128197;</div><h3>You're booked in.</h3><p>We'll be in touch within one business day to confirm your demo time.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sol">
+  <div class="container">
+    <div class="section-head section-head--center"><span class="eyebrow">Common questions</span><h2 class="h2">Questions from public sector managers</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-q">Can Fit2Trade produce evidence for a DPC investigation or FOI request?<span class="faq-icon">+</span></summary><p class="faq-a">Yes &#8212; your compliance dashboard can produce a complete, timestamped report showing which employees have completed GDPR training, when they completed it, and when any policies were acknowledged. This is exactly the type of evidence the Data Protection Commission looks for when investigating whether an organisation took appropriate staff training measures. The same report format works for internal audit, CAG reviews and FOI-related compliance queries.</p></details>
+      <details class="faq-item"><summary class="faq-q">Do we need separate training for office staff vs outdoor/maintenance teams?<span class="faq-icon">+</span></summary><p class="faq-a">Yes &#8212; and Fit2Trade manages this automatically. Training requirements are assigned by role and location. Office staff are assigned DSE, manual handling and governance training. Outdoor and maintenance workers are assigned manual handling, fire safety, lone working procedures and any relevant site-specific H&amp;S training. Managers see completion across all groups in one dashboard.</p></details>
+      <details class="faq-item"><summary class="faq-q">Is the Protected Disclosures training aligned to the 2022 Act amendments?<span class="faq-icon">+</span></summary><p class="faq-a">Yes &#8212; our Protected Disclosures course reflects the Protected Disclosures (Amendment) Act 2022 which significantly expanded the scope of the 2014 legislation. The course covers the updated definitions of &#8220;worker&#8221; and &#8220;wrongdoing&#8221;, the new obligations on public bodies, the designated disclosure channels requirement and the enhanced protections against penalisation.</p></details>
+      <details class="faq-item"><summary class="faq-q">How does Fit2Trade handle seasonal and contract staff?<span class="faq-icon">+</span></summary><p class="faq-a">Seasonal and contract staff are added to the system with their specific role and training requirements before they start. Their training completion is tracked identically to permanent staff &#8212; and their records are retained after their contract ends. For councils and agencies with significant seasonal workforce needs (outdoor maintenance, tourism, events), this ensures compliance records are maintained regardless of workforce fluctuations.</p></details>
+      <details class="faq-item"><summary class="faq-q">Can we use Fit2Trade to demonstrate compliance during a CAG or internal audit?<span class="faq-icon">+</span></summary><p class="faq-a">Yes &#8212; the one-click compliance report from Fit2Trade provides auditors with a complete view of training records, H&amp;S documentation, risk assessment registers, incident logs and policy acknowledgements. The date-stamped audit trail shows not just that you have policies in place, but that staff were trained on them &#8212; which is what a CAG or internal audit review is typically seeking.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="related-sol">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Also explore</span><h2 class="h2">More solutions by sector</h2></div>
+    <div class="related-grid">
+      <a href="/solutions/credit-unions/" class="related-card reveal"><div class="related-card-img"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Fit2Trade-for-Credit-Unions-scaled.jpg" alt="Credit Unions" loading="lazy" /></div><div class="related-card-body"><div class="related-card-label">Credit Unions</div><div class="related-card-title">CBI, MCC &amp; DORA compliance</div><p class="related-card-desc">Mandatory regulatory training, MCC tracker, H&amp;S management and DORA packs for Irish credit unions.</p><span class="related-card-cta">Explore &#8250;</span></div></a>
+      <a href="/solutions/healthcare/" class="related-card reveal reveal-delay-1"><div class="related-card-img"><img src="https://www.fit2trade.com/wp-content/uploads/2024/08/EHS-Managemennt-for-Nursing-Homes-Fit2Care.jpg" alt="Healthcare" loading="lazy" /></div><div class="related-card-body"><div class="related-card-label">Healthcare</div><div class="related-card-title">Care homes &amp; nursing homes</div><p class="related-card-desc">HIQA and CQC inspection-ready. Mandatory training matrix, safeguarding and incident management.</p><span class="related-card-cta">Explore &#8250;</span></div></a>
+      <a href="/solutions/childcare/" class="related-card reveal reveal-delay-2"><div class="related-card-img"><img src="https://www.fit2trade.com/wp-content/uploads/2022/05/Fit2Trade-for-Early-Years-Providers-scaled.jpg" alt="Childcare" loading="lazy" /></div><div class="related-card-body"><div class="related-card-label">Childcare</div><div class="related-card-title">Early years &amp; childcare settings</div><p class="related-card-desc">Tusla and Ofsted-ready. Safeguarding, first aid training and full compliance documentation.</p><span class="related-card-cta">Explore &#8250;</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-cta-title">Public accountability deserves<br>public compliance.</h2>
+    <p class="final-cta-sub">One portal for GDPR, FOI, Protected Disclosures, ethics and H&amp;S compliance &#8212; with a complete audit trail for every requirement.</p>
+    <div class="final-cta-btns"><a href="#demo" class="btn btn--white btn--lg">Book a Demo</a><a href="/products/" class="btn btn--white-outline btn--lg">See All Products</a></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand"><img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /><p class="ft-brand-copy">One system, one login. AI-powered compliance for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Solutions</p><ul class="ft-links"><li><a href="/solutions/credit-unions/" class="ft-link">Credit Unions</a></li><li><a href="/solutions/public-sector/" class="ft-link" style="color:#7DBDAD">Public Sector</a></li><li><a href="/solutions/retail/" class="ft-link">Retail</a></li><li><a href="/solutions/hospitality/" class="ft-link">Hospitality</a></li><li><a href="/solutions/healthcare/" class="ft-link">Healthcare</a></li><li><a href="/solutions/childcare/" class="ft-link">Childcare</a></li></ul></div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/pricing/" class="ft-link">Pricing</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>(function(){const f=document.getElementById('demo-form'),s=document.getElementById('demo-success');if(!f||!s)return;f.addEventListener('submit',async function(e){e.preventDefault();const b=f.querySelector('[type="submit"]'),l=b.textContent;b.textContent='Sending…';b.disabled=true;try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();}catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please email info@fit2trade.com');}});})();
+</script>
+</body>
+</html>
