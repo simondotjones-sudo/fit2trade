@@ -1,1 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us &#8212; Book a Demo | Fit2Trade</title>
+  <meta name="description" content="Book a 15-minute demo, ask a question or get a custom quote. Our team typically responds within one business day." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .contact-hero{background:var(--black);padding:calc(var(--nav-h) + 80px) 0 80px;text-align:center}
+    .contact-hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:16px}
+    .contact-hero h1 span{color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(135deg,#8DD5C5,#2E6052)}
+    .contact-hero p{font-size:1.05rem;color:rgba(255,255,255,.45);max-width:440px;margin:0 auto}
+    .contact-body{padding:var(--section) 0;background:var(--surface)}
+    .contact-grid{display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:start}
+    /* Form */
+    .contact-form-wrap{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-xl);padding:44px;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+    .form-title{font-size:1.3rem;font-weight:900;color:var(--ink);letter-spacing:-.03em;margin-bottom:4px}
+    .form-sub{font-size:.875rem;color:var(--muted);margin-bottom:28px}
+    /* Right column */
+    .contact-info{display:flex;flex-direction:column;gap:28px}
+    .contact-card{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r);padding:24px 26px}
+    .contact-card-icon{font-size:1.3rem;margin-bottom:10px}
+    .contact-card-title{font-size:.92rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:5px}
+    .contact-card-desc{font-size:.845rem;color:var(--muted);line-height:1.6}
+    .contact-card-link{display:inline-flex;align-items:center;gap:6px;font-size:.845rem;font-weight:700;color:var(--green);margin-top:10px;transition:gap var(--t)}
+    .contact-card-link:hover{gap:10px}
+    /* What happens next */
+    .next-steps{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r);padding:24px 26px}
+    .next-title{font-size:.9rem;font-weight:800;color:var(--ink);margin-bottom:16px}
+    .next-step{display:flex;gap:14px;margin-bottom:16px}
+    .next-step:last-child{margin-bottom:0}
+    .next-num{width:26px;height:26px;border-radius:50%;background:var(--green);color:var(--white);font-size:.75rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .next-text strong{display:block;font-size:.875rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+    .next-text span{font-size:.8rem;color:var(--muted);line-height:1.5}
+    /* Clients strip */
+    .clients-strip{padding:60px 0;background:var(--white);border-top:1px solid var(--border-lt)}
+    .clients-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:24px}
+    .clients-logos{display:flex;flex-wrap:wrap;gap:0;justify-content:center;border:1px solid var(--border-lt);border-radius:var(--r);overflow:hidden;max-width:800px;margin:0 auto}
+    .client-pill{padding:16px 28px;font-size:.82rem;font-weight:700;color:var(--muted);border-right:1px solid var(--border-lt);border-bottom:1px solid var(--border-lt);white-space:nowrap}
+    .client-pill:last-child{border-right:none}
+    /* Success */
+    .form-success{display:none;text-align:center;padding:56px 24px}
+    .form-success-icon{font-size:3rem;margin-bottom:16px}
+    .form-success h3{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px;color:var(--ink)}
+    .form-success p{color:var(--muted);font-size:.95rem;max-width:300px;margin:0 auto}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:36px}.contact-info{order:-1}}
+    @media(max-width:500px){.contact-form-wrap{padding:28px 22px}.client-pill{font-size:.75rem;padding:14px 18px}}
+  </style>
+</head>
+<body>
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI, MCC &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; nursing homes</span></a></li>
+            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/public-sector/" class="dd-link"><strong>Public Sector</strong><span>Councils, agencies &amp; semi-states</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S Management System</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link" style="color:rgba(255,255,255,1)">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item"><div class="mob-link" data-mob="mob-sol">Solutions for <span>+</span></div>
+      <ul class="mob-sub" id="mob-sol">
+        <li><a href="/solutions/credit-unions/" class="mob-sub-link">Credit Unions</a></li>
+        <li><a href="/solutions/retail/"        class="mob-sub-link">Retail</a></li>
+        <li><a href="/solutions/hospitality/"   class="mob-sub-link">Hospitality</a></li>
+        <li><a href="/solutions/healthcare/"    class="mob-sub-link">Healthcare</a></li>
+        <li><a href="/solutions/childcare/"     class="mob-sub-link">Childcare</a></li>
+        <li><a href="/solutions/public-sector/" class="mob-sub-link">Public Sector</a></li>
+      </ul>
+    </li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
+</nav>
 
+<section class="contact-hero">
+  <div class="container">
+    <h1>Let&#8217;s talk<br><span>compliance.</span></h1>
+    <p>Book a 15-minute demo, ask a question or get a custom quote. Our team responds within one business day.</p>
+  </div>
+</section>
+
+<section class="contact-body">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: FORM -->
+      <div class="contact-form-wrap">
+        <div class="form-title">Get in touch</div>
+        <p class="form-sub">Fill in the form and we&#8217;ll come back to you within one business day to confirm your demo time or answer your question.</p>
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none"><label>Don&#8217;t fill: <input name="bot-field" /></label></p>
+          <div class="f-row">
+            <div><label class="f-label" for="c-first">First name *</label><input class="f-input" type="text" id="c-first" name="first_name" required placeholder="Jane" /></div>
+            <div><label class="f-label" for="c-last">Last name *</label><input class="f-input" type="text" id="c-last" name="last_name" required placeholder="Smith" /></div>
+          </div>
+          <div class="f-group"><label class="f-label" for="c-email">Work email *</label><input class="f-input" type="email" id="c-email" name="email" required placeholder="jane@company.com" /></div>
+          <div class="f-group"><label class="f-label" for="c-org">Organisation *</label><input class="f-input" type="text" id="c-org" name="organisation" required placeholder="Acme Ltd." /></div>
+          <div class="f-group"><label class="f-label" for="c-industry">Industry</label>
+            <select class="f-select" id="c-industry" name="industry">
+              <option value="" disabled selected>Select your industry</option>
+              <option>Retail</option><option>Hospitality</option><option>Healthcare / Care Home</option>
+              <option>Childcare / Early Years</option><option>Credit Union</option>
+              <option>Public Sector</option><option>Other</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="c-interest">What can we help with?</label>
+            <select class="f-select" id="c-interest" name="interest">
+              <option value="" disabled selected>Select topic</option>
+              <option>Book a demo</option><option>Get a quote / pricing</option>
+              <option>H&amp;S compliance (Ensure)</option><option>Compliance training (Educate)</option>
+              <option>Operational management (Operate)</option><option>Licence tracking (Enclose)</option>
+              <option>Employee wellbeing (Elevate)</option><option>Employee engagement (Engage)</option>
+              <option>Credit union compliance</option><option>General enquiry</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="c-msg">Message</label><textarea class="f-textarea" id="c-msg" name="message" rows="4" placeholder="Tell us a bit about your organisation and what you&#8217;re looking to solve&#8230;"></textarea></div>
+          <div class="f-consent"><input type="checkbox" id="c-consent" name="consent" required /><label for="c-consent">I agree to the <a href="/privacy/">privacy notice</a> and <a href="/terms/">terms</a>.</label></div>
+          <button type="submit" class="btn btn--green btn--lg f-submit" style="width:100%;justify-content:center">Send Message</button>
+        </form>
+        <div class="form-success" id="contact-success">
+          <div class="form-success-icon">&#9989;</div>
+          <h3>Message received.</h3>
+          <p>We&#8217;ll be back in touch within one business day.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: INFO -->
+      <div class="contact-info">
+
+        <div class="next-steps">
+          <div class="next-title">What happens after you submit</div>
+          <div class="next-step">
+            <div class="next-num">1</div>
+            <div class="next-text"><strong>We confirm your demo time</strong><span>Within one business day we&#8217;ll reach out to schedule a 15-minute call at a time that suits you.</span></div>
+          </div>
+          <div class="next-step">
+            <div class="next-num">2</div>
+            <div class="next-text"><strong>You see the platform live</strong><span>We&#8217;ll tailor the demo to your industry and the specific products relevant to your needs.</span></div>
+          </div>
+          <div class="next-step">
+            <div class="next-num">3</div>
+            <div class="next-text"><strong>You get a custom quote</strong><span>Pricing confirmed on the call based on your sites and products &#8212; no hidden costs, no pressure.</span></div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128231;</div>
+          <div class="contact-card-title">Email us directly</div>
+          <p class="contact-card-desc">Prefer to reach out by email? Our team monitors this inbox throughout the day.</p>
+          <a href="mailto:info@fit2trade.com" class="contact-card-link">info@fit2trade.com &#8250;</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128222;</div>
+          <div class="contact-card-title">Call us</div>
+          <p class="contact-card-desc">Talk to someone on the team directly.</p>
+          <a href="tel:+35316855732" class="contact-card-link">+353 1 685 5732 &#8250;</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128205;</div>
+          <div class="contact-card-title">Our office</div>
+          <p class="contact-card-desc">Fit2Trade Ltd.<br />The Masonry, Hanover Quay,<br />Dublin 2, D02 VY79, Ireland</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128279;</div>
+          <div class="contact-card-title">Connect on LinkedIn</div>
+          <p class="contact-card-desc">Follow us for compliance news, product updates and industry insight.</p>
+          <a href="https://www.linkedin.com/company/fit2trade" class="contact-card-link" target="_blank" rel="noopener">Fit2Trade on LinkedIn &#8250;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="clients-strip">
+  <p class="clients-label">Trusted by</p>
+  <div class="clients-logos">
+    <span class="client-pill">Applegreen</span>
+    <span class="client-pill">Insomnia Coffee</span>
+    <span class="client-pill">Radisson Hotels</span>
+    <span class="client-pill">Coca-Cola HBC</span>
+    <span class="client-pill">O&#8217;Briens Wines</span>
+    <span class="client-pill">Stacks Pharmacies</span>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand"><img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /><p class="ft-brand-copy">One system, one login. AI-powered compliance for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Solutions</p><ul class="ft-links"><li><a href="/solutions/credit-unions/" class="ft-link">Credit Unions</a></li><li><a href="/solutions/retail/" class="ft-link">Retail</a></li><li><a href="/solutions/hospitality/" class="ft-link">Hospitality</a></li><li><a href="/solutions/healthcare/" class="ft-link">Healthcare</a></li><li><a href="/solutions/childcare/" class="ft-link">Childcare</a></li><li><a href="/solutions/public-sector/" class="ft-link">Public Sector</a></li></ul></div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li><li><a href="/products/enclose/" class="ft-link">Enclose</a></li><li><a href="/products/elevate/" class="ft-link">Elevate</a></li><li><a href="/products/engage/" class="ft-link">Engage</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/pricing/" class="ft-link">Pricing</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  const f=document.getElementById('contact-form'), s=document.getElementById('contact-success');
+  if(!f||!s)return;
+  f.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const b=f.querySelector('[type="submit"]'),l=b.textContent;
+    b.textContent='Sending…';b.disabled=true;
+    try{
+      const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});
+      if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();
+    }catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please email info@fit2trade.com');}
+  });
+})();
+</script>
+</body>
+</html>
