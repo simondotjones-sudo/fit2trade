@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENSURE — H&S Management System | Fit2Trade</title>
+  <meta name="description" content="The complete digital H&S management system. Replace paper with real-time safety routines, incident reporting, risk assessments and audits — all in one place." />
+  <meta property="og:title"       content="ENSURE — H&S Management System | Fit2Trade" />
+  <meta property="og:description" content="Ditch paper. Get real-time visibility. Run a safer workplace with Fit2Trade's Ensure." />
+  <meta property="og:image"       content="https://www.fit2trade.com/wp-content/uploads/2022/11/Ensure-Digital-Health-and-Safety-portal.jpg" />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    /* ── Ensure page-specific styles ─────────────────────── */
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 22px;
+      justify-content: center;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); transition: color var(--t); }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+    .breadcrumb-sep { opacity: 0.3; }
+
+    /* Smaller hero for inner pages */
+    .hero-inner {
+      min-height: 72vh;
+      padding-bottom: 80px;
+    }
+    .hero-inner .hero-content { padding-bottom: 64px; }
+    .hero-inner .hero-h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-lt);
+      padding: 0;
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid var(--border-lt);
+    }
+    .stat-item {
+      padding: 36px 28px;
+      border-right: 1px solid var(--border-lt);
+      text-align: center;
+    }
+    .stat-num {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num span { color: var(--green); }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Problem section */
+    .problem-section {
+      padding: var(--section) 0;
+      background: var(--surface);
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+    .problem-card {
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--r);
+      padding: 28px 24px;
+      transition: box-shadow var(--t), border-color var(--t);
+    }
+    .problem-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+    .problem-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .problem-title {
+      font-size: 0.97rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .problem-text {
+      font-size: 0.845rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Feature rows — alternating image/text */
+    .features-deep {
+      padding: var(--section) 0;
+      background: var(--white);
+    }
+    .feat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      padding: 72px 0;
+    }
+    .feat-row:not(:last-child) {
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .feat-row.is-flipped { direction: rtl; }
+    .feat-row.is-flipped > * { direction: ltr; }
+
+    .feat-img {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+      border: 1px solid var(--border-lt);
+    }
+    .feat-img img { width: 100%; display: block; }
+
+    .feat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-tint);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .feat-h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .feat-body {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.72;
+      margin-bottom: 24px;
+    }
+    .feat-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .feat-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+    .feat-bullet::before {
+      content: '';
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--green-tint);
+      border: 1.5px solid var(--green);
+      flex-shrink: 0;
+      margin-top: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 5.2l1.8 1.8 3.2-3.5' stroke='%232E6052' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+      background-size: 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Supporting features grid */
+    .supporting-section {
+      padding: var(--section) 0;
+      background: var(--surface);
+    }
+    .supporting-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .sup-card {
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--r);
+      padding: 28px 24px;
+      transition: box-shadow var(--t), transform var(--t), border-color var(--t);
+    }
+    .sup-card:hover {
+      box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+      border-color: rgba(46,96,82,0.2);
+    }
+    .sup-icon {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .sup-title {
+      font-size: 0.97rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .sup-text {
+      font-size: 0.845rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* How it works */
+    .hiw-section {
+      padding: var(--section) 0;
+      background: var(--black);
+    }
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 52px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .hiw-step {
+      padding: 48px 36px;
+      background: var(--black);
+      position: relative;
+    }
+    .hiw-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .hiw-num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 18px;
+      opacity: 0.4;
+    }
+    .hiw-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.025em;
+      margin-bottom: 10px;
+    }
+    .hiw-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+    }
+
+    /* Compliance strip */
+    .compliance-section {
+      padding: var(--section) 0;
+      background: var(--white);
+    }
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .compliance-card {
+      padding: 36px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border-lt);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow var(--t);
+    }
+    .compliance-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
+    .compliance-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+    }
+    .compliance-img {
+      width: 100%;
+      border-radius: var(--r-sm);
+      margin-bottom: 22px;
+      border: 1px solid var(--border-lt);
+    }
+    .compliance-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.025em;
+      margin-bottom: 10px;
+    }
+    .compliance-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Demo form section */
+    .demo-section {
+      padding: var(--section) 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-section::before {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,96,82,0.07), transparent 70%);
+      pointer-events: none;
+    }
+    .demo-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+    }
+    .demo-info .h2 { color: var(--white); margin-bottom: 14px; }
+    .demo-info .lead { color: rgba(255,255,255,0.42); }
+
+    .demo-checklist {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .demo-check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .demo-check-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(46,96,82,0.2);
+      border: 1px solid rgba(46,96,82,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+    }
+
+    /* Interests checkboxes */
+    .interests-group { margin-bottom: 18px; }
+    .interests-label {
+      display: block;
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .interests-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .interest-opt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      transition: background var(--t), border-color var(--t);
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .interest-opt:has(input:checked) {
+      background: rgba(46,96,82,0.12);
+      border-color: rgba(46,96,82,0.4);
+      color: var(--white);
+    }
+    .interest-opt input { accent-color: var(--green); flex-shrink: 0; }
+
+    /* FAQ */
+    .faq-section {
+      padding: var(--section) 0;
+      background: var(--surface);
+    }
+    .faq-list {
+      max-width: 780px;
+      margin: 48px auto 0;
+    }
+    details.faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    details.faq-item:first-child { border-top: 1px solid var(--border); }
+    summary.faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 4px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      gap: 16px;
+      letter-spacing: -0.015em;
+    }
+    summary.faq-q::-webkit-details-marker { display: none; }
+    .faq-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      color: var(--muted);
+      transition: background var(--t), border-color var(--t), transform var(--t);
+      font-weight: 400;
+      line-height: 1;
+    }
+    details[open] .faq-icon {
+      background: var(--green-tint);
+      border-color: var(--green);
+      color: var(--green);
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      padding: 0 4px 22px;
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      padding: var(--section) 0;
+      background: var(--green);
+      text-align: center;
+    }
+    .final-cta-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
+    }
+    .final-cta-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-inline: auto;
+      margin-bottom: 36px;
+    }
+    .final-cta-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn--white {
+      background: var(--white);
+      color: var(--green);
+    }
+    .btn--white:hover {
+      background: var(--surface);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+    }
+    .btn--white-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .btn--white-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* Responsive overrides */
+    @media (max-width: 900px) {
+      .stats-inner      { grid-template-columns: repeat(2, 1fr); }
+      .problem-grid     { grid-template-columns: repeat(2, 1fr); }
+      .supporting-grid  { grid-template-columns: repeat(2, 1fr); }
+      .hiw-steps        { grid-template-columns: 1fr; gap: 0; }
+      .hiw-step::after  { display: none; }
+      .compliance-grid  { grid-template-columns: 1fr; }
+      .demo-inner       { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .feat-row           { grid-template-columns: 1fr; gap: 36px; direction: ltr !important; }
+      .feat-row .feat-img { order: -1; }
+    }
+    @media (max-width: 520px) {
+      .stats-inner     { grid-template-columns: 1fr 1fr; }
+      .problem-grid    { grid-template-columns: 1fr; }
+      .supporting-grid { grid-template-columns: 1fr 1fr; }
+      .interests-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     HEADER (identical to homepage — include as shared partial later)
+     ================================================================ -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Fit2Trade home">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+      </a>
+      <ul class="nav-menu" role="menubar">
+        <li class="nav-item">
+          <span class="nav-link" tabindex="0" aria-haspopup="true">Solutions for
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <ul class="dropdown dropdown--wide" role="menu">
+            <li><a href="/solutions/credit-unions/"  class="dd-link"><strong>Credit Unions</strong><span>CBI &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"         class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"    class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"     class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; pharmacies</span></a></li>
+            <li><a href="/solutions/childcare/"      class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/sports/"         class="dd-link"><strong>Sports</strong><span>GAA and sports clubs</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" tabindex="0" aria-haspopup="true">Products
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <ul class="dropdown" role="menu">
+            <li><a href="/products/ensure/"  class="dd-link" style="color:var(--green)"><strong>ENSURE</strong><span>H&amp;S &amp; Food Safety Management</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management App</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing Portal</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement Portal</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" tabindex="0" aria-haspopup="true">Courses
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <ul class="dropdown dropdown--wide" role="menu">
+            <li><a href="/courses/compliance/"      class="dd-link"><strong>Compliance</strong><span>H&amp;S, food safety, retail</span></a></li>
+            <li><a href="/courses/corporate/"       class="dd-link"><strong>Corporate</strong><span>Ethics, GDPR, DEI</span></a></li>
+            <li><a href="/courses/ai-skills/"       class="dd-link"><strong>AI &amp; Future Skills</strong><span>Future skills diploma</span></a></li>
+            <li><a href="/courses/business-skills/" class="dd-link"><strong>Business Skills</strong><span>Leadership, sales, marketing</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/"  class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/"  class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login/"   class="nav-login">Login</a>
+        <a href="#demo"     class="btn btn--green btn--sm">Request a Demo</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <ul>
+    <li class="mob-item"><a href="/"          class="mob-link">Home</a></li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/solutions/" class="mob-link">Solutions</a></li>
+    <li class="mob-item"><a href="/courses/"  class="mob-link">Courses</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions">
+    <a href="/login/" class="btn btn--ghost">Login</a>
+    <a href="#demo"   class="btn btn--green">Request a Demo</a>
+  </div>
+</nav>
+
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero hero-inner" id="hero">
+  <div class="hero-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/products/">Products</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:rgba(255,255,255,0.6)">Ensure</span>
+    </nav>
+
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      H&S Management System
+    </div>
+
+    <h1 class="hero-h1">
+      Safety management.<br>
+      <span class="accent">Without the paperwork.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Replace paper, ring-binders and spreadsheets with Ensure — Fit2Trade's complete digital H&amp;S system. Real-time visibility across every site, from any device.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#demo"     class="btn btn--green btn--lg">Request a Demo</a>
+      <a href="#features" class="btn btn--ghost btn--lg">See all features ↓</a>
+    </div>
+
+  </div>
+
+  <div class="hero-shot">
+    <img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Ensure-Digital-Health-and-Safety-portal.jpg"
+         alt="Ensure H&S management system dashboard" loading="eager" />
+  </div>
+</section>
+
+
+<!-- ================================================================
+     STATS STRIP
+     ================================================================ -->
+<div class="stats-strip">
+  <div class="container" style="padding-inline:0; max-width:100%;">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num"><span>8</span> tools</div>
+        <div class="stat-label">All in one platform</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>100%</span></div>
+        <div class="stat-label">Paperless compliance</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Any<span>.</span></div>
+        <div class="stat-label">Device. Anywhere.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Multi<span>-</span>site</div>
+        <div class="stat-label">Ready out of the box</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     THE PROBLEM
+     ================================================================ -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The problem</span>
+      <h2 class="h2">Paper-based safety is<br>costing you more than you think</h2>
+      <p class="lead">When things get busy, paper-based systems fail exactly when you need them most.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <span class="problem-icon" aria-hidden="true">📋</span>
+        <h3 class="problem-title">Checks get missed</h3>
+        <p class="problem-text">Daily and weekly safety checks are easy to skip during busy periods, leaving you exposed to liability.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-1">
+        <span class="problem-icon" aria-hidden="true">🗂️</span>
+        <h3 class="problem-title">Paperwork goes missing</h3>
+        <p class="problem-text">Paper records vanish exactly when an inspector arrives or an incident needs to be investigated.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <span class="problem-icon" aria-hidden="true">👁️</span>
+        <h3 class="problem-title">No visibility across sites</h3>
+        <p class="problem-text">Managers have no way to see which locations are compliant and which are falling behind — in real time.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-3">
+        <span class="problem-icon" aria-hidden="true">😰</span>
+        <h3 class="problem-title">Inspections are stressful</h3>
+        <p class="problem-text">Scrambling for safety statements, incident logs and risk assessments minutes before an EHO or HSA visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     CORE FEATURES — deep dives
+     ================================================================ -->
+<section class="features-deep" id="features">
+  <div class="container">
+
+    <!-- 1. Incident & Accident Management -->
+    <div class="feat-row" id="incidents">
+      <div class="feat-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2024/01/Incident-and-Accident-Dashboard-by-Fit2Trade-scaled.jpg"
+             alt="Incident and Accident Management dashboard" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Incident &amp; Accident Management</div>
+        <h3 class="feat-h3">From incident to investigation in minutes</h3>
+        <p class="feat-body">
+          Instantly capture, manage and investigate all workplace incidents from any device. Dashboards make reporting to your board and to authorities — HSA, HSE, OSHA — straightforward.
+        </p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Log incidents with location, persons involved and photos</li>
+          <li class="feat-bullet">Escalate to management and head office automatically</li>
+          <li class="feat-bullet">Generate authority-ready reports with one click</li>
+          <li class="feat-bullet">Track corrective actions through to resolution</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+    <!-- 2. Digital H&S Routines -->
+    <div class="feat-row is-flipped" id="routines">
+      <div class="feat-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/View-compliance-by-location.jpg"
+             alt="Digital H&S compliance routines" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Digital H&S Routines</div>
+        <h3 class="feat-h3">Real-time visibility of every safety check</h3>
+        <p class="feat-body">
+          Replace paper checklists with smart digital routines. Your team sees exactly what needs to be done next, and you see live compliance data across every location.
+        </p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Daily, weekly and monthly checks scheduled automatically</li>
+          <li class="feat-bullet">Staff receive notifications on their device</li>
+          <li class="feat-bullet">Photo capture and sign-off built in</li>
+          <li class="feat-bullet">Live dashboard shows compliance by site and check type</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+    <!-- 3. Safety Statement Creation -->
+    <div class="feat-row" id="safety-statements">
+      <div class="feat-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Legal-Compliance.jpg"
+             alt="Digital Safety Statement creation" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Safety Statement Creation</div>
+        <h3 class="feat-h3">Proof of compliance, always at your fingertips</h3>
+        <p class="feat-body">
+          Create, distribute and maintain digital safety statements that satisfy your legal obligations. Every employee can access location-specific guidelines instantly — no printing, no binders.
+        </p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Templates pre-built for your industry and jurisdiction</li>
+          <li class="feat-bullet">Employees acknowledge and sign digitally</li>
+          <li class="feat-bullet">Version control — always know who has the latest document</li>
+          <li class="feat-bullet">Instantly exportable for inspections</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+    <!-- 4. Risk Assessments -->
+    <div class="feat-row is-flipped" id="risk-assessments">
+      <div class="feat-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Audit-ready-reports.jpg"
+             alt="Risk assessment software" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Risk Assessment Software</div>
+        <h3 class="feat-h3">Engaging risk assessments employees actually complete</h3>
+        <p class="feat-body">
+          Our platform turns dry risk assessments into bite-sized, interactive modules accessible on any device. Powered by <strong>Aidan</strong> — our AI engine — assessments are generated and updated automatically.
+        </p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">AI-assisted risk identification (Aidan)</li>
+          <li class="feat-bullet">Accessible on mobile — no desktop required</li>
+          <li class="feat-bullet">Employee completion tracked and reported</li>
+          <li class="feat-bullet">Audit trail maintained automatically</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     SUPPORTING FEATURES GRID
+     ================================================================ -->
+<section class="supporting-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Also included in Ensure</span>
+      <h2 class="h2">Every tool you need. Nothing you don't.</h2>
+      <p class="lead">Ensure covers the full spectrum of H&amp;S management — everything below is included in one subscription.</p>
+    </div>
+    <div class="supporting-grid">
+
+      <div class="sup-card reveal" id="near-miss">
+        <span class="sup-icon" aria-hidden="true">⚠️</span>
+        <h3 class="sup-title">Near Miss Reporting</h3>
+        <p class="sup-text">Employees report close-call incidents instantly from any device, fostering a proactive safety culture before incidents escalate.</p>
+      </div>
+
+      <div class="sup-card reveal reveal-delay-1" id="hazards">
+        <span class="sup-icon" aria-hidden="true">🔍</span>
+        <h3 class="sup-title">Hazard &amp; Observation Recording</h3>
+        <p class="sup-text">Enable anyone to report hazards or maintenance issues from any internet-connected device. Assign owners and track resolution.</p>
+      </div>
+
+      <div class="sup-card reveal reveal-delay-2" id="corrective-actions">
+        <span class="sup-icon" aria-hidden="true">✅</span>
+        <h3 class="sup-title">Corrective Action Management</h3>
+        <p class="sup-text">Turn flagged issues into assigned, trackable actions. Nothing gets lost. Everything gets closed. Management have full visibility.</p>
+      </div>
+
+      <div class="sup-card reveal reveal-delay-3" id="audits">
+        <span class="sup-icon" aria-hidden="true">📊</span>
+        <h3 class="sup-title">H&amp;S Audits</h3>
+        <p class="sup-text">Streamline annual site audits. Complete them digitally, automatically generate corrective actions and track results across your estate.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     HOW IT WORKS
+     ================================================================ -->
+<section class="hiw-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">Getting started</span>
+      <h2 class="h2 h2--light">Up and running in<br>under a week</h2>
+      <p class="lead lead--light">No lengthy IT projects. No consultants. Our onboarding team gets you live fast.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step reveal">
+        <div class="hiw-num">01</div>
+        <h3 class="hiw-title">We set up your account</h3>
+        <p class="hiw-text">Your account is configured with your sites, locations and team structure. We pre-load industry-specific templates so you're not starting from scratch.</p>
+      </div>
+      <div class="hiw-step reveal reveal-delay-1">
+        <div class="hiw-num">02</div>
+        <h3 class="hiw-title">Your team gets access</h3>
+        <p class="hiw-text">Employees download the app and are assigned their routines, checks and training. No training sessions needed — the app is intuitive from day one.</p>
+      </div>
+      <div class="hiw-step reveal reveal-delay-2">
+        <div class="hiw-num">03</div>
+        <h3 class="hiw-title">You monitor in real time</h3>
+        <p class="hiw-text">Log in to your dashboard from anywhere. See live compliance across all sites, outstanding actions and any incidents — at a glance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     COMPLIANCE BENEFITS
+     ================================================================ -->
+<section class="compliance-section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Built for compliance</span>
+      <h2 class="h2">Everything an inspector<br>wants to see</h2>
+      <p class="lead">Ensure gives you the evidence trail to satisfy HSA, HSE, HIQA and insurance auditors — without the last-minute scramble.</p>
+    </div>
+    <div class="compliance-grid">
+      <div class="compliance-card reveal">
+        <img class="compliance-img"
+             src="https://www.fit2trade.com/wp-content/uploads/2022/01/Legal-Compliance.jpg"
+             alt="Legal compliance" loading="lazy" />
+        <h3 class="compliance-title">Meet your legal obligations</h3>
+        <p class="compliance-text">Ensure helps multi-site businesses satisfy all regulatory safety requirements — Safety Acts, HIQA standards, HSA obligations — with documented proof built into every action.</p>
+      </div>
+      <div class="compliance-card reveal reveal-delay-1">
+        <img class="compliance-img"
+             src="https://www.fit2trade.com/wp-content/uploads/2022/01/View-compliance-by-location.jpg"
+             alt="Real-time visibility" loading="lazy" />
+        <h3 class="compliance-title">Real-time visibility</h3>
+        <p class="compliance-text">Your ePortal shows live compliance data by location — which sites are on track, which have overdue checks, and where action is needed. From anywhere in the world.</p>
+      </div>
+      <div class="compliance-card reveal reveal-delay-2">
+        <img class="compliance-img"
+             src="https://www.fit2trade.com/wp-content/uploads/2022/01/Audit-ready-reports.jpg"
+             alt="Audit-ready reports" loading="lazy" />
+        <h3 class="compliance-title">Audit-ready reports</h3>
+        <p class="compliance-text">One-click reports prove to authorities that every employee was trained, every hazard was recorded and every corrective action was completed — in the required format.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     DEMO FORM — Netlify
+     ================================================================ -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="demo-inner">
+
+      <div class="demo-info">
+        <span class="eyebrow eyebrow--light">Book a demo</span>
+        <h2 class="h2 h2--light">See Ensure in 15 minutes</h2>
+        <p class="lead lead--light">
+          Get a personal tour of the platform, customised to your industry. We'll show you exactly how Ensure handles your specific compliance requirements.
+        </p>
+        <div class="demo-checklist">
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            Personalised to your industry and site setup
+          </div>
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            Live Q&amp;A — ask us anything
+          </div>
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            No commitment required
+          </div>
+          <div class="demo-check-item">
+            <div class="demo-check-icon" aria-hidden="true">✓</div>
+            We'll follow up with pricing for your team size
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form
+          name="ensure-demo"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="contact-form"
+          id="demo-form"
+        >
+          <input type="hidden" name="form-name" value="ensure-demo" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+
+          <div class="f-row">
+            <div>
+              <label class="f-label" for="d-first">First name *</label>
+              <input class="f-input" type="text" id="d-first" name="first_name" required placeholder="Jane" />
+            </div>
+            <div>
+              <label class="f-label" for="d-last">Last name *</label>
+              <input class="f-input" type="text" id="d-last" name="last_name" required placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="d-email">Work email *</label>
+            <input class="f-input" type="email" id="d-email" name="email" required placeholder="jane@company.com" />
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="d-role">Your role *</label>
+            <select class="f-select" id="d-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>Safety Manager / H&S Officer</option>
+              <option>Operations Manager</option>
+              <option>HR Manager</option>
+              <option>Business Owner / Director</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="d-employees">Number of employees *</label>
+            <select class="f-select" id="d-employees" name="employees" required>
+              <option value="" disabled selected>Select range</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+
+          <div class="interests-group">
+            <span class="interests-label">What are you most interested in?</span>
+            <div class="interests-options">
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Safety Statements" /> Safety Statements
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="H&S Routines" /> H&amp;S Routines
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Incident Reporting" /> Incident Reporting
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Risk Assessments" /> Risk Assessments
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="H&S Audits" /> H&amp;S Audits
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Online Courses" /> Online Courses
+              </label>
+            </div>
+          </div>
+
+          <div class="f-consent">
+            <input type="checkbox" id="d-consent" name="consent" required />
+            <label for="d-consent">I agree to the <a href="/privacy/">privacy notice</a> and <a href="/terms/">terms</a>. My data will only be used to respond to my demo request.</label>
+          </div>
+
+          <button type="submit" class="btn btn--green btn--lg f-submit">Book My Demo</button>
+        </form>
+
+        <div class="form-success" id="demo-success">
+          <div class="form-success-icon" aria-hidden="true">🗓️</div>
+          <h3>You're booked in.</h3>
+          <p>We'll be in touch within one business day to confirm your demo time.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FAQ
+     ================================================================ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Common questions</span>
+      <h2 class="h2">Questions about Ensure</h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          How long does it take to get up and running?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Most customers are live within 3–5 business days. Our onboarding team configures your account, pre-loads your industry templates and walks your admin through the platform. There's no lengthy IT project — if you have an internet connection, you're ready.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Does it work on mobile?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Yes — Ensure is designed for frontline workers first. Staff can complete routines, report incidents, log hazards and access safety statements from any smartphone or tablet. No app download required; it works in the browser.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Can I use Ensure across multiple sites?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Absolutely — Ensure is built for multi-site operations. You get a single dashboard showing compliance across every location, with the ability to drill down by site, region or individual check type. Pricing scales per location.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Does Ensure satisfy HSA and HIQA requirements?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Yes. Ensure's Safety Statement module, Incident Reporting and Audit tools are designed to satisfy Irish and UK regulatory requirements including HSA (Republic of Ireland), HSE (UK/Northern Ireland) and HIQA (healthcare). Our team are compliance specialists and stay on top of regulatory changes.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          What happens to our existing paper records?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">You keep your paper records for whatever retention period applies to your industry. From go-live, all new records are captured digitally in Ensure. Most customers run a brief parallel period, then phase out paper entirely within 30–60 days.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Is our data secure and GDPR compliant?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-a">Yes. Fit2Trade is GDPR compliant, with data hosted on EU servers. All data is encrypted in transit and at rest. We maintain a full Trust Portal with our security policies, penetration testing results and DPA documentation available on request.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FINAL CTA
+     ================================================================ -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-cta-title">Ready to ditch the paper?</h2>
+    <p class="final-cta-sub">Join hundreds of businesses that use Ensure to stay compliant, reduce risk and save time every day.</p>
+    <div class="final-cta-btns">
+      <a href="#demo"     class="btn btn--white btn--lg">Book a Demo</a>
+      <a href="/contact/" class="btn btn--white-outline btn--lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo"
+             src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png"
+             alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-col-title">Company</p>
+        <ul class="ft-links">
+          <li><a href="/about/"            class="ft-link">About us</a></li>
+          <li><a href="/about/our-values/" class="ft-link">Our Values</a></li>
+          <li><a href="/careers/"          class="ft-link">Careers</a></li>
+          <li><a href="/sustainability/"   class="ft-link">Sustainability</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Products</p>
+        <ul class="ft-links">
+          <li><a href="/products/ensure/"  class="ft-link" style="color:#7DBDAD">Ensure</a></li>
+          <li><a href="/products/operate/" class="ft-link">Operate</a></li>
+          <li><a href="/products/educate/" class="ft-link">Educate</a></li>
+          <li><a href="/products/elevate/" class="ft-link">Elevate</a></li>
+          <li><a href="/products/engage/"  class="ft-link">Engage</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Resources</p>
+        <ul class="ft-links">
+          <li><a href="/blog/"             class="ft-link">Blog</a></li>
+          <li><a href="/faqs/"             class="ft-link">FAQs</a></li>
+          <li><a href="/pricing/"          class="ft-link">Pricing</a></li>
+          <li><a href="/contact/"          class="ft-link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Legal</p>
+        <ul class="ft-links">
+          <li><a href="/terms/"          class="ft-link">Terms</a></li>
+          <li><a href="/privacy/"        class="ft-link">Privacy Policy</a></li>
+          <li><a href="/cookie-policy/"  class="ft-link">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p>
+      <nav class="ft-legal" aria-label="Legal links">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/cookie-policy/">Cookies</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>
+  // Demo form AJAX
+  (function () {
+    const form    = document.getElementById('demo-form');
+    const success = document.getElementById('demo-success');
+    if (!form || !success) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn   = form.querySelector('[type="submit"]');
+      const label = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled    = true;
+      try {
+        const res = await fetch('/', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body:    new URLSearchParams(new FormData(form)).toString()
+        });
+        if (res.ok) {
+          form.style.display    = 'none';
+          success.style.display = 'block';
+        } else { throw new Error(); }
+      } catch {
+        btn.textContent = label;
+        btn.disabled    = false;
+        alert('Something went wrong — please try again or email info@fit2trade.com');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
