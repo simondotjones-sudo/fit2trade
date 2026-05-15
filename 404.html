@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Fit2Trade</title>
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .not-found{min-height:100vh;background:var(--black);display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+    .nf-inner{max-width:520px}
+    .nf-code{font-size:7rem;font-weight:900;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(135deg,rgba(46,96,82,.4),rgba(46,96,82,.1));display:block;margin-bottom:8px}
+    .nf-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:14px}
+    .nf-sub{font-size:1rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:36px}
+    .nf-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+    .nf-divider{width:40px;height:1px;background:rgba(255,255,255,.1);margin:0 auto 28px}
+    .nf-shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:400px;margin:0 auto}
+    .nf-shortcut{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:14px 12px;text-decoration:none;text-align:center;transition:background var(--t),border-color var(--t)}
+    .nf-shortcut:hover{background:rgba(46,96,82,.1);border-color:rgba(46,96,82,.3)}
+    .nf-shortcut-icon{font-size:1.2rem;display:block;margin-bottom:6px}
+    .nf-shortcut-label{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55)}
+  </style>
+</head>
+<body>
+<div class="not-found">
+  <div class="nf-inner">
+    <span class="nf-code">404</span>
+    <h1 class="nf-title">This page doesn&#8217;t exist.</h1>
+    <p class="nf-sub">The link you followed may be outdated or the page may have moved. Here&#8217;s where you can go instead.</p>
+    <div class="nf-links">
+      <a href="/" class="btn btn--green btn--lg">Back to homepage</a>
+      <a href="/contact/" class="btn btn--ghost btn--lg">Contact us</a>
+    </div>
+    <div class="nf-divider"></div>
+    <div class="nf-shortcuts">
+      <a href="/products/" class="nf-shortcut"><span class="nf-shortcut-icon">&#129520;</span><span class="nf-shortcut-label">Products</span></a>
+      <a href="/solutions/retail/" class="nf-shortcut"><span class="nf-shortcut-icon">&#127978;</span><span class="nf-shortcut-label">Retail</span></a>
+      <a href="/solutions/hospitality/" class="nf-shortcut"><span class="nf-shortcut-icon">&#127860;</span><span class="nf-shortcut-label">Hospitality</span></a>
+      <a href="/solutions/healthcare/" class="nf-shortcut"><span class="nf-shortcut-icon">&#127973;</span><span class="nf-shortcut-label">Healthcare</span></a>
+      <a href="/solutions/childcare/" class="nf-shortcut"><span class="nf-shortcut-icon">&#129728;</span><span class="nf-shortcut-label">Childcare</span></a>
+      <a href="/pricing/" class="nf-shortcut"><span class="nf-shortcut-icon">&#128176;</span><span class="nf-shortcut-label">Pricing</span></a>
+    </div>
+  </div>
+</div>
+<script src="/js/main.js"></script>
+</body>
+</html>
