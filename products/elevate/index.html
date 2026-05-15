@@ -1,1 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELEVATE — Employee Wellbeing Portal | Fit2Trade</title>
+  <meta name="description" content="A digital wellbeing program that employees actually use. Physical health, mental health, work-life balance and community awareness — all in one confidential portal." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:22px;justify-content:center}
+    .breadcrumb a{color:rgba(255,255,255,.45);transition:color var(--t)}.breadcrumb a:hover{color:rgba(255,255,255,.8)}.breadcrumb-sep{opacity:.3}
+    .hero-inner{min-height:72vh;padding-bottom:0}.hero-inner .hero-h1{font-size:clamp(2.6rem,5.5vw,4.8rem)}.hero-inner .hero-content{padding-bottom:64px}
+    .stats-strip{background:var(--white);border-bottom:1px solid var(--border-lt)}
+    .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--border-lt)}
+    .stat-item{padding:36px 28px;border-right:1px solid var(--border-lt);text-align:center}
+    .stat-num{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+    .stat-num span{color:var(--green)}.stat-label{font-size:.82rem;color:var(--muted);font-weight:500;line-height:1.4}
 
+    /* Business case */
+    .business-case{padding:var(--section) 0;background:var(--surface)}
+    .bc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+    .bc-card{background:var(--white);border-radius:var(--r-lg);padding:40px 32px;text-align:center;border:1px solid var(--border-lt);transition:box-shadow var(--t),transform var(--t)}
+    .bc-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.08);transform:translateY(-4px)}
+    .bc-stat{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:900;color:var(--green);letter-spacing:-.04em;line-height:1;margin-bottom:10px}
+    .bc-label{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+    .bc-text{font-size:.845rem;color:var(--muted);line-height:1.65}
+
+    /* 4 Pillars */
+    .pillars-section{padding:var(--section) 0;background:var(--white)}
+    .pillars-intro{max-width:600px;margin-bottom:56px}
+    .pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .pillar-card{border-radius:var(--r-xl);overflow:hidden;position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none}
+    .pillar-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}
+    .pillar-card:hover img{transform:scale(1.04)}
+    .pillar-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.88) 0%,rgba(8,8,8,.2) 60%,transparent 100%)}
+    .pillar-body{position:relative;z-index:1;padding:32px}
+    .pillar-num{font-size:2.4rem;font-weight:900;color:var(--green);opacity:.4;letter-spacing:-.05em;line-height:1;margin-bottom:4px}
+    .pillar-name{font-size:1.3rem;font-weight:900;color:var(--white);letter-spacing:-.025em;margin-bottom:8px}
+    .pillar-desc{font-size:.875rem;color:rgba(255,255,255,.65);line-height:1.55;margin-bottom:14px}
+    .pillar-samples{display:flex;flex-wrap:wrap;gap:6px}
+    .pillar-sample{font-size:.73rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:3px 10px;color:rgba(255,255,255,.7)}
+    .pillar-sample--more{color:#7DBDAD;border-color:rgba(125,189,173,.3);background:rgba(125,189,173,.08)}
+
+    /* Privacy / employee choice */
+    .privacy-section{padding:var(--section) 0;background:var(--black)}
+    .privacy-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .privacy-content .h2{color:var(--white);margin-bottom:16px}
+    .privacy-content .lead{color:rgba(255,255,255,.45);margin-bottom:36px}
+    .privacy-points{display:flex;flex-direction:column;gap:16px}
+    .privacy-point{display:flex;align-items:flex-start;gap:14px}
+    .privacy-icon{width:40px;height:40px;border-radius:10px;background:rgba(46,96,82,.2);border:1px solid rgba(46,96,82,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .privacy-text strong{display:block;font-size:.93rem;font-weight:700;color:var(--white);margin-bottom:3px}
+    .privacy-text span{font-size:.845rem;color:rgba(255,255,255,.48);line-height:1.6}
+    .privacy-visual{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-xl);padding:48px 40px;text-align:center}
+    .privacy-visual-icon{font-size:3.5rem;margin-bottom:20px;display:block}
+    .privacy-visual-title{font-size:1.3rem;font-weight:900;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
+    .privacy-visual-text{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.7}
+
+    /* Demo */
+    .demo-section{padding:var(--section) 0;background:var(--surface)}
+    .demo-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+    .demo-info .h2{margin-bottom:14px}.demo-info .lead{margin-bottom:36px}
+    .demo-checklist{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+    .demo-check-item{display:flex;align-items:center;gap:12px;font-size:.93rem;color:var(--ink-2)}
+    .demo-check-icon{width:28px;height:28px;border-radius:50%;background:var(--green-tint);border:1px solid rgba(46,96,82,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;color:var(--green)}
+    .contact-form-light{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-xl);padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+    .contact-form-light .f-label{color:var(--muted)}
+    .contact-form-light .f-input,.contact-form-light .f-select,.contact-form-light .f-textarea{background:var(--surface);border-color:var(--border);color:var(--ink)}
+    .contact-form-light .f-input::placeholder,.contact-form-light .f-textarea::placeholder{color:var(--muted-lt)}
+    .contact-form-light .f-input:focus,.contact-form-light .f-select:focus,.contact-form-light .f-textarea:focus{border-color:var(--green);background:var(--white)}
+    .contact-form-light .f-consent{color:var(--muted)}.contact-form-light .f-consent a{color:var(--green)}
+    .interests-group{margin-bottom:18px}.interests-label{display:block;font-size:.77rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+    .interests-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .interest-opt{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:background var(--t),border-color var(--t);font-size:.84rem;color:var(--ink-2)}
+    .interest-opt:has(input:checked){background:var(--green-tint);border-color:rgba(46,96,82,.4);color:var(--green)}
+    .interest-opt input{accent-color:var(--green);flex-shrink:0}
+    .form-success{display:none;text-align:center;padding:48px 24px}
+    .form-success-icon{font-size:3rem;margin-bottom:16px}
+    .form-success h3{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px;color:var(--ink)}
+    .form-success p{color:var(--muted);font-size:.95rem}
+
+    /* FAQ */
+    .faq-section{padding:var(--section) 0;background:var(--white)}
+    .faq-list{max-width:780px;margin:48px auto 0}
+    details.faq-item{border-bottom:1px solid var(--border)}
+    details.faq-item:first-child{border-top:1px solid var(--border)}
+    summary.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;font-size:1rem;font-weight:700;color:var(--ink);cursor:pointer;list-style:none;gap:16px;letter-spacing:-.015em}
+    summary.faq-q::-webkit-details-marker{display:none}
+    .faq-icon{width:28px;height:28px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;color:var(--muted);transition:background var(--t),border-color var(--t),transform var(--t);font-weight:400;line-height:1}
+    details[open] .faq-icon{background:var(--green-tint);border-color:var(--green);color:var(--green);transform:rotate(45deg)}
+    .faq-a{padding:0 4px 22px;font-size:.93rem;color:var(--muted);line-height:1.72}
+
+    .final-cta{padding:var(--section) 0;background:var(--green);text-align:center}
+    .final-cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:14px}
+    .final-cta-sub{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 36px}
+    .final-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn--white{background:var(--white);color:var(--green);border-radius:100px}
+    .btn--white:hover{background:var(--surface);transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.15)}
+    .btn--white-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);border-radius:100px}
+    .btn--white-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+
+    @media(max-width:960px){.bc-grid{grid-template-columns:1fr 1fr}.pillars-grid{grid-template-columns:1fr}.privacy-inner{grid-template-columns:1fr;gap:48px}.demo-inner{grid-template-columns:1fr;gap:48px}}
+    @media(max-width:768px){.pillar-card{min-height:300px}}
+    @media(max-width:520px){.stats-inner{grid-template-columns:1fr 1fr}.bc-grid{grid-template-columns:1fr}.interests-options{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/retail/" class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/" class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/" class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; pharmacies</span></a></li>
+            <li><a href="/solutions/childcare/" class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/" class="dd-link"><strong>ENSURE</strong><span>H&amp;S &amp; Food Safety</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link" style="color:var(--green)"><strong>ELEVATE</strong><span>Employee Wellbeing Portal</span></a></li>
+            <li><a href="/products/engage/" class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="#demo" class="btn btn--green btn--sm">Request a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul><li class="mob-item"><a href="/" class="mob-link">Home</a></li><li class="mob-item"><a href="/products/" class="mob-link">Products</a></li><li class="mob-item"><a href="/pricing/" class="mob-link">Pricing</a></li><li class="mob-item"><a href="/contact/" class="mob-link">Contact</a></li></ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="#demo" class="btn btn--green">Request a Demo</a></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-inner">
+  <div class="hero-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/products/">Products</a><span class="breadcrumb-sep">›</span><span style="color:rgba(255,255,255,.6)">Elevate</span></nav>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Employee Wellbeing Portal</div>
+    <h1 class="hero-h1">Show your people<br><span class="accent">you really care.</span></h1>
+    <p class="hero-sub">Elevate gives every employee a confidential wellbeing portal they'll actually use — physical health, mental health, work-life balance and community awareness, in one beautifully simple place.</p>
+    <div class="hero-ctas">
+      <a href="#demo" class="btn btn--green btn--lg">Request a Demo</a>
+      <a href="#pillars" class="btn btn--ghost btn--lg">See the programme ↓</a>
+    </div>
+  </div>
+  <div class="hero-shot">
+    <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/pexels-gary-barnes-6231993-scaled.jpg" alt="Employee wellbeing programme" loading="eager" />
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container" style="padding-inline:0;max-width:100%">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num"><span>4</span> pillars</div><div class="stat-label">Body, Mind, Citizens, Work</div></div>
+      <div class="stat-item"><div class="stat-num"><span>50</span>+</div><div class="stat-label">Wellbeing modules</div></div>
+      <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Employee choice — confidential</div></div>
+      <div class="stat-item"><div class="stat-num">Any<span>.</span></div><div class="stat-label">Device. No app needed.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS CASE -->
+<section class="business-case">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The business case</span>
+      <h2 class="h2">Wellbeing isn't a perk.<br>It's a business priority.</h2>
+      <p class="lead">Frontline industries have some of the highest turnover and absenteeism rates of any sector. Elevate addresses the root causes — not just the symptoms.</p>
+    </div>
+    <div class="bc-grid">
+      <div class="bc-card reveal">
+        <div class="bc-stat">1 in 4</div>
+        <div class="bc-label">employees experience mental health issues</div>
+        <p class="bc-text">Mental health challenges are the leading cause of long-term absence in frontline industries — often preventable with early intervention and support.</p>
+      </div>
+      <div class="bc-card reveal reveal-delay-1">
+        <div class="bc-stat">33<span style="font-size:2rem">%</span></div>
+        <div class="bc-label">lower turnover in organisations with strong wellbeing programmes</div>
+        <p class="bc-text">Employees who feel their employer genuinely cares about their health are significantly more likely to stay — reducing costly recruitment and onboarding cycles.</p>
+      </div>
+      <div class="bc-card reveal reveal-delay-2">
+        <div class="bc-stat">6<span style="font-size:2rem">×</span></div>
+        <div class="bc-label">return on investment from employee wellbeing spending</div>
+        <p class="bc-text">Research consistently shows every euro invested in employee wellbeing programmes returns multiple times its value through reduced absence, higher productivity and lower turnover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 PILLARS -->
+<section class="pillars-section" id="pillars">
+  <div class="container">
+    <div class="pillars-intro">
+      <span class="eyebrow">The programme</span>
+      <h2 class="h2">Four pillars. One complete programme.</h2>
+      <p class="lead">Every module in Elevate is delivered under one of four pillars. Employees choose what's relevant to them — no mandatory participation, no tracking of individual choices.</p>
+    </div>
+    <div class="pillars-grid">
+
+      <a href="#demo" class="pillar-card reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Healthy-body.jpg" alt="Healthy Body" loading="lazy" />
+        <div class="pillar-scrim"></div>
+        <div class="pillar-body">
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-name">Healthy Body</h3>
+          <p class="pillar-desc">Practical courses to help employees look after their physical health — from sleep and nutrition to exercise and fatigue.</p>
+          <div class="pillar-samples">
+            <span class="pillar-sample">Sleep Management</span>
+            <span class="pillar-sample">Managing Your Nutrition</span>
+            <span class="pillar-sample">Fatigue Management</span>
+            <span class="pillar-sample">Menopause Awareness</span>
+            <span class="pillar-sample pillar-sample--more">+ more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#demo" class="pillar-card reveal reveal-delay-1">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Positive-mental-health.jpg" alt="Healthy Mind" loading="lazy" />
+        <div class="pillar-scrim"></div>
+        <div class="pillar-body">
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-name">Healthy Mind</h3>
+          <p class="pillar-desc">A rich library of mental health resources — stress management, mindfulness, resilience, burnout prevention and more.</p>
+          <div class="pillar-samples">
+            <span class="pillar-sample">Managing Stress</span>
+            <span class="pillar-sample">Beating Burnout</span>
+            <span class="pillar-sample">Mindfulness Intro</span>
+            <span class="pillar-sample">Developing Resilience</span>
+            <span class="pillar-sample pillar-sample--more">+ more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#demo" class="pillar-card reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Citizenship-courses.jpg" alt="Healthy Citizens" loading="lazy" />
+        <div class="pillar-scrim"></div>
+        <div class="pillar-body">
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-name">Healthy Citizens</h3>
+          <p class="pillar-desc">Empowering employees to contribute to society, understand diversity and take pride in their community.</p>
+          <div class="pillar-samples">
+            <span class="pillar-sample">Cultural Awareness</span>
+            <span class="pillar-sample">Disability Awareness</span>
+            <span class="pillar-sample">Neurodiversity</span>
+            <span class="pillar-sample">Being Green</span>
+            <span class="pillar-sample pillar-sample--more">+ more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#demo" class="pillar-card reveal reveal-delay-1">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Healthy-mind.jpg" alt="Healthy Work" loading="lazy" />
+        <div class="pillar-scrim"></div>
+        <div class="pillar-body">
+          <div class="pillar-num">04</div>
+          <h3 class="pillar-name">Healthy Work</h3>
+          <p class="pillar-desc">Tools to help employees build resilience, balance and confidence in their working lives.</p>
+          <div class="pillar-samples">
+            <span class="pillar-sample">Work-Life Balance</span>
+            <span class="pillar-sample">Financial Literacy</span>
+            <span class="pillar-sample">Bullying Awareness</span>
+            <span class="pillar-sample">Emotional Intelligence</span>
+            <span class="pillar-sample pillar-sample--more">+ more →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY / EMPLOYEE CHOICE -->
+<section class="privacy-section">
+  <div class="container">
+    <div class="privacy-inner">
+      <div class="privacy-content">
+        <span class="eyebrow eyebrow--light">Employee trust</span>
+        <h2 class="h2 h2--light">Employees choose what they access. In complete confidence.</h2>
+        <p class="lead lead--light">The moment employees think their wellbeing activity is being monitored, engagement drops to zero. Elevate is designed from the ground up to be a safe space.</p>
+        <div class="privacy-points">
+          <div class="privacy-point"><div class="privacy-icon">🔒</div><div class="privacy-text"><strong>Individual choices are private</strong><span>Managers see platform usage in aggregate — never which specific employee accessed which module.</span></div></div>
+          <div class="privacy-point"><div class="privacy-icon">🙋</div><div class="privacy-text"><strong>Entirely voluntary</strong><span>No mandatory modules, no completion tracking per person. Employees engage because they want to, not because they have to.</span></div></div>
+          <div class="privacy-point"><div class="privacy-icon">📱</div><div class="privacy-text"><strong>Accessible anywhere, anytime</strong><span>On their own device, at home, during a break — whenever feels right for them. Not just at work on a work computer.</span></div></div>
+          <div class="privacy-point"><div class="privacy-icon">🌍</div><div class="privacy-text"><strong>GDPR compliant</strong><span>All data processed and stored in the EU. Individual wellbeing data is never shared with employers.</span></div></div>
+        </div>
+      </div>
+      <div class="privacy-visual reveal">
+        <span class="privacy-visual-icon" aria-hidden="true">💚</span>
+        <h3 class="privacy-visual-title">A genuine benefit.<br>Not a compliance checkbox.</h3>
+        <p class="privacy-visual-text">Most EAPs go unused because employees don't trust them. Elevate is different — it's a resource your people will actually return to, because it genuinely helps them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO FORM -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="demo-inner">
+      <div class="demo-info">
+        <span class="eyebrow">Book a demo</span>
+        <h2 class="h2">See Elevate in 15 minutes</h2>
+        <p class="lead">We'll walk you through the employee experience and the manager view — and show you how quickly your team could have access to a world-class wellbeing programme.</p>
+        <div class="demo-checklist">
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>See the employee portal as your team would experience it</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>See aggregate reporting for managers (no individual tracking)</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>We'll show modules specific to your industry</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>Pricing and setup timeline confirmed on the call</div>
+        </div>
+      </div>
+      <div>
+        <form name="elevate-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form-light" id="demo-form">
+          <input type="hidden" name="form-name" value="elevate-demo" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+          <div class="f-row">
+            <div><label class="f-label" for="d-first">First name *</label><input class="f-input" type="text" id="d-first" name="first_name" required placeholder="Jane" /></div>
+            <div><label class="f-label" for="d-last">Last name *</label><input class="f-input" type="text" id="d-last" name="last_name" required placeholder="Smith" /></div>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-email">Work email *</label><input class="f-input" type="email" id="d-email" name="email" required placeholder="jane@company.com" /></div>
+          <div class="f-group"><label class="f-label" for="d-role">Your role *</label>
+            <select class="f-select" id="d-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>HR Manager / People Manager</option><option>Operations Manager</option><option>Business Owner / Director</option><option>L&amp;D Manager</option><option>Other</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-employees">Number of employees *</label>
+            <select class="f-select" id="d-employees" name="employees" required>
+              <option value="" disabled selected>Select range</option>
+              <option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option>
+            </select>
+          </div>
+          <div class="interests-group">
+            <span class="interests-label">What are you most interested in?</span>
+            <div class="interests-options">
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Wellbeing Courses" /> Wellbeing Courses</label>
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Mental Health" /> Mental Health Support</label>
+              <label class="interest-opt"><input type="checkbox" name="interests" value="EAP" /> EAP Programme</label>
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Manager Reporting" /> Manager Reporting</label>
+            </div>
+          </div>
+          <div class="f-consent" style="color:var(--muted)"><input type="checkbox" id="d-consent" name="consent" required /><label for="d-consent">I agree to the <a href="/privacy/" style="color:var(--green)">privacy notice</a> and <a href="/terms/" style="color:var(--green)">terms</a>.</label></div>
+          <button type="submit" class="btn btn--green btn--lg f-submit">Book My Demo</button>
+        </form>
+        <div class="form-success" id="demo-success"><div class="form-success-icon">🗓️</div><h3>You're booked in.</h3><p>We'll be in touch within one business day to confirm your demo time.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head section-head--center"><span class="eyebrow">Common questions</span><h2 class="h2">Questions about Elevate</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-q">Can managers see which employees used which modules?<span class="faq-icon">+</span></summary><p class="faq-a">No. Individual activity is completely private. Managers see aggregate engagement data — for example, what percentage of employees accessed the platform this month — but never which specific person accessed which specific content. This is fundamental to the programme's design.</p></details>
+      <details class="faq-item"><summary class="faq-q">Is employee participation mandatory?<span class="faq-icon">+</span></summary><p class="faq-a">No — participation is entirely voluntary. Elevate is not a compliance module and there are no completion requirements. Employees access what's relevant to them, when they want, at their own pace. This is deliberate: mandatory wellbeing programmes almost always fail because the coercion undermines trust.</p></details>
+      <details class="faq-item"><summary class="faq-q">How does Elevate differ from an EAP (Employee Assistance Programme)?<span class="faq-icon">+</span></summary><p class="faq-a">Traditional EAPs are reactive — they provide counselling after an employee is in crisis. Elevate is proactive — it builds resilience, awareness and coping skills before problems escalate. The two are complementary; Elevate significantly reduces the load on reactive EAP services by addressing root causes earlier.</p></details>
+      <details class="faq-item"><summary class="faq-q">Can we add our own content or brand the portal?<span class="faq-icon">+</span></summary><p class="faq-a">Yes. The Elevate portal is branded to your organisation — your logo, colours and a custom welcome message. You can also add internal links and resources. If you want to create bespoke wellbeing content specific to your workplace, our ENHANCE custom course creation service can build that for you.</p></details>
+      <details class="faq-item"><summary class="faq-q">Does Elevate work alongside Educate?<span class="faq-icon">+</span></summary><p class="faq-a">Yes — they sit within the same platform and employees access both through a single login. Educate handles compliance and professional development (mandatory). Elevate handles personal wellbeing (voluntary). Together they give you a complete employee development and support offering.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-cta-title">Give your people something<br>they'll actually use.</h2>
+    <p class="final-cta-sub">Set up in days. Genuinely impactful from day one. No mandatory participation required.</p>
+    <div class="final-cta-btns"><a href="#demo" class="btn btn--white btn--lg">Book a Demo</a><a href="/contact/" class="btn btn--white-outline btn--lg">Contact Us</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand"><img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /><p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/enclose/" class="ft-link">Enclose</a></li><li><a href="/products/elevate/" class="ft-link" style="color:#7DBDAD">Elevate</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/careers/" class="ft-link">Careers</a></li><li><a href="/blog/" class="ft-link">Blog</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>(function(){const f=document.getElementById('demo-form'),s=document.getElementById('demo-success');if(!f||!s)return;f.addEventListener('submit',async function(e){e.preventDefault();const b=f.querySelector('[type="submit"]'),l=b.textContent;b.textContent='Sending…';b.disabled=true;try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();}catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please try again or email info@fit2trade.com');}});})();</script>
+</body>
+</html>
