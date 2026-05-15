@@ -1,1 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPERATE — Operational Management App | Fit2Trade</title>
+  <meta name="description" content="Digital operations management for multi-site businesses. Brand excellence, loss prevention and remote management — all in one app." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:22px;justify-content:center}
+    .breadcrumb a{color:rgba(255,255,255,.45);transition:color var(--t)}.breadcrumb a:hover{color:rgba(255,255,255,.8)}.breadcrumb-sep{opacity:.3}
+    .hero-inner{min-height:72vh;padding-bottom:0}.hero-inner .hero-h1{font-size:clamp(2.6rem,5.5vw,4.8rem)}.hero-inner .hero-content{padding-bottom:64px}
+    .stats-strip{background:var(--white);border-bottom:1px solid var(--border-lt)}
+    .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--border-lt)}
+    .stat-item{padding:36px 28px;border-right:1px solid var(--border-lt);text-align:center}
+    .stat-num{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+    .stat-num span{color:var(--green)}.stat-label{font-size:.82rem;color:var(--muted);font-weight:500;line-height:1.4}
 
+    /* Three pillars — alternating full-bleed sections */
+    .pillar{padding:var(--section) 0}
+    .pillar:nth-child(odd){background:var(--white)}
+    .pillar:nth-child(even){background:var(--surface)}
+    .pillar-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .pillar-inner.is-flipped{direction:rtl}.pillar-inner.is-flipped>*{direction:ltr}
+    .pillar-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.11);border:1px solid var(--border-lt)}
+    .pillar-img img{width:100%;display:block}
+    .pillar-number{font-size:4rem;font-weight:900;color:var(--green);opacity:.12;letter-spacing:-.05em;line-height:1;margin-bottom:4px}
+    .pillar-tag{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green);background:var(--green-tint);padding:4px 12px;border-radius:100px;margin-bottom:16px}
+    .pillar-h3{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+    .pillar-body{font-size:1rem;color:var(--muted);line-height:1.72;margin-bottom:24px}
+    .pillar-feats{display:flex;flex-direction:column;gap:0;margin-bottom:28px}
+    .pillar-feat{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border-lt)}
+    .pillar-feat:last-child{border-bottom:none}
+    .pillar-feat-icon{width:34px;height:34px;border-radius:9px;background:var(--green-tint);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;margin-top:1px}
+    .pillar-feat-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+    .pillar-feat-text span{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+    /* Franchise marquee */
+    .franchise-section{padding:var(--section-sm) 0;background:var(--white);border-top:1px solid var(--border-lt);border-bottom:1px solid var(--border-lt)}
+    .marquee-wrap{overflow:hidden;mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);margin-top:40px}
+    .marquee-track{display:flex;width:max-content;animation:ticker 40s linear infinite}
+    .marquee-track:hover{animation-play-state:paused}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+    .marquee-item{padding:0 30px;display:flex;align-items:center}
+    .marquee-item img{height:28px;width:auto;object-fit:contain;filter:grayscale(1) opacity(.3);transition:filter var(--t)}
+    .marquee-item:hover img{filter:grayscale(0) opacity(1)}
+
+    /* Dashboard strip */
+    .dashboard-section{padding:var(--section) 0;background:var(--black)}
+    .dashboard-section .h2{color:var(--white)}.dashboard-section .lead{color:rgba(255,255,255,.45)}
+    .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:52px}
+    .dash-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:32px;transition:background var(--t),border-color var(--t)}
+    .dash-card:hover{background:rgba(46,96,82,.09);border-color:rgba(46,96,82,.28)}
+    .dash-icon{font-size:1.6rem;margin-bottom:16px;display:block}
+    .dash-title{font-size:1rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:8px}
+    .dash-text{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65}
+
+    /* Demo */
+    .demo-section{padding:var(--section) 0;background:var(--surface)}
+    .demo-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+    .demo-info .h2{margin-bottom:14px}.demo-info .lead{margin-bottom:36px}
+    .demo-checklist{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+    .demo-check-item{display:flex;align-items:center;gap:12px;font-size:.93rem;color:var(--ink-2)}
+    .demo-check-icon{width:28px;height:28px;border-radius:50%;background:var(--green-tint);border:1px solid rgba(46,96,82,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;color:var(--green)}
+    .contact-form-light{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-xl);padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+    .contact-form-light .f-label{color:var(--muted)}
+    .contact-form-light .f-input,.contact-form-light .f-select,.contact-form-light .f-textarea{background:var(--surface);border-color:var(--border);color:var(--ink)}
+    .contact-form-light .f-input::placeholder,.contact-form-light .f-textarea::placeholder{color:var(--muted-lt)}
+    .contact-form-light .f-input:focus,.contact-form-light .f-select:focus,.contact-form-light .f-textarea:focus{border-color:var(--green);background:var(--white)}
+    .contact-form-light .f-consent{color:var(--muted)}.contact-form-light .f-consent a{color:var(--green)}
+    .interests-group{margin-bottom:18px}.interests-label{display:block;font-size:.77rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+    .interests-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .interest-opt{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:background var(--t),border-color var(--t);font-size:.84rem;color:var(--ink-2)}
+    .interest-opt:has(input:checked){background:var(--green-tint);border-color:rgba(46,96,82,.4);color:var(--green)}
+    .interest-opt input{accent-color:var(--green);flex-shrink:0}
+    .form-success{display:none;text-align:center;padding:48px 24px}
+    .form-success-icon{font-size:3rem;margin-bottom:16px}
+    .form-success h3{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px;color:var(--ink)}
+    .form-success p{color:var(--muted);font-size:.95rem}
+
+    /* FAQ */
+    .faq-section{padding:var(--section) 0;background:var(--white)}
+    .faq-list{max-width:780px;margin:48px auto 0}
+    details.faq-item{border-bottom:1px solid var(--border)}
+    details.faq-item:first-child{border-top:1px solid var(--border)}
+    summary.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;font-size:1rem;font-weight:700;color:var(--ink);cursor:pointer;list-style:none;gap:16px;letter-spacing:-.015em}
+    summary.faq-q::-webkit-details-marker{display:none}
+    .faq-icon{width:28px;height:28px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;color:var(--muted);transition:background var(--t),border-color var(--t),transform var(--t);font-weight:400;line-height:1}
+    details[open] .faq-icon{background:var(--green-tint);border-color:var(--green);color:var(--green);transform:rotate(45deg)}
+    .faq-a{padding:0 4px 22px;font-size:.93rem;color:var(--muted);line-height:1.72}
+
+    .final-cta{padding:var(--section) 0;background:var(--green);text-align:center}
+    .final-cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:14px}
+    .final-cta-sub{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 36px}
+    .final-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn--white{background:var(--white);color:var(--green);border-radius:100px}
+    .btn--white:hover{background:var(--surface);transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.15)}
+    .btn--white-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);border-radius:100px}
+    .btn--white-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+
+    @media(max-width:900px){.stats-inner{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:repeat(2,1fr)}.demo-inner{grid-template-columns:1fr;gap:48px}}
+    @media(max-width:768px){.pillar-inner{grid-template-columns:1fr;gap:36px;direction:ltr!important}.pillar-inner .pillar-img{order:-1}.interests-options{grid-template-columns:1fr}}
+    @media(max-width:520px){.stats-inner{grid-template-columns:1fr 1fr}.dashboard-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/retail/" class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/" class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/" class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; pharmacies</span></a></li>
+            <li><a href="/solutions/childcare/" class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/" class="dd-link"><strong>ENSURE</strong><span>H&amp;S &amp; Food Safety</span></a></li>
+            <li><a href="/products/operate/" class="dd-link" style="color:var(--green)"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing Portal</span></a></li>
+            <li><a href="/products/engage/" class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="#demo" class="btn btn--green btn--sm">Request a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul><li class="mob-item"><a href="/" class="mob-link">Home</a></li><li class="mob-item"><a href="/products/" class="mob-link">Products</a></li><li class="mob-item"><a href="/pricing/" class="mob-link">Pricing</a></li><li class="mob-item"><a href="/contact/" class="mob-link">Contact</a></li></ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="#demo" class="btn btn--green">Request a Demo</a></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-inner">
+  <div class="hero-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/products/">Products</a><span class="breadcrumb-sep">›</span><span style="color:rgba(255,255,255,.6)">Operate</span></nav>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Operational Management App</div>
+    <h1 class="hero-h1">Consistent standards.<br><span class="accent">Across every site. Every day.</span></h1>
+    <p class="hero-sub">Give your operations team a digital toolkit to enforce brand standards, prevent loss and manage sites remotely — without the clipboard, the email chains, or the post-visit write-up.</p>
+    <div class="hero-ctas">
+      <a href="#demo" class="btn btn--green btn--lg">Request a Demo</a>
+      <a href="#features" class="btn btn--ghost btn--lg">See all features ↓</a>
+    </div>
+  </div>
+  <div class="hero-shot">
+    <img src="https://www.fit2trade.com/wp-content/uploads/2024/08/Operate-Digital-Management-System-by-Fit2Trade.jpg" alt="Operate operational management system" loading="eager" />
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container" style="padding-inline:0;max-width:100%">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num"><span>3</span> pillars</div><div class="stat-label">Brand, Loss Prevention, Remote</div></div>
+      <div class="stat-item"><div class="stat-num">Real<span>-</span>time</div><div class="stat-label">Visibility across all sites</div></div>
+      <div class="stat-item"><div class="stat-num">Zero<span>.</span></div><div class="stat-label">Post-visit write-up needed</div></div>
+      <div class="stat-item"><div class="stat-num">Any<span>.</span></div><div class="stat-label">Device. Anywhere.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PILLAR 1: BRAND EXCELLENCE -->
+<section class="pillar" id="features">
+  <div class="container">
+    <div class="pillar-inner">
+      <div class="pillar-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/View-compliance-by-location.jpg" alt="Brand excellence inspections" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="pillar-number">01</div>
+        <div class="pillar-tag">Brand Excellence</div>
+        <h2 class="pillar-h3">Prove every site is on-brand. In real time.</h2>
+        <p class="pillar-body">Give brand partners and senior leaders live evidence that every location is meeting standards — without being physically present. Digital checks replace manual walkrounds and printed scorecards.</p>
+        <div class="pillar-feats">
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">🏆</div>
+            <div class="pillar-feat-text"><strong>Brand Excellence Inspections</strong><span>Sites complete digital checks against your exact brand standards. Ops leaders get real-time evidence, remotely.</span></div>
+          </div>
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">📣</div>
+            <div class="pillar-feat-text"><strong>Campaign Implementation Checks</strong><span>Confirm every site has implemented new campaigns and promotions correctly per planograms — before launch day ends.</span></div>
+          </div>
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">📊</div>
+            <div class="pillar-feat-text"><strong>Improve Brand Audit &amp; REV Scores</strong><span>Proactive, brand-specific checks mean franchisees are always prepared — not just when the auditor visits.</span></div>
+          </div>
+        </div>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 2: LOSS PREVENTION -->
+<section class="pillar">
+  <div class="container">
+    <div class="pillar-inner is-flipped">
+      <div class="pillar-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Audit-ready-reports.jpg" alt="Loss prevention routines" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="pillar-number">02</div>
+        <div class="pillar-tag">Loss Prevention</div>
+        <h2 class="pillar-h3">Stop loss before it happens. Not after.</h2>
+        <p class="pillar-body">Replace Excel sheets and paper-based loss prevention checks with scheduled digital routines. Head office gets instant visibility when something is missed — not at month-end when it's too late.</p>
+        <div class="pillar-feats">
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">🔐</div>
+            <div class="pillar-feat-text"><strong>Loss Prevention Routines</strong><span>Digitize and schedule your existing LP checks. Minimise and prevent loss with instant Head Office visibility.</span></div>
+          </div>
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">💳</div>
+            <div class="pillar-feat-text"><strong>PCI Compliance Checks</strong><span>Remove the guesswork from PED reporting. Ensure all terminals are checked for tampering signs on schedule, every week.</span></div>
+          </div>
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">💰</div>
+            <div class="pillar-feat-text"><strong>Routine Safe Checks</strong><span>Digitize monthly cash counts. Collated data goes directly to Head Office — removing manual processes and email chains.</span></div>
+          </div>
+        </div>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 3: REMOTE MANAGEMENT -->
+<section class="pillar">
+  <div class="container">
+    <div class="pillar-inner">
+      <div class="pillar-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Legal-Compliance.jpg" alt="Remote management tools" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="pillar-number">03</div>
+        <div class="pillar-tag">Remote Management</div>
+        <h2 class="pillar-h3">Manage more sites. With less travel. No write-ups.</h2>
+        <p class="pillar-body">Area managers no longer spend their evenings writing up site visit reports. Complete the visit in the app, auto-generate actions and move on. Everything is tracked, closed and reported — automatically.</p>
+        <div class="pillar-feats">
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">🗒️</div>
+            <div class="pillar-feat-text"><strong>Operational Visit Reporting</strong><span>Complete site visits in the app — actions are auto-generated and assigned instantly. No more late-night write-ups.</span></div>
+          </div>
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">✅</div>
+            <div class="pillar-feat-text"><strong>Operational Action Management</strong><span>Flag issues, assign owners, set deadlines. Track every action from flagged to closed — with a full audit trail.</span></div>
+          </div>
+          <div class="pillar-feat">
+            <div class="pillar-feat-icon">📈</div>
+            <div class="pillar-feat-text"><strong>Performance Dashboard</strong><span>One view of Loss Prevention, Brand Standards, Customer Experience and Operational Audits — by business, region or site.</span></div>
+          </div>
+        </div>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRANCHISE MARQUEE -->
+<section class="franchise-section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Franchisees</span>
+      <h2 class="h2">Trusted by franchisees worldwide</h2>
+      <p class="lead">Operate is used across some of the world's most recognised franchise brands to protect brand standards and improve audit performance.</p>
+    </div>
+  </div>
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Subway.jpg" alt="Subway" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Starbucks.jpg" alt="Starbucks" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/KFC.jpg" alt="KFC" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Burger-King.jpg" alt="Burger King" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pizza-Hut.jpg" alt="Pizza Hut" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Dunkin.jpg" alt="Dunkin" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Costa.jpg" alt="Costa" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Insomnia.jpg" alt="Insomnia" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pret-a-manger.jpg" alt="Pret" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Greggs.jpg" alt="Greggs" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/WHSmith.jpg" alt="WHSmith" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Waitrose.jpg" alt="Waitrose" /></div>
+      <!-- Duplicate -->
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Subway.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Starbucks.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/KFC.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Burger-King.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pizza-Hut.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Dunkin.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Costa.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Insomnia.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pret-a-manger.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Greggs.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/WHSmith.jpg" alt="" /></div>
+      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Waitrose.jpg" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD OVERVIEW -->
+<section class="dashboard-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--light">The dashboard</span>
+      <h2 class="h2 h2--light">One view. Your entire operation.</h2>
+      <p class="lead lead--light">The Operate performance dashboard brings together Brand Standards, Loss Prevention, Remote Management audits and Customer Experience into a single, real-time view.</p>
+    </div>
+    <div class="dashboard-grid">
+      <div class="dash-card reveal"><span class="dash-icon">🏆</span><h3 class="dash-title">Brand Standards</h3><p class="dash-text">See which sites are meeting brand requirements and which need attention — by region, area or individual location.</p></div>
+      <div class="dash-card reveal reveal-delay-1"><span class="dash-icon">🔐</span><h3 class="dash-title">Loss Prevention</h3><p class="dash-text">Monitor LP check completion, overdue safe counts and PCI compliance across your portfolio in real time.</p></div>
+      <div class="dash-card reveal reveal-delay-2"><span class="dash-icon">🗒️</span><h3 class="dash-title">Visit Reports</h3><p class="dash-text">All area manager visit reports, auto-generated actions and their closure status — searchable and exportable.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO FORM -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="demo-inner">
+      <div class="demo-info">
+        <span class="eyebrow">Book a demo</span>
+        <h2 class="h2">See Operate in 15 minutes</h2>
+        <p class="lead">We'll configure the demo around your operation — franchise, multi-site retail or hospitality — and show you exactly how Operate handles your specific challenges.</p>
+        <div class="demo-checklist">
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>Live tour tailored to your type of operation</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>We'll show the brand, LP and remote management tools</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>See how it works on mobile for frontline staff</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>Pricing confirmed for your number of sites</div>
+        </div>
+      </div>
+      <div>
+        <form name="operate-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form-light" id="demo-form">
+          <input type="hidden" name="form-name" value="operate-demo" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+          <div class="f-row">
+            <div><label class="f-label" for="d-first">First name *</label><input class="f-input" type="text" id="d-first" name="first_name" required placeholder="Jane" /></div>
+            <div><label class="f-label" for="d-last">Last name *</label><input class="f-input" type="text" id="d-last" name="last_name" required placeholder="Smith" /></div>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-email">Work email *</label><input class="f-input" type="email" id="d-email" name="email" required placeholder="jane@company.com" /></div>
+          <div class="f-group"><label class="f-label" for="d-role">Your role *</label>
+            <select class="f-select" id="d-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>Operations Director / Manager</option><option>Area / Regional Manager</option><option>Franchise Owner / Operator</option><option>Business Owner / Director</option><option>Other</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-sites">Number of sites *</label>
+            <select class="f-select" id="d-sites" name="sites" required>
+              <option value="" disabled selected>Select range</option>
+              <option>1–5</option><option>6–20</option><option>21–50</option><option>51–100</option><option>100+</option>
+            </select>
+          </div>
+          <div class="interests-group">
+            <span class="interests-label">What are you most interested in?</span>
+            <div class="interests-options">
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Brand Audits" /> Brand Audits</label>
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Loss Prevention" /> Loss Prevention</label>
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Visit Reports" /> Visit Reports</label>
+              <label class="interest-opt"><input type="checkbox" name="interests" value="Campaign Checks" /> Campaign Checks</label>
+            </div>
+          </div>
+          <div class="f-consent" style="color:var(--muted)"><input type="checkbox" id="d-consent" name="consent" required /><label for="d-consent">I agree to the <a href="/privacy/" style="color:var(--green)">privacy notice</a> and <a href="/terms/" style="color:var(--green)">terms</a>.</label></div>
+          <button type="submit" class="btn btn--green btn--lg f-submit">Book My Demo</button>
+        </form>
+        <div class="form-success" id="demo-success"><div class="form-success-icon">🗓️</div><h3>You're booked in.</h3><p>We'll be in touch within one business day to confirm your demo time.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head section-head--center"><span class="eyebrow">Common questions</span><h2 class="h2">Questions about Operate</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-q">How is Operate different from Ensure?<span class="faq-icon">+</span></summary><p class="faq-a">Ensure manages Health &amp; Safety compliance — incidents, risk assessments, safety statements. Operate manages operational performance — brand standards, loss prevention, visit reporting. They're complementary; many customers use both. Ensure is compliance-focused, Operate is operations-focused.</p></details>
+      <details class="faq-item"><summary class="faq-q">Can brand partners and franchisors see results?<span class="faq-icon">+</span></summary><p class="faq-a">Yes — the permission structure supports franchisor access. Brand partners can be given a view of their franchisees' completion data and Brand Audit scores without being able to edit or configure anything. This makes it easy to share evidence of compliance with brand partners proactively.</p></details>
+      <details class="faq-item"><summary class="faq-q">Do area managers need to be at the site to complete a visit report?<span class="faq-icon">+</span></summary><p class="faq-a">No — but for physical site visits, the app captures everything in real time during the visit so there's nothing to write up afterwards. For remote management audits, managers can conduct assessments via the app and raise actions for Site Leaders to complete, all without travelling to the location.</p></details>
+      <details class="faq-item"><summary class="faq-q">Can we customise checklists to match our brand standards?<span class="faq-icon">+</span></summary><p class="faq-a">Absolutely. Operate is configured around your specific brand standards and operational requirements during setup. Our team works with you to build the exact checklists your brand auditors use — so your digital and physical audit processes are identical.</p></details>
+      <details class="faq-item"><summary class="faq-q">How quickly can we get started?<span class="faq-icon">+</span></summary><p class="faq-a">Most customers are live within one to two weeks. The setup involves configuring your site structure, building your checklists and giving your team access. Our onboarding team manages this for you — there's nothing for your IT team to do.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-cta-title">Run a tighter operation. Starting now.</h2>
+    <p class="final-cta-sub">Operate is used by multi-site retailers, franchisees and hospitality operators across Europe and the US.</p>
+    <div class="final-cta-btns"><a href="#demo" class="btn btn--white btn--lg">Book a Demo</a><a href="/contact/" class="btn btn--white-outline btn--lg">Contact Us</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand"><img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /><p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/operate/" class="ft-link" style="color:#7DBDAD">Operate</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/enclose/" class="ft-link">Enclose</a></li><li><a href="/products/elevate/" class="ft-link">Elevate</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/careers/" class="ft-link">Careers</a></li><li><a href="/blog/" class="ft-link">Blog</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>(function(){const f=document.getElementById('demo-form'),s=document.getElementById('demo-success');if(!f||!s)return;f.addEventListener('submit',async function(e){e.preventDefault();const b=f.querySelector('[type="submit"]'),l=b.textContent;b.textContent='Sending…';b.disabled=true;try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();}catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please try again or email info@fit2trade.com');}});})();</script>
+</body>
+</html>
