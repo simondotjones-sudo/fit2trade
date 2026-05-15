@@ -1,1 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENCLOSE — Licence Compliance Hub | Fit2Trade</title>
+  <meta name="description" content="Replace ring-binders, SharePoint and spreadsheets with a single licence hub. 60-day expiry alerts, traffic-light status, multi-site visibility." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:22px;justify-content:center}
+    .breadcrumb a{color:rgba(255,255,255,.45);transition:color var(--t)}.breadcrumb a:hover{color:rgba(255,255,255,.8)}.breadcrumb-sep{opacity:.3}
+    .hero-inner{min-height:72vh;padding-bottom:0}.hero-inner .hero-h1{font-size:clamp(2.6rem,5.5vw,4.8rem)}.hero-inner .hero-content{padding-bottom:64px}
+    .stats-strip{background:var(--white);border-bottom:1px solid var(--border-lt)}
+    .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--border-lt)}
+    .stat-item{padding:36px 28px;border-right:1px solid var(--border-lt);text-align:center}
+    .stat-num{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+    .stat-num span{color:var(--green)}.stat-label{font-size:.82rem;color:var(--muted);font-weight:500;line-height:1.4}
 
+    /* Problem */
+    .problem-section{padding:var(--section) 0;background:var(--surface)}
+    .problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+    .problem-card{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r);padding:28px 24px;transition:box-shadow var(--t)}
+    .problem-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.07)}
+    .problem-icon{font-size:1.6rem;margin-bottom:14px;display:block}
+    .problem-title{font-size:.97rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px}
+    .problem-text{font-size:.845rem;color:var(--muted);line-height:1.65}
+
+    /* Features */
+    .features-section{padding:var(--section) 0;background:var(--white)}
+    .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding:72px 0}
+    .feat-row:not(:last-child){border-bottom:1px solid var(--border-lt)}
+    .feat-row.is-flipped{direction:rtl}.feat-row.is-flipped>*{direction:ltr}
+    .feat-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.10);border:1px solid var(--border-lt)}
+    .feat-img img{width:100%;display:block}
+    .feat-tag{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green);background:var(--green-tint);padding:4px 12px;border-radius:100px;margin-bottom:18px}
+    .feat-h3{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+    .feat-body{font-size:1rem;color:var(--muted);line-height:1.72;margin-bottom:24px}
+    .feat-bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+    .feat-bullet{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--ink-2);line-height:1.5}
+    .feat-bullet::before{content:'';width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:1px;background:var(--green-tint);border:1.5px solid var(--green);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 5.2l1.8 1.8 3.2-3.5' stroke='%232E6052' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");background-size:10px;background-repeat:no-repeat;background-position:center}
+
+    /* Status legend */
+    .status-section{padding:var(--section) 0;background:var(--surface)}
+    .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+    .status-col{background:var(--white);border-radius:var(--r-lg);border:1px solid var(--border-lt);overflow:hidden}
+    .status-col-head{padding:20px 24px;display:flex;align-items:center;gap:12px}
+    .status-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+    .status-dot--green{background:#22C55E}
+    .status-dot--amber{background:#F59E0B}
+    .status-dot--red{background:#EF4444}
+    .status-col-title{font-size:.9rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+    .status-items{padding:0 16px 16px}
+    .status-item{display:flex;align-items:flex-start;gap:10px;padding:10px 8px;border-top:1px solid var(--border-lt)}
+    .status-code{font-size:.75rem;font-weight:800;color:var(--white);padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+    .status-code--green{background:#22C55E}
+    .status-code--green-border{background:transparent;border:1.5px solid #22C55E;color:#166534}
+    .status-code--amber{background:#F59E0B}
+    .status-code--red{background:#EF4444}
+    .status-desc{font-size:.83rem;color:var(--muted);line-height:1.5}
+    .status-desc strong{display:block;font-weight:600;color:var(--ink);margin-bottom:1px;font-size:.85rem}
+
+    /* Pricing */
+    .pricing-section{padding:var(--section) 0;background:var(--black)}
+    .pricing-section .h2{color:var(--white)}.pricing-section .lead{color:rgba(255,255,255,.45)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+    .pricing-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-xl);padding:40px 36px;position:relative;transition:border-color var(--t),background var(--t)}
+    .pricing-card:hover{background:rgba(46,96,82,.08);border-color:rgba(46,96,82,.35)}
+    .pricing-territory{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7DBDAD;margin-bottom:18px}
+    .pricing-price{margin-bottom:6px}
+    .pricing-amount{font-size:clamp(2.2rem,4vw,3rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1}
+    .pricing-per{font-size:.85rem;color:rgba(255,255,255,.4);margin-top:4px}
+    .pricing-annual{font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .pricing-features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+    .pricing-feat{display:flex;align-items:center;gap:10px;font-size:.875rem;color:rgba(255,255,255,.65)}
+    .pricing-feat::before{content:'✓';color:#7DBDAD;font-weight:700;flex-shrink:0}
+    .pricing-note{text-align:center;margin-top:32px;font-size:.85rem;color:rgba(255,255,255,.3)}
+    .pricing-note a{color:#7DBDAD;text-decoration:underline;text-underline-offset:2px}
+
+    /* Demo */
+    .demo-section{padding:var(--section) 0;background:var(--surface)}
+    .demo-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+    .demo-info .h2{margin-bottom:14px}.demo-info .lead{margin-bottom:36px}
+    .demo-checklist{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+    .demo-check-item{display:flex;align-items:center;gap:12px;font-size:.93rem;color:var(--ink-2)}
+    .demo-check-icon{width:28px;height:28px;border-radius:50%;background:var(--green-tint);border:1px solid rgba(46,96,82,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;color:var(--green)}
+    /* Form on light bg */
+    .contact-form-light{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-xl);padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+    .contact-form-light .f-label{color:var(--muted)}
+    .contact-form-light .f-input,.contact-form-light .f-select,.contact-form-light .f-textarea{background:var(--surface);border-color:var(--border);color:var(--ink)}
+    .contact-form-light .f-input::placeholder,.contact-form-light .f-textarea::placeholder{color:var(--muted-lt)}
+    .contact-form-light .f-input:focus,.contact-form-light .f-select:focus,.contact-form-light .f-textarea:focus{border-color:var(--green);background:var(--white)}
+    .contact-form-light .f-select option{background:var(--white);color:var(--ink)}
+    .contact-form-light .f-consent{color:var(--muted)}.contact-form-light .f-consent a{color:var(--green)}
+    .form-success{display:none;text-align:center;padding:48px 24px}
+    .form-success-icon{font-size:3rem;margin-bottom:16px}
+    .form-success h3{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px;color:var(--ink)}
+    .form-success p{color:var(--muted);font-size:.95rem}
+
+    /* FAQ */
+    .faq-section{padding:var(--section) 0;background:var(--white)}
+    .faq-list{max-width:780px;margin:48px auto 0}
+    details.faq-item{border-bottom:1px solid var(--border)}
+    details.faq-item:first-child{border-top:1px solid var(--border)}
+    summary.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;font-size:1rem;font-weight:700;color:var(--ink);cursor:pointer;list-style:none;gap:16px;letter-spacing:-.015em}
+    summary.faq-q::-webkit-details-marker{display:none}
+    .faq-icon{width:28px;height:28px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;color:var(--muted);transition:background var(--t),border-color var(--t),transform var(--t);font-weight:400;line-height:1}
+    details[open] .faq-icon{background:var(--green-tint);border-color:var(--green);color:var(--green);transform:rotate(45deg)}
+    .faq-a{padding:0 4px 22px;font-size:.93rem;color:var(--muted);line-height:1.72}
+
+    /* Final CTA */
+    .final-cta{padding:var(--section) 0;background:var(--green);text-align:center}
+    .final-cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:14px}
+    .final-cta-sub{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 36px}
+    .final-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn--white{background:var(--white);color:var(--green);border-radius:100px}
+    .btn--white:hover{background:var(--surface);transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.15)}
+    .btn--white-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);border-radius:100px}
+    .btn--white-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+
+    @media(max-width:900px){.stats-inner,.problem-grid,.pricing-grid,.status-grid{grid-template-columns:repeat(2,1fr)}.demo-inner{grid-template-columns:1fr;gap:48px}}
+    @media(max-width:768px){.feat-row{grid-template-columns:1fr;gap:36px;direction:ltr!important}.feat-row .feat-img{order:-1}}
+    @media(max-width:520px){.stats-inner{grid-template-columns:1fr 1fr}.problem-grid,.pricing-grid,.status-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/" class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/" class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/" class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; pharmacies</span></a></li>
+            <li><a href="/solutions/childcare/" class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/sports/" class="dd-link"><strong>Sports</strong><span>GAA and sports clubs</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/" class="dd-link"><strong>ENSURE</strong><span>H&amp;S &amp; Food Safety</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link" style="color:var(--green)"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing Portal</span></a></li>
+            <li><a href="/products/engage/" class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login/" class="nav-login">Login</a>
+        <a href="#demo" class="btn btn--green btn--sm">Request a Demo</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/pricing/" class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/" class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions">
+    <a href="/login/" class="btn btn--ghost">Login</a>
+    <a href="#demo" class="btn btn--green">Request a Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-inner">
+  <div class="hero-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/products/">Products</a><span class="breadcrumb-sep">›</span><span style="color:rgba(255,255,255,.6)">Enclose</span></nav>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Licence Compliance Hub</div>
+    <h1 class="hero-h1">Every licence. Every site.<br><span class="accent">Always in date.</span></h1>
+    <p class="hero-sub">Replace ring-binders, SharePoint folders and spreadsheets with a single hub that tracks every organisational licence, alerts you 60 days before anything expires and keeps every site inspection-ready.</p>
+    <div class="hero-ctas">
+      <a href="#demo" class="btn btn--green btn--lg">Request a Demo</a>
+      <a href="#pricing" class="btn btn--ghost btn--lg">See Pricing ↓</a>
+    </div>
+  </div>
+  <div class="hero-shot">
+    <img src="https://www.fit2trade.com/wp-content/uploads/2025/01/ENCLOSE-Licence-Management-Made-Easy-FIt2Trade-scaled.jpg" alt="Enclose licence compliance hub dashboard" loading="eager" />
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container" style="padding-inline:0;max-width:100%">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num"><span>60</span> days</div><div class="stat-label">Advance expiry alerts</div></div>
+      <div class="stat-item"><div class="stat-num"><span>20</span>+</div><div class="stat-label">Licences per site</div></div>
+      <div class="stat-item"><div class="stat-num">3<span>-</span>colour</div><div class="stat-label">Traffic-light status system</div></div>
+      <div class="stat-item"><div class="stat-num">EU<span>/</span>UK<span>/</span>US</div><div class="stat-label">Multi-territory pricing</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The problem</span>
+      <h2 class="h2">Licence management is more<br>risk than it looks</h2>
+      <p class="lead">An expired licence isn't just an admin failure — it can mean fines, forced closure and reputational damage. Most businesses are more exposed than they realise.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal"><span class="problem-icon">📅</span><h3 class="problem-title">Licences expire silently</h3><p class="problem-text">No one notices until an inspector asks to see a certificate that lapsed three months ago. By then the damage is done.</p></div>
+      <div class="problem-card reveal reveal-delay-1"><span class="problem-icon">📁</span><h3 class="problem-title">Scattered across folders</h3><p class="problem-text">Licences live in email threads, SharePoint folders, filing cabinets and managers' desktops — with no single source of truth.</p></div>
+      <div class="problem-card reveal reveal-delay-2"><span class="problem-icon">🏢</span><h3 class="problem-title">No cross-site visibility</h3><p class="problem-text">Head office has no way to see which sites are compliant across their licence portfolio without manually chasing each location.</p></div>
+      <div class="problem-card reveal reveal-delay-3"><span class="problem-icon">😰</span><h3 class="problem-title">Inspections are stressful</h3><p class="problem-text">When an inspector calls, finding the right licence — the current version, not last year's — becomes an urgent and embarrassing scramble.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+
+    <div class="feat-row">
+      <div class="feat-img reveal"><img src="https://www.fit2trade.com/wp-content/uploads/2025/01/ENCLOSE-Licence-Management-Made-Easy-FIt2Trade-scaled.jpg" alt="Centralised licence hub" loading="lazy" /></div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Centralised hub</div>
+        <h3 class="feat-h3">One place for every licence, across every site</h3>
+        <p class="feat-body">Head office uploads licences once. Every site can retrieve their assigned documents instantly — securely, without the risk of unauthorised changes.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Only Organisation Admins can upload — sites retrieve, not edit</li>
+          <li class="feat-bullet">PDF-only uploads ensure consistency and compatibility</li>
+          <li class="feat-bullet">Assign a contractor or owner to each licence (e.g. County Council, Revenue)</li>
+          <li class="feat-bullet">Archive sites cleanly when they close or are sold</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+    <div class="feat-row is-flipped">
+      <div class="feat-img reveal"><img src="https://www.fit2trade.com/wp-content/uploads/2022/01/View-compliance-by-location.jpg" alt="Expiry alerts and renewals" loading="lazy" /></div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Expiry &amp; renewal management</div>
+        <h3 class="feat-h3">Never be caught off guard by an expiring licence again</h3>
+        <p class="feat-body">Set expiry dates and renewal frequencies for each licence. Safety Administrators receive automated alerts 60 days before anything expires — plenty of time to act.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">60-day automated alert to Safety Administrators</li>
+          <li class="feat-bullet">Renewal frequencies set per licence type</li>
+          <li class="feat-bullet">Uploading a replacement auto-archives the previous version</li>
+          <li class="feat-bullet">Optional expiry for licences that don't expire</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+    <div class="feat-row">
+      <div class="feat-img reveal"><img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Legal-Compliance.jpg" alt="Customisable licence requirements" loading="lazy" /></div>
+      <div class="reveal reveal-delay-1">
+        <div class="feat-tag">Customisable requirements</div>
+        <h3 class="feat-h3">Set minimum licence requirements — across all sites or just specific ones</h3>
+        <p class="feat-body">Select minimum requirements from an intuitive dropdown. Apply them universally or tailor requirements to individual sites — useful when locations have different operational licences.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet">Flexible per-site or portfolio-wide configuration</li>
+          <li class="feat-bullet">Comments field for each licence for context and notes</li>
+          <li class="feat-bullet">Internal and external ownership clearly defined</li>
+          <li class="feat-bullet">Full archive with retrieval for Safety Admins</li>
+        </ul>
+        <a href="#demo" class="btn btn--green">See it in action</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATUS LEGEND -->
+<section class="status-section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Status system</span>
+      <h2 class="h2">Know the status of every licence at a glance</h2>
+      <p class="lead">Every licence carries a clear traffic-light status — so nothing ambiguous ever slips through the net.</p>
+    </div>
+    <div class="status-grid">
+      <div class="status-col reveal">
+        <div class="status-col-head"><span class="status-dot status-dot--green"></span><span class="status-col-title">Green — Compliant</span></div>
+        <div class="status-items">
+          <div class="status-item"><span class="status-code status-code--green">AL</span><div class="status-desc"><strong>Active Licence</strong>Licence is on file and current.</div></div>
+          <div class="status-item"><span class="status-code status-code--green-border">NE</span><div class="status-desc"><strong>Not Expected</strong>Not required to be processed for this site.</div></div>
+          <div class="status-item"><span class="status-code status-code--green-border">ROF</span><div class="status-desc"><strong>Receipt on File</strong>Fire officer has acknowledged receipt.</div></div>
+        </div>
+      </div>
+      <div class="status-col reveal reveal-delay-1">
+        <div class="status-col-head"><span class="status-dot status-dot--amber"></span><span class="status-col-title">Amber — In Progress</span></div>
+        <div class="status-items">
+          <div class="status-item"><span class="status-code status-code--amber">WIP</span><div class="status-desc"><strong>Work in Progress</strong>Application is being actively processed.</div></div>
+          <div class="status-item"><span class="status-code status-code--amber">RS</span><div class="status-desc"><strong>Renewal Submitted</strong>Renewal application has been submitted.</div></div>
+          <div class="status-item"><span class="status-code status-code--amber">FI</span><div class="status-desc"><strong>Further Information</strong>Authority has requested additional information.</div></div>
+        </div>
+      </div>
+      <div class="status-col reveal reveal-delay-2">
+        <div class="status-col-head"><span class="status-dot status-dot--red"></span><span class="status-col-title">Red — Requires Action</span></div>
+        <div class="status-items">
+          <div class="status-item"><span class="status-code status-code--red">RJ</span><div class="status-desc"><strong>Rejected</strong>Licence application has been rejected — action required.</div></div>
+          <div class="status-item"><span class="status-code status-code--red">EX</span><div class="status-desc"><strong>Expired</strong>Licence has expired and has not been marked as WIP or RS.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow eyebrow--light">Transparent pricing</span>
+      <h2 class="h2 h2--light">Simple per-site pricing.<br>No surprises.</h2>
+      <p class="lead lead--light">Enclose is priced per site per month, plus an annual platform fee. Scale up or down as your portfolio changes.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-territory">EU (€)</div>
+        <div class="pricing-price"><span class="pricing-amount">€12</span></div>
+        <div class="pricing-per">per site / per month</div>
+        <div class="pricing-annual">+ €999 annual platform fee per business</div>
+        <div class="pricing-features">
+          <div class="pricing-feat">Up to 20 licences per site</div>
+          <div class="pricing-feat">Licence Management Software</div>
+          <div class="pricing-feat">60-day expiry notifications</div>
+          <div class="pricing-feat">Compliance Dashboard &amp; Reports</div>
+        </div>
+        <a href="#demo" class="btn btn--green" style="width:100%;justify-content:center">Get started</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-1">
+        <div class="pricing-territory">UK (£)</div>
+        <div class="pricing-price"><span class="pricing-amount">£10</span></div>
+        <div class="pricing-per">per site / per month</div>
+        <div class="pricing-annual">+ £849 annual platform fee per business</div>
+        <div class="pricing-features">
+          <div class="pricing-feat">Up to 20 licences per site</div>
+          <div class="pricing-feat">Licence Management Software</div>
+          <div class="pricing-feat">60-day expiry notifications</div>
+          <div class="pricing-feat">Compliance Dashboard &amp; Reports</div>
+        </div>
+        <a href="#demo" class="btn btn--green" style="width:100%;justify-content:center">Get started</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-territory">US ($)</div>
+        <div class="pricing-price"><span class="pricing-amount">$12</span></div>
+        <div class="pricing-per">per site / per month</div>
+        <div class="pricing-annual">+ $999 annual platform fee per business</div>
+        <div class="pricing-features">
+          <div class="pricing-feat">Up to 20 licences per site</div>
+          <div class="pricing-feat">Licence Management Software</div>
+          <div class="pricing-feat">60-day expiry notifications</div>
+          <div class="pricing-feat">Compliance Dashboard &amp; Reports</div>
+        </div>
+        <a href="#demo" class="btn btn--green" style="width:100%;justify-content:center">Get started</a>
+      </div>
+    </div>
+    <p class="pricing-note">Need more than 20 licences per site? <a href="/contact/">Talk to us</a> — we can configure custom limits for larger portfolios.</p>
+  </div>
+</section>
+
+<!-- DEMO FORM -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="demo-inner">
+      <div class="demo-info">
+        <span class="eyebrow">Book a demo</span>
+        <h2 class="h2">See Enclose in 15 minutes</h2>
+        <p class="lead">We'll walk you through the platform using a real licence portfolio as the example — so you see exactly how it handles your specific requirements.</p>
+        <div class="demo-checklist">
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>Live tour of the admin and site-level views</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>We'll show the status system and expiry alerts in action</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>Pricing confirmed for your number of sites</div>
+          <div class="demo-check-item"><div class="demo-check-icon">✓</div>Live within days of sign-up</div>
+        </div>
+      </div>
+      <div>
+        <form name="enclose-demo" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form-light" id="demo-form">
+          <input type="hidden" name="form-name" value="enclose-demo" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+          <div class="f-row">
+            <div><label class="f-label" for="d-first">First name *</label><input class="f-input" type="text" id="d-first" name="first_name" required placeholder="Jane" /></div>
+            <div><label class="f-label" for="d-last">Last name *</label><input class="f-input" type="text" id="d-last" name="last_name" required placeholder="Smith" /></div>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-email">Work email *</label><input class="f-input" type="email" id="d-email" name="email" required placeholder="jane@company.com" /></div>
+          <div class="f-group"><label class="f-label" for="d-company">Company *</label><input class="f-input" type="text" id="d-company" name="company" required placeholder="Acme Ltd." /></div>
+          <div class="f-group"><label class="f-label" for="d-sites">Number of sites *</label>
+            <select class="f-select" id="d-sites" name="sites" required>
+              <option value="" disabled selected>Select range</option>
+              <option>1–5 sites</option><option>6–20 sites</option><option>21–50 sites</option><option>51–100 sites</option><option>100+ sites</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label" for="d-territory">Territory *</label>
+            <select class="f-select" id="d-territory" name="territory" required>
+              <option value="" disabled selected>Select territory</option>
+              <option>EU (€)</option><option>UK (£)</option><option>US ($)</option><option>Other</option>
+            </select>
+          </div>
+          <div class="f-consent" style="color:var(--muted)">
+            <input type="checkbox" id="d-consent" name="consent" required />
+            <label for="d-consent">I agree to the <a href="/privacy/" style="color:var(--green)">privacy notice</a> and <a href="/terms/" style="color:var(--green)">terms</a>.</label>
+          </div>
+          <button type="submit" class="btn btn--green btn--lg f-submit">Book My Demo</button>
+        </form>
+        <div class="form-success" id="demo-success"><div class="form-success-icon">🗓️</div><h3>You're booked in.</h3><p>We'll be in touch within one business day to confirm your demo time.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head section-head--center"><span class="eyebrow">Common questions</span><h2 class="h2">Questions about Enclose</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-q">What types of licences can Enclose manage?<span class="faq-icon">+</span></summary><p class="faq-a">Enclose is designed for any organisational licence — fire safety certificates, insurance documents, planning permissions, liquor licences, environmental permits, food business registrations, and more. If it has an expiry date and an authority issues it, Enclose can manage it.</p></details>
+      <details class="faq-item"><summary class="faq-q">Who can upload licences — can site managers do it?<span class="faq-icon">+</span></summary><p class="faq-a">No — only Organisation Administrators can upload licences. This is a deliberate design decision to ensure data integrity. Site-level users can retrieve and view their assigned licences, but cannot upload, replace or delete them. This protects against accidental or unauthorised changes.</p></details>
+      <details class="faq-item"><summary class="faq-q">What happens when we upload a replacement licence?<span class="faq-icon">+</span></summary><p class="faq-a">Enclose automatically archives the previous version and replaces it with the new upload. Your archive is retained securely and remains accessible to Safety Administrators for audit purposes. Nothing is permanently deleted.</p></details>
+      <details class="faq-item"><summary class="faq-q">Can we have different licence requirements for different sites?<span class="faq-icon">+</span></summary><p class="faq-a">Yes. You can set minimum licence requirements that apply across your entire portfolio, or configure requirements individually per site. This is useful when some locations have additional licences (e.g. late-night licences, outdoor seating permissions) that don't apply to all sites.</p></details>
+      <details class="faq-item"><summary class="faq-q">How does Enclose fit alongside Ensure?<span class="faq-icon">+</span></summary><p class="faq-a">They're complementary. Ensure manages your operational H&amp;S compliance — routines, incidents, risk assessments. Enclose manages your organisational licences — the certificates and permits issued by authorities. Together they give you a complete compliance picture in one platform.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="final-cta-title">Never miss a licence renewal again.</h2>
+    <p class="final-cta-sub">Set up in days. Pay per site. Cancel anytime. No lengthy contracts.</p>
+    <div class="final-cta-btns">
+      <a href="#demo" class="btn btn--white btn--lg">Book a Demo</a>
+      <a href="#pricing" class="btn btn--white-outline btn--lg">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/enclose/" class="ft-link" style="color:#7DBDAD">Enclose</a></li><li><a href="/products/elevate/" class="ft-link">Elevate</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/careers/" class="ft-link">Careers</a></li><li><a href="/blog/" class="ft-link">Blog</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>
+(function(){const f=document.getElementById('demo-form'),s=document.getElementById('demo-success');if(!f||!s)return;f.addEventListener('submit',async function(e){e.preventDefault();const b=f.querySelector('[type="submit"]'),l=b.textContent;b.textContent='Sending…';b.disabled=true;try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();}catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please try again or email info@fit2trade.com');}});})();
+</script>
+</body>
+</html>
