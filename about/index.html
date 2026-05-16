@@ -70,6 +70,12 @@
     .form-success-icon{font-size:3rem;margin-bottom:16px}
     .form-success h3{font-size:1.4rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px;color:var(--ink)}
     .form-success p{color:var(--muted);font-size:.9rem;max-width:300px;margin:0 auto}
+    /* Light-background form overrides */
+    .contact-form-light .f-label{color:var(--muted)}
+    .contact-form-light .f-input,.contact-form-light .f-select,.contact-form-light .f-textarea{background:var(--surface);border-color:var(--border);color:var(--ink)}
+    .contact-form-light .f-input::placeholder,.contact-form-light .f-textarea::placeholder{color:var(--muted-lt)}
+    .contact-form-light .f-input:focus,.contact-form-light .f-select:focus,.contact-form-light .f-textarea:focus{border-color:var(--green);background:var(--white)}
+    .contact-form-light .f-consent{color:var(--muted)}.contact-form-light .f-consent a{color:var(--green)}
 
     @media(max-width:900px){
       .story-grid{grid-template-columns:1fr;gap:40px}
@@ -123,7 +129,7 @@
         <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
         <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
       </ul>
-      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
+      <div class="nav-actions"><a href="https://fit2trade.app/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
   </div>
@@ -145,7 +151,7 @@
     <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
     <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
   </ul>
-  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
+  <div class="mob-actions"><a href="https://fit2trade.app/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
 </nav>
 
 <!-- HERO -->
@@ -428,7 +434,7 @@
         <p class="lead">Have a question that isn't a demo? Send us a message and we'll get back to you within one business day.</p>
       </div>
       <div class="form-wrap reveal reveal-delay-1">
-        <form name="about-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="about-form">
+        <form name="about-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form-light" id="about-form">
           <input type="hidden" name="form-name" value="about-contact" />
           <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
           <div class="f-row">
