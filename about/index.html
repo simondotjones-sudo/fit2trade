@@ -1,1 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Fit2Trade</title>
+  <meta name="description" content="Fit2Trade was built by people who understand frontline work. Meet the team behind Ireland's leading workplace compliance platform." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Page hero */
+    .about-hero{background:var(--black);padding:calc(var(--nav-h) + 90px) 0 90px;text-align:center}
+    .about-hero h1{font-size:clamp(2.6rem,5vw,4rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.05;margin-bottom:18px}
+    .about-hero p{font-size:1.1rem;color:rgba(255,255,255,.45);max-width:520px;margin:0 auto}
 
+    /* Story section */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .story-img{border-radius:var(--r-xl);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.10)}
+    .story-img img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
+    .story-text .h2{margin-bottom:20px}
+    .story-text p{font-size:1rem;color:var(--ink-2);line-height:1.8;margin-bottom:16px}
+    .story-text p:last-child{margin-bottom:0}
+
+    /* Stats bar */
+    .stats-bar{background:var(--green);padding:56px 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+    .stat-item{padding:0 24px;border-right:1px solid rgba(255,255,255,.18)}
+    .stat-item:last-child{border-right:none}
+    .stat-num{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+    .stat-label{font-size:.82rem;color:rgba(255,255,255,.6);font-weight:500}
+
+    /* Values */
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+    .value-card{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-lg);padding:32px 28px;transition:box-shadow var(--t)}
+    .value-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08)}
+    .value-icon{width:44px;height:44px;border-radius:var(--r);background:var(--green-tint);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.3rem}
+    .value-title{font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px}
+    .value-body{font-size:.88rem;color:var(--muted);line-height:1.7}
+
+    /* Team */
+    .team-group{margin-bottom:64px}
+    .team-group:last-child{margin-bottom:0}
+    .team-group-title{font-size:1.1rem;font-weight:900;color:var(--ink);letter-spacing:-.025em;margin-bottom:6px}
+    .team-group-desc{font-size:.9rem;color:var(--muted);margin-bottom:32px;max-width:560px;line-height:1.65}
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .team-card{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r);padding:24px 20px;text-align:center}
+    .team-avatar{width:52px;height:52px;border-radius:50%;background:var(--green-tint);color:var(--green);font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+    .team-name{font-size:.95rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:3px}
+    .team-role{font-size:.8rem;color:var(--muted)}
+
+    /* Clients */
+    .clients-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--border-lt);border-radius:var(--r-lg);overflow:hidden;margin-top:48px}
+    .client-cell{display:flex;align-items:center;justify-content:center;padding:28px 20px;border-right:1px solid var(--border-lt);border-bottom:1px solid var(--border-lt);font-size:.82rem;font-weight:700;color:var(--muted-lt);text-align:center;line-height:1.3}
+    .client-cell:nth-child(6n){border-right:none}
+    .client-cell:nth-last-child(-n+6){border-bottom:none}
+
+    /* CTA */
+    .about-cta{background:var(--black);padding:var(--section) 0;text-align:center}
+    .about-cta .h2--light{margin-bottom:16px}
+    .about-cta .lead--light{margin:0 auto 36px;max-width:480px}
+    .about-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* Contact form section */
+    .about-contact{padding:var(--section) 0;background:var(--surface)}
+    .about-contact-inner{max-width:600px;margin:0 auto}
+    .form-wrap{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-xl);padding:44px;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+    .form-title{font-size:1.3rem;font-weight:900;color:var(--ink);letter-spacing:-.03em;margin-bottom:4px}
+    .form-sub{font-size:.875rem;color:var(--muted);margin-bottom:28px}
+    .form-success{display:none;text-align:center;padding:56px 24px}
+    .form-success-icon{font-size:3rem;margin-bottom:16px}
+    .form-success h3{font-size:1.4rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px;color:var(--ink)}
+    .form-success p{color:var(--muted);font-size:.9rem;max-width:300px;margin:0 auto}
+
+    @media(max-width:900px){
+      .story-grid{grid-template-columns:1fr;gap:40px}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .stat-item:nth-child(2){border-right:none}
+      .stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,.18)}
+      .stat-item:nth-child(4){border-top:1px solid rgba(255,255,255,.18);border-right:none}
+      .values-grid{grid-template-columns:1fr 1fr}
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+      .clients-grid{grid-template-columns:repeat(3,1fr)}
+      .client-cell:nth-child(3n){border-right:none}
+      .client-cell:nth-child(6n){border-right:1px solid var(--border-lt)}
+    }
+    @media(max-width:600px){
+      .values-grid{grid-template-columns:1fr}
+      .clients-grid{grid-template-columns:repeat(2,1fr)}
+      .client-cell:nth-child(2n){border-right:none}
+      .client-cell:nth-child(3n){border-right:1px solid var(--border-lt)}
+      .form-wrap{padding:28px 22px}
+      .about-cta-btns{flex-direction:column;align-items:center}
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI, MCC &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; nursing homes</span></a></li>
+            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/public-sector/" class="dd-link"><strong>Public Sector</strong><span>Councils, agencies &amp; semi-states</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S Management System</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item"><div class="mob-link" data-mob="mob-sol">Solutions for <span>+</span></div>
+      <ul class="mob-sub" id="mob-sol">
+        <li><a href="/solutions/credit-unions/" class="mob-sub-link">Credit Unions</a></li>
+        <li><a href="/solutions/retail/"        class="mob-sub-link">Retail</a></li>
+        <li><a href="/solutions/hospitality/"   class="mob-sub-link">Hospitality</a></li>
+        <li><a href="/solutions/healthcare/"    class="mob-sub-link">Healthcare</a></li>
+        <li><a href="/solutions/childcare/"     class="mob-sub-link">Childcare</a></li>
+        <li><a href="/solutions/public-sector/" class="mob-sub-link">Public Sector</a></li>
+      </ul>
+    </li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <span class="eyebrow eyebrow--light">Our Story</span>
+    <h1>Built for the <span class="accent">frontline.</span></h1>
+    <p>We started Fit2Trade because managing compliance in a busy workplace was harder than it needed to be. We fixed that.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section style="padding:var(--section) 0;background:var(--white)">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img reveal">
+        <img src="https://www.fit2trade.com/wp-content/uploads/2024/10/Compliance-Solutions-for-Business-Fit2Trade-1.jpg" alt="Fit2Trade compliance platform" loading="lazy" />
+      </div>
+      <div class="story-text reveal reveal-delay-1">
+        <span class="eyebrow">Who we are</span>
+        <h2 class="h2">One system. One login.<br>Zero complexity.</h2>
+        <p>Fit2Trade was founded with a simple belief: that compliance shouldn't be a burden on the people doing the real work. Frontline managers were drowning in paperwork, checklists on clipboards, and half a dozen different systems that never talked to each other.</p>
+        <p>We built a single, integrated platform that brings H&amp;S management, operational checklists, compliance training, employee wellbeing, and licence tracking into one place — accessible from any device, anywhere.</p>
+        <p>Today, Fit2Trade is trusted by hundreds of businesses across Ireland and the UK — from independent retailers and credit unions to hotel groups and healthcare providers. Our mission remains the same: make every workplace safer, more compliant, and simpler to run.</p>
+        <a href="/contact/" class="btn btn--green" style="margin-top:12px">Talk to the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Businesses using Fit2Trade</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Industry verticals served</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Integrated products</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num">Dublin</div>
+        <div class="stat-label">Headquartered in Ireland</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section style="padding:var(--section) 0;background:var(--surface)">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">What drives us</span>
+      <h2 class="h2">Our values</h2>
+      <p class="lead">Everything we build, say, and do comes back to these principles.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon">🎯</div>
+        <div class="value-title">Simplicity first</div>
+        <p class="value-body">We obsess over making complex compliance requirements simple enough for anyone to handle — without a manual or a training day.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🤝</div>
+        <div class="value-title">Customer obsession</div>
+        <p class="value-body">Our Customer Experience team exists for one reason: to make sure every single client gets results. We measure ourselves by your outcomes, not our metrics.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🔒</div>
+        <div class="value-title">Trust and transparency</div>
+        <p class="value-body">We're honest about what our platform does and doesn't do, what regulations require, and what you need to do to stay compliant. No jargon. No hidden extras.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">⚡</div>
+        <div class="value-title">Always improving</div>
+        <p class="value-body">Regulation changes. Industries evolve. AI opens up new possibilities. We ship continuous improvements so your platform grows with you — not against you.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🌍</div>
+        <div class="value-title">Real-world expertise</div>
+        <p class="value-body">Our safety, content, and customer teams come from the industries we serve. We understand what a busy Friday night in a restaurant looks like — because we've been there.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🤖</div>
+        <div class="value-title">AI for good</div>
+        <p class="value-body">We use AI to remove drudge work from compliance — automated risk assessments, predictive alerts, smart reporting — so your people can focus on the work that matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="padding:var(--section) 0;background:var(--white)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The team</span>
+      <h2 class="h2">The people behind<br><span class="accent">Fit2Trade</span></h2>
+      <p class="lead">Five specialist teams, one shared goal: making your workplace safer and simpler.</p>
+    </div>
+
+    <div class="team-group reveal">
+      <div class="team-group-title">Customer Experience</div>
+      <p class="team-group-desc">Our CX team ensures every customer has an exceptional experience and gets maximum value from the platform. They're the reason our clients stay.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">T</div>
+          <div class="team-name">Tom</div>
+          <div class="team-role">Learner Experience</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">R</div>
+          <div class="team-name">Rory</div>
+          <div class="team-role">Hospitality Experience</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">S</div>
+          <div class="team-name">Shane</div>
+          <div class="team-role">Education Experience</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Sh</div>
+          <div class="team-name">Shauna</div>
+          <div class="team-role">Accounts Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-group reveal" style="margin-top:52px">
+      <div class="team-group-title">Content Team</div>
+      <p class="team-group-desc">The content team creates engaging training courses and digitises induction programmes so your employees can learn on the go.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">C</div>
+          <div class="team-name">Christian</div>
+          <div class="team-role">Content Creation</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Co</div>
+          <div class="team-name">Conor</div>
+          <div class="team-role">Videographer</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">G</div>
+          <div class="team-name">Gerry</div>
+          <div class="team-role">Graphic Design</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AI</div>
+          <div class="team-name">AI Leen</div>
+          <div class="team-role">Voiceover Artist</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-group reveal" style="margin-top:52px">
+      <div class="team-group-title">Tech Team</div>
+      <p class="team-group-desc">The engineers and developers who design, build, and maintain the Fit2Trade platform and the data insights our customers rely on.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">Ch</div>
+          <div class="team-name">Chris</div>
+          <div class="team-role">Developer</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Cr</div>
+          <div class="team-name">Cristian</div>
+          <div class="team-role">Websites</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">G</div>
+          <div class="team-name">Gerry</div>
+          <div class="team-role">Stocktaking</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-group reveal" style="margin-top:52px">
+      <div class="team-group-title">Safety Team</div>
+      <p class="team-group-desc">Qualified EHOs, certified instructors and risk assessors who write our safety training, conduct site audits, and ensure everything we deliver is fully legislation-compliant.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">D</div>
+          <div class="team-name">David</div>
+          <div class="team-role">EHO</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">S</div>
+          <div class="team-name">Shane</div>
+          <div class="team-role">Policy Writer</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">B</div>
+          <div class="team-name">Bernard</div>
+          <div class="team-role">Certified Instructor</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">Be</div>
+          <div class="team-name">Ben</div>
+          <div class="team-role">Risk Assessor</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-group reveal" style="margin-top:52px">
+      <div class="team-group-title">Knowledge Team</div>
+      <p class="team-group-desc">Specialists in leadership, wellbeing, cybersecurity, and driving who ensure that learning actually transfers into behaviour in your workplace.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">Go</div>
+          <div class="team-name">Gordon</div>
+          <div class="team-role">Leadership</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">St</div>
+          <div class="team-name">Stuart</div>
+          <div class="team-role">Wellbeing</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">J</div>
+          <div class="team-name">Jason</div>
+          <div class="team-role">Cybersecurity</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section style="padding:var(--section) 0;background:var(--surface)">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Our clients</span>
+      <h2 class="h2">Trusted by Ireland's leading<br>frontline businesses</h2>
+      <p class="lead">From independent retailers to national groups, Fit2Trade works across every scale of operation.</p>
+    </div>
+    <div class="clients-grid reveal">
+      <div class="client-cell">Applegreen</div>
+      <div class="client-cell">Coca-Cola HBC</div>
+      <div class="client-cell">Insomnia Coffee</div>
+      <div class="client-cell">Radisson Hotels</div>
+      <div class="client-cell">O'Briens Wines</div>
+      <div class="client-cell">Stacks Pharmacies</div>
+      <div class="client-cell">Credit Unions</div>
+      <div class="client-cell">Childcare Providers</div>
+      <div class="client-cell">Care Homes</div>
+      <div class="client-cell">GAA Clubs</div>
+      <div class="client-cell">Councils &amp; Agencies</div>
+      <div class="client-cell">Hotel Groups</div>
+    </div>
+  </div>
+</section>
+
+<!-- DARK CTA -->
+<section class="about-cta">
+  <div class="container">
+    <span class="eyebrow eyebrow--light">Get started</span>
+    <h2 class="h2 h2--light">Ready to see Fit2Trade<br>in action?</h2>
+    <p class="lead lead--light">Book a 15-minute demo and we'll show you exactly how Fit2Trade works for your industry.</p>
+    <div class="about-cta-btns">
+      <a href="/contact/" class="btn btn--white btn--lg">Book a Demo</a>
+      <a href="/pricing/" class="btn btn--white-outline btn--lg">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="about-contact">
+  <div class="container">
+    <div class="about-contact-inner">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Drop us a line</span>
+        <h2 class="h2">Say hello</h2>
+        <p class="lead">Have a question that isn't a demo? Send us a message and we'll get back to you within one business day.</p>
+      </div>
+      <div class="form-wrap reveal reveal-delay-1">
+        <form name="about-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="about-form">
+          <input type="hidden" name="form-name" value="about-contact" />
+          <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+          <div class="f-row">
+            <div>
+              <label class="f-label" for="ab-name">Name</label>
+              <input class="f-input" type="text" id="ab-name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label class="f-label" for="ab-email">Email</label>
+              <input class="f-input" type="email" id="ab-email" name="email" placeholder="you@company.com" required />
+            </div>
+          </div>
+          <label class="f-label" for="ab-msg">Message</label>
+          <textarea class="f-textarea" id="ab-msg" name="message" rows="5" placeholder="What would you like to know?" required></textarea>
+          <label class="f-consent">
+            <input type="checkbox" name="consent" required />
+            I agree to the <a href="/privacy/">Privacy Policy</a> and consent to Fit2Trade storing my details.
+          </label>
+          <button type="submit" class="btn btn--green btn--lg f-submit" style="width:100%">Send Message</button>
+        </form>
+        <div class="form-success" id="about-success">
+          <div class="form-success-icon">✓</div>
+          <h3>Message received</h3>
+          <p>Thanks for getting in touch. We'll reply within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Solutions</p><ul class="ft-links"><li><a href="/solutions/credit-unions/" class="ft-link">Credit Unions</a></li><li><a href="/solutions/retail/" class="ft-link">Retail</a></li><li><a href="/solutions/hospitality/" class="ft-link">Hospitality</a></li><li><a href="/solutions/healthcare/" class="ft-link">Healthcare</a></li><li><a href="/solutions/childcare/" class="ft-link">Childcare</a></li><li><a href="/solutions/public-sector/" class="ft-link">Public Sector</a></li></ul></div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li><li><a href="/products/enclose/" class="ft-link">Enclose</a></li><li><a href="/products/elevate/" class="ft-link">Elevate</a></li><li><a href="/products/engage/" class="ft-link">Engage</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link" style="color:#7DBDAD">About us</a></li><li><a href="/pricing/" class="ft-link">Pricing</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  const f=document.getElementById('about-form'), s=document.getElementById('about-success');
+  if(!f||!s)return;
+  f.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const b=f.querySelector('[type="submit"]'),l=b.textContent;
+    b.textContent='Sending…';b.disabled=true;
+    try{
+      const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});
+      if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();
+    }catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please email info@fit2trade.com');}
+  });
+})();
+</script>
+</body>
+</html>
