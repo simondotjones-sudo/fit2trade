@@ -40,6 +40,13 @@
     .clients-logos{display:flex;flex-wrap:wrap;gap:0;justify-content:center;border:1px solid var(--border-lt);border-radius:var(--r);overflow:hidden;max-width:800px;margin:0 auto}
     .client-pill{padding:16px 28px;font-size:.82rem;font-weight:700;color:var(--muted);border-right:1px solid var(--border-lt);border-bottom:1px solid var(--border-lt);white-space:nowrap}
     .client-pill:last-child{border-right:none}
+    /* Light-background form overrides — fields default to dark-mode in style.css */
+    .contact-form-light .f-label{color:var(--muted)}
+    .contact-form-light .f-input,.contact-form-light .f-select,.contact-form-light .f-textarea{background:var(--surface);border-color:var(--border);color:var(--ink)}
+    .contact-form-light .f-input::placeholder,.contact-form-light .f-textarea::placeholder{color:var(--muted-lt)}
+    .contact-form-light .f-input:focus,.contact-form-light .f-select:focus,.contact-form-light .f-textarea:focus{border-color:var(--green);background:var(--white)}
+    .contact-form-light .f-select option{background:var(--white);color:var(--ink)}
+    .contact-form-light .f-consent{color:var(--muted)}.contact-form-light .f-consent a{color:var(--green)}
     /* Success */
     .form-success{display:none;text-align:center;padding:56px 24px}
     .form-success-icon{font-size:3rem;margin-bottom:16px}
@@ -118,7 +125,7 @@
       <div class="contact-form-wrap">
         <div class="form-title">Get in touch</div>
         <p class="form-sub">Fill in the form and we&#8217;ll come back to you within one business day to confirm your demo time or answer your question.</p>
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contact-form">
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form-light" id="contact-form">
           <input type="hidden" name="form-name" value="contact" />
           <p style="display:none"><label>Don&#8217;t fill: <input name="bot-field" /></label></p>
           <div class="f-row">
