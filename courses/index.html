@@ -1,1 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses — Compliance, Corporate, AI &amp; Business Skills | Fit2Trade</title>
+  <meta name="description" content="Browse Fit2Trade's full course catalogue — compliance, corporate, AI &amp; future skills, and business skills courses delivered through the EDUCATE LMS." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Hero */
+    .courses-hero{background:var(--black);padding:calc(var(--nav-h) + 90px) 0 80px;text-align:center}
+    .courses-hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.06;margin-bottom:16px}
+    .courses-hero p{font-size:1.05rem;color:rgba(255,255,255,.45);max-width:520px;margin:0 auto 32px}
+    .courses-hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .hero-tag{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px}
 
+    /* Category tabs / nav */
+    .cat-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:var(--nav-h);z-index:10}
+    .cat-nav-inner{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .cat-nav-inner::-webkit-scrollbar{display:none}
+    .cat-tab{flex-shrink:0;padding:18px 24px;font-size:.85rem;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;transition:color var(--t),border-color var(--t);white-space:nowrap;text-decoration:none}
+    .cat-tab:hover{color:var(--ink)}
+    .cat-tab.active{color:var(--green);border-bottom-color:var(--green)}
+
+    /* Category section */
+    .cat-section{padding:var(--section) 0}
+    .cat-section:nth-child(even){background:var(--surface)}
+    .cat-section:nth-child(odd){background:var(--white)}
+
+    .cat-head{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+    .cat-head-text .eyebrow{margin-bottom:10px}
+    .cat-head-text .h2{margin-bottom:12px}
+    .cat-head-text .lead{max-width:520px}
+    .cat-head-badge{flex-shrink:0;background:var(--green-tint);border-radius:var(--r-lg);padding:20px 24px;text-align:center;min-width:140px}
+    .cat-head-badge-num{font-size:2.2rem;font-weight:900;color:var(--green);letter-spacing:-.04em;line-height:1}
+    .cat-head-badge-label{font-size:.75rem;font-weight:600;color:var(--green);opacity:.7;margin-top:4px}
+
+    /* Course grid */
+    .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .course-card{background:var(--white);border:1px solid var(--border-lt);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;gap:12px;transition:box-shadow var(--t),transform var(--t)}
+    .course-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .cat-section:nth-child(even) .course-card{background:var(--white)}
+    .course-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--green);background:var(--green-tint);border-radius:100px;padding:3px 10px;align-self:flex-start}
+    .course-title{font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.3;flex:1}
+    .course-meta{font-size:.8rem;color:var(--muted);line-height:1.5}
+    .course-price{font-size:.85rem;font-weight:700;color:var(--ink);border-top:1px solid var(--border-lt);padding-top:12px;margin-top:auto}
+
+    /* CTA strip */
+    .educate-strip{background:var(--green);padding:72px 0;text-align:center}
+    .educate-strip h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:14px}
+    .educate-strip p{font-size:1rem;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 32px;line-height:1.7}
+    .educate-strip-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* Stats bar */
+    .courses-stats{background:var(--black);padding:56px 0}
+    .courses-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+    .cs-item{padding:0 24px;border-right:1px solid rgba(255,255,255,.12)}
+    .cs-item:last-child{border-right:none}
+    .cs-num{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--white);letter-spacing:-.04em;margin-bottom:4px}
+    .cs-label{font-size:.8rem;color:rgba(255,255,255,.45);font-weight:500}
+
+    @media(max-width:1000px){.course-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){
+      .course-grid{grid-template-columns:1fr}
+      .courses-stats-grid{grid-template-columns:repeat(2,1fr);row-gap:32px}
+      .cs-item:nth-child(2){border-right:none}
+      .cat-head{flex-direction:column}
+      .cat-head-badge{min-width:unset;align-self:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown dropdown--wide">
+            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI, MCC &amp; DORA compliance</span></a></li>
+            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
+            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
+            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; nursing homes</span></a></li>
+            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
+            <li><a href="/solutions/public-sector/" class="dd-link"><strong>Public Sector</strong><span>Councils, agencies &amp; semi-states</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <ul class="dropdown">
+            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S Management System</span></a></li>
+            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
+            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
+            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
+            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing</span></a></li>
+            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><a href="/login/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li class="mob-item"><a href="/" class="mob-link">Home</a></li>
+    <li class="mob-item"><div class="mob-link" data-mob="mob-sol">Solutions for <span>+</span></div>
+      <ul class="mob-sub" id="mob-sol">
+        <li><a href="/solutions/credit-unions/" class="mob-sub-link">Credit Unions</a></li>
+        <li><a href="/solutions/retail/"        class="mob-sub-link">Retail</a></li>
+        <li><a href="/solutions/hospitality/"   class="mob-sub-link">Hospitality</a></li>
+        <li><a href="/solutions/healthcare/"    class="mob-sub-link">Healthcare</a></li>
+        <li><a href="/solutions/childcare/"     class="mob-sub-link">Childcare</a></li>
+        <li><a href="/solutions/public-sector/" class="mob-sub-link">Public Sector</a></li>
+      </ul>
+    </li>
+    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
+    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
+    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mob-actions"><a href="/login/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
+</nav>
+
+<!-- HERO -->
+<section class="courses-hero">
+  <div class="container">
+    <span class="eyebrow eyebrow--light">Course Catalogue</span>
+    <h1>Learn anything. <span class="accent">Prove everything.</span></h1>
+    <p>Compliance, corporate, AI and business skills courses — all delivered through the EDUCATE learning management system.</p>
+    <div class="courses-hero-tags">
+      <span class="hero-tag">Compliance</span>
+      <span class="hero-tag">Corporate</span>
+      <span class="hero-tag">AI &amp; Future Skills</span>
+      <span class="hero-tag">Business Skills</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY CATEGORY NAV -->
+<nav class="cat-nav" aria-label="Course categories">
+  <div class="container">
+    <div class="cat-nav-inner">
+      <a href="#compliance"     class="cat-tab active">Compliance</a>
+      <a href="#corporate"      class="cat-tab">Corporate</a>
+      <a href="#ai-skills"      class="cat-tab">AI &amp; Future Skills</a>
+      <a href="#business-skills" class="cat-tab">Business Skills</a>
+    </div>
+  </div>
+</nav>
+
+<!-- STATS -->
+<div class="courses-stats">
+  <div class="container">
+    <div class="courses-stats-grid">
+      <div class="cs-item reveal">
+        <div class="cs-num">200+</div>
+        <div class="cs-label">Courses available</div>
+      </div>
+      <div class="cs-item reveal reveal-delay-1">
+        <div class="cs-num">4</div>
+        <div class="cs-label">Specialist categories</div>
+      </div>
+      <div class="cs-item reveal reveal-delay-2">
+        <div class="cs-num">€50</div>
+        <div class="cs-label">Per person per course</div>
+      </div>
+      <div class="cs-item reveal reveal-delay-3">
+        <div class="cs-num">€5</div>
+        <div class="cs-label">Per employee/month via EDUCATE</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPLIANCE -->
+<section class="cat-section" id="compliance">
+  <div class="container">
+    <div class="cat-head">
+      <div class="cat-head-text reveal">
+        <span class="eyebrow">Category 01</span>
+        <h2 class="h2">Compliance</h2>
+        <p class="lead">Legally required training for health &amp; safety, food safety, and sector-specific regulations. Keeps your team audit-ready and fully documented.</p>
+      </div>
+      <div class="cat-head-badge reveal reveal-delay-1">
+        <div class="cat-head-badge-num">5</div>
+        <div class="cat-head-badge-label">Sub-categories</div>
+      </div>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal">
+        <span class="course-tag">Health &amp; Safety</span>
+        <div class="course-title">Health &amp; Safety Fundamentals</div>
+        <div class="course-meta">Covers manual handling, fire safety, first aid awareness, and workplace hazard identification. Suitable for all industries.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <span class="course-tag">Health &amp; Safety</span>
+        <div class="course-title">Manual Handling Certificate</div>
+        <div class="course-meta">Compliant with the Safety, Health and Welfare at Work (General Application) Regulations. Includes practical assessment option.</div>
+        <div class="course-price">From €50 per person · Practical from €35</div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <span class="course-tag">Food Safety</span>
+        <div class="course-title">Food Safety &amp; HACCP</div>
+        <div class="course-meta">Covers food hygiene principles, HACCP planning, allergen management, and Food Safety Authority of Ireland requirements.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal">
+        <span class="course-tag">Retail Compliance</span>
+        <div class="course-title">Retail Compliance Programme</div>
+        <div class="course-meta">Alcohol licensing, tobacco law, age verification, and retail-specific H&amp;S requirements for store managers and team members.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <span class="course-tag">Healthcare</span>
+        <div class="course-title">Healthcare Compliance</div>
+        <div class="course-meta">HIQA, CQC, and RQIA-aligned training for care homes, nursing homes, and designated centres across ROI, Northern Ireland, and England.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <span class="course-tag">Public Sector</span>
+        <div class="course-title">Public Sector Compliance</div>
+        <div class="course-meta">Covers GDPR for the public sector, freedom of information, procurement compliance, and environmental health requirements.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+    </div>
+    <div style="margin-top:36px" class="reveal">
+      <a href="/products/educate/" class="btn btn--outline-dark">Learn about EDUCATE, our LMS &#8250;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CORPORATE -->
+<section class="cat-section" id="corporate">
+  <div class="container">
+    <div class="cat-head">
+      <div class="cat-head-text reveal">
+        <span class="eyebrow">Category 02</span>
+        <h2 class="h2">Corporate</h2>
+        <p class="lead">Ethics, data privacy, diversity and driving — the professional development courses every organisation needs for a compliant, respectful, and high-performing workplace.</p>
+      </div>
+      <div class="cat-head-badge reveal reveal-delay-1">
+        <div class="cat-head-badge-num">4</div>
+        <div class="cat-head-badge-label">Sub-categories</div>
+      </div>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal">
+        <span class="course-tag">Ethics &amp; Compliance</span>
+        <div class="course-title">Ethics &amp; Compliance Programme</div>
+        <div class="course-meta">Anti-bribery, conflicts of interest, whistleblowing, and corporate governance. Suitable for all staff, with specialist manager modules.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <span class="course-tag">Data Privacy</span>
+        <div class="course-title">Data Privacy &amp; Cybersecurity</div>
+        <div class="course-meta">GDPR fundamentals, data handling responsibilities, phishing awareness, password security, and incident reporting for frontline teams.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <span class="course-tag">DEI</span>
+        <div class="course-title">Diversity, Equity &amp; Inclusion</div>
+        <div class="course-meta">Covers unconscious bias, inclusive communication, workplace bullying prevention, and legal obligations under the Employment Equality Acts.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal">
+        <span class="course-tag">Driving for Work</span>
+        <div class="course-title">Driving for Work Certificate</div>
+        <div class="course-meta">Legal obligations for employers and employees who drive for work. Covers vehicle checks, journey planning, fatigue, and incident reporting.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI & FUTURE SKILLS -->
+<section class="cat-section" id="ai-skills">
+  <div class="container">
+    <div class="cat-head">
+      <div class="cat-head-text reveal">
+        <span class="eyebrow">Category 03</span>
+        <h2 class="h2">AI &amp; Future Skills</h2>
+        <p class="lead">Practical AI skills for frontline managers and professionals — not theory, but real tools and techniques you can use from day one. Ireland's most practical AI learning for the workplace.</p>
+      </div>
+      <div class="cat-head-badge reveal reveal-delay-1">
+        <div class="cat-head-badge-num">3</div>
+        <div class="cat-head-badge-label">Programmes</div>
+      </div>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal">
+        <span class="course-tag">Diploma</span>
+        <div class="course-title">Future Skills Diploma</div>
+        <div class="course-meta">A comprehensive diploma programme covering AI literacy, digital tools, data interpretation, and the future of work. For ambitious professionals across all sectors.</div>
+        <div class="course-price">Contact us for pricing</div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <span class="course-tag">AI for Managers</span>
+        <div class="course-title">AI for Multisite Managers</div>
+        <div class="course-meta">Practical guide to using ChatGPT and AI tools for operational excellence — scheduling, reporting, communications, and compliance — for retail and hospitality managers.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <span class="course-tag">AI for Sales</span>
+        <div class="course-title">AI for Sales Representatives</div>
+        <div class="course-meta">Maximising sales performance with AI — prospecting, pitch preparation, follow-up automation and relationship management. Tailored for the drinks industry.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS SKILLS -->
+<section class="cat-section" id="business-skills">
+  <div class="container">
+    <div class="cat-head">
+      <div class="cat-head-text reveal">
+        <span class="eyebrow">Category 04</span>
+        <h2 class="h2">Business Skills</h2>
+        <p class="lead">Diploma programmes and short courses in leadership, management, marketing, project management, and sales. Develop the skills your team needs to grow.</p>
+      </div>
+      <div class="cat-head-badge reveal reveal-delay-1">
+        <div class="cat-head-badge-num">6</div>
+        <div class="cat-head-badge-label">Programmes</div>
+      </div>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal">
+        <span class="course-tag">Leadership</span>
+        <div class="course-title">Leadership Skills Diploma — EMPOWER</div>
+        <div class="course-meta">A structured leadership development programme covering self-awareness, team motivation, conflict resolution, performance management, and strategic thinking.</div>
+        <div class="course-price">Contact us for pricing</div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <span class="course-tag">Management</span>
+        <div class="course-title">Manager Development Programme — EQUIP</div>
+        <div class="course-meta">Practical management skills for frontline and middle managers — scheduling, delegation, feedback, disciplinary processes, and operational planning.</div>
+        <div class="course-price">Contact us for pricing</div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <span class="course-tag">Marketing</span>
+        <div class="course-title">Digital Marketing Diploma</div>
+        <div class="course-meta">Covers SEO, social media strategy, email marketing, Google Ads, content creation, and performance measurement. Practical and industry-relevant.</div>
+        <div class="course-price">Contact us for pricing</div>
+      </div>
+      <div class="course-card reveal">
+        <span class="course-tag">Project Management</span>
+        <div class="course-title">Project Management Diploma</div>
+        <div class="course-meta">From planning and scoping to delivery and review — a hands-on project management diploma for professionals in any sector.</div>
+        <div class="course-price">Contact us for pricing</div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <span class="course-tag">Sales</span>
+        <div class="course-title">Sales Skills Diploma</div>
+        <div class="course-meta">Consultative selling, objection handling, negotiation, account management, and pipeline building. For sales teams at any experience level.</div>
+        <div class="course-price">Contact us for pricing</div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <span class="course-tag">Productivity</span>
+        <div class="course-title">Microsoft 365 Skills</div>
+        <div class="course-meta">Excel, Word, PowerPoint, Teams, and Outlook — practical courses to help your team work faster and smarter with the tools they use every day.</div>
+        <div class="course-price">From €50 per person</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATE LMS STRIP -->
+<div class="educate-strip">
+  <div class="container">
+    <span class="eyebrow eyebrow--light">Powered by EDUCATE</span>
+    <h2>All courses. One learning platform.</h2>
+    <p>Every course in this catalogue is delivered through EDUCATE — our learning management system with automated completion certificates, progress tracking, and manager dashboards.</p>
+    <div class="educate-strip-btns">
+      <a href="/products/educate/" class="btn btn--white btn--lg">Explore EDUCATE</a>
+      <a href="/contact/"          class="btn btn--white-outline btn--lg">Book a Demo</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img class="ft-brand-logo" src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+        <p class="ft-brand-copy">One system, one login. AI-powered compliance for frontline industries.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div><p class="ft-col-title">Solutions</p><ul class="ft-links"><li><a href="/solutions/credit-unions/" class="ft-link">Credit Unions</a></li><li><a href="/solutions/retail/" class="ft-link">Retail</a></li><li><a href="/solutions/hospitality/" class="ft-link">Hospitality</a></li><li><a href="/solutions/healthcare/" class="ft-link">Healthcare</a></li><li><a href="/solutions/childcare/" class="ft-link">Childcare</a></li><li><a href="/solutions/public-sector/" class="ft-link">Public Sector</a></li></ul></div>
+      <div><p class="ft-col-title">Products</p><ul class="ft-links"><li><a href="/products/ensure/" class="ft-link">Ensure</a></li><li><a href="/products/educate/" class="ft-link">Educate</a></li><li><a href="/products/operate/" class="ft-link">Operate</a></li><li><a href="/products/enclose/" class="ft-link">Enclose</a></li><li><a href="/products/elevate/" class="ft-link">Elevate</a></li><li><a href="/products/engage/" class="ft-link">Engage</a></li></ul></div>
+      <div><p class="ft-col-title">Company</p><ul class="ft-links"><li><a href="/about/" class="ft-link">About us</a></li><li><a href="/pricing/" class="ft-link">Pricing</a></li><li><a href="/contact/" class="ft-link">Contact</a></li></ul></div>
+      <div><p class="ft-col-title">Legal</p><ul class="ft-links"><li><a href="/terms/" class="ft-link">Terms</a></li><li><a href="/privacy/" class="ft-link">Privacy</a></li><li><a href="/cookie-policy/" class="ft-link">Cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p><nav class="ft-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookie-policy/">Cookies</a></nav></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+// Highlight active category tab on scroll
+(function(){
+  const sections=['compliance','corporate','ai-skills','business-skills'].map(function(id){return document.getElementById(id)});
+  const tabs=document.querySelectorAll('.cat-tab');
+  const obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        tabs.forEach(function(t){t.classList.remove('active')});
+        const t=document.querySelector('.cat-tab[href="#'+e.target.id+'"]');
+        if(t)t.classList.add('active');
+      }
+    });
+  },{rootMargin:'-15% 0px -70% 0px'});
+  sections.forEach(function(s){if(s)obs.observe(s)});
+})();
+</script>
+</body>
+</html>
