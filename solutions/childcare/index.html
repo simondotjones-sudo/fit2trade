@@ -74,6 +74,47 @@
     .io-tick { color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
     .io-card-btn { width: 100%; justify-content: center; }
     .io-card-foot { text-align: center; font-size: 0.77rem; color: var(--muted-lt); margin-top: 10px; }
+
+    /* Annual option inside the pricing card */
+    .io-annual {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: var(--green-tint);
+      border-radius: var(--r);
+      padding: 12px 14px;
+      margin-bottom: 20px;
+    }
+    .io-annual-or {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .io-annual-price { font-size: 1.45rem; font-weight: 900; color: var(--green); letter-spacing: -0.02em; line-height: 1; }
+    .io-annual-price small { font-size: 0.8rem; font-weight: 600; }
+    .io-annual-note { width: 100%; font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+
+    /* Top-of-hero reassurance notice */
+    .hero-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.24);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: var(--white);
+      font-size: 0.83rem;
+      font-weight: 600;
+      border-radius: 100px;
+      padding: 7px 15px;
+      margin-bottom: 18px;
+    }
+    .hero-notice svg { width: 15px; height: 15px; flex-shrink: 0; }
+
     @media (max-width: 860px) {
       .io-inner { grid-template-columns: 1fr; gap: 40px; }
       .io-card { position: static; }
@@ -135,6 +176,10 @@
   <div class="hero-industry-bg" style="background-image:url('https://www.fit2trade.com/wp-content/uploads/2022/05/Fit2Trade-for-Early-Years-Providers-scaled.jpg');background-position:top center;"></div>
   <div class="container">
     <div class="hero-industry-content">
+      <div class="hero-notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Keep all your existing data and sign-ons.
+      </div>
       <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/solutions/">Solutions</a><span class="breadcrumb-sep">›</span><span style="color:rgba(255,255,255,.65)">Childcare</span></nav>
       <div class="regulator-pills">
         <span class="reg-pill"><span class="reg-pill-dot"></span>Tusla (Ireland)</span>
@@ -145,7 +190,7 @@
       <h1 class="hero-industry-h1">Less time on paperwork.<br><span class="accent">More time with children.</span></h1>
       <p class="hero-industry-sub">Running an early years setting means meeting an enormous compliance burden — often with a tiny team. Fit2Trade takes the admin out of compliance so you can spend your time where it matters most.</p>
       <div class="hero-industry-ctas">
-        <a href="#ireland-offer" class="btn btn--white btn--lg">Ireland Offer — €20/month</a>
+        <a href="#ireland-offer" class="btn btn--white btn--lg">View the Ireland Offer</a>
         <a href="#demo"          class="btn btn--ghost btn--lg">Book a Demo</a>
       </div>
       <div class="hero-industry-trust">
@@ -166,18 +211,19 @@
 
       <div class="io-content reveal">
         <span class="eyebrow eyebrow--light">Exclusive offer &nbsp;·&nbsp; Early years Ireland</span>
-        <h2 class="h2 h2--light">Full compliance training for your entire team.<br><span class="io-price-inline">€20 a month.</span></h2>
-        <p class="lead lead--light">One flat monthly fee covers every member of your staff — no per-seat charges, no contract. Every compliance course Tusla expects your team to have completed, delivered online and certificated instantly.</p>
+        <h2 class="h2 h2--light">Full compliance training for your entire team.<br><span class="io-price-inline">€20 a month — or €149 a year.</span></h2>
+        <p class="lead lead--light">One flat fee covers every member of your staff — no per-seat charges. Pay €20 a month with no contract, or €149 a year funded by MBE Skillnet. Every compliance course Tusla expects your team to have completed, delivered online and certificated instantly.</p>
         <ul class="io-bullets">
           <li>Unlimited staff — every employee covered under one subscription</li>
           <li>All compliance courses included from day one</li>
           <li>Certificates issued instantly and tracked per staff member</li>
           <li>Tusla-inspection-ready from the moment you sign up</li>
-          <li>Cancel any time — no lock-in, no contract</li>
+          <li>Pay monthly (€20) and cancel any time — no lock-in</li>
+          <li>Or pay annually (€149) — funded by MBE Skillnet, normally €199</li>
         </ul>
         <div class="io-ctas">
-          <a href="/childcare-offer/" class="btn btn--white btn--lg">Register Now — €20/month</a>
-          <span class="io-note">Early years Ireland only &nbsp;·&nbsp; Cancel any time</span>
+          <a href="/childcare-offer/" class="btn btn--white btn--lg">Register Now</a>
+          <span class="io-note">Early years Ireland only &nbsp;·&nbsp; Choose monthly or annual</span>
         </div>
       </div>
 
@@ -189,6 +235,11 @@
           <span class="io-per">/month</span>
         </div>
         <p class="io-card-sub">Compliance training for your entire team — unlimited staff, no extra fees.</p>
+        <div class="io-annual">
+          <span class="io-annual-or">or</span>
+          <span class="io-annual-price">€149<small>/year</small></span>
+          <span class="io-annual-note">Funded by MBE Skillnet &nbsp;·&nbsp; normally €199</span>
+        </div>
         <div class="io-divider"></div>
         <ul class="io-card-list">
           <li><span class="io-tick">✓</span>Safeguarding &amp; Child Protection</li>
@@ -201,7 +252,7 @@
           <li><span class="io-tick">✓</span>All future courses included</li>
         </ul>
         <a href="/childcare-offer/" class="btn btn--green btn--lg io-card-btn">Register Now</a>
-        <p class="io-card-foot">No contract &nbsp;·&nbsp; Cancel any time</p>
+        <p class="io-card-foot">Choose monthly or annual on the next step</p>
       </div>
 
     </div>
