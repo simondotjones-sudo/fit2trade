@@ -317,6 +317,107 @@
       color: var(--muted-lt);
     }
 
+    /* ── Plan selector (Monthly / Annual) ────────────────────── */
+    .co-plan-toggle {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 4px;
+      margin-bottom: 20px;
+    }
+    .co-plan-opt {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.7);
+      background: transparent;
+      border: none;
+      border-radius: 100px;
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: var(--t);
+    }
+    .co-plan-opt:hover { color: var(--white); }
+    .co-plan-opt.is-active { background: var(--white); color: var(--green); }
+    .co-plan-opt small {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      opacity: 0.75;
+      margin-top: 1px;
+    }
+
+    /* Price + view show/hide */
+    .co-price-block { display: none; }
+    .co-price-block.is-active { display: block; }
+    .co-plan-view { display: none; }
+    .co-plan-view.is-active { display: block; }
+
+    /* Annual funding note under the price */
+    .co-card-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.45;
+      margin-top: 12px;
+    }
+    .co-card-note strong { color: var(--white); font-weight: 700; }
+
+    /* ── Annual register-interest form ───────────────────────────
+       This page loads only style.css, where .f-input etc. are
+       dark-mode (white text on transparent). On this white card we
+       replicate the light overrides locally so the form is readable. */
+    .co-form { margin-top: 4px; }
+    .co-form .f-group { margin-bottom: 12px; }
+    .co-form .f-label { color: var(--muted); }
+    .co-form .f-input,
+    .co-form .f-select {
+      background: var(--white);
+      border-color: var(--border);
+      color: var(--ink);
+    }
+    .co-form .f-input::placeholder { color: var(--muted-lt); }
+    .co-form .f-input:focus,
+    .co-form .f-select:focus {
+      border-color: var(--green);
+      background: var(--white);
+    }
+    .co-form .f-consent {
+      color: var(--muted);
+      font-size: 0.79rem;
+      margin-bottom: 18px;
+    }
+    .co-form .f-consent a { color: var(--green); }
+    .co-form .co-cta-btn { margin-top: 2px; }
+
+    .co-annual-success {
+      display: none;
+      text-align: center;
+      padding: 32px 12px;
+      background: var(--green-tint);
+      border-radius: var(--r);
+    }
+    .co-annual-success-icon { font-size: 2.4rem; margin-bottom: 12px; line-height: 1; }
+    .co-annual-success h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .co-annual-success p { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
+
+    .co-annual-note {
+      font-size: 0.75rem;
+      color: var(--muted-lt);
+      text-align: center;
+      line-height: 1.45;
+      margin-top: 14px;
+    }
+
     /* ── Footer ──────────────────────────────────────────────── */
     .co-footer {
       text-align: center;
@@ -471,74 +572,151 @@
       <div class="co-card-head">
         <p class="co-card-eyebrow">Your order</p>
         <p class="co-card-product">Fit2Trade Childcare Compliance Training<br>— Early Years Ireland</p>
-        <div class="co-card-price-row">
-          <span class="co-card-cur">€</span>
-          <span class="co-card-amt">20</span>
-          <span class="co-card-per">/month</span>
+
+        <!-- Plan selector -->
+        <div class="co-plan-toggle" role="tablist" aria-label="Choose a plan">
+          <button type="button" class="co-plan-opt is-active" data-plan="monthly" role="tab" aria-selected="true">
+            Monthly<small>€20/month</small>
+          </button>
+          <button type="button" class="co-plan-opt" data-plan="annual" role="tab" aria-selected="false">
+            Annual<small>€149/year</small>
+          </button>
+        </div>
+
+        <!-- Price — monthly -->
+        <div class="co-price-block is-active" data-plan="monthly">
+          <div class="co-card-price-row">
+            <span class="co-card-cur">€</span>
+            <span class="co-card-amt">20</span>
+            <span class="co-card-per">/month</span>
+          </div>
+        </div>
+
+        <!-- Price — annual -->
+        <div class="co-price-block" data-plan="annual">
+          <div class="co-card-price-row">
+            <span class="co-card-cur">€</span>
+            <span class="co-card-amt">149</span>
+            <span class="co-card-per">/year</span>
+          </div>
+          <p class="co-card-note"><strong>Funded by MBE Skillnet</strong> — normally €199/year.</p>
         </div>
       </div>
 
       <div class="co-card-body">
-        <p class="co-card-summary">Compliance training for your entire team. Unlimited staff. All 7 courses included. New courses added automatically.</p>
 
-        <div class="co-card-line">
-          <span>Childcare Compliance Training</span>
-          <span>€20.00/mo</span>
-        </div>
-        <div class="co-card-line">
-          <span>Unlimited staff seats</span>
-          <span>Included</span>
-        </div>
-        <div class="co-card-line">
-          <span>All courses &amp; future updates</span>
-          <span>Included</span>
-        </div>
-        <div class="co-card-line">
-          <span>Instant certificates</span>
-          <span>Included</span>
+        <!-- ══════════ MONTHLY VIEW ══════════ -->
+        <div class="co-plan-view is-active" data-plan="monthly">
+          <p class="co-card-summary">Compliance training for your entire team. Unlimited staff. All 7 courses included. New courses added automatically.</p>
+
+          <div class="co-card-line">
+            <span>Childcare Compliance Training</span>
+            <span>€20.00/mo</span>
+          </div>
+          <div class="co-card-line">
+            <span>Unlimited staff seats</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>All courses &amp; future updates</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>Instant certificates</span>
+            <span>Included</span>
+          </div>
+
+          <div class="co-card-total">
+            <span>Total today</span>
+            <span class="co-card-total-price">€20.00/month</span>
+          </div>
+
+          <!--
+            ══════════════════════════════════════════════════════
+            STRIPE PAYMENT LINK
+            ──────────────────────────────────────────────────────
+            1. Go to dashboard.stripe.com → Products → Add Product
+               Name: "Childcare Compliance Training — Early Years Ireland"
+               Price: €20.00 recurring / monthly (SEPA Direct Debit)
+            2. Go to Payment Links → Create Link → select this product
+            3. Replace the href below with your Stripe Payment Link URL
+               (it will look like: https://buy.stripe.com/XXXXXXXXX)
+            ══════════════════════════════════════════════════════
+          -->
+          <a href="#" class="co-cta-btn" id="stripe-btn">
+            Get Started — €20/month
+            <span class="co-cta-arrow">→</span>
+          </a>
+
+          <div class="co-trust">
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Secure payment
+            </span>
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              No contract
+            </span>
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Cancel any time
+            </span>
+          </div>
+
+          <p class="co-stripe-note">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Monthly direct debit handled securely by Stripe
+          </p>
         </div>
 
-        <div class="co-card-total">
-          <span>Total today</span>
-          <span class="co-card-total-price">€20.00/month</span>
+        <!-- ══════════ ANNUAL VIEW ══════════ -->
+        <div class="co-plan-view" data-plan="annual">
+          <p class="co-card-summary">The same complete compliance training, paid annually and funded by MBE Skillnet. Register your interest below and Skillnet will invoice you for the €149 annual plan.</p>
+
+          <div class="co-card-line">
+            <span>Annual compliance training</span>
+            <span>€149.00/yr</span>
+          </div>
+          <div class="co-card-line">
+            <span>Unlimited staff seats</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>All courses &amp; future updates</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>Instant certificates</span>
+            <span>Included</span>
+          </div>
+
+          <div class="co-card-total">
+            <span>You pay</span>
+            <span class="co-card-total-price">€149.00/year</span>
+          </div>
+
+          <form name="childcare-annual" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="co-form" id="annual-form">
+            <input type="hidden" name="form-name" value="childcare-annual" />
+            <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+            <div class="f-group"><label class="f-label" for="a-setting">Setting / crèche name *</label><input class="f-input" type="text" id="a-setting" name="business" required placeholder="Little Stars Montessori" /></div>
+            <div class="f-group"><label class="f-label" for="a-name">Contact name *</label><input class="f-input" type="text" id="a-name" name="contact_name" required placeholder="Jane Smith" /></div>
+            <div class="f-group"><label class="f-label" for="a-email">Work email *</label><input class="f-input" type="email" id="a-email" name="email" required placeholder="jane@mysetting.ie" /></div>
+            <div class="f-group"><label class="f-label" for="a-phone">Phone (optional)</label><input class="f-input" type="tel" id="a-phone" name="phone" placeholder="01 234 5678" /></div>
+            <div class="f-consent"><input type="checkbox" id="a-consent" name="consent" required /><label for="a-consent">I agree to the <a href="/privacy/">privacy notice</a> and <a href="/terms/">terms</a>.</label></div>
+            <button type="submit" class="co-cta-btn">
+              Register Interest
+              <span class="co-cta-arrow">→</span>
+            </button>
+          </form>
+
+          <div class="co-annual-success" id="annual-success">
+            <div class="co-annual-success-icon">✅</div>
+            <h3>Thanks — you're registered.</h3>
+            <p>MBE Skillnet will be in touch to invoice you for the €149 annual plan.</p>
+          </div>
+
+          <p class="co-annual-note">Funded by MBE Skillnet — you pay €149; the normal annual price is €199.</p>
         </div>
-
-        <!--
-          ══════════════════════════════════════════════════════
-          STRIPE PAYMENT LINK
-          ──────────────────────────────────────────────────────
-          1. Go to dashboard.stripe.com → Products → Add Product
-             Name: "Childcare Compliance Training — Early Years Ireland"
-             Price: €20.00 recurring / monthly
-          2. Go to Payment Links → Create Link → select this product
-          3. Replace the href below with your Stripe Payment Link URL
-             (it will look like: https://buy.stripe.com/XXXXXXXXX)
-          ══════════════════════════════════════════════════════
-        -->
-        <a href="#" class="co-cta-btn" id="stripe-btn">
-          Get Started — €20/month
-          <span class="co-cta-arrow">→</span>
-        </a>
-
-        <div class="co-trust">
-          <span class="co-trust-item">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Secure payment
-          </span>
-          <span class="co-trust-item">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            No contract
-          </span>
-          <span class="co-trust-item">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Cancel any time
-          </span>
-        </div>
-
-        <p class="co-stripe-note">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          Payments handled securely by Stripe
-        </p>
 
       </div>
     </div>
@@ -556,6 +734,27 @@
   // Year
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+  // Plan selector — swap price + view between Monthly and Annual
+  (function(){
+    var btns = document.querySelectorAll('.co-plan-opt');
+    function setPlan(plan){
+      btns.forEach(function(b){
+        var on = b.getAttribute('data-plan') === plan;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('.co-price-block, .co-plan-view').forEach(function(el){
+        el.classList.toggle('is-active', el.getAttribute('data-plan') === plan);
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ setPlan(b.getAttribute('data-plan')); });
+    });
+  })();
+
+  // Annual register-interest form — AJAX submit to Netlify
+  (function(){const f=document.getElementById('annual-form'),s=document.getElementById('annual-success');if(!f||!s)return;f.addEventListener('submit',async function(e){e.preventDefault();const b=f.querySelector('[type="submit"]'),l=b.textContent;b.textContent='Sending…';b.disabled=true;try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});if(r.ok){f.style.display='none';s.style.display='block';}else throw new Error();}catch{b.textContent=l;b.disabled=false;alert('Something went wrong — please email info@fit2trade.com');}});})();
 </script>
 </body>
 </html>
