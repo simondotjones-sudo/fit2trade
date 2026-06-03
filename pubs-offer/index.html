@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started — Pub Compliance Training for LVA Members | Fit2Trade</title>
+  <meta name="description" content="Full compliance training for your entire pub team — plus digital HACCP checklists and a customised Safety Statement — for €20 a month. An exclusive offer for LVA members." />
+  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+
+    /* ── Page layout ─────────────────────────────────────────── */
+    body { background: var(--surface); }
+
+    /* ── Checkout header ─────────────────────────────────────── */
+    .co-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+    .co-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+    }
+    .co-logo img { height: 30px; width: auto; }
+    .co-back {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color var(--t);
+    }
+    .co-back:hover { color: var(--green); }
+    .co-back svg { width: 14px; height: 14px; }
+
+    /* ── Main grid ───────────────────────────────────────────── */
+    .co-main {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding: 56px var(--pad) 80px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── Left column ─────────────────────────────────────────── */
+    .co-offer-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-tint);
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 22px;
+    }
+    .co-offer-label-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .co-h1 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .co-h1 span { color: var(--green); }
+    .co-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    /* ── LVA co-brand lockup ──────────────────────────────────────
+       The supplied LVA logo has a BLACK background, so it is placed
+       inside a dark chip where it sits cleanly. Replace the src with
+       the file once it is uploaded to the Fit2Trade media library.
+       A transparent-PNG version would let us drop the dark chip. */
+    .co-cobrand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--black);
+      border-radius: var(--r);
+      padding: 12px 18px;
+      margin-bottom: 34px;
+    }
+    .co-cobrand img { height: 34px; width: auto; display: block; }
+    .co-cobrand span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.4;
+      max-width: 180px;
+    }
+
+    /* What's included */
+    .co-section-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .co-courses {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .co-course {
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--r);
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .co-course-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 1px;
+    }
+    .co-course-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .co-course-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── "Done for you" feature cards (HACCP + Safety Statement) ───
+       Emphasised variant of .co-course — green-tinted so the two
+       included-free deliverables stand apart from the course list. */
+    .co-feature {
+      background: var(--green-tint);
+      border: 1px solid var(--green);
+      border-radius: var(--r);
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .co-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .co-feature-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; margin-top: 1px; }
+    .co-feature-name {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .co-feature-note { font-size: 0.8rem; color: var(--green-dk); line-height: 1.5; }
+
+    /* Benefits */
+    .co-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .co-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .co-benefit-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--green-tint);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      margin-top: 1px;
+    }
+    .co-benefit-text strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .co-benefit-text p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Right column — order card ───────────────────────────── */
+    .co-card {
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      position: sticky;
+      top: calc(64px + 24px);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+    }
+    .co-card-head {
+      background: var(--green);
+      padding: 28px 30px 24px;
+    }
+    .co-card-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7DBDAD;
+      margin-bottom: 10px;
+    }
+    .co-card-product {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .co-card-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .co-card-cur {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .co-card-amt {
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .co-card-per {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-left: 2px;
+    }
+    .co-card-body { padding: 24px 30px 28px; }
+    .co-card-summary {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-lt);
+      line-height: 1.5;
+    }
+    .co-card-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .co-card-line span:last-child { color: var(--muted); font-size: 0.84rem; }
+    .co-card-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      padding: 14px 0;
+      border-top: 1.5px solid var(--border);
+      border-bottom: 1px solid var(--border-lt);
+      margin: 12px 0 22px;
+    }
+    .co-card-total-price { color: var(--green); font-size: 1.15rem; }
+
+    /* The CTA button — Stripe will replace the href */
+    .co-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 17px 28px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: 100px;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: var(--t);
+    }
+    .co-cta-btn:hover {
+      background: var(--green-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px var(--green-glow);
+    }
+    .co-cta-btn:active { transform: translateY(0); box-shadow: none; }
+    .co-cta-arrow { font-size: 1.1rem; }
+
+    .co-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .co-trust-item {
+      font-size: 0.75rem;
+      color: var(--muted-lt);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .co-trust-item svg { color: var(--muted-lt); }
+
+    /* ── Stripe notice ───────────────────────────────────────── */
+    .co-stripe-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 0.75rem;
+      color: var(--muted-lt);
+    }
+
+    /* ── Plan selector (Monthly / Annual) ────────────────────── */
+    .co-plan-toggle {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 4px;
+      margin-bottom: 20px;
+    }
+    .co-plan-opt {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.7);
+      background: transparent;
+      border: none;
+      border-radius: 100px;
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: var(--t);
+    }
+    .co-plan-opt:hover { color: var(--white); }
+    .co-plan-opt.is-active { background: var(--white); color: var(--green); }
+    .co-plan-opt small {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      opacity: 0.75;
+      margin-top: 1px;
+    }
+
+    /* Price + view show/hide */
+    .co-price-block { display: none; }
+    .co-price-block.is-active { display: block; }
+    .co-plan-view { display: none; }
+    .co-plan-view.is-active { display: block; }
+
+    /* Annual saving note under the price */
+    .co-card-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.45;
+      margin-top: 12px;
+    }
+    .co-card-note strong { color: var(--white); font-weight: 700; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    .co-footer {
+      text-align: center;
+      padding: 32px var(--pad);
+      border-top: 1px solid var(--border-lt);
+    }
+    .co-footer p {
+      font-size: 0.8rem;
+      color: var(--muted-lt);
+    }
+    .co-footer a { color: var(--muted); transition: color var(--t); }
+    .co-footer a:hover { color: var(--green); }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .co-main { grid-template-columns: 1fr; padding-top: 36px; }
+      .co-card { position: static; }
+      .co-courses { grid-template-columns: 1fr; }
+      .co-feature-grid { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- CHECKOUT HEADER -->
+<header class="co-header">
+  <div class="co-header-inner">
+    <a href="/" class="co-logo">
+      <img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" />
+    </a>
+    <a href="/solutions/hospitality/" class="co-back">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Hospitality
+    </a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="co-main">
+
+  <!-- LEFT: Offer detail -->
+  <div>
+
+    <div class="co-offer-label">
+      <span class="co-offer-label-dot"></span>
+      Exclusive offer &nbsp;·&nbsp; LVA members
+    </div>
+
+    <h1 class="co-h1">Your whole pub, fully compliant.<br><span>€20 a month.</span></h1>
+    <p class="co-desc">One flat monthly fee covers every member of your bar and floor team — plus your HACCP checklists and a written Safety Statement, done for you. Every certificate stored and ready the moment an inspector walks in. No per-head charges, no contract.</p>
+
+    <!--
+      ════════════════════════════════════════════════════════════
+      LVA LOGO PLACEHOLDER
+      ────────────────────────────────────────────────────────────
+      The supplied logo has a BLACK background, so it sits inside a
+      dark chip here. To use it:
+      1. Upload the LVA logo to the Fit2Trade media library
+         (https://www.fit2trade.com/wp-admin → Media → Add New)
+      2. Copy the file URL it gives you
+      3. Replace the src below with that URL
+      TIP: a transparent-background PNG would look cleaner — if you
+      have one, we can remove the dark .co-cobrand chip entirely.
+      ════════════════════════════════════════════════════════════
+    -->
+    <div class="co-cobrand">
+      <img src="https://www.fit2trade.com/wp-content/uploads/2025/06/LVA-logo-REPLACE-ME.png" alt="Licensed Vintners Association" loading="lazy" />
+      <span>An exclusive offer for members of the Licensed Vintners Association</span>
+    </div>
+
+    <!-- Courses included -->
+    <p class="co-section-title">Compliance training — every course your staff need</p>
+    <div class="co-courses">
+      <div class="co-course">
+        <span class="co-course-icon">🍽️</span>
+        <div>
+          <div class="co-course-name">Food Safety &amp; HACCP</div>
+          <div class="co-course-note">Food hygiene, HACCP planning, allergens &amp; FSAI requirements</div>
+        </div>
+      </div>
+      <div class="co-course">
+        <span class="co-course-icon">🍺</span>
+        <div>
+          <div class="co-course-name">Responsible Service of Alcohol</div>
+          <div class="co-course-note">Licensing law, age verification &amp; refusing service safely</div>
+        </div>
+      </div>
+      <div class="co-course">
+        <span class="co-course-icon">⛑️</span>
+        <div>
+          <div class="co-course-name">Health &amp; Safety Fundamentals</div>
+          <div class="co-course-note">Fire safety, first aid awareness &amp; hazard identification</div>
+        </div>
+      </div>
+      <div class="co-course">
+        <span class="co-course-icon">🏋️</span>
+        <div>
+          <div class="co-course-name">Manual Handling Certificate</div>
+          <div class="co-course-note">Kegs, crates &amp; deliveries — compliant with the General Application Regulations</div>
+        </div>
+      </div>
+      <div class="co-course">
+        <span class="co-course-icon">🔒</span>
+        <div>
+          <div class="co-course-name">Data Privacy &amp; GDPR</div>
+          <div class="co-course-note">Handling customer &amp; staff data, plus phishing awareness</div>
+        </div>
+      </div>
+      <div class="co-course">
+        <span class="co-course-icon">🤝</span>
+        <div>
+          <div class="co-course-name">Dignity at Work</div>
+          <div class="co-course-note">Bullying &amp; harassment prevention under the Employment Equality Acts</div>
+        </div>
+      </div>
+      <div class="co-course" style="grid-column:1 / -1;border-style:dashed;border-color:var(--border)">
+        <span class="co-course-icon">📚</span>
+        <div>
+          <div class="co-course-name">+ All future courses</div>
+          <div class="co-course-note">New courses are added to your account automatically, at no extra cost</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done-for-you extras -->
+    <p class="co-section-title">Plus — done for you, included free</p>
+    <div class="co-feature-grid">
+      <div class="co-feature">
+        <span class="co-feature-icon">✅</span>
+        <div>
+          <div class="co-feature-name">Digital HACCP checklists</div>
+          <div class="co-feature-note">Your daily and weekly food-safety checks completed on a phone and stored automatically — always ready for an EHO visit.</div>
+        </div>
+      </div>
+      <div class="co-feature">
+        <span class="co-feature-icon">📄</span>
+        <div>
+          <div class="co-feature-name">A customised Safety Statement</div>
+          <div class="co-feature-note">The written safety statement every Irish workplace must have under the Safety, Health and Welfare at Work Act 2005 — prepared for your pub.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <p class="co-section-title">Why publicans choose Fit2Trade</p>
+    <div class="co-benefits">
+      <div class="co-benefit">
+        <div class="co-benefit-icon">✓</div>
+        <div class="co-benefit-text">
+          <strong>Unlimited staff — one price</strong>
+          <p>Bar staff, floor staff, kitchen porters, cleaners, glass collectors — add everyone. No per-seat fees and no surprises on your invoice as your team changes.</p>
+        </div>
+      </div>
+      <div class="co-benefit">
+        <div class="co-benefit-icon">📋</div>
+        <div class="co-benefit-text">
+          <strong>Instant certificates — ready for an inspector</strong>
+          <p>Staff finish a course and get a certificate immediately. Everything is stored in one place, ready to show the HSA or an environmental health officer in seconds.</p>
+        </div>
+      </div>
+      <div class="co-benefit">
+        <div class="co-benefit-icon">🔔</div>
+        <div class="co-benefit-text">
+          <strong>Automatic renewal reminders</strong>
+          <p>We alert you 30 days before any certificate expires — so you're never caught out by a lapsed Food Safety or Manual Handling cert.</p>
+        </div>
+      </div>
+      <div class="co-benefit">
+        <div class="co-benefit-icon">📱</div>
+        <div class="co-benefit-text">
+          <strong>Completed on any phone — between shifts</strong>
+          <p>Staff can work through courses on their own phone before opening or after a shift. No classroom, no closing the pub for training days.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Order card -->
+  <div>
+    <div class="co-card">
+
+      <div class="co-card-head">
+        <p class="co-card-eyebrow">Your order</p>
+        <p class="co-card-product">Fit2Trade Pub Compliance Training<br>— LVA members</p>
+
+        <!-- Plan selector -->
+        <div class="co-plan-toggle" role="tablist" aria-label="Choose a plan">
+          <button type="button" class="co-plan-opt is-active" data-plan="monthly" role="tab" aria-selected="true">
+            Monthly<small>€20/month</small>
+          </button>
+          <button type="button" class="co-plan-opt" data-plan="annual" role="tab" aria-selected="false">
+            Annual<small>€199/year</small>
+          </button>
+        </div>
+
+        <!-- Price — monthly -->
+        <div class="co-price-block is-active" data-plan="monthly">
+          <div class="co-card-price-row">
+            <span class="co-card-cur">€</span>
+            <span class="co-card-amt">20</span>
+            <span class="co-card-per">/month</span>
+          </div>
+        </div>
+
+        <!-- Price — annual -->
+        <div class="co-price-block" data-plan="annual">
+          <div class="co-card-price-row">
+            <span class="co-card-cur">€</span>
+            <span class="co-card-amt">199</span>
+            <span class="co-card-per">/year</span>
+          </div>
+          <p class="co-card-note"><strong>Save €41 a year</strong> versus paying monthly.</p>
+        </div>
+      </div>
+
+      <div class="co-card-body">
+
+        <!-- ══════════ MONTHLY VIEW ══════════ -->
+        <div class="co-plan-view is-active" data-plan="monthly">
+          <p class="co-card-summary">Compliance training for your entire pub. Unlimited staff. All courses, HACCP checklists and your Safety Statement included.</p>
+
+          <div class="co-card-line">
+            <span>Pub Compliance Training</span>
+            <span>€20.00/mo</span>
+          </div>
+          <div class="co-card-line">
+            <span>Unlimited staff seats</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>HACCP checklists &amp; Safety Statement</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>All courses &amp; future updates</span>
+            <span>Included</span>
+          </div>
+
+          <div class="co-card-total">
+            <span>Total today</span>
+            <span class="co-card-total-price">€20.00/month</span>
+          </div>
+
+          <!--
+            ══════════════════════════════════════════════════════
+            STRIPE PAYMENT LINK — MONTHLY
+            ──────────────────────────────────────────────────────
+            1. Go to dashboard.stripe.com → Products → Add Product
+               Name: "Pub Compliance Training — LVA Members"
+               Price: €20.00 recurring / monthly (SEPA Direct Debit)
+            2. Go to Payment Links → Create Link → select this product
+            3. Replace the href below with your Stripe Payment Link URL
+               (it will look like: https://buy.stripe.com/XXXXXXXXX)
+            ══════════════════════════════════════════════════════
+          -->
+          <a href="#" class="co-cta-btn" id="stripe-btn-monthly">
+            Get Started — €20/month
+            <span class="co-cta-arrow">→</span>
+          </a>
+
+          <div class="co-trust">
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Secure payment
+            </span>
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              No contract
+            </span>
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Cancel any time
+            </span>
+          </div>
+
+          <p class="co-stripe-note">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Monthly direct debit handled securely by Stripe
+          </p>
+        </div>
+
+        <!-- ══════════ ANNUAL VIEW ══════════ -->
+        <div class="co-plan-view" data-plan="annual">
+          <p class="co-card-summary">The same complete compliance package — all courses, HACCP checklists and your Safety Statement — paid once a year. Unlimited staff.</p>
+
+          <div class="co-card-line">
+            <span>Annual pub compliance</span>
+            <span>€199.00/yr</span>
+          </div>
+          <div class="co-card-line">
+            <span>Unlimited staff seats</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>HACCP checklists &amp; Safety Statement</span>
+            <span>Included</span>
+          </div>
+          <div class="co-card-line">
+            <span>All courses &amp; future updates</span>
+            <span>Included</span>
+          </div>
+
+          <div class="co-card-total">
+            <span>You pay</span>
+            <span class="co-card-total-price">€199.00/year</span>
+          </div>
+
+          <!--
+            ══════════════════════════════════════════════════════
+            STRIPE PAYMENT LINK — ANNUAL
+            ──────────────────────────────────────────────────────
+            1. Go to dashboard.stripe.com → Products → Add Product
+               Name: "Pub Compliance Training — LVA Members (Annual)"
+               Price: €199.00 recurring / yearly
+            2. Go to Payment Links → Create Link → select this product
+            3. Replace the href below with your Stripe Payment Link URL
+               (it will look like: https://buy.stripe.com/XXXXXXXXX)
+            ══════════════════════════════════════════════════════
+          -->
+          <a href="#" class="co-cta-btn" id="stripe-btn-annual">
+            Get Started — €199/year
+            <span class="co-cta-arrow">→</span>
+          </a>
+
+          <div class="co-trust">
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Secure payment
+            </span>
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Best value
+            </span>
+            <span class="co-trust-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited staff
+            </span>
+          </div>
+
+          <p class="co-stripe-note">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Annual payment handled securely by Stripe
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="co-footer">
+  <p>&copy; <span id="year"></span> Fit2Trade Ltd. &nbsp;·&nbsp; <a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a> &nbsp;·&nbsp; <a href="/contact/">Contact</a></p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Year
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Plan selector — swap price + view between Monthly and Annual
+  (function(){
+    var btns = document.querySelectorAll('.co-plan-opt');
+    function setPlan(plan){
+      btns.forEach(function(b){
+        var on = b.getAttribute('data-plan') === plan;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('.co-price-block, .co-plan-view').forEach(function(el){
+        el.classList.toggle('is-active', el.getAttribute('data-plan') === plan);
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ setPlan(b.getAttribute('data-plan')); });
+    });
+  })();
+</script>
+</body>
+</html>
