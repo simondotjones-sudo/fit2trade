@@ -411,9 +411,9 @@
                 Bring company news, benefits, vacancies and trusted resources to frontline teams.
               </p>
               <div class="pricing-module-price">
-                <strong>€6,000</strong>
-                <span>per organisation / year</span>
-                <small>Flat annual subscription</small>
+                <strong>€120</strong>
+                <span>per site / year</span>
+                <small>Minimum annual subscription €6,000</small>
               </div>
             </article>
 
@@ -473,7 +473,82 @@
             <div class="pricing-addon-price">
               <strong>€25</strong>
               <span>per employee / year</span>
+              <small>Minimum annual subscription €6,000</small>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted pricing-calculator-section" id="quote-calculator">
+        <div class="container">
+          <div class="section-head pricing-calculator-head">
+            <span class="eyebrow">
+              Pricing calculator
+            </span>
+            <h2>
+              Build an indicative annual quote.
+            </h2>
+            <p>
+              Enter your organisation size, choose the modules you need and calculate the published annual price.
+            </p>
+          </div>
+
+          <div class="pricing-calculator" data-quote-calculator>
+            <form class="pricing-calculator-form" data-quote-form novalidate>
+              <div class="pricing-calculator-counts">
+                <label>
+                  Employees
+                  <input type="number" inputmode="numeric" min="1" step="1" name="quote-employees" data-quote-employees placeholder="e.g. 250" required/>
+                </label>
+                <label>
+                  Sites
+                  <input type="number" inputmode="numeric" min="1" step="1" name="quote-sites" data-quote-sites placeholder="e.g. 12" required/>
+                </label>
+              </div>
+
+              <fieldset class="pricing-calculator-modules">
+                <legend>Select modules</legend>
+                <div class="pricing-calculator-options">
+                  <label><input type="checkbox" value="learn" data-quote-module/> <span><strong>Learn</strong><small>€50 / employee / year</small></span></label>
+                  <label><input type="checkbox" value="ensure" data-quote-module/> <span><strong>Ensure</strong><small>€1,200 / site / year</small></span></label>
+                  <label><input type="checkbox" value="operate" data-quote-module/> <span><strong>Operate</strong><small>€600 / site / year</small></span></label>
+                  <label><input type="checkbox" value="engage" data-quote-module/> <span><strong>Engage</strong><small>€120 / site / year</small></span></label>
+                  <label><input type="checkbox" value="enclose" data-quote-module/> <span><strong>Enclose</strong><small>€120 / site / year</small></span></label>
+                  <label><input type="checkbox" value="entry" data-quote-module/> <span><strong>Entry</strong><small>€120 / site / year</small></span></label>
+                  <label class="pricing-calculator-option-addon"><input type="checkbox" value="elevate" data-quote-module/> <span><strong>Elevate</strong><small>Add-on · €25 / employee / year</small></span></label>
+                </div>
+              </fieldset>
+
+              <p class="pricing-calculator-error" data-quote-error role="alert" hidden></p>
+              <button class="button primary" type="submit">
+                Get quote
+              </button>
+            </form>
+
+            <aside class="pricing-quote-result" data-quote-result aria-live="polite">
+              <div class="pricing-quote-empty" data-quote-empty>
+                <span class="pricing-kicker">Indicative quote</span>
+                <h3>Your annual price will appear here.</h3>
+                <p>Each selected module is calculated separately and its minimum annual subscription is applied where relevant.</p>
+              </div>
+              <div class="pricing-quote-content" data-quote-content hidden>
+                <div class="pricing-quote-reference">
+                  <span>Quote reference</span>
+                  <strong data-quote-reference></strong>
+                </div>
+                <div class="pricing-quote-breakdown" data-quote-breakdown></div>
+                <div class="pricing-quote-total">
+                  <span>Indicative annual total</span>
+                  <strong data-quote-total></strong>
+                </div>
+                <p class="pricing-quote-note">Based on the published prices on this page. The Fit2Trade Core App is included.</p>
+                <div class="pricing-quote-actions">
+                  <button class="button secondary" type="button" data-quote-save>Save quote</button>
+                  <a class="button primary" href="/book-demo/" data-quote-contact>Contact us about this quote</a>
+                </div>
+                <p class="pricing-quote-status" data-quote-status aria-live="polite"></p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -626,6 +701,8 @@
     </footer>
     <!-- shared-footer:end -->
     <script src="/assets/js/main.js" defer>
+    </script>
+    <script src="/assets/js/quote-calculator.js" defer>
     </script>
   </body>
 </html>

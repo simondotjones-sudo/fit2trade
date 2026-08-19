@@ -307,14 +307,22 @@
               </span>
             </div>
           </div>
-          <form class="demo-form" name="fit2trade-demo" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you/" method="POST">
+          <form class="demo-form" name="fit2trade-demo" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you/" method="POST" data-quote-enquiry>
             <input type="hidden" name="form-name" value="fit2trade-demo"/>
+            <input type="hidden" name="quote-reference" data-enquiry-quote-reference/>
+            <input type="hidden" name="quote-details" data-enquiry-quote-details/>
+            <input type="hidden" name="quote-total" data-enquiry-quote-total/>
             <p class="hidden-field">
               <label>
                 Do not fill this in:
                 <input name="bot-field"/>
               </label>
             </p>
+            <div class="demo-quote-context" data-quote-context hidden>
+              <span>Pricing calculator quote</span>
+              <strong data-quote-context-reference></strong>
+              <p data-quote-context-summary></p>
+            </div>
             <div class="form-head">
               <span>
                 Demo request
@@ -530,6 +538,8 @@
     </footer>
     <!-- shared-footer:end -->
     <script src="/assets/js/main.js" defer>
+    </script>
+    <script src="/assets/js/quote-calculator.js" defer>
     </script>
   </body>
 </html>
