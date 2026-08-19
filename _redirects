@@ -20,3 +20,13 @@
 /cookie-policy/               /legal/cookies/                  301
 /pricing-eu/                  /pricing/                        301
 /faq/                         /faqs/                           301
+/ensure-safety-management-system/digital-routines/ /modules/ensure/digital-checklists/ 301
+/ensure-safety-management-system/incident-accident-management-software/ /modules/ensure/incident-accident-management/ 301
+/ensure-safety-management-system/safety-statement-creation/ /modules/ensure/safety-statements/ 301
+/ensure-safety-management-system/risk-assessment-software/ /modules/ensure/risk-assessments/ 301
+/ensure-safety-management-system/near-miss-reporting/ /modules/ensure/near-miss-reporting/ 301
+/ensure-safety-management-system/observation-recording/ /modules/ensure/hazard-maintenance-reporting/ 301
+/ensure-safety-management-system/corrective-action-software/ /modules/ensure/corrective-actions/ 301
+/ensure-safety-management-system/audits/ /modules/ensure/health-safety-audits/ 301
+/ensure-safety-management-system/ /modules/ensure/ 301
+/ensure-food-safety-management/ https://tap-tick.com/ 301!
