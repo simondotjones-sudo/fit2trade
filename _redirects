@@ -36,4 +36,9 @@
 /about-us/trust-portal/       /trust/                          301
 /blog/                        /resources/blog/                 301
 /courses/*                    /courses/                        301
+# Sprint 07.2 responsible-business and legal legacy routes
+/about-us/ethics-statement/          /ethics-statement/                 301
+/about-us/partner-code-of-conduct/  /partner-code-of-conduct/         301
+/dpa/                                /legal/dpa/                        301
+/subject-access-request/             /legal/privacy/                    301
 
