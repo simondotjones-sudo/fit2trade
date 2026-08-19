@@ -1450,13 +1450,12 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .dora-process-examples > small { color: var(--soft-text); font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
 .dora-process-examples > div { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
 .dora-process-examples span { border: 1px solid #dce2dd; border-radius: 999px; padding: 7px 10px; background: #f7f9f6; color: #4d5650; font-size: 8px; font-weight: 600; }
-.dora-support-grid { display: grid; gap: 14px; grid-template-columns: repeat(6,1fr); }
-.dora-support-grid article { display: flex; min-height: 260px; flex-direction: column; border: 1px solid var(--line); border-radius: 22px; padding: 27px; background: #fff; }
-.dora-support-grid article:nth-child(-n+3) { grid-column: span 2; }
-.dora-support-grid article:nth-child(n+4) { grid-column: span 3; }
-.dora-support-grid article > span { color: var(--green); font-size: 10px; font-weight: 700; }
-.dora-support-grid h3 { margin: auto 0 12px; font-size: 23px; font-weight: 600; letter-spacing: -.035em; line-height: 1.07; }
-.dora-support-grid p { margin: 0; color: var(--soft-text); font-size: 12px; line-height: 1.58; }
+.dora-support-grid { display: grid; column-gap: 52px; row-gap: 0; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.dora-support-grid article { display: grid; min-height: 0; align-content: start; column-gap: 14px; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 28px 0 30px; background: transparent; grid-template-columns: 38px minmax(0,1fr); }
+.dora-support-grid article:last-child { grid-column: 1 / -1; }
+.dora-support-grid article > span { grid-column: 1; grid-row: 1 / span 2; color: var(--green); font-size: 10px; font-weight: 700; }
+.dora-support-grid h3 { grid-column: 2; margin: 0 0 10px; font-size: 23px; font-weight: 600; letter-spacing: -.035em; line-height: 1.07; }
+.dora-support-grid p { grid-column: 2; max-width: 720px; margin: 0; color: var(--soft-text); font-size: 14px; line-height: 1.58; }
 .dora-rhythm-layout { display: grid; align-items: start; gap: 85px; grid-template-columns: .9fr 1.1fr; }
 .dora-rhythm-layout > div h2 { max-width: 620px; margin: 0; font-size: clamp(39px,4.4vw,59px); font-weight: 600; letter-spacing: -.05em; line-height: 1; }
 .dora-rhythm-layout > div p { max-width: 620px; margin: 24px 0 0; color: var(--soft-text); font-size: 16px; line-height: 1.65; }
@@ -1466,18 +1465,30 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .dora-rhythm-steps > li > span { color: var(--green); font-size: 10px; font-weight: 700; }
 .dora-rhythm-steps strong { font-size: 16px; font-weight: 600; }
 .dora-rhythm-steps small { display: block; margin-top: 5px; color: var(--soft-text); font-size: 13px; line-height: 1.45; }
-.dora-role-grid article { min-height: 250px; }
-.dora-role-grid h3 { margin-top: 55px; }
+.dora-roles-section { background: #fff; }
+.dora-role-grid article { min-height: 270px; }
+.dora-role-grid h3 { margin-top: 55px; font-size: 23px; }
+.dora-role-grid p { font-size: 15px; line-height: 1.6; }
 .dora-pricing-head { max-width: 860px; }
 .dora-page .dora-pack-grid { max-width: 920px; margin: 0 auto; }
 .dora-page .dora-price-card { min-height: 520px; }
+.dora-page .dora-price-card > span { font-size: 13px; }
+.dora-tier-label { margin-top: 8px; color: #5a635d; font-size: 12px; font-weight: 600; }
+.dora-page .dora-price-card > strong { margin-top: 18px; font-size: 56px; }
+.dora-page .dora-price-card > small { font-size: 11px; }
+.dora-page .dora-price-card > p { font-size: 14px; line-height: 1.55; }
+.dora-page .dora-price-card li { font-size: 13px; line-height: 1.45; }
+.dora-includes-lead { margin: 0 0 11px; color: var(--text); font-size: 13px; font-weight: 650; }
 .dora-package-boundary { display: grid; gap: 10px; max-width: 920px; border-top: 1px solid var(--line); margin: 32px auto 0; padding-top: 24px; grid-template-columns: 110px 1fr; }
 .dora-package-boundary strong { color: var(--green); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .dora-package-boundary p { margin: 0; color: var(--soft-text); font-size: 11px; line-height: 1.55; }
 .dora-scope-section { padding-bottom: 90px; }
 .dora-page .dora-scope { padding-top: 0; border-top: 0; }
 .dora-page .dora-scope h2 { max-width: 900px; }
-.dora-confidence-section { border-top: 1px solid var(--line); }
+.dora-confidence-section { border-top: 1px solid var(--line); padding: 68px 0; }
+.dora-confidence-section .specialist-confidence-row { align-items: center; }
+.dora-confidence-section .specialist-confidence-row > div:first-child h2 { max-width: 470px; font-size: clamp(32px,3.2vw,44px); }
+.dora-confidence-section .specialist-confidence-links a { min-height: 70px; }
 
 @media (max-width: 1120px) {
   .specialist-hero .page-hero-grid { gap: 48px; }
@@ -1489,9 +1500,9 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
   .cu-mcc-layout, .dora-rhythm-layout, .specialist-confidence-row { gap: 55px; }
   .dora-process-flow { grid-template-columns: repeat(3,1fr); }
   .dora-process-flow span { min-height: 105px; }
-  .dora-support-grid { grid-template-columns: 1fr 1fr; }
-  .dora-support-grid article, .dora-support-grid article:nth-child(-n+3), .dora-support-grid article:nth-child(n+4) { grid-column: auto; }
-  .dora-support-grid article:last-child { grid-column: 1 / -1; min-height: 220px; }
+  .dora-support-grid { column-gap: 38px; grid-template-columns: 1fr 1fr; }
+  .dora-support-grid article { grid-column: auto; }
+  .dora-support-grid article:last-child { grid-column: 1 / -1; }
 }
 
 @media (max-width: 780px) {
@@ -1511,13 +1522,14 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
   .cu-core-strip h3 { font-size: 26px; }
   .cu-learning-panel > span { min-height: 0; padding: 20px; }
   .credit-union-page .cu-price-card, .dora-page .dora-price-card { min-height: 0; }
+  .dora-page .dora-price-card > strong { font-size: 52px; }
   .cu-dora-panel { padding: 28px; }
   .specialist-confidence-links a { min-height: 76px; }
   .dora-process-flow { grid-template-columns: 1fr 1fr; }
   .dora-process-flow span { min-height: 96px; }
   .dora-support-grid { grid-template-columns: 1fr; }
-  .dora-support-grid article, .dora-support-grid article:last-child { min-height: 0; grid-column: auto; }
-  .dora-support-grid h3 { margin-top: 48px; }
+  .dora-support-grid article, .dora-support-grid article:last-child { grid-column: auto; }
+  .dora-support-grid h3 { margin-top: 0; }
   .dora-rhythm-steps li { min-height: 78px; }
   .dora-role-grid article { min-height: 0; }
   .dora-role-grid h3 { margin-top: 44px; }
