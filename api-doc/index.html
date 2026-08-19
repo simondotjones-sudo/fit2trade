@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="preload" href="/assets/images/fit2trade-logo-reverse.png" as="image"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>Fit2Trade API Documentation v2.2</title>
+    <meta name="description" content="Fit2Trade API v2.2 documentation covering authentication, response formats, error handling, user management, course completions and login endpoints."/>
+    <meta property="og:title" content="Fit2Trade API Documentation v2.2"/>
+    <meta property="og:description" content="Technical documentation for the Fit2Trade API v2.2."/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Fit2Trade API Documentation v2.2"/>
+    <meta name="twitter:description" content="Technical documentation for the Fit2Trade API v2.2."/>
+    <link rel="shortcut icon" href="/assets/images/favicon.svg"/>
+    <link rel="icon" href="/assets/images/favicon.svg"/>
+  </head>
+  <body class="credibility-page api-doc-page">
+    <!-- shared-header:start -->
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="/" aria-label="Fit2Trade home">
+          <img src="/assets/images/fit2trade-logo-reverse.png" alt="Fit2Trade — Making Workplaces Better"/>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <details>
+            <summary>
+              Platform
+            </summary>
+            <div class="nav-panel">
+              <a href="/platform/">
+                <strong>
+                  The platform
+                </strong>
+                <span>
+                  One core app. Connected workflows.
+                </span>
+              </a>
+              <a href="/modules/">
+                <strong>
+                  All modules
+                </strong>
+                <span>
+                  Choose what your organisation needs.
+                </span>
+              </a>
+              <a href="https://tap-tick.com/">
+                <strong>
+                  TapTick
+                </strong>
+                <span>
+                  Specialist digital HACCP.
+                </span>
+              </a>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Modules
+            </summary>
+            <div class="nav-panel module-menu">
+              <a href="/modules/learn/">
+                <i style="background:#6b5ce7">
+                </i>
+                <span>
+                  <strong>
+                    Learn
+                  </strong>
+                  <small>
+                    Learning &amp; capability
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/ensure/">
+                <i style="background:#2e6052">
+                </i>
+                <span>
+                  <strong>
+                    Ensure
+                  </strong>
+                  <small>
+                    Safety &amp; compliance
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/operate/">
+                <i style="background:#e59b44">
+                </i>
+                <span>
+                  <strong>
+                    Operate
+                  </strong>
+                  <small>
+                    Operational standards
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/engage/">
+                <i style="background:#3678d4">
+                </i>
+                <span>
+                  <strong>
+                    Engage
+                  </strong>
+                  <small>
+                    Frontline communication
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/enclose/">
+                <i style="background:#b2588f">
+                </i>
+                <span>
+                  <strong>
+                    Enclose
+                  </strong>
+                  <small>
+                    Licence compliance
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/entry/">
+                <i style="background:#bd5b4d">
+                </i>
+                <span>
+                  <strong>
+                    Entry
+                  </strong>
+                  <small>
+                    Contractor compliance
+                  </small>
+                </span>
+              </a>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Solutions
+            </summary>
+            <div class="nav-panel solutions-menu">
+              <a href="/credit-union-compliance/">
+                <strong>
+                  Credit Unions
+                </strong>
+              </a>
+              <a href="/solutions/retail-convenience/">
+                <strong>
+                  Retail &amp; Convenience
+                </strong>
+              </a>
+              <a href="/solutions/hospitality-travel/">
+                <strong>
+                  Hospitality &amp; Travel
+                </strong>
+              </a>
+              <a href="/solutions/healthcare-care/">
+                <strong>
+                  Healthcare &amp; Care
+                </strong>
+              </a>
+              <a href="/solutions/public-sector/">
+                <strong>
+                  Public Sector
+                </strong>
+              </a>
+              <a href="/solutions/financial-services/">
+                <strong>
+                  Financial Services
+                </strong>
+              </a>
+              <a href="/solutions/childcare-education/">
+                <strong>
+                  Childcare &amp; Education
+                </strong>
+              </a>
+              <a href="/solutions/sport-membership/">
+                <strong>
+                  Sport &amp; Membership
+                </strong>
+              </a>
+            </div>
+          </details>
+          <a href="/pricing/">
+            Pricing
+          </a>
+          <details>
+            <summary>
+              Resources
+            </summary>
+            <div class="nav-panel">
+              <a href="/courses/">
+                <strong>
+                  Courses
+                </strong>
+                <span>
+                  Compliance and professional learning.
+                </span>
+              </a>
+              <a href="/implementation/">
+                <strong>
+                  Implementation
+                </strong>
+                <span>
+                  A practical, phased rollout.
+                </span>
+              </a>
+              <a href="/faqs/">
+                <strong>
+                  FAQs
+                </strong>
+                <span>
+                  Platform, rollout and commercial answers.
+                </span>
+              </a>
+              <a href="/updates/">
+                <strong>
+                  What's new
+                </strong>
+                <span>
+                  Product updates and release notes.
+                </span>
+              </a>
+              <a href="/resources/">
+                <strong>
+                  Resource centre
+                </strong>
+                <span>
+                  Guides, ideas and practical notes.
+                </span>
+              </a>
+              <a href="/trust/">
+                <strong>
+                  Trust
+                </strong>
+                <span>
+                  Security, privacy and assurance.
+                </span>
+              </a>
+            </div>
+          </details>
+        </nav>
+        <div class="nav-actions">
+          <a class="login-link" href="https://fit2trade.app/">
+            Login
+          </a>
+          <a class="button nav-button" href="/book-demo/">
+            Book demo
+          </a>
+        </div>
+        <details class="mobile-menu">
+          <summary aria-label="Open navigation">
+            <span>
+            </span>
+            <span>
+            </span>
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="/platform/">
+              Platform
+            </a>
+            <a href="/modules/">
+              Modules
+            </a>
+            <a href="/solutions/">
+              Solutions
+            </a>
+            <a href="/pricing/">
+              Pricing
+            </a>
+            <a href="/resources/">
+              Resources
+            </a>
+            <a href="https://fit2trade.app/">
+              Login
+            </a>
+            <a class="button primary" href="/book-demo/">
+              Book demo
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <!-- shared-header:end -->
+    <main>
+      <section class="credibility-hero api-doc-hero">
+        <div class="container credibility-hero-copy">
+          <span class="eyebrow">Developers · API v2.2</span>
+          <h1>Fit2Trade API documentation.</h1>
+          <p>Reference documentation for integrating with Fit2Trade user data, roles, course completions and authenticated user access.</p>
+          <div class="api-doc-meta"><span>Version 2.2</span><span>Updated 18 September 2025</span></div>
+        </div>
+      </section>
+
+      <section class="api-doc-note-section">
+        <div class="container api-doc-note">
+          <strong>API access</strong>
+          <p>API access must be enabled for the client account by Fit2Trade. Once enabled, an access token and refresh token are generated and supplied for API access.</p>
+        </div>
+      </section>
+
+      <section class="section api-doc-section">
+        <div class="container api-doc-layout">
+          <aside class="api-doc-toc" aria-label="API documentation sections">
+            <strong>On this page</strong>
+            <a href="#overview">Overview</a>
+            <a href="#responses">Responses &amp; errors</a>
+            <a href="#token-refresh"><span class="method method-patch">PATCH</span> Token refresh</a>
+            <a href="#users"><span class="method method-post">POST</span> Create/update users</a>
+            <a href="#deactivate"><span class="method method-post">POST</span> Deactivate users</a>
+            <a href="#reactivate"><span class="method method-post">POST</span> Reactivate users</a>
+            <a href="#completions"><span class="method method-post">POST</span> Course completions</a>
+            <a href="#credentials"><span class="method method-post">POST</span> User credentials</a>
+            <a href="#login"><span class="method method-post">POST</span> Login user</a>
+            <a href="#connect"><span class="method method-get">GET</span> Access Fit2Trade</a>
+          </aside>
+
+          <div class="api-document">
+            <section id="overview" class="api-doc-group">
+              <span>01</span>
+              <h2>Overview</h2>
+              <p>Use the Fit2Trade API to access or modify data for an enabled client account. Each request requires the API v2 accept header and bearer-token authorisation.</p>
+              <h3>Base URLs</h3>
+              <div class="api-key-value"><div><strong>Production</strong><code>https://fit2trade.app</code></div><div><strong>Testing</strong><code>https://f2tlab.com</code></div></div>
+              <h3>Required request headers</h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th scope="col">Header</th><th scope="col">Value</th></tr></thead><tbody><tr><td>Accept</td><td><code>application/app.fit2trade.v2</code> <small>Required · fixed value</small></td></tr><tr><td>Authorization</td><td><code>Bearer [Access Token]</code> <small>Required</small></td></tr><tr><td>Content-Type</td><td><code>application/json</code> <small>Used by JSON request endpoints</small></td></tr></tbody></table></div>
+            </section>
+
+            <section id="responses" class="api-doc-group">
+              <span>02</span>
+              <h2>Responses and errors</h2>
+              <p>Regardless of the HTTP return code, the response body uses a consistent <code>Status</code>, <code>Error</code> and <code>Data</code> structure. Check <code>Status</code> first to determine whether a request was processed successfully. On success, <code>ErrorCode</code> is <code>0</code> and <code>Message</code> is blank.</p>
+              <pre class="code-block"><code>{
+  "Status": "OK/ERROR",
+  "Error": {
+    "ErrorCode": 123,
+    "Message": "error details"
+  },
+  "Data": {}
+}</code></pre>
+              <p>The server returns HTTP status <code>200</code> unless one of the following conditions occurs.</p><h3>HTTP status codes</h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th scope="col">Status</th><th scope="col">Description</th></tr></thead><tbody><tr><td><code>403</code></td><td>Token expired, token invalid, or required headers are missing.</td></tr><tr><td><code>400</code></td><td>Wrong data format or too many rows.</td></tr><tr><td><code>500</code></td><td>Unexpected error.</td></tr></tbody></table></div>
+              <h3>Error codes</h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th scope="col">ErrorCode</th><th scope="col">Description</th></tr></thead><tbody>
+                <tr><td><code>0</code></td><td>No error</td></tr><tr><td><code>2000</code></td><td>System error</td></tr><tr><td><code>2001</code></td><td>Missing headers</td></tr><tr><td><code>2002</code></td><td>Invalid token</td></tr><tr><td><code>2003</code></td><td>Expired token</td></tr><tr><td><code>2004</code></td><td>Client access revoked</td></tr><tr><td><code>2005</code></td><td>Missing data</td></tr><tr><td><code>2006</code></td><td>Wrong data format</td></tr><tr><td><code>2007</code></td><td>Too many rows of data</td></tr><tr><td><code>2008</code></td><td>Incorrect user data</td></tr>
+              </tbody></table></div>
+            </section>
+
+            <section id="token-refresh" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-patch">PATCH</span><code>/api2/reauthorize</code></div>
+              <h2>Token refresh</h2>
+              <p>Generate a new access token and refresh token. The access token returned on success is valid for 24 hours.</p>
+              <h3>Headers</h3>
+              <div class="api-table-wrap"><table class="api-table"><tbody><tr><th scope="row">Accept</th><td><code>application/app.fit2trade.v2</code> <small>Required</small></td></tr><tr><th scope="row">Authorization</th><td><code>Bearer [Access Token]</code></td></tr><tr><th scope="row">Content-Type</th><td><code>application/json</code></td></tr></tbody></table></div>
+              <h3>Request body</h3><p>Supply a raw JSON object containing the required <code>RefreshToken</code> string.</p>
+              <pre class="code-block"><code>{
+  "RefreshToken": "[refresh-token]"
+}</code></pre>
+              <h3>Successful response</h3>
+              <pre class="code-block"><code>{
+  "Status": "OK",
+  "Error": { "ErrorCode": 0, "Message": "" },
+  "Data": {
+    "Token": "[new-access-token]",
+    "RefreshToken": "[new-refresh-token]"
+  }
+}</code></pre>
+            </section>
+
+            <section id="users" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-post">POST</span><code>/api2/users</code></div>
+              <h2>Create or update users</h2>
+              <p>Create or modify users. The request body is a raw JSON array of objects; a single user must still be sent as a single-value array. The maximum request size is 100 users.</p>
+              <h3>User properties</h3>
+              <div class="api-table-wrap"><table class="api-table api-parameter-table"><thead><tr><th scope="col">Property</th><th scope="col">Value</th></tr></thead><tbody>
+                <tr><td><code>FirstName</code></td><td>String. Required for a new user. For an existing user, a supplied value updates the database; if blank, the current value remains unchanged.</td></tr>
+                <tr><td><code>LastName</code></td><td>String. Same operation as <code>FirstName</code>.</td></tr>
+                <tr><td><code>Email</code></td><td>String. Required.</td></tr>
+                <tr><td><code>NewEmail</code></td><td>String. Required only when changing a user's email. The change fails if a user with the new email already exists.</td></tr>
+                <tr><td><code>ExternalID</code></td><td>String. Used when IDs from the system accessing the API are required.</td></tr>
+                <tr><td><code>LearnerRole</code></td><td>String. Optional. If a matching role definition is found, content is assigned according to the role.</td></tr>
+                <tr><td><code>Location</code></td><td>Optional JSON object containing <code>LocationID</code> or <code>ExternalID</code>. If omitted, the user is created without a location and is prompted to select one on first login. If the object is present, one of the two IDs must be supplied or the location is ignored. External location IDs must be supplied before they are used through the API.</td></tr>
+                <tr><td><code>AdminRole</code></td><td>Optional JSON object. If omitted, no admin rights are granted. <code>IsAdmin</code> is required; <code>ViewOnly</code> is optional and defaults to false. A valid <code>Location</code> must also be specified or the AdminRole is ignored. Setting <code>IsAdmin</code> to false revokes admin rights for the specified location.</td></tr>
+              </tbody></table></div>
+              <h3>Sample request</h3>
+              <pre class="code-block"><code>[
+  {
+    "FirstName": "John",
+    "LastName": "Smith",
+    "Email": "john@fit2trade.com",
+    "LearnerRole": "sales",
+    "ExternalID": "HG76GHF"
+  },
+  {
+    "FirstName": "Barbara",
+    "LastName": "Jones",
+    "Email": "barbara@fit2trade.com",
+    "ExternalID": "LKHG5HK8",
+    "Location": {
+      "LocationID": null,
+      "ExternalID": null
+    },
+    "LearnerRole": "admin",
+    "AdminRole": {
+      "IsAdmin": true,
+      "ViewOnly": false,
+      "Location": {
+        "LocationID": null,
+        "ExternalID": null
+      }
+    }
+  }
+]</code></pre>
+              <h3>Response</h3><p>On success, <code>Data</code> contains a list of user IDs and email addresses. A <code>UserID</code> of <code>0</code> means that user was not successfully created or updated.</p>
+            </section>
+
+            <section id="deactivate" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-post">POST</span><code>/api2/users/deactivate</code></div>
+              <h2>Deactivate users</h2>
+              <p>Archive users. Send a JSON array containing up to 100 users. <code>Email</code> is required and <code>ExternalID</code> is optional. Users identified by email are archived; email addresses not found are ignored.</p>
+              <pre class="code-block"><code>[
+  { "Email": "john@fit2trade.com" },
+  { "Email": "barbara@fit2trade.com", "ExternalID": "LKHG5HK8" }
+]</code></pre>
+              <div class="api-result-notes"><p><code>UserID = -1</code><span>User not found</span></p><p><code>UserID = 0</code><span>User successfully archived</span></p><p><code>UserID &gt; 0</code><span>User not archived</span></p></div>
+            </section>
+
+            <section id="reactivate" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-post">POST</span><code>/api2/users/reactivate</code></div>
+              <h2>Reactivate users</h2>
+              <p>Unarchive users. Send a JSON array containing up to 100 users. <code>Email</code> is required and <code>ExternalID</code> is optional.</p>
+              <pre class="code-block"><code>[
+  { "Email": "john@fit2trade.com" },
+  { "Email": "barbara@fit2trade.com", "ExternalID": "LKHG5HK8" }
+]</code></pre>
+              <div class="api-result-notes"><p><code>UserID = 0</code><span>User was not reactivated</span></p><p><code>UserID &gt; 0</code><span>User successfully reactivated</span></p></div>
+            </section>
+
+            <section id="completions" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-post">POST</span><code>/api2/users/completions</code></div>
+              <h2>Course completions</h2>
+              <p>Get the list of courses completed by users. Send a JSON array containing up to 100 users; <code>Email</code> is required for each object.</p>
+              <pre class="code-block"><code>[
+  { "Email": "john@fit2trade.com" },
+  { "Email": "barbara@fit2trade.com" }
+]</code></pre>
+              <h3>Sample response</h3>
+              <pre class="code-block"><code>{
+  "Error": { "ErrorCode": 0, "Message": "" },
+  "Status": "OK",
+  "Data": [
+    {
+      "UserID": 1,
+      "Email": "john@fit2trade.com",
+      "Completions": [
+        {
+          "CourseID": 130,
+          "Course": "Word Skills",
+          "CompletionDate": "2023-12-31T00:00:00",
+          "CertExpiryDate": "2026-08-06T00:00:00"
+        }
+      ]
+    }
+  ]
+}</code></pre>
+            </section>
+
+            <section id="credentials" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-post">POST</span><code>/api2/users/credentials</code></div>
+              <h2>User credentials</h2>
+              <p>Get a login token for a user. This token is valid for 5 minutes. The documented flow can be used to publish a link that signs a user into Fit2Trade automatically, provided the user's password in both applications is the same.</p>
+              <ol class="api-steps"><li>Call <code>/api2/users/credentials</code> to obtain the 5-minute login token.</li><li>Use that token with <code>/api2/users/login</code> to obtain a new login token valid for 8 hours.</li><li>Use <code>[base_url]/api2/users/connect/[login_token]</code> to access Fit2Trade without prompting the user to log in.</li></ol>
+              <h3>Request body</h3><pre class="code-block"><code>{
+  "Email": "john@fit2trade.com"
+}</code></pre>
+              <h3>Sample response</h3><pre class="code-block"><code>{
+  "Error": { "ErrorCode": 0, "Message": "" },
+  "Status": "OK",
+  "Data": {
+    "Email": "john@fit2trade.com",
+    "LoginToken": "[5-minute-login-token]"
+  }
+}</code></pre>
+            </section>
+
+            <section id="login" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-post">POST</span><code>/api2/users/login</code></div>
+              <h2>Login user</h2>
+              <p>Exchange the short-lived login token for a login token that is valid for 8 hours and can be used to create an access link to Fit2Trade without prompting the user to log in. The response also includes an <code>Image</code> property containing the Fit2Trade logo in SVG format.</p>
+              <h3>Request body</h3>
+              <div class="api-table-wrap"><table class="api-table"><thead><tr><th scope="col">Property</th><th scope="col">Value</th></tr></thead><tbody><tr><td><code>Email</code></td><td>String. Required.</td></tr><tr><td><code>LoginToken</code></td><td>String. Required.</td></tr><tr><td><code>Password</code></td><td>String. Required.</td></tr></tbody></table></div>
+              <pre class="code-block"><code>{
+  "Email": "john@fit2trade.com",
+  "LoginToken": "[5-minute-login-token]",
+  "Password": "[user-password]"
+}</code></pre>
+              <h3>Sample response</h3><pre class="code-block"><code>{
+  "Error": { "ErrorCode": 0, "Message": "" },
+  "Status": "OK",
+  "Data": {
+    "Email": "john@fit2trade.com",
+    "LoginToken": "[8-hour-login-token]",
+    "Image": "&lt;svg width="100%" height="100%"&gt; … &lt;/svg&gt;"
+  }
+}</code></pre>
+            </section>
+
+            <section id="connect" class="api-doc-group endpoint-section">
+              <div class="endpoint-heading"><span class="method method-get">GET</span><code>/api2/users/connect/[login_token]</code></div>
+              <h2>Access Fit2Trade</h2>
+              <p>Use the 8-hour login token to access Fit2Trade without prompting the user to log in.</p>
+              <h3>Headers</h3>
+              <div class="api-table-wrap"><table class="api-table"><tbody><tr><th scope="row">Accept</th><td><code>application/app.fit2trade.v2</code> <small>Required</small></td></tr><tr><th scope="row">Authorization</th><td><code>Bearer [Access Token]</code></td></tr></tbody></table></div>
+              <p class="api-outcome">If successful, the user is taken to their landing page. If not, the user is presented with the login page.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- shared-footer:start -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Fit2Trade home">
+            <img src="/assets/images/fit2trade-logo-reverse.png" alt="Fit2Trade — Making Workplaces Better"/>
+          </a>
+          <p>
+            One connected platform for safer, better-run frontline organisations.
+          </p>
+        </div>
+        <div>
+          <strong>
+            Platform
+          </strong>
+          <a href="/platform/">
+            Overview
+          </a>
+          <a href="/modules/">
+            Modules
+          </a>
+          <a href="/pricing/">
+            Pricing
+          </a>
+          <a href="https://tap-tick.com/">
+            TapTick
+          </a>
+        </div>
+        <div>
+          <strong>
+            Explore
+          </strong>
+          <a href="/solutions/">
+            Solutions
+          </a>
+          <a href="/credit-union-compliance/">
+            Credit Unions
+          </a>
+          <a href="/early-years/">
+            Early Years
+          </a>
+          <a href="/courses/">
+            Courses
+          </a>
+          <a href="/implementation/">
+            Implementation
+          </a>
+          <a href="/faqs/">
+            FAQs
+          </a>
+          <a href="/resources/">
+            Resources
+          </a>
+          <a href="/updates/">
+            What's new
+          </a>
+          <a href="/company/">
+            Company
+          </a>
+        </div>
+        <div>
+          <strong>
+            Trust
+          </strong>
+          <a href="/trust/">
+            Security &amp; privacy
+          </a>
+          <a href="/api-doc/">
+            API documentation
+          </a>
+          <a href="/legal/privacy/">
+            Privacy
+          </a>
+          <a href="/legal/terms/">
+            Terms
+          </a>
+          <a href="/legal/cookies/">
+            Cookies
+          </a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>
+          ©
+          <span data-current-year>
+            2026
+          </span>
+          Fit2Trade Ltd.
+        </span>
+        <span>
+          32 Fitzwilliam Street Upper, Dublin 2, Ireland
+        </span>
+      </div>
+    </footer>
+    <!-- shared-footer:end -->
+    <script src="/assets/js/main.js" defer></script>
+  </body>
+</html>
