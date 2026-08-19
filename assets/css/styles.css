@@ -1380,6 +1380,11 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .specialist-visual-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 18px; color: #555d57; font-size: 11px; font-weight: 650; }
 .specialist-visual-head b { border-radius: 999px; padding: 6px 9px; background: #e7f0ed; color: var(--green); font-size: 8px; }
 
+.credit-union-page .sector-proof .container > span,
+.dora-page .sector-proof .container > span { font-size: 12px; line-height: 1.35; }
+.credit-union-page .sector-proof strong,
+.dora-page .sector-proof strong { font-size: 15px; }
+
 /* Credit Union */
 .credit-union-page .credit-union-hero h1 { max-width: 720px; }
 .cu-core-visual { overflow: hidden; border: 1px solid #dce1dc; border-radius: 28px; padding: 30px; background: #fff; box-shadow: var(--shadow); }
@@ -1418,8 +1423,8 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .cu-learning-panel > span { display: grid; min-height: 105px; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); padding: 21px 24px; grid-template-columns: 34px 1fr; }
 .cu-learning-panel > span:last-child { border-bottom: 0; }
 .cu-learning-panel b { color: var(--green); font-size: 10px; }
-.cu-learning-panel strong { font-size: 15px; font-weight: 600; }
-.cu-learning-panel small { display: block; margin-top: 4px; color: var(--soft-text); font-size: 11px; line-height: 1.45; }
+.cu-learning-panel strong { font-size: 16px; font-weight: 600; }
+.cu-learning-panel small { display: block; margin-top: 5px; color: var(--soft-text); font-size: 13px; line-height: 1.5; grid-column: 2; }
 .credit-union-page .cu-price-card.featured { border-color: var(--line); box-shadow: none; }
 .credit-union-page .cu-price-card { min-height: 500px; }
 .cu-dora-panel h2 { max-width: 680px; }
@@ -1459,8 +1464,8 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .dora-rhythm-steps li { display: grid; min-height: 86px; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); padding: 17px 22px; grid-template-columns: 36px 1fr; }
 .dora-rhythm-steps li:last-child { border-bottom: 0; }
 .dora-rhythm-steps > li > span { color: var(--green); font-size: 10px; font-weight: 700; }
-.dora-rhythm-steps strong { font-size: 15px; font-weight: 600; }
-.dora-rhythm-steps small { display: block; margin-top: 4px; color: var(--soft-text); font-size: 10px; }
+.dora-rhythm-steps strong { font-size: 16px; font-weight: 600; }
+.dora-rhythm-steps small { display: block; margin-top: 5px; color: var(--soft-text); font-size: 13px; line-height: 1.45; }
 .dora-role-grid article { min-height: 250px; }
 .dora-role-grid h3 { margin-top: 55px; }
 .dora-pricing-head { max-width: 860px; }
