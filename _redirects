@@ -30,3 +30,10 @@
 /ensure-safety-management-system/audits/ /modules/ensure/health-safety-audits/ 301
 /ensure-safety-management-system/ /modules/ensure/ 301
 /ensure-food-safety-management/ https://tap-tick.com/ 301!
+# Sprint 07 credibility/resource legacy routes
+/about-us/                    /company/                        301
+/about-us/security/           /trust/                          301
+/about-us/trust-portal/       /trust/                          301
+/blog/                        /resources/blog/                 301
+/courses/*                    /courses/                        301
+
