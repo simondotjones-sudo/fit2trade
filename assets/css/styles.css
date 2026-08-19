@@ -394,6 +394,80 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .legal-cards { display: grid; gap: 15px; grid-template-columns: repeat(3,1fr); }.legal-cards a { position: relative; min-height: 310px; border: 1px solid var(--line); border-radius: 22px; padding: 28px; background: #fff; }.legal-cards a > span:first-child { color: var(--green); font-size: 10px; }.legal-cards h2 { margin: 90px 0 14px; font-size: 28px; letter-spacing: -.04em; }.legal-cards p { max-width: 290px; color: var(--soft-text); font-size: 13px; line-height: 1.55; }.legal-cards a > span:last-child { position: absolute; right: 28px; bottom: 28px; color: var(--green); }
 .legal-hero { border-bottom: 1px solid var(--line); padding: 90px 0 60px; }.legal-hero h1 { font-size: clamp(52px,6vw,80px); }.legal-hero p { color: var(--soft-text); }.legal-layout { background: #fff; }.legal-intro { border-radius: 16px; margin-bottom: 50px; padding: 24px; background: var(--muted); color: var(--soft-text); line-height: 1.55; }.legal-layout article { display: grid; gap: 34px; border-top: 1px solid var(--line); padding: 38px 0; grid-template-columns: 36px 1fr; }.legal-layout article > span { color: var(--green); font-size: 11px; font-weight: 700; }.legal-layout h2 { margin: 0 0 13px; font-size: 26px; letter-spacing: -.03em; }.legal-layout p { margin: 0; color: #59615b; font-size: 15px; line-height: 1.7; }.compact-hero { min-height: 620px; display: flex; align-items: center; }.compact-hero .container { display: flex; align-items: center; flex-direction: column; }.compact-hero p { margin: 22px 0 30px; color: var(--soft-text); font-size: 17px; }.success-mark { display: grid; width: 62px; height: 62px; place-items: center; border-radius: 50%; margin-bottom: 25px; background: var(--green); color: #fff; font-size: 25px; }
 
+
+/* Pricing page — annual module pricing */
+.pricing-page .pricing-hero { padding-bottom: 88px; }
+.pricing-hero-actions { justify-content: center; }
+.pricing-core-section { padding-top: 72px; padding-bottom: 72px; }
+.pricing-core-panel { display: grid; align-items: center; gap: 70px; border: 1px solid var(--line); border-radius: 30px; padding: 50px; background: #fff; box-shadow: 0 18px 48px rgba(23,30,26,.06); grid-template-columns: .95fr 1.05fr; }
+.pricing-kicker { display: inline-flex; border-radius: 999px; padding: 7px 11px; background: #e7f0ed; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.pricing-core-copy h2, .pricing-addon-panel h2 { margin: 24px 0 14px; font-size: clamp(38px,4.4vw,58px); font-weight: 600; letter-spacing: -.05em; line-height: 1; }
+.pricing-core-copy p, .pricing-addon-panel p { max-width: 580px; margin: 0; color: var(--soft-text); font-size: 16px; line-height: 1.6; }
+.pricing-core-features { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.pricing-core-features span { border: 1px solid #dce2dd; border-radius: 999px; padding: 11px 15px; background: #f8f9f6; color: #424b45; font-size: 12px; font-weight: 600; }
+.pricing-section-head { max-width: 760px; }
+.pricing-module-list { overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: #fff; box-shadow: 0 18px 50px rgba(23,30,26,.05); }
+.pricing-module-row { display: grid; min-height: 154px; align-items: center; gap: 34px; border-bottom: 1px solid var(--line); padding: 27px 32px; grid-template-columns: 245px 1fr 280px; }
+.pricing-module-row:last-child { border-bottom: 0; }
+.pricing-module-row:hover { background: #fcfcfa; }
+.pricing-module-identity { display: flex; align-items: center; gap: 14px; }
+.pricing-module-mark { width: 7px; height: 48px; border-radius: 999px; flex: 0 0 auto; background: var(--green); }
+.pricing-module-row--learn .pricing-module-mark { background: #6b5ce7; }
+.pricing-module-row--ensure .pricing-module-mark { background: #2e6052; }
+.pricing-module-row--operate .pricing-module-mark { background: #e59b44; }
+.pricing-module-row--engage .pricing-module-mark { background: #3678d4; }
+.pricing-module-row--enclose .pricing-module-mark { background: #b2588f; }
+.pricing-module-row--entry .pricing-module-mark { background: #bd5b4d; }
+.pricing-module-identity a { display: inline-flex; align-items: center; gap: 7px; font-size: 24px; font-weight: 650; letter-spacing: -.025em; }
+.pricing-module-identity a::after { color: #9aa19b; content: "↗"; font-size: 13px; font-weight: 400; transition: transform .2s ease; }
+.pricing-module-identity a:hover::after { transform: translate(2px,-2px); }
+.pricing-module-identity small { display: block; margin-top: 4px; color: var(--soft-text); font-size: 10px; }
+.pricing-module-row > p { max-width: 510px; margin: 0; color: var(--soft-text); font-size: 13px; line-height: 1.55; }
+.pricing-module-price { display: flex; min-width: 0; flex-direction: column; align-items: flex-end; text-align: right; }
+.pricing-module-price strong, .pricing-addon-price strong { font-size: 35px; font-weight: 600; letter-spacing: -.045em; line-height: 1; }
+.pricing-module-price > span, .pricing-addon-price > span { margin-top: 5px; color: #424b45; font-size: 11px; font-weight: 600; }
+.pricing-module-price small { margin-top: 8px; color: var(--soft-text); font-size: 9px; }
+.pricing-addon-section { padding-top: 82px; padding-bottom: 82px; }
+.pricing-addon-panel { display: grid; align-items: center; gap: 60px; border: 1px solid var(--line); border-radius: 28px; padding: 45px 50px; background: #fff; grid-template-columns: 1fr auto; }
+.pricing-addon-price { display: flex; min-width: 240px; flex-direction: column; align-items: flex-end; text-align: right; }
+.pricing-addon-price strong { font-size: 52px; }
+.pricing-principles-section { border-top: 1px solid var(--line); background: #fff; }
+.pricing-principles-grid { display: grid; gap: 90px; grid-template-columns: .8fr 1.2fr; }
+.pricing-principles-grid .section-head { margin-bottom: 0; }
+.pricing-principles { border-top: 1px solid var(--line); }
+.pricing-principles > div { display: grid; gap: 22px; border-bottom: 1px solid var(--line); padding: 21px 0; grid-template-columns: 36px 1fr; }
+.pricing-principles strong { color: var(--green); font-size: 10px; letter-spacing: .08em; }
+.pricing-principles p { margin: 0; color: #414944; font-size: 14px; line-height: 1.5; }
+
+@media (max-width: 1040px) {
+  .pricing-core-panel { gap: 45px; }
+  .pricing-module-row { grid-template-columns: 210px 1fr 235px; }
+}
+
+@media (max-width: 780px) {
+  .pricing-page .pricing-hero { padding: 74px 0 66px; }
+  .pricing-hero-actions { align-items: stretch; flex-direction: column; }
+  .pricing-core-section { padding: 60px 0; }
+  .pricing-core-panel { gap: 32px; padding: 31px 28px; grid-template-columns: 1fr; }
+  .pricing-core-features { justify-content: flex-start; }
+  .pricing-module-row { min-height: 0; gap: 18px; padding: 27px 24px; grid-template-columns: 1fr; }
+  .pricing-module-row > p { max-width: none; }
+  .pricing-module-price { align-items: flex-start; padding-top: 3px; text-align: left; }
+  .pricing-module-price strong { font-size: 40px; }
+  .pricing-addon-section { padding: 66px 0; }
+  .pricing-addon-panel { gap: 30px; padding: 31px 28px; grid-template-columns: 1fr; }
+  .pricing-addon-price { min-width: 0; align-items: flex-start; text-align: left; }
+  .pricing-principles-grid { gap: 42px; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .pricing-core-features span { width: 100%; border-radius: 13px; }
+  .pricing-module-row { padding: 24px 20px; }
+  .pricing-module-identity a { font-size: 22px; }
+  .pricing-module-price strong { font-size: 37px; }
+  .pricing-addon-price strong { font-size: 46px; }
+}
+
 @media (max-width: 1120px) {
   .desktop-nav { display: none; }.mobile-menu { display: block; position: relative; }.mobile-menu > summary { display: grid; width: 42px; height: 42px; place-content: center; gap: 6px; border-radius: 50%; background: rgba(255,255,255,.09); list-style: none; }.mobile-menu summary::-webkit-details-marker { display: none; }.mobile-menu summary span { width: 17px; height: 1px; background: #fff; }.mobile-menu nav { position: absolute; top: 50px; right: 0; display: grid; width: 270px; gap: 5px; border: 1px solid var(--line); border-radius: 18px; padding: 10px; background: #fff; box-shadow: var(--shadow); color: var(--ink); }.mobile-menu nav a { border-radius: 10px; padding: 11px; font-size: 13px; }.mobile-menu nav a:hover { background: var(--muted); }.mobile-menu nav .button { color: #fff; }
   .hero-grid, .page-hero-grid { gap: 45px; }.visual-body { grid-template-columns: 90px 1fr; }.visual-main { padding: 18px; }.metric-grid { grid-template-columns: 1fr 1fr; }.metric-grid > div:last-child { display: none; }
