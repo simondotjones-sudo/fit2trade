@@ -24,6 +24,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Gellix", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid rgba(46,96,82,.38); outline-offset: 3px; }
 img { display: block; max-width: 100%; }
 button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
@@ -388,7 +389,7 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 /* Demo form */
 .demo-section { padding: 96px 0; background: radial-gradient(circle at 12% 18%, rgba(46,96,82,.14), transparent 25%), var(--paper); }
 .demo-grid { display: grid; align-items: start; gap: 100px; grid-template-columns: .8fr 1.2fr; }.demo-copy { position: sticky; top: 120px; }.demo-copy h1 { max-width: 550px; font-size: clamp(48px,5.5vw,76px); }.demo-copy > p { max-width: 520px; margin: 27px 0; color: var(--soft-text); font-size: 18px; line-height: 1.6; }.demo-points { display: grid; gap: 13px; border-top: 1px solid var(--line); margin: 32px 0; padding-top: 28px; }.demo-points span { color: #4d554f; font-size: 13px; }.demo-points span::first-letter { color: var(--green); }.demo-copy > small { color: var(--soft-text); }.demo-copy > small a { color: var(--green); font-weight: 650; }
-.demo-form { display: grid; gap: 18px; border: 1px solid var(--line); border-radius: 28px; padding: 38px; background: #fff; box-shadow: var(--shadow); }.form-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); margin-bottom: 7px; padding-bottom: 22px; }.form-head span { font-size: 22px; font-weight: 650; }.form-head small { color: var(--soft-text); font-size: 9px; }.form-row { display: grid; gap: 15px; grid-template-columns: 1fr 1fr; }.demo-form label { display: grid; gap: 8px; color: #444c46; font-size: 11px; font-weight: 600; }.demo-form input, .demo-form select, .demo-form textarea { width: 100%; border: 1px solid #d7dcd7; border-radius: 11px; outline: none; padding: 12px 13px; background: #fbfcfa; color: var(--ink); font-size: 14px; }.demo-form input:focus, .demo-form select:focus, .demo-form textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,96,82,.1); }.demo-form textarea { resize: vertical; }.consent { display: grid !important; align-items: start; gap: 10px !important; grid-template-columns: 17px 1fr; line-height: 1.5; }.consent input { width: 16px; margin-top: 1px; }.consent span { color: var(--soft-text); font-weight: 400; }.consent a { color: var(--green); text-decoration: underline; }.demo-form .button { justify-self: start; border: 0; }.hidden-field { position: absolute; left: -9999px; }
+.demo-form { display: grid; gap: 18px; border: 1px solid var(--line); border-radius: 28px; padding: 38px; background: #fff; box-shadow: var(--shadow); }.form-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); margin-bottom: 7px; padding-bottom: 22px; }.form-head span { font-size: 22px; font-weight: 650; }.form-head small { color: var(--soft-text); font-size: 11px; }.form-row { display: grid; gap: 15px; grid-template-columns: 1fr 1fr; }.demo-form label { display: grid; gap: 8px; color: #444c46; font-size: 12px; font-weight: 600; }.demo-form input, .demo-form select, .demo-form textarea { width: 100%; border: 1px solid #d7dcd7; border-radius: 11px; outline: none; padding: 12px 13px; background: #fbfcfa; color: var(--ink); font-size: 14px; }.demo-form input:focus, .demo-form select:focus, .demo-form textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,96,82,.1); }.demo-form textarea { resize: vertical; }.consent { display: grid !important; align-items: start; gap: 10px !important; grid-template-columns: 17px 1fr; line-height: 1.5; }.consent input { width: 16px; margin-top: 1px; }.consent span { color: var(--soft-text); font-weight: 400; }.consent a { color: var(--green); text-decoration: underline; }.demo-form .button { justify-self: start; border: 0; }.hidden-field { position: absolute; left: -9999px; }
 
 /* Legal */
 .legal-cards { display: grid; gap: 15px; grid-template-columns: repeat(3,1fr); }.legal-cards a { position: relative; min-height: 310px; border: 1px solid var(--line); border-radius: 22px; padding: 28px; background: #fff; }.legal-cards a > span:first-child { color: var(--green); font-size: 10px; }.legal-cards h2 { margin: 90px 0 14px; font-size: 28px; letter-spacing: -.04em; }.legal-cards p { max-width: 290px; color: var(--soft-text); font-size: 13px; line-height: 1.55; }.legal-cards a > span:last-child { position: absolute; right: 28px; bottom: 28px; color: var(--green); }
@@ -1153,7 +1154,7 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .pricing-calculator { display: grid; overflow: hidden; border: 1px solid var(--line); border-radius: 30px; background: #fff; box-shadow: 0 18px 50px rgba(23,30,26,.05); grid-template-columns: 1.05fr .95fr; }
 .pricing-calculator-form { display: grid; gap: 30px; padding: 42px; }
 .pricing-calculator-counts { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
-.pricing-calculator-form label, .pricing-calculator-modules legend { color: #444c46; font-size: 11px; font-weight: 650; }
+.pricing-calculator-form label, .pricing-calculator-modules legend { color: #444c46; font-size: 12px; font-weight: 650; }
 .pricing-calculator-counts label { display: grid; gap: 9px; }
 .pricing-calculator-counts input { width: 100%; border: 1px solid #d7dcd7; border-radius: 12px; outline: none; padding: 14px 15px; background: #fbfcfa; color: var(--ink); font-size: 16px; }
 .pricing-calculator-counts input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,96,82,.1); }
@@ -1256,7 +1257,7 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .sector-model-stack span { position: relative; display: flex; min-height: 49px; align-items: center; border: 1px solid #e3e6e2; border-radius: 13px; padding: 0 16px 0 31px; background: #fafbf9; color: #3f4741; font-size: 13px; font-weight: 550; }
 .sector-model-stack span::before { position: absolute; width: 7px; height: 7px; left: 15px; border: 1px solid var(--green); border-radius: 50%; content: ""; }
 .sector-model-stack span:not(:last-child)::after { position: absolute; width: 1px; height: 9px; bottom: -9px; left: 18px; background: #c9d1cb; content: ""; }
-.sector-model > p { margin: auto 0 0; border-top: 1px solid var(--line); padding-top: 18px; color: var(--soft-text); font-size: 11px; line-height: 1.45; }
+.sector-model > p { margin: auto 0 0; border-top: 1px solid var(--line); padding-top: 18px; color: var(--soft-text); font-size: 12px; line-height: 1.5; }
 
 .sector-reality-grid { display: grid; gap: 85px; grid-template-columns: .95fr 1.05fr; }
 .sector-reality-grid h2 { max-width: 600px; margin: 0; font-size: clamp(38px,4.2vw,58px); font-weight: 600; letter-spacing: -.045em; line-height: 1; }
@@ -1481,7 +1482,7 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .dora-includes-lead { margin: 0 0 11px; color: var(--text); font-size: 13px; font-weight: 650; }
 .dora-package-boundary { display: grid; gap: 10px; max-width: 920px; border-top: 1px solid var(--line); margin: 32px auto 0; padding-top: 24px; grid-template-columns: 110px 1fr; }
 .dora-package-boundary strong { color: var(--green); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-.dora-package-boundary p { margin: 0; color: var(--soft-text); font-size: 11px; line-height: 1.55; }
+.dora-package-boundary p { margin: 0; color: var(--soft-text); font-size: 12px; line-height: 1.6; }
 .dora-scope-section { padding-bottom: 90px; }
 .dora-page .dora-scope { padding-top: 0; border-top: 0; }
 .dora-page .dora-scope h2 { max-width: 900px; }
@@ -1688,6 +1689,7 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .legal-purpose-list dt { color: #27302b; font-size: 13px; font-weight: 650; line-height: 1.45; }
 .legal-purpose-list dd { margin: 0; font-size: 13px; line-height: 1.6; }
 .subprocessor-entry { display: grid; gap: 7px; }
+.subprocessor-entry + .subprocessor-entry { margin-top: 24px; border-top: 1px solid #e4e8e4; padding-top: 24px; }
 .subprocessor-entry strong { margin-top: 10px; color: #27302b; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
 .subprocessor-entry strong:first-child { margin-top: 0; }
 .legal-hub-section { background: #f5f6f3; }

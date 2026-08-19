@@ -4,7 +4,6 @@
 /products/operate/            /modules/operate/                301
 /products/engage/             /modules/engage/                 301
 /products/enclose/            /modules/enclose/                301
-/products/elevate/            /modules/learn/                  301
 /products/                    /modules/                        301
 /solutions/retail/            /solutions/retail-convenience/   301
 /solutions/hospitality/       /solutions/hospitality-travel/   301
@@ -42,3 +41,55 @@
 /dpa/                                /legal/dpa/                        301
 /subject-access-request/             /legal/privacy/                    301
 
+# Sprint 08 pre-launch legacy route coverage
+/whats-new/                              /updates/                                      301
+/educate-learning-management-system/     /modules/learn/                                301
+/operate/                                 /modules/operate/                              301
+/enclose-licence-compliance-hub/          /modules/enclose/                              301
+/entry/                                   /modules/entry/                                301
+/engage-employee-engagement-platform/     /modules/engage/                               301
+/elevate-employee-wellbeing-program/      /pricing/                                      301
+/products/elevate/                        /pricing/                                      301
+/fit2nurture/                              /early-years/                                  301
+/fit2govern/                               /solutions/public-sector/                      301
+/fit2play/                                 /solutions/sport-membership/                   301
+/gaa-clubs/                                /solutions/sport-membership/                   301
+/services/                                 /modules/                                      301
+/resources/routines/                      /modules/ensure/digital-checklists/             301
+/resources/list-of-risk-assessments/      /modules/ensure/risk-assessments/               301
+/resources/glossary/                      /resources/                                    301
+/resources/podcast/                       /resources/                                    301
+/solutions/retail/*                       /solutions/retail-convenience/                  301
+/solutions/hospitality/*                  /solutions/hospitality-travel/                  301
+/solutions/healthcare/*                   /solutions/healthcare-care/                     301
+/solutions/childcare/*                    /solutions/childcare-education/                 301
+
+# Existing article URLs retained with direct relevant destinations for cutover resilience.
+/2021/11/01/check-out-these-creative-and-innovative-employee-benefits-and-perks/ /modules/engage/ 301
+/2021/12/01/7-reasons-why-employees-dislike-compliance-training-and-how-to-fix-it/ /modules/learn/ 301
+/2022/01/03/mastering-microlearning-why-7-minutes-is-the-ideal-length-for-employee-training-lessons/ /modules/learn/ 301
+/2022/02/01/11-features-an-lms-should-have-to-engage-your-people/ /modules/learn/ 301
+/2022/03/01/13-tips-to-help-employees-learn-retain-and-apply-training-knowledge-better/ /modules/learn/ 301
+/2022/04/01/how-compliance-training-keeps-companies-and-employees-safe/ /modules/learn/ 301
+/2023/12/15/how-safety-managers-can-comply-with-the-corporate-sustainability-reporting-directive/ /resources/blog/ 301
+/2023/12/20/elevate-your-gaa-club-safety-with-fit2trades-ensure-solution/ /solutions/sport-membership/ 301
+/2023/12/20/jargon-busting-understanding-health-safety-terminology-for-employees/ /modules/ensure/ 301
+/2023/12/20/reduce-insurance-premiums-through-effective-safety-management/ /resources/blog/ 301
+/2023/12/20/the-critical-importance-of-near-miss-reporting-in-workplace-safety/ /modules/ensure/near-miss-reporting/ 301
+/2023/12/22/the-occupational-safety-hazards-of-santa-claus-a-festive-analysis/ /resources/blog/ 301
+/2023/12/22/top-10-most-common-workplace-hazards-and-how-to-avoid-them/ /modules/ensure/risk-assessments/ 301
+/2024/01/15/revolutionizing-employee-onboarding-the-power-of-digital-induction/ /modules/learn/ 301
+/2024/01/22/innovative-ehs-strategies-for-proactive-safety-management/ /modules/ensure/ 301
+/2024/01/22/leveraging-predictive-analytics-in-ehs-a-deep-dive-into-ensures-data-capabilities/ /resources/blog/ 301
+/2024/01/22/maximizing-employee-engagement-in-safety-programs-tips-and-tricks/ /modules/ensure/ 301
+/2024/01/31/empowering-nursing-homes-in-ireland-fit2trades-compliance-solution-for-hiqa-standards/ /solutions/healthcare-care/ 301
+/2024/01/31/mastering-compliance-and-brand-excellence-in-fast-food-retail-with-fit2trade/ /solutions/retail-convenience/ 301
+/2024/01/31/revolutionizing-forecourt-retail-fit2trades-digital-edge-for-hr-directors/ /solutions/retail-convenience/ 301
+/2024/08/19/maximizing-workplace-safety-the-importance-of-trir-ltir-and-mifr-tracking-for-ehs-directors/ /modules/ensure/ 301
+/2024/09/09/building-a-resilient-workforce-training-and-safety-strategies-that-work/ /modules/learn/ 301
+/2024/09/09/ehs-systems-unveiled-a-safety-managers-guide-to-risk-mitigation/ /modules/ensure/ 301
+/2024/09/09/from-onboarding-to-leadership-building-career-pathways-with-learning-management-systems-lms/ /modules/learn/ 301
+/2024/09/25/why-near-miss-reporting-is-essential-for-safety-in-the-workplace/ /modules/ensure/near-miss-reporting/ 301
+/2025/11/25/what-irish-credit-unions-need-to-know-about-the-digital-operational-resilience-act-dora/ /digital-operational-resilience-dora-for-credit-unions/ 301
+/2026/02/04/from-bricklayers-to-architects-designing-the-ai-ready-workforce/ /resources/blog/ 301
+/2026/02/04/stop-making-your-team-babysit-ai-the-case-for-the-augmented-architect/ /resources/blog/ 301

@@ -22,6 +22,16 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
+
+  const activeElement = document.activeElement;
+  const activeDesktopGroup = navigationGroups.find((group) => group.open && group.contains(activeElement));
+  const activeMobileMenu = [...document.querySelectorAll(".mobile-menu[open]")].find((menu) => menu.contains(activeElement));
+
   navigationGroups.forEach((group) => { group.open = false; });
   document.querySelectorAll(".mobile-menu[open]").forEach((menu) => { menu.open = false; });
+
+  const menuToRefocus = activeDesktopGroup || activeMobileMenu;
+  if (menuToRefocus) {
+    menuToRefocus.querySelector("summary")?.focus();
+  }
 });
