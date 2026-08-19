@@ -1275,6 +1275,23 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
 .sector-use-grid h3 { max-width: 470px; margin: 18px 0 11px; font-size: 24px; font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
 .sector-use-grid p { max-width: 550px; margin: 0; color: var(--soft-text); font-size: 14px; line-height: 1.57; }
 
+
+.sector-practice-grid { display: grid; gap: 16px; grid-template-columns: repeat(3,1fr); }
+.sector-practice-grid article { display: flex; min-height: 390px; flex-direction: column; border: 1px solid var(--line); border-radius: 24px; padding: 29px; background: #fff; }
+.sector-practice-kicker { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.sector-practice-grid h3 { margin: 40px 0 10px; font-size: 25px; font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
+.sector-practice-grid article > p { margin: 0; color: var(--soft-text); font-size: 13px; line-height: 1.55; }
+.sector-example-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 24px 0 28px; }
+.sector-example-list span { border: 1px solid #dde1dd; border-radius: 999px; padding: 7px 10px; background: #fafbf9; color: #4e5750; font-size: 10px; font-weight: 600; line-height: 1.15; }
+.sector-practice-grid .text-link { margin-top: auto; }
+.sector-practice-links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: auto; }
+.sector-practice-links .text-link { margin-top: 0; }
+
+.sector-benefit-grid { display: grid; gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--line); grid-template-columns: repeat(4,1fr); }
+.sector-benefit-grid article { min-height: 205px; padding: 27px; background: rgba(255,255,255,.84); }
+.sector-benefit-grid h3 { margin: 0 0 13px; font-size: 20px; font-weight: 600; letter-spacing: -.025em; line-height: 1.08; }
+.sector-benefit-grid p { margin: 0; color: var(--soft-text); font-size: 13px; line-height: 1.55; }
+
 .sector-module-grid { display: grid; gap: 12px; grid-template-columns: repeat(4,1fr); }
 .sector-module-grid > a { position: relative; display: grid; min-height: 124px; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 18px; padding: 20px 43px 20px 20px; background: #fff; grid-template-columns: 8px 1fr; transition: border-color .2s ease, transform .2s ease; }
 .sector-module-grid > a:hover { border-color: #bfc7c0; transform: translateY(-2px); }
@@ -1308,12 +1325,13 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
   .solutions-core-layout { gap: 50px; }
   .sector-page .sector-hero .page-hero-grid { gap: 48px; }
   .sector-module-grid { grid-template-columns: 1fr 1fr; }
+  .sector-benefit-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 780px) {
   .solutions-landing-page .solutions-landing-hero { padding-bottom: 64px; }
   .solutions-landing-page .solutions-landing-hero > .container > p { font-size: 17px; }
-  .solutions-principle-grid, .sector-selector-grid, .solutions-core-layout, .specialist-path-grid, .sector-reality-grid, .sector-use-grid-3, .sector-use-grid-4, .sector-core-panel { grid-template-columns: 1fr; }
+  .solutions-principle-grid, .sector-selector-grid, .solutions-core-layout, .specialist-path-grid, .sector-reality-grid, .sector-use-grid-3, .sector-use-grid-4, .sector-practice-grid, .sector-benefit-grid, .sector-core-panel { grid-template-columns: 1fr; }
   .solutions-principle-grid article { min-height: 145px; }
   .solutions-principle-grid strong { margin-top: 24px; }
   .sector-selector-card { min-height: 260px; padding: 26px; }
@@ -1331,6 +1349,9 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
   .sector-signal-list span:nth-child(even) { padding-left: 0; border-left: 0; }
   .sector-use-grid article { min-height: 260px; padding: 26px; }
   .sector-use-tags { margin-top: 32px; }
+  .sector-practice-grid article { min-height: 0; padding: 26px; }
+  .sector-practice-grid h3 { margin-top: 32px; }
+  .sector-benefit-grid article { min-height: 0; }
   .sector-module-grid { grid-template-columns: 1fr; }
   .sector-module-grid > a { min-height: 105px; }
   .sector-core-section { padding-bottom: 78px; }
