@@ -1,47 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found | Fit2Trade</title>
-  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <style>
-    .not-found{min-height:100vh;background:var(--black);display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
-    .nf-inner{max-width:520px}
-    .nf-code{font-size:7rem;font-weight:900;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(135deg,rgba(46,96,82,.4),rgba(46,96,82,.1));display:block;margin-bottom:8px}
-    .nf-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--white);letter-spacing:-.035em;margin-bottom:14px}
-    .nf-sub{font-size:1rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:36px}
-    .nf-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-    .nf-divider{width:40px;height:1px;background:rgba(255,255,255,.1);margin:0 auto 28px}
-    .nf-shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:400px;margin:0 auto}
-    .nf-shortcut{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:14px 12px;text-decoration:none;text-align:center;transition:background var(--t),border-color var(--t)}
-    .nf-shortcut:hover{background:rgba(46,96,82,.1);border-color:rgba(46,96,82,.3)}
-    .nf-shortcut-icon{font-size:1.2rem;display:block;margin-bottom:6px}
-    .nf-shortcut-label{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55)}
-  </style>
-</head>
-<body>
-<div class="not-found">
-  <div class="nf-inner">
-    <span class="nf-code">404</span>
-    <h1 class="nf-title">This page doesn&#8217;t exist.</h1>
-    <p class="nf-sub">The link you followed may be outdated or the page may have moved. Here&#8217;s where you can go instead.</p>
-    <div class="nf-links">
-      <a href="/" class="btn btn--green btn--lg">Back to homepage</a>
-      <a href="/contact/" class="btn btn--ghost btn--lg">Contact us</a>
-    </div>
-    <div class="nf-divider"></div>
-    <div class="nf-shortcuts">
-      <a href="/products/" class="nf-shortcut"><span class="nf-shortcut-icon">&#129520;</span><span class="nf-shortcut-label">Products</span></a>
-      <a href="/solutions/retail/" class="nf-shortcut"><span class="nf-shortcut-icon">&#127978;</span><span class="nf-shortcut-label">Retail</span></a>
-      <a href="/solutions/hospitality/" class="nf-shortcut"><span class="nf-shortcut-icon">&#127860;</span><span class="nf-shortcut-label">Hospitality</span></a>
-      <a href="/solutions/healthcare/" class="nf-shortcut"><span class="nf-shortcut-icon">&#127973;</span><span class="nf-shortcut-label">Healthcare</span></a>
-      <a href="/solutions/childcare/" class="nf-shortcut"><span class="nf-shortcut-icon">&#129728;</span><span class="nf-shortcut-label">Childcare</span></a>
-      <a href="/pricing/" class="nf-shortcut"><span class="nf-shortcut-icon">&#128176;</span><span class="nf-shortcut-label">Pricing</span></a>
-    </div>
-  </div>
-</div>
-<script src="/js/main.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="preload" href="/assets/images/fit2trade-logo-reverse.png" as="image"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta content="noindex" name="robots"/>
+    <title>Page not found | Fit2Trade</title>
+    <meta name="description" content="The page you requested could not be found. Return to Fit2Trade or explore the platform."/>
+    <meta property="og:title" content="Fit2Trade | One platform for frontline operations"/>
+    <meta property="og:description" content="Every site aligned. Every action visible. One connected platform for frontline organisations."/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Fit2Trade | One platform for frontline operations"/>
+    <meta name="twitter:description" content="Every site aligned. Every action visible. One connected platform for frontline organisations."/>
+    <link rel="shortcut icon" href="/assets/images/favicon.svg"/>
+    <link rel="icon" href="/assets/images/favicon.svg"/>
+  </head>
+  <body>
+    <!-- shared-header:start -->
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="/" aria-label="Fit2Trade home">
+          <img src="/assets/images/fit2trade-logo-reverse.png" alt="Fit2Trade — Making Workplaces Better"/>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <details>
+            <summary>
+              Platform
+            </summary>
+            <div class="nav-panel">
+              <a href="/platform/">
+                <strong>
+                  The platform
+                </strong>
+                <span>
+                  One core app. Connected workflows.
+                </span>
+              </a>
+              <a href="/modules/">
+                <strong>
+                  All modules
+                </strong>
+                <span>
+                  Choose what your organisation needs.
+                </span>
+              </a>
+              <a href="https://tap-tick.com/">
+                <strong>
+                  TapTick
+                </strong>
+                <span>
+                  Specialist digital HACCP.
+                </span>
+              </a>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Modules
+            </summary>
+            <div class="nav-panel module-menu">
+              <a href="/modules/learn/">
+                <i style="background:#6b5ce7">
+                </i>
+                <span>
+                  <strong>
+                    Learn
+                  </strong>
+                  <small>
+                    Learning &amp; capability
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/ensure/">
+                <i style="background:#2e6052">
+                </i>
+                <span>
+                  <strong>
+                    Ensure
+                  </strong>
+                  <small>
+                    Safety &amp; compliance
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/operate/">
+                <i style="background:#e59b44">
+                </i>
+                <span>
+                  <strong>
+                    Operate
+                  </strong>
+                  <small>
+                    Operational standards
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/engage/">
+                <i style="background:#3678d4">
+                </i>
+                <span>
+                  <strong>
+                    Engage
+                  </strong>
+                  <small>
+                    Frontline communication
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/enclose/">
+                <i style="background:#b2588f">
+                </i>
+                <span>
+                  <strong>
+                    Enclose
+                  </strong>
+                  <small>
+                    Licence compliance
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/entry/">
+                <i style="background:#bd5b4d">
+                </i>
+                <span>
+                  <strong>
+                    Entry
+                  </strong>
+                  <small>
+                    Contractor compliance
+                  </small>
+                </span>
+              </a>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Solutions
+            </summary>
+            <div class="nav-panel solutions-menu">
+              <a href="/credit-union-compliance/">
+                <strong>
+                  Credit Unions
+                </strong>
+              </a>
+              <a href="/solutions/retail-convenience/">
+                <strong>
+                  Retail &amp; Convenience
+                </strong>
+              </a>
+              <a href="/solutions/hospitality-travel/">
+                <strong>
+                  Hospitality &amp; Travel
+                </strong>
+              </a>
+              <a href="/solutions/healthcare-care/">
+                <strong>
+                  Healthcare &amp; Care
+                </strong>
+              </a>
+              <a href="/solutions/public-sector/">
+                <strong>
+                  Public Sector
+                </strong>
+              </a>
+              <a href="/solutions/financial-services/">
+                <strong>
+                  Financial Services
+                </strong>
+              </a>
+              <a href="/solutions/childcare-education/">
+                <strong>
+                  Childcare &amp; Education
+                </strong>
+              </a>
+              <a href="/solutions/sport-membership/">
+                <strong>
+                  Sport &amp; Membership
+                </strong>
+              </a>
+            </div>
+          </details>
+          <a href="/pricing/">
+            Pricing
+          </a>
+          <details>
+            <summary>
+              Resources
+            </summary>
+            <div class="nav-panel">
+              <a href="/courses/">
+                <strong>
+                  Courses
+                </strong>
+                <span>
+                  Compliance and professional learning.
+                </span>
+              </a>
+              <a href="/implementation/">
+                <strong>
+                  Implementation
+                </strong>
+                <span>
+                  A practical, phased rollout.
+                </span>
+              </a>
+              <a href="/faqs/">
+                <strong>
+                  FAQs
+                </strong>
+                <span>
+                  Platform, rollout and commercial answers.
+                </span>
+              </a>
+              <a href="/updates/">
+                <strong>
+                  What's new
+                </strong>
+                <span>
+                  Product updates and release notes.
+                </span>
+              </a>
+              <a href="/resources/">
+                <strong>
+                  Resource centre
+                </strong>
+                <span>
+                  Guides, ideas and practical notes.
+                </span>
+              </a>
+              <a href="/trust/">
+                <strong>
+                  Trust
+                </strong>
+                <span>
+                  Security, privacy and assurance.
+                </span>
+              </a>
+            </div>
+          </details>
+        </nav>
+        <div class="nav-actions">
+          <a class="login-link" href="https://fit2trade.app/">
+            Login
+          </a>
+          <a class="button nav-button" href="/book-demo/">
+            Book demo
+          </a>
+        </div>
+        <details class="mobile-menu">
+          <summary aria-label="Open navigation">
+            <span>
+            </span>
+            <span>
+            </span>
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="/platform/">
+              Platform
+            </a>
+            <a href="/modules/">
+              Modules
+            </a>
+            <a href="/solutions/">
+              Solutions
+            </a>
+            <a href="/pricing/">
+              Pricing
+            </a>
+            <a href="/resources/">
+              Resources
+            </a>
+            <a href="https://fit2trade.app/">
+              Login
+            </a>
+            <a class="button primary" href="/book-demo/">
+              Book demo
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <!-- shared-header:end -->
+    <main>
+      <section class="simple-hero compact-hero">
+        <div class="container narrow center">
+          <span class="eyebrow">
+            404
+          </span>
+          <h1>
+            That page has moved.
+          </h1>
+          <p>
+            Use the navigation to explore the Fit2Trade platform, modules and solutions.
+          </p>
+          <a class="button primary" href="/">
+            Return home
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- shared-footer:start -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Fit2Trade home">
+            <img src="/assets/images/fit2trade-logo-reverse.png" alt="Fit2Trade — Making Workplaces Better"/>
+          </a>
+          <p>
+            One connected platform for safer, better-run frontline organisations.
+          </p>
+        </div>
+        <div>
+          <strong>
+            Platform
+          </strong>
+          <a href="/platform/">
+            Overview
+          </a>
+          <a href="/modules/">
+            Modules
+          </a>
+          <a href="/pricing/">
+            Pricing
+          </a>
+          <a href="/implementation/">
+            Implementation
+          </a>
+          <a href="https://tap-tick.com/">
+            TapTick
+          </a>
+        </div>
+        <div>
+          <strong>
+            Explore
+          </strong>
+          <a href="/solutions/">
+            Solutions
+          </a>
+          <a href="/courses/">
+            Courses
+          </a>
+          <a href="/resources/">
+            Resources
+          </a>
+          <a href="/updates/">
+            What's new
+          </a>
+          <a href="/ecotrack-esg-reporting-software/">
+            EcoTrack
+          </a>
+          <a href="/partners/">
+            Partners
+          </a>
+          <a href="/company/">
+            Company
+          </a>
+          <a href="/faqs/">
+            FAQs
+          </a>
+        </div>
+        <div>
+          <strong>
+            Trust &amp; responsibility
+          </strong>
+          <a href="/trust/">
+            Trust Centre
+          </a>
+          <a href="/api-doc/">
+            API documentation
+          </a>
+          <a href="/sustainability/">
+            Sustainability
+          </a>
+          <a href="/ethics-statement/">
+            Ethics Statement
+          </a>
+          <a href="/partner-code-of-conduct/">
+            Partner Code of Conduct
+          </a>
+          <a href="/modern-slavery-statement/">
+            Modern Slavery
+          </a>
+        </div>
+        <div>
+          <strong>
+            Legal
+          </strong>
+          <a href="/legal/">
+            Legal hub
+          </a>
+          <a href="/legal/privacy/">
+            Privacy
+          </a>
+          <a href="/legal/terms/">
+            Terms
+          </a>
+          <a href="/legal/cookies/">
+            Cookies
+          </a>
+          <a href="/legal/dpa/">
+            Data processing
+          </a>
+          <a href="/legal/subprocessors/">
+            Subprocessors
+          </a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>
+          ©
+          <span data-current-year>
+            2026
+          </span>
+          Fit2Trade Ltd.
+        </span>
+        <span>
+          32 Fitzwilliam Street Upper, Dublin 2, Ireland
+        </span>
+        <nav class="footer-social" aria-label="Fit2Trade social media">
+          <a href="https://www.linkedin.com/company/fit2trade/" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.4 7.6H2V21h3.4V7.6ZM3.7 2A2 2 0 1 0 3.7 6a2 2 0 0 0 0-4Zm8.2 5.6H8.6V21H12v-6.6c0-1.7.3-3.4 2.5-3.4 2.2 0 2.2 2 2.2 3.5V21H20v-7.3c0-3.6-.8-6.4-5-6.4-1.9 0-3.1 1-3.7 2h-.1V7.6h-3.3V21h3.4v-6.6c0-1.7.3-3.4 2.5-3.4 2.2 0 2.2 2 2.2 3.5V21h3.4v-7.3c0-3.6-.8-6.4-5-6.4-1.9 0-3.1 1-3.7 2h-.1V7.6h-3.3v.1Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/fit2_trade/" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/100088522757472/" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V11H7.3v3h2.8v8h3.4Z"/></svg>
+          </a>
+          <a href="https://x.com/fit2_trade" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+          </a>
+        </nav>
+      </div>
+    </footer>
+    <!-- shared-footer:end -->
+    <script src="/assets/js/main.js" defer>
+    </script>
+  </body>
 </html>

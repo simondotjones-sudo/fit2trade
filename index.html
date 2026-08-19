@@ -1,681 +1,1219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fit2Trade — Digital Compliance Solutions for Companies</title>
-  <meta name="description" content="An All-in-one compliance solution for companies. One system, one login, designed for mobile, simple to use. We make workplaces better." />
-  <meta property="og:title"       content="Fit2Trade — Digital Compliance Solutions" />
-  <meta property="og:description" content="One system, one login. AI-driven compliance, safety and training for Retail, Healthcare, Hospitality and more." />
-  <meta property="og:image"       content="https://www.fit2trade.com/wp-content/uploads/2022/05/Fit2Trade-for-Hospitality.jpg" />
-  <meta property="og:type"        content="website" />
-  <link rel="icon" href="https://www.fit2trade.com/wp-content/uploads/2024/10/cropped-Fit2Trade-logo-black-on-white-wihth-rounded-corners-270x270.png" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="preload" href="/assets/images/fit2trade-logo-reverse.png" as="image"/>
+    <link rel="preload" href="/assets/images/customers/applegreen.webp" as="image"/>
+    <link rel="preload" href="/assets/images/customers/coca-cola.webp" as="image"/>
+    <link rel="preload" href="/assets/images/customers/welcome-break.webp" as="image"/>
+    <link rel="preload" href="/assets/images/customers/days-inn.webp" as="image"/>
+    <link rel="preload" href="/assets/images/customers/ramada.webp" as="image"/>
+    <link rel="preload" href="/assets/images/customers/insomnia.webp" as="image"/>
+    <link rel="preload" href="/assets/images/customers/obriens-wines.webp" as="image"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>
+      Fit2Trade | One platform for frontline operations
+    </title>
+    <meta name="description" content="Fit2Trade brings safety, learning, operational checks, communications, licences and contractor compliance into one connected platform."/>
 
-<!-- ================================================================
-     HEADER
-     ================================================================ -->
-<header class="site-header" id="site-header">
-  <div class="container">
-    <nav class="nav-inner">
-      <a href="/" class="nav-logo"><img src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png" alt="Fit2Trade" /></a>
-      <ul class="nav-menu">
-        <li class="nav-item"><span class="nav-link" tabindex="0">Solutions for<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          <ul class="dropdown dropdown--wide">
-            <li><a href="/solutions/credit-unions/" class="dd-link"><strong>Credit Unions</strong><span>CBI, MCC &amp; DORA compliance</span></a></li>
-            <li><a href="/solutions/retail/"        class="dd-link"><strong>Retail</strong><span>Stores, pharmacies, petrol stations</span></a></li>
-            <li><a href="/solutions/hospitality/"   class="dd-link"><strong>Hospitality</strong><span>Hotels, restaurants, bars</span></a></li>
-            <li><a href="/solutions/healthcare/"    class="dd-link"><strong>Healthcare</strong><span>Care homes &amp; nursing homes</span></a></li>
-            <li><a href="/solutions/childcare/"     class="dd-link"><strong>Childcare</strong><span>Early years settings</span></a></li>
-            <li><a href="/solutions/public-sector/" class="dd-link"><strong>Public Sector</strong><span>Councils, agencies &amp; semi-states</span></a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><span class="nav-link" tabindex="0">Products<svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4.5l4 3 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          <ul class="dropdown">
-            <li><a href="/products/ensure/"  class="dd-link"><strong>ENSURE</strong><span>H&amp;S Management System</span></a></li>
-            <li><a href="/products/educate/" class="dd-link"><strong>EDUCATE</strong><span>Learning Management System</span></a></li>
-            <li><a href="/products/operate/" class="dd-link"><strong>OPERATE</strong><span>Operational Management</span></a></li>
-            <li><a href="/products/enclose/" class="dd-link"><strong>ENCLOSE</strong><span>Licence Compliance Hub</span></a></li>
-            <li><a href="/products/elevate/" class="dd-link"><strong>ELEVATE</strong><span>Employee Wellbeing</span></a></li>
-            <li><a href="/products/engage/"  class="dd-link"><strong>ENGAGE</strong><span>Employee Engagement</span></a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="/pricing/" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions"><a href="https://fit2trade.app/" class="nav-login">Login</a><a href="/contact/" class="btn btn--green btn--sm">Book a Demo</a></div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </nav>
-  </div>
-</header>
-<nav class="mobile-nav" id="mobile-nav">
-  <ul>
-    <li class="mob-item"><a href="/" class="mob-link" style="color:rgba(255,255,255,1)">Home</a></li>
-    <li class="mob-item"><div class="mob-link" data-mob="mob-sol">Solutions for <span>+</span></div>
-      <ul class="mob-sub" id="mob-sol">
-        <li><a href="/solutions/credit-unions/" class="mob-sub-link">Credit Unions</a></li>
-        <li><a href="/solutions/retail/"        class="mob-sub-link">Retail</a></li>
-        <li><a href="/solutions/hospitality/"   class="mob-sub-link">Hospitality</a></li>
-        <li><a href="/solutions/healthcare/"    class="mob-sub-link">Healthcare</a></li>
-        <li><a href="/solutions/childcare/"     class="mob-sub-link">Childcare</a></li>
-        <li><a href="/solutions/public-sector/" class="mob-sub-link">Public Sector</a></li>
-      </ul>
-    </li>
-    <li class="mob-item"><a href="/products/" class="mob-link">Products</a></li>
-    <li class="mob-item"><a href="/pricing/"  class="mob-link">Pricing</a></li>
-    <li class="mob-item"><a href="/contact/"  class="mob-link">Contact</a></li>
-  </ul>
-  <div class="mob-actions"><a href="https://fit2trade.app/" class="btn btn--ghost">Login</a><a href="/contact/" class="btn btn--green">Book a Demo</a></div>
-</nav>
-
-
-<!-- ================================================================
-     HERO
-     ================================================================ -->
-<section class="hero" id="hero">
-
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      AI-Powered Compliance Platform
-    </div>
-
-    <h1 class="hero-h1">
-      Empower Your<br>
-      <span class="accent">Frontline.</span>
-    </h1>
-
-    <p class="hero-sub">
-      Transform your operations with Fit2Trade — AI-driven, tailored solutions for Retail,
-      Healthcare, Hospitality, Childcare and the Public Sector. One app. One login. Zero complexity.
-    </p>
-
-    <div class="hero-ctas">
-      <a href="/contact/"  class="btn btn--green btn--lg">Request a Demo</a>
-      <a href="/products/" class="btn btn--ghost btn--lg">See Products</a>
-    </div>
-
-    <div class="hero-proof">
-      <div class="hero-avatars">
-        <div class="hero-av">AP</div>
-        <div class="hero-av">CC</div>
-        <div class="hero-av">IN</div>
-        <div class="hero-av">OB</div>
-      </div>
-      <span>Trusted by Applegreen, Coca-Cola, Insomnia &amp; more</span>
-    </div>
-  </div>
-
-  <div class="hero-shot">
-    <img src="https://www.fit2trade.com/wp-content/uploads/2024/10/Compliance-Solutions-for-Business-Fit2Trade-1.jpg"
-         alt="Fit2Trade compliance platform" loading="eager" />
-  </div>
-
-</section>
-
-
-<!-- ================================================================
-     PRODUCTS
-     ================================================================ -->
-<section class="products-section" id="products">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Our Platform</span>
-      <h2 class="h2">One app. Multiple solutions.</h2>
-      <p class="lead">Most customers start with Ensure and add solutions tailored to their specific needs.</p>
-    </div>
-    <div class="products-grid">
-
-      <a href="/products/ensure/" class="pcard reveal">
-        <div class="pcard-img">
-          <img src="https://www.fit2trade.com/wp-content/uploads/2022/11/Ensure-Digital-Health-and-Safety-portal.jpg" alt="Ensure" loading="lazy" />
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-tag">H&amp;S Management</div>
-          <h3 class="pcard-name">Ensure.</h3>
-          <p class="pcard-desc">Get visibility of compliance from anywhere. Digitize safety, save costs and reduce risk.</p>
-          <span class="pcard-arrow">View product →</span>
-        </div>
-      </a>
-
-      <a href="/products/educate/" class="pcard reveal reveal-delay-1">
-        <div class="pcard-img">
-          <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Educate..jpg" alt="Educate" loading="lazy" />
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-tag">Learning Management</div>
-          <h3 class="pcard-name">Educate.</h3>
-          <p class="pcard-desc">Online compliance training tailored to your industry, covering all legal requirements.</p>
-          <span class="pcard-arrow">View product →</span>
-        </div>
-      </a>
-
-      <a href="/products/elevate/" class="pcard reveal reveal-delay-2">
-        <div class="pcard-img">
-          <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Being.jpg" alt="Elevate" loading="lazy" />
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-tag">Employee Wellbeing</div>
-          <h3 class="pcard-name">Elevate.</h3>
-          <p class="pcard-desc">Wellbeing courses and resources that show your teams you genuinely care for their health.</p>
-          <span class="pcard-arrow">View product →</span>
-        </div>
-      </a>
-
-      <a href="/products/engage/" class="pcard reveal reveal-delay-3">
-        <div class="pcard-img">
-          <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Engage-1.jpg" alt="Engage" loading="lazy" />
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-tag">Employee Engagement</div>
-          <h3 class="pcard-name">Engage.</h3>
-          <p class="pcard-desc">Connect remote workers with company news, benefits, vacancies and opportunities.</p>
-          <span class="pcard-arrow">View product →</span>
-        </div>
-      </a>
-
-      <a href="/products/operate/" class="pcard reveal reveal-delay-4">
-        <div class="pcard-img">
-          <img src="https://www.fit2trade.com/wp-content/uploads/2024/08/Execute-Ops-Management-App.jpg" alt="Operate" loading="lazy" />
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-tag">Operational Management</div>
-          <h3 class="pcard-name">Operate.</h3>
-          <p class="pcard-desc">Guarantee consistent brand standards and efficient operational checks across all locations.</p>
-          <span class="pcard-arrow">View product →</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     FRANCHISE MARQUEE
-     ================================================================ -->
-<section class="marquee-section">
-  <div class="section-head section-head--center" style="padding-inline: var(--pad);">
-    <span class="eyebrow">Franchisees</span>
-    <h2 class="h2">We help franchisees achieve brand excellence</h2>
-    <p class="lead" style="margin-inline: auto;">Improve Brand Audit and REV scores with proactive, brand-specific checks. Track actions, monitor progress and compare results across sites.</p>
-  </div>
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee-track">
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Subway.jpg"        alt="Subway" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Starbucks.jpg"     alt="Starbucks" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/KFC.jpg"           alt="KFC" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Burger-King.jpg"   alt="Burger King" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pizza-Hut.jpg"     alt="Pizza Hut" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Dunkin.jpg"        alt="Dunkin'" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Taco-Bell.jpg"     alt="Taco Bell" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Costa.jpg"         alt="Costa" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Greggs.jpg"        alt="Greggs" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Insomnia.jpg"      alt="Insomnia" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pret-a-manger.jpg" alt="Pret a Manger" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/WHSmith.jpg"       alt="WH Smith" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Waitrose.jpg"      alt="Waitrose" /></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Subway.jpg"        alt="Subway" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Starbucks.jpg"     alt="Starbucks" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/KFC.jpg"           alt="KFC" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Burger-King.jpg"   alt="Burger King" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pizza-Hut.jpg"     alt="Pizza Hut" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Dunkin.jpg"        alt="Dunkin'" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Taco-Bell.jpg"     alt="Taco Bell" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Costa.jpg"         alt="Costa" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Greggs.jpg"        alt="Greggs" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Insomnia.jpg"      alt="Insomnia" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Pret-a-manger.jpg" alt="Pret a Manger" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/WHSmith.jpg"       alt="WH Smith" /></div>
-      <div class="marquee-item"><img src="https://www.fit2trade.com/wp-content/uploads/2024/12/Waitrose.jpg"      alt="Waitrose" /></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     TRUSTED COMPANIES
-     ================================================================ -->
-<section class="trusted-section">
-  <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Social Proof</span>
-      <h2 class="h2">Companies that trust Fit2Trade</h2>
-    </div>
-    <div class="trusted-logos">
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Applegreen.png"      alt="Applegreen" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Diageo.png"          alt="Diageo" /></div>
-      <div class="tlogo"><img src="https://www.fit2trade.com/wp-content/uploads/2022/10/Coca-Cola.png"   alt="Coca-Cola" /></div>
-      <div class="tlogo"><img src="https://www.fit2trade.com/wp-content/uploads/2022/10/DPD-Ireland.png" alt="DPD Ireland" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Mercedes.png"        alt="Mercedes" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Insomnia.png"        alt="Insomnia" /></div>
-      <div class="tlogo"><img src="https://www.fit2trade.com/wp-content/uploads/2022/10/Volkswagen.png"  alt="Volkswagen" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Virgin.png"          alt="Virgin" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/OBriens-Wines.png"   alt="O'Briens Wines" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Radisson.png"        alt="Radisson" /></div>
-      <div class="tlogo"><img src="https://www.fit2trade.com/wp-content/uploads/2022/10/Stacks-Pharmacies.png" alt="Stacks Pharmacies" /></div>
-      <div class="tlogo"><img src="https://fit2trade.com/wp-content/uploads/2021/06/Dixons-Carphone.png" alt="Dixons Carphone" /></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     SOLUTIONS BY INDUSTRY
-     ================================================================ -->
-<section class="solutions-section" id="solutions">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Industries</span>
-      <h2 class="h2">Solutions designed for<br>frontline workers</h2>
-    </div>
-    <div class="solutions-grid">
-
-      <a href="/solutions/retail/" class="scard reveal">
-        <img src="https://www.fit2trade.com/wp-content/uploads/2022/01/Fit2Trade-for-Retailers.jpg" alt="Retail" loading="lazy" />
-        <div class="scard-scrim"></div>
-        <div class="scard-body">
-          <h3 class="scard-title">Retailers</h3>
-          <p class="scard-desc">Whether you're a local store or a multinational, Fit2Trade saves you time and money on annual training requirements.</p>
-          <span class="scard-cta">Explore retail solutions →</span>
-        </div>
-      </a>
-
-      <a href="/solutions/healthcare/" class="scard reveal reveal-delay-1">
-        <img src="https://www.fit2trade.com/wp-content/uploads/2024/08/EHS-Managemennt-for-Nursing-Homes-Fit2Care.jpg" alt="Healthcare" loading="lazy" />
-        <div class="scard-scrim"></div>
-        <div class="scard-body">
-          <h3 class="scard-title">Care Homes</h3>
-          <p class="scard-desc">Ensure HIQA compliance, train employees and record incidents. Simple-to-use and designed for care homes.</p>
-          <span class="scard-cta">Explore care solutions →</span>
-        </div>
-      </a>
-
-      <a href="/solutions/childcare/" class="scard reveal reveal-delay-2">
-        <img src="https://www.fit2trade.com/wp-content/uploads/2022/05/Fit2Trade-for-Early-Years-Providers-scaled.jpg" alt="Childcare" loading="lazy" />
-        <div class="scard-scrim"></div>
-        <div class="scard-body">
-          <h3 class="scard-title">Childcare</h3>
-          <p class="scard-desc">Fit2Nurture's safety portal and sector-specific compliance training take the hassle out of regulation.</p>
-          <span class="scard-cta">Explore childcare solutions →</span>
-        </div>
-      </a>
-
-      <a href="/solutions/hospitality/" class="scard reveal">
-        <img src="https://www.fit2trade.com/wp-content/uploads/2022/05/Fit2Trade-for-Hotels.jpg" alt="Hotels" loading="lazy" />
-        <div class="scard-scrim"></div>
-        <div class="scard-body">
-          <h3 class="scard-title">Hotels</h3>
-          <p class="scard-desc">From local motels to international chains — Fit2Serve helps you meet national compliance requirements.</p>
-          <span class="scard-cta">Explore hotel solutions →</span>
-        </div>
-      </a>
-
-      <a href="/solutions/hospitality/restaurants/" class="scard reveal reveal-delay-1">
-        <img src="https://www.fit2trade.com/wp-content/uploads/2022/05/Fit2Trade-for-Hospitality.jpg" alt="Restaurants" loading="lazy" />
-        <div class="scard-scrim"></div>
-        <div class="scard-body">
-          <h3 class="scard-title">Restaurants</h3>
-          <p class="scard-desc">Sector-specific H&amp;S training and management for local restaurants and global food chains alike.</p>
-          <span class="scard-cta">Explore restaurant solutions →</span>
-        </div>
-      </a>
-
-      <a href="/solutions/public-sector/" class="scard reveal reveal-delay-2">
-        <img src="https://www.fit2trade.com/wp-content/uploads/2024/09/Fit2Govern.jpg" alt="Public Sector" loading="lazy" />
-        <div class="scard-scrim"></div>
-        <div class="scard-body">
-          <h3 class="scard-title">Public Sector</h3>
-          <p class="scard-desc">Compliance management built for councils, agencies and semi-states — from H&amp;S obligations to GDPR and audit-readiness.</p>
-          <span class="scard-cta">Explore public sector solutions →</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     COURSES
-     ================================================================ -->
-<section class="courses-section" id="courses">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow eyebrow--light">Learning</span>
-      <h2 class="h2 h2--light">Discover courses that<br>engage and inspire</h2>
-      <p class="lead lead--light">Keep employees motivated with bite-sized lessons accessible from any device.</p>
-    </div>
-    <div class="courses-grid">
-      <div class="cblock reveal">
-        <div class="cblock-label">Safety</div>
-        <ul class="cblock-list">
-          <li><a href="/courses/"  class="clink">Manual Handling</a></li>
-          <li><a href="/courses/"      class="clink">Fire Safety</a></li>
-          <li><a href="/courses/"    class="clink">Health &amp; Safety</a></li>
-          <li><a href="/courses/" class="clink">Chemical Hazards</a></li>
-        </ul>
-      </div>
-      <div class="cblock reveal reveal-delay-1">
-        <div class="cblock-label">Corporate</div>
-        <ul class="cblock-list">
-          <li><a href="/courses/"          class="clink">Anti-Bribery &amp; Corruption</a></li>
-          <li><a href="/courses/" class="clink">Anti-Money Laundering</a></li>
-          <li><a href="/courses/"       class="clink">Fraud Awareness</a></li>
-          <li><a href="/courses/"       class="clink">Competition Law</a></li>
-        </ul>
-      </div>
-      <div class="cblock reveal reveal-delay-2">
-        <div class="cblock-label">Food Safety</div>
-        <ul class="cblock-list">
-          <li><a href="/courses/"            class="clink">Allergens</a></li>
-          <li><a href="/courses/"    class="clink">Basic Food Safety</a></li>
-          <li><a href="/courses/"                class="clink">HACCP</a></li>
-          <li><a href="/courses/" class="clink">Food Safety for Managers</a></li>
-        </ul>
-      </div>
-      <div class="cblock reveal">
-        <div class="cblock-label">Ethics</div>
-        <ul class="cblock-list">
-          <li><a href="/courses/"    class="clink">Acting Ethically</a></li>
-          <li><a href="/courses/"     class="clink">Dignity at Work</a></li>
-          <li><a href="/courses/" class="clink">Diversity &amp; Inclusion</a></li>
-          <li><a href="/courses/"    class="clink">Unconscious Bias</a></li>
-        </ul>
-      </div>
-      <div class="cblock reveal reveal-delay-1">
-        <div class="cblock-label">Privacy</div>
-        <ul class="cblock-list">
-          <li><a href="/courses/"     class="clink">Data Privacy</a></li>
-          <li><a href="/courses/"             class="clink">GDPR</a></li>
-          <li><a href="/courses/"   class="clink">Cyber Security</a></li>
-          <li><a href="/courses/" class="clink">Physical Security</a></li>
-        </ul>
-      </div>
-      <div class="cblock reveal reveal-delay-2">
-        <div class="cblock-label">Healthcare</div>
-        <ul class="cblock-list">
-          <li><a href="/courses/"           class="clink">Emergency First Aid</a></li>
-          <li><a href="/courses/" class="clink">Infection Prevention</a></li>
-          <li><a href="/courses/"    class="clink">Patient Handling</a></li>
-          <li><a href="/courses/"  class="clink">Vulnerable Persons</a></li>
-        </ul>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:44px;">
-      <a href="/courses/" class="btn btn--green btn--lg">Browse all courses</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     FEATURES
-     ================================================================ -->
-<section class="features-section">
-  <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Why Fit2Trade</span>
-      <h2 class="h2">Everything in one place.</h2>
-      <p class="lead">No more managing separate systems for incident reporting, training, checklists and EAP resources. One app, one login, one less thing to worry about.</p>
-    </div>
-    <div class="features-grid">
-      <div class="fcard reveal">
-        <div class="fcard-icon" aria-hidden="true">☁️</div>
-        <h3 class="fcard-title">Digitize manual processes</h3>
-        <p class="fcard-text">Cut costs and save time by moving your operating procedures online, accessible from any device, anywhere.</p>
-      </div>
-      <div class="fcard reveal reveal-delay-1">
-        <div class="fcard-icon" aria-hidden="true">🚀</div>
-        <h3 class="fcard-title">Accelerate onboarding</h3>
-        <p class="fcard-text">Onboard new hires on day one with a consistent, digitized experience across every location in your network.</p>
-      </div>
-      <div class="fcard reveal reveal-delay-2">
-        <div class="fcard-icon" aria-hidden="true">🛡️</div>
-        <h3 class="fcard-title">Protect your organisation</h3>
-        <p class="fcard-text">Meet your regulatory training obligations, prove compliance and reduce your insurance liability with one system.</p>
-      </div>
-      <div class="fcard reveal reveal-delay-3">
-        <div class="fcard-icon" aria-hidden="true">💬</div>
-        <h3 class="fcard-title">Engage your people</h3>
-        <p class="fcard-text">Improve productivity and engagement by keeping everyone in-the-loop with company news and resources.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     TESTIMONIALS
-     ================================================================ -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Customer Stories</span>
-      <h2 class="h2">What our customers say</h2>
-    </div>
-    <div class="t-grid">
-      <div class="tcard reveal">
-        <span class="tcard-mark" aria-hidden="true">&ldquo;</span>
-        <p class="tcard-text">Fit2trade is extremely easy to use and helps us at Applegreen onboard new starters seamlessly. It gives us confidence that all stores are compliant. The user experience is far superior to anything else we've seen.</p>
-        <div class="tcard-author">
-          <div class="tcard-av" aria-hidden="true">JM</div>
-          <div>
-            <div class="tcard-name">Jean Marten</div>
-            <div class="tcard-role">HR Manager, Applegreen PLC</div>
-          </div>
-        </div>
-      </div>
-      <div class="tcard reveal reveal-delay-1">
-        <span class="tcard-mark" aria-hidden="true">&ldquo;</span>
-        <p class="tcard-text">At O'Briens we've saved thousands during our first year of using the fit2trade portal, giving us more budget for other training initiatives.</p>
-        <div class="tcard-author">
-          <div class="tcard-av" aria-hidden="true">HN</div>
-          <div>
-            <div class="tcard-name">Holly Nolan</div>
-            <div class="tcard-role">HR Manager, O'Briens Wines</div>
-          </div>
-        </div>
-      </div>
-      <div class="tcard reveal reveal-delay-2">
-        <span class="tcard-mark" aria-hidden="true">&ldquo;</span>
-        <p class="tcard-text">Fit2trade really understand business in a way other providers don't. They've helped us reduce our labour turnover rate by increasing engagement and creating a slicker onboarding process.</p>
-        <div class="tcard-author">
-          <div class="tcard-av" aria-hidden="true">OH</div>
-          <div>
-            <div class="tcard-name">Olwyn Hughes</div>
-            <div class="tcard-role">L&amp;D Manager, The Coca-Cola Company</div>
-          </div>
-        </div>
-      </div>
-      <div class="tcard reveal reveal-delay-3">
-        <span class="tcard-mark" aria-hidden="true">&ldquo;</span>
-        <p class="tcard-text">At Insomnia, we're delighted with our customised programs for our employees. Fit2trade makes achieving compliance across our nationwide network of stores simple.</p>
-        <div class="tcard-author">
-          <div class="tcard-av" aria-hidden="true">CS</div>
-          <div>
-            <div class="tcard-name">Clare Sheridan</div>
-            <div class="tcard-role">HR Manager, Insomnia Coffee</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     CONTACT — Netlify Form
-     ================================================================ -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="contact-inner">
-
-      <div class="contact-info">
-        <span class="eyebrow eyebrow--light">Get in touch</span>
-        <h2 class="h2 h2--light">Ready to transform your workplace?</h2>
-        <p class="lead lead--light">Request a demo and see how Fit2Trade saves your business time, reduces risk and keeps your people compliant.</p>
-        <div class="cd">
-          <div class="cd-icon" aria-hidden="true">📧</div>
-          <a href="mailto:info@fit2trade.com">info@fit2trade.com</a>
-        </div>
-        <div class="cd">
-          <div class="cd-icon" aria-hidden="true">📍</div>
-          <span>Dublin, Ireland</span>
-        </div>
-        <div class="cd">
-          <div class="cd-icon" aria-hidden="true">🔒</div>
-          <span>Your data is used only to respond to your enquiry</span>
-        </div>
-      </div>
-
-      <div>
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          class="contact-form"
-          id="contact-form"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
-
-          <div class="f-row">
-            <div>
-              <label class="f-label" for="first-name">First name *</label>
-              <input class="f-input" type="text" id="first-name" name="first_name" required placeholder="Jane" />
+    <link rel="canonical" href="https://www.fit2trade.com/"/>
+    <meta property="og:title" content="Fit2Trade | One platform for frontline operations"/>
+    <meta property="og:description" content="Every site aligned. Every action visible. One connected platform for frontline organisations."/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Fit2Trade | One platform for frontline operations"/>
+    <meta name="twitter:description" content="Every site aligned. Every action visible. One connected platform for frontline organisations."/>
+    <link rel="shortcut icon" href="/assets/images/favicon.svg"/>
+    <link rel="icon" href="/assets/images/favicon.svg"/>
+  </head>
+  <body class="home-page">
+    <!-- shared-header:start -->
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="/" aria-label="Fit2Trade home">
+          <img src="/assets/images/fit2trade-logo-reverse.png" alt="Fit2Trade — Making Workplaces Better"/>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <details>
+            <summary>
+              Platform
+            </summary>
+            <div class="nav-panel">
+              <a href="/platform/">
+                <strong>
+                  The platform
+                </strong>
+                <span>
+                  One core app. Connected workflows.
+                </span>
+              </a>
+              <a href="/modules/">
+                <strong>
+                  All modules
+                </strong>
+                <span>
+                  Choose what your organisation needs.
+                </span>
+              </a>
+              <a href="https://tap-tick.com/">
+                <strong>
+                  TapTick
+                </strong>
+                <span>
+                  Specialist digital HACCP.
+                </span>
+              </a>
             </div>
-            <div>
-              <label class="f-label" for="last-name">Last name *</label>
-              <input class="f-input" type="text" id="last-name" name="last_name" required placeholder="Smith" />
+          </details>
+          <details>
+            <summary>
+              Modules
+            </summary>
+            <div class="nav-panel module-menu">
+              <a href="/modules/learn/">
+                <i style="background:#6b5ce7">
+                </i>
+                <span>
+                  <strong>
+                    Learn
+                  </strong>
+                  <small>
+                    Learning &amp; capability
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/ensure/">
+                <i style="background:#2e6052">
+                </i>
+                <span>
+                  <strong>
+                    Ensure
+                  </strong>
+                  <small>
+                    Safety &amp; compliance
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/operate/">
+                <i style="background:#e59b44">
+                </i>
+                <span>
+                  <strong>
+                    Operate
+                  </strong>
+                  <small>
+                    Operational standards
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/engage/">
+                <i style="background:#3678d4">
+                </i>
+                <span>
+                  <strong>
+                    Engage
+                  </strong>
+                  <small>
+                    Frontline communication
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/enclose/">
+                <i style="background:#b2588f">
+                </i>
+                <span>
+                  <strong>
+                    Enclose
+                  </strong>
+                  <small>
+                    Licence compliance
+                  </small>
+                </span>
+              </a>
+              <a href="/modules/entry/">
+                <i style="background:#bd5b4d">
+                </i>
+                <span>
+                  <strong>
+                    Entry
+                  </strong>
+                  <small>
+                    Contractor compliance
+                  </small>
+                </span>
+              </a>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Solutions
+            </summary>
+            <div class="nav-panel solutions-menu">
+              <a href="/credit-union-compliance/">
+                <strong>
+                  Credit Unions
+                </strong>
+              </a>
+              <a href="/solutions/retail-convenience/">
+                <strong>
+                  Retail &amp; Convenience
+                </strong>
+              </a>
+              <a href="/solutions/hospitality-travel/">
+                <strong>
+                  Hospitality &amp; Travel
+                </strong>
+              </a>
+              <a href="/solutions/healthcare-care/">
+                <strong>
+                  Healthcare &amp; Care
+                </strong>
+              </a>
+              <a href="/solutions/public-sector/">
+                <strong>
+                  Public Sector
+                </strong>
+              </a>
+              <a href="/solutions/financial-services/">
+                <strong>
+                  Financial Services
+                </strong>
+              </a>
+              <a href="/solutions/childcare-education/">
+                <strong>
+                  Childcare &amp; Education
+                </strong>
+              </a>
+              <a href="/solutions/sport-membership/">
+                <strong>
+                  Sport &amp; Membership
+                </strong>
+              </a>
+            </div>
+          </details>
+          <a href="/pricing/">
+            Pricing
+          </a>
+          <details>
+            <summary>
+              Resources
+            </summary>
+            <div class="nav-panel">
+              <a href="/courses/">
+                <strong>
+                  Courses
+                </strong>
+                <span>
+                  Compliance and professional learning.
+                </span>
+              </a>
+              <a href="/implementation/">
+                <strong>
+                  Implementation
+                </strong>
+                <span>
+                  A practical, phased rollout.
+                </span>
+              </a>
+              <a href="/faqs/">
+                <strong>
+                  FAQs
+                </strong>
+                <span>
+                  Platform, rollout and commercial answers.
+                </span>
+              </a>
+              <a href="/updates/">
+                <strong>
+                  What's new
+                </strong>
+                <span>
+                  Product updates and release notes.
+                </span>
+              </a>
+              <a href="/resources/">
+                <strong>
+                  Resource centre
+                </strong>
+                <span>
+                  Guides, ideas and practical notes.
+                </span>
+              </a>
+              <a href="/trust/">
+                <strong>
+                  Trust
+                </strong>
+                <span>
+                  Security, privacy and assurance.
+                </span>
+              </a>
+            </div>
+          </details>
+        </nav>
+        <div class="nav-actions">
+          <a class="login-link" href="https://fit2trade.app/">
+            Login
+          </a>
+          <a class="button nav-button" href="/book-demo/">
+            Book demo
+          </a>
+        </div>
+        <details class="mobile-menu">
+          <summary aria-label="Open navigation">
+            <span>
+            </span>
+            <span>
+            </span>
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="/platform/">
+              Platform
+            </a>
+            <a href="/modules/">
+              Modules
+            </a>
+            <a href="/solutions/">
+              Solutions
+            </a>
+            <a href="/pricing/">
+              Pricing
+            </a>
+            <a href="/resources/">
+              Resources
+            </a>
+            <a href="https://fit2trade.app/">
+              Login
+            </a>
+            <a class="button primary" href="/book-demo/">
+              Book demo
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <!-- shared-header:end -->
+    <main>
+      <section class="home-hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">
+              One platform for frontline operations
+            </span>
+            <h1>
+              Every site aligned.
+              <br/>
+              <em>
+                Every action visible.
+              </em>
+            </h1>
+            <p>
+              Fit2Trade brings learning, safety, standards and everyday frontline work into one connected view—without adding complexity for the people doing the work.
+            </p>
+            <div class="button-row">
+              <a class="button primary" href="/book-demo/">
+                Book a demo
+              </a>
+              <a class="button secondary" href="/platform/">
+                Explore the platform
+              </a>
+            </div>
+            <p class="micro-proof">
+              <span>
+                ✓
+              </span>
+              One account
+              <span>
+                ✓
+              </span>
+              Modular by design
+              <span>
+                ✓
+              </span>
+              Built for multi-site teams
+            </p>
+          </div>
+          <div class="platform-visual " aria-label="Illustrative Fit2Trade organisation overview">
+            <div class="visual-top">
+              <span class="visual-brand-mark">
+                ✓
+              </span>
+              <span>
+                Organisation overview
+              </span>
+              <b>
+                Illustrative view
+              </b>
+            </div>
+            <div class="visual-body">
+              <aside>
+                <span class="active">
+                  <i style="background:#6b5ce7">
+                  </i>
+                  Learn
+                </span>
+                <span class="">
+                  <i style="background:#2e6052">
+                  </i>
+                  Ensure
+                </span>
+                <span class="">
+                  <i style="background:#e59b44">
+                  </i>
+                  Operate
+                </span>
+                <span class="">
+                  <i style="background:#3678d4">
+                  </i>
+                  Engage
+                </span>
+                <span class="">
+                  <i style="background:#b2588f">
+                  </i>
+                  Enclose
+                </span>
+                <span class="">
+                  <i style="background:#bd5b4d">
+                  </i>
+                  Entry
+                </span>
+              </aside>
+              <div class="visual-main">
+                <div class="visual-title">
+                  <span>
+                    <small>
+                      Good morning
+                    </small>
+                    <strong>
+                      Here’s what needs attention.
+                    </strong>
+                  </span>
+                  <em>
+                    All locations⌄
+                  </em>
+                </div>
+                <div class="metric-grid">
+                  <div>
+                    <small>
+                      Sites on track
+                    </small>
+                    <strong>
+                      42
+                      <span>
+                        /48
+                      </span>
+                    </strong>
+                    <i class="up">
+                      +4 this week
+                    </i>
+                  </div>
+                  <div>
+                    <small>
+                      Actions open
+                    </small>
+                    <strong>
+                      7
+                    </strong>
+                    <i>
+                      3 due today
+                    </i>
+                  </div>
+                  <div>
+                    <small>
+                      Learning current
+                    </small>
+                    <strong>
+                      91%
+                    </strong>
+                    <i class="up">
+                      +2.4%
+                    </i>
+                  </div>
+                </div>
+                <div class="activity-card">
+                  <div class="activity-head">
+                    <strong>
+                      Priority actions
+                    </strong>
+                    <span>
+                      View all
+                    </span>
+                  </div>
+                  <div class="activity-row">
+                    <i class="status amber">
+                    </i>
+                    <span>
+                      <strong>
+                        Fire risk action
+                      </strong>
+                      <small>
+                        North Region · due today
+                      </small>
+                    </span>
+                    <b>
+                      Ensure
+                    </b>
+                  </div>
+                  <div class="activity-row">
+                    <i class="status blue">
+                    </i>
+                    <span>
+                      <strong>
+                        Opening standard
+                      </strong>
+                      <small>
+                        3 locations require review
+                      </small>
+                    </span>
+                    <b>
+                      Operate
+                    </b>
+                  </div>
+                  <div class="activity-row">
+                    <i class="status violet">
+                    </i>
+                    <span>
+                      <strong>
+                        Manager programme
+                      </strong>
+                      <small>
+                        12 learners remaining
+                      </small>
+                    </span>
+                    <b>
+                      Learn
+                    </b>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="f-group">
-            <label class="f-label" for="email">Email *</label>
-            <input class="f-input" type="email" id="email" name="email" required placeholder="jane@company.com" />
+        </div>
+      </section>
+      <section class="customer-strip" aria-label="Selected customers">
+        <div class="container">
+          <p>
+            Trusted by organisations with frontline teams
+          </p>
+          <div class="logo-row">
+            <div>
+              <img src="/assets/images/customers/applegreen.webp" alt="Applegreen" width="586" height="288"/>
+            </div>
+            <div>
+              <img src="/assets/images/customers/welcome-break.webp" alt="Welcome Break" width="1219" height="477"/>
+            </div>
+            <div>
+              <img src="/assets/images/customers/days-inn.webp" alt="Days Inn by Wyndham" width="816" height="533"/>
+            </div>
+            <div>
+              <img src="/assets/images/customers/ramada.webp" alt="Ramada by Wyndham" width="1039" height="329"/>
+            </div>
+            <div>
+              <img src="/assets/images/customers/coca-cola.webp" alt="Coca-Cola" width="2005" height="995"/>
+            </div>
+            <div>
+              <img src="/assets/images/customers/insomnia.webp" alt="Insomnia" width="586" height="288"/>
+            </div>
+            <div>
+              <img src="/assets/images/customers/obriens-wines.webp" alt="O&#x27;Briens Wines" width="586" height="288"/>
+            </div>
           </div>
-          <div class="f-group">
-            <label class="f-label" for="company">Company *</label>
-            <input class="f-input" type="text" id="company" name="company" required placeholder="Acme Ltd." />
+        </div>
+      </section>
+      <section class="section platform-story">
+        <div class="container split-story">
+          <div>
+            <div class="section-head ">
+              <span class="eyebrow">
+                One connected platform
+              </span>
+              <h2>
+                The core stays consistent. The modules fit the work.
+              </h2>
+              <p>
+                People, roles, sites and reporting stay consistent at the centre. Add focused workflows without adding another disconnected system.
+              </p>
+            </div>
+            <a class="text-link" href="/platform/">
+              How the platform works
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
           </div>
-          <div class="f-group">
-            <label class="f-label" for="employees">Employees *</label>
-            <select class="f-select" id="employees" name="employees" required>
-              <option value="" disabled selected>Select range</option>
-              <option value="1-10">1–10</option>
-              <option value="11-50">11–50</option>
-              <option value="51-200">51–200</option>
-              <option value="201-500">201–500</option>
-              <option value="500+">500+</option>
-            </select>
+          <div class="core-map" aria-label="Fit2Trade Core App connected to six modules">
+            <div class="core-map-side core-map-left">
+              <a href="/modules/learn/" class="core-module" style="--accent:#6b5ce7">
+                <i aria-hidden="true"></i>
+                <span>
+                  <strong>Learn</strong>
+                  <small>Learning &amp; capability</small>
+                </span>
+              </a>
+              <a href="/modules/ensure/" class="core-module" style="--accent:#2e6052">
+                <i aria-hidden="true"></i>
+                <span>
+                  <strong>Ensure</strong>
+                  <small>Safety &amp; compliance</small>
+                </span>
+              </a>
+              <a href="/modules/operate/" class="core-module" style="--accent:#e59b44">
+                <i aria-hidden="true"></i>
+                <span>
+                  <strong>Operate</strong>
+                  <small>Operational standards</small>
+                </span>
+              </a>
+            </div>
+            <div class="core-map-center">
+              <span class="core-map-mark" aria-hidden="true">✓</span>
+              <small>Fit2Trade</small>
+              <strong>Core App</strong>
+              <p>People · Sites · Roles</p>
+              <span class="core-map-foundation">One shared foundation</span>
+            </div>
+            <div class="core-map-side core-map-right">
+              <a href="/modules/engage/" class="core-module" style="--accent:#3678d4">
+                <i aria-hidden="true"></i>
+                <span>
+                  <strong>Engage</strong>
+                  <small>Frontline communication</small>
+                </span>
+              </a>
+              <a href="/modules/enclose/" class="core-module" style="--accent:#b2588f">
+                <i aria-hidden="true"></i>
+                <span>
+                  <strong>Enclose</strong>
+                  <small>Licence compliance</small>
+                </span>
+              </a>
+              <a href="/modules/entry/" class="core-module" style="--accent:#bd5b4d">
+                <i aria-hidden="true"></i>
+                <span>
+                  <strong>Entry</strong>
+                  <small>Contractor compliance</small>
+                </span>
+              </a>
+            </div>
           </div>
-          <div class="f-group">
-            <label class="f-label" for="message">Message *</label>
-            <textarea class="f-textarea" id="message" name="message" required placeholder="Tell us about your compliance needs…"></textarea>
+        </div>
+      </section>
+      <section class="section muted">
+        <div class="container">
+          <div class="section-head center">
+            <span class="eyebrow">
+              Choose what you need
+            </span>
+            <h2>
+              Six focused modules. One connected platform.
+            </h2>
+            <p>
+              Start with the work that matters now. Add capability without rebuilding the foundations around it.
+            </p>
           </div>
-          <div class="f-consent">
-            <input type="checkbox" id="consent" name="consent" required />
-            <label for="consent">By clicking Send, I agree to the <a href="/privacy/">privacy notice</a> and <a href="/terms/">terms</a>. My data will only be used to respond to my enquiry.</label>
+          <div class="module-grid">
+            <a href="/modules/learn/" class="module-card" style="--accent:#6b5ce7">
+              <span class="module-icon">
+                <i>
+                </i>
+              </span>
+              <span class="module-kicker">
+                Learning &amp; capability
+              </span>
+              <h3>
+                Learn
+              </h3>
+              <p>
+                Assign learning by role, track progress and keep required development visible.
+              </p>
+              <span class="text-link">
+                Explore Learn
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            <a href="/modules/ensure/" class="module-card" style="--accent:#2e6052">
+              <span class="module-icon">
+                <i>
+                </i>
+              </span>
+              <span class="module-kicker">
+                Safety &amp; compliance
+              </span>
+              <h3>
+                Ensure
+              </h3>
+              <p>
+                Manage safety routines, risks, incidents and corrective actions in one clear workflow.
+              </p>
+              <span class="text-link">
+                Explore Ensure
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            <a href="/modules/operate/" class="module-card" style="--accent:#e59b44">
+              <span class="module-icon">
+                <i>
+                </i>
+              </span>
+              <span class="module-kicker">
+                Operational standards
+              </span>
+              <h3>
+                Operate
+              </h3>
+              <p>
+                Give sites simple checks and standards while operational leaders retain oversight.
+              </p>
+              <span class="text-link">
+                Explore Operate
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            <a href="/modules/engage/" class="module-card" style="--accent:#3678d4">
+              <span class="module-icon">
+                <i>
+                </i>
+              </span>
+              <span class="module-kicker">
+                Frontline communication
+              </span>
+              <h3>
+                Engage
+              </h3>
+              <p>
+                Reach frontline people with company news, benefits, vacancies and trusted resources.
+              </p>
+              <span class="text-link">
+                Explore Engage
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            <a href="/modules/enclose/" class="module-card" style="--accent:#b2588f">
+              <span class="module-icon">
+                <i>
+                </i>
+              </span>
+              <span class="module-kicker">
+                Licence compliance
+              </span>
+              <h3>
+                Enclose
+              </h3>
+              <p>
+                Track licences, permits and certificates with ownership and renewal dates visible.
+              </p>
+              <span class="text-link">
+                Explore Enclose
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            <a href="/modules/entry/" class="module-card" style="--accent:#bd5b4d">
+              <span class="module-icon">
+                <i>
+                </i>
+              </span>
+              <span class="module-kicker">
+                Contractor compliance
+              </span>
+              <h3>
+                Entry
+              </h3>
+              <p>
+                Confirm contractor documentation, competency and site requirements before work begins.
+              </p>
+              <span class="text-link">
+                Explore Entry
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
           </div>
-          <button type="submit" class="btn btn--green btn--lg f-submit">Send Message</button>
-        </form>
-
-        <div class="form-success" id="form-success">
-          <div class="form-success-icon" aria-hidden="true">✅</div>
-          <h3>Message sent.</h3>
-          <p>We'll be in touch within one business day.</p>
+        </div>
+      </section>
+      <section class="section dark-section clarity-section">
+        <div class="container">
+          <div class="clarity-head">
+            <div>
+              <span class="eyebrow light">
+                Made for the whole organisation
+              </span>
+              <h2>
+                Simple at the frontline. Clear at every level.
+              </h2>
+            </div>
+            <p>
+              Each person sees the work and information relevant to them, while leaders retain a consistent view across sites and teams.
+            </p>
+          </div>
+          <div class="clarity-grid">
+            <article>
+              <span>
+                01
+              </span>
+              <h3>
+                Frontline teams
+              </h3>
+              <p>
+                Today’s learning, checks, updates and actions in one place.
+              </p>
+            </article>
+            <article>
+              <span>
+                02
+              </span>
+              <h3>
+                Site managers
+              </h3>
+              <p>
+                Clear completion, follow-up and ownership at site level.
+              </p>
+            </article>
+            <article>
+              <span>
+                03
+              </span>
+              <h3>
+                Multi-site leaders
+              </h3>
+              <p>
+                Comparable locations and repeated gaps brought into view.
+              </p>
+            </article>
+            <article>
+              <span>
+                04
+              </span>
+              <h3>
+                Central teams
+              </h3>
+              <p>
+                Consistent standards, oversight and evidence across the organisation.
+              </p>
+            </article>
+          </div>
+          <div class="customer-proof">
+            <blockquote>
+              “Fit2Trade is extremely easy to use and helps us onboard new starters seamlessly. It gives us confidence that all stores are compliant.”
+            </blockquote>
+            <div>
+              <span>
+                Customer perspective
+              </span>
+              <p>
+                Jean Marten · HR Manager, Applegreen PLC
+              </p>
+              <a href="/solutions/retail-convenience/">
+                Fit2Trade for retail
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section home-solutions">
+        <div class="container">
+          <div class="section-head ">
+            <span class="eyebrow">
+              Built around your operating model
+            </span>
+            <h2>
+              Different sectors. The same need for clarity.
+            </h2>
+            <p>
+              Fit2Trade adapts to different operating environments without losing a consistent core.
+            </p>
+          </div>
+          <div class="solution-grid">
+            <a href="/solutions/retail-convenience/">
+              <span>
+                01
+              </span>
+              <h3>
+                Retail &amp; Convenience
+              </h3>
+              <p>
+                Fast sites. Consistent standards.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a href="/solutions/hospitality-travel/">
+              <span>
+                02
+              </span>
+              <h3>
+                Hospitality &amp; Travel
+              </h3>
+              <p>
+                Service quality with proof behind it.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a href="/solutions/healthcare-care/">
+              <span>
+                03
+              </span>
+              <h3>
+                Healthcare &amp; Care
+              </h3>
+              <p>
+                Structured assurance for care environments.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a href="/solutions/public-sector/">
+              <span>
+                04
+              </span>
+              <h3>
+                Public Sector
+              </h3>
+              <p>
+                One view across distributed services.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a href="/solutions/financial-services/">
+              <span>
+                05
+              </span>
+              <h3>
+                Financial Services
+              </h3>
+              <p>
+                Compliance people can actually follow.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a href="/solutions/childcare-education/">
+              <span>
+                06
+              </span>
+              <h3>
+                Childcare &amp; Education
+              </h3>
+              <p>
+                Simple assurance for people-focused settings.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a href="/solutions/sport-membership/">
+              <span>
+                07
+              </span>
+              <h3>
+                Sport &amp; Membership
+              </h3>
+              <p>
+                Support volunteers, staff and clubs at scale.
+              </p>
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          </div>
+          <a class="text-link solutions-link" href="/solutions/">
+            Explore all solutions
+            <span aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        </div>
+      </section>
+      <section class="section muted">
+        <div class="container taptick-feature">
+          <div>
+            <span class="eyebrow">
+              Looking for specialist food safety?
+            </span>
+            <h2>
+              Digital HACCP and food-safety records, without the paper.
+            </h2>
+            <p>
+              TapTick is a specialist Digital HACCP and Food Safety System for busy food sites—helping teams replace paper records, keep daily checks visible and give managers clearer control.
+            </p>
+            <a class="button secondary" href="https://tap-tick.com/">
+              See TapTick
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <a class="taptick-referral" href="https://tap-tick.com/" aria-label="Visit the TapTick website">
+            <span class="taptick-referral-mark" aria-hidden="true">✓</span>
+            <span class="taptick-referral-copy">
+              <small>Specialist Fit2Trade product</small>
+              <strong>TapTick</strong>
+              <span>Digital HACCP + Food Safety</span>
+            </span>
+            <span class="taptick-referral-link">
+              tap-tick.com
+              <b aria-hidden="true">↗</b>
+            </span>
+          </a>
+        </div>
+      </section>
+      <section class="section commercial-section">
+        <div class="container">
+          <div class="section-head commercial-head">
+            <span class="eyebrow">
+              Plan with confidence
+            </span>
+            <h2>
+              Clear pricing. A practical rollout.
+            </h2>
+            <p>
+              Understand the commercial starting point, then shape the smallest useful first release around your priorities.
+            </p>
+          </div>
+          <div class="commercial-grid">
+            <article class="commercial-card pricing-card-home">
+              <span>
+                01 · Transparent pricing
+              </span>
+              <h3>
+                Know the starting point.
+              </h3>
+              <p>
+                Published annual module pricing supports early planning before we confirm the Fit2Trade configuration that fits your operating model.
+              </p>
+              <div class="home-formula">
+                <small>
+                  Core modules
+                </small>
+                <strong>
+                  From €6,000 / year
+                </strong>
+              </div>
+              <a class="text-link" href="/pricing/">
+                View pricing
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            </article>
+            <article class="commercial-card rollout-card-home">
+              <span>
+                02 · Implementation
+              </span>
+              <h3>
+                Start with the smallest useful release.
+              </h3>
+              <p>
+                Configure Fit2Trade around the organisation, validate the experience with a focused group and expand when the first phase is working well.
+              </p>
+              <ol class="home-rollout" aria-label="Implementation stages">
+                <li>
+                  Discover
+                </li>
+                <li>
+                  Configure
+                </li>
+                <li>
+                  Pilot
+                </li>
+                <li>
+                  Launch
+                </li>
+                <li>
+                  Improve
+                </li>
+              </ol>
+              <a class="text-link" href="/implementation/">
+                See the rollout approach
+                <span aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="cta-section">
+        <div class="container cta-panel">
+          <div>
+            <span class="eyebrow light">
+              See Fit2Trade in context
+            </span>
+            <h2>
+              Bring the whole picture into view.
+            </h2>
+            <p>
+              Tell us how your organisation works. We’ll show you the most useful starting point.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="button light-button" href="/book-demo/">
+              Book a demo
+            </a>
+            <a class="text-link light-link" href="/pricing/">
+              View pricing
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- shared-footer:start -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Fit2Trade home">
+            <img src="/assets/images/fit2trade-logo-reverse.png" alt="Fit2Trade — Making Workplaces Better"/>
+          </a>
+          <p>
+            One connected platform for safer, better-run frontline organisations.
+          </p>
+        </div>
+        <div>
+          <strong>
+            Platform
+          </strong>
+          <a href="/platform/">
+            Overview
+          </a>
+          <a href="/modules/">
+            Modules
+          </a>
+          <a href="/pricing/">
+            Pricing
+          </a>
+          <a href="/implementation/">
+            Implementation
+          </a>
+          <a href="https://tap-tick.com/">
+            TapTick
+          </a>
+        </div>
+        <div>
+          <strong>
+            Explore
+          </strong>
+          <a href="/solutions/">
+            Solutions
+          </a>
+          <a href="/courses/">
+            Courses
+          </a>
+          <a href="/resources/">
+            Resources
+          </a>
+          <a href="/updates/">
+            What's new
+          </a>
+          <a href="/ecotrack-esg-reporting-software/">
+            EcoTrack
+          </a>
+          <a href="/partners/">
+            Partners
+          </a>
+          <a href="/company/">
+            Company
+          </a>
+          <a href="/faqs/">
+            FAQs
+          </a>
+        </div>
+        <div>
+          <strong>
+            Trust &amp; responsibility
+          </strong>
+          <a href="/trust/">
+            Trust Centre
+          </a>
+          <a href="/api-doc/">
+            API documentation
+          </a>
+          <a href="/sustainability/">
+            Sustainability
+          </a>
+          <a href="/ethics-statement/">
+            Ethics Statement
+          </a>
+          <a href="/partner-code-of-conduct/">
+            Partner Code of Conduct
+          </a>
+          <a href="/modern-slavery-statement/">
+            Modern Slavery
+          </a>
+        </div>
+        <div>
+          <strong>
+            Legal
+          </strong>
+          <a href="/legal/">
+            Legal hub
+          </a>
+          <a href="/legal/privacy/">
+            Privacy
+          </a>
+          <a href="/legal/terms/">
+            Terms
+          </a>
+          <a href="/legal/cookies/">
+            Cookies
+          </a>
+          <a href="/legal/dpa/">
+            Data processing
+          </a>
+          <a href="/legal/subprocessors/">
+            Subprocessors
+          </a>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     FOOTER
-     ================================================================ -->
-<footer class="site-footer" aria-label="Site footer">
-  <div class="container">
-    <div class="ft-top">
-
-      <div class="ft-brand">
-        <img class="ft-brand-logo"
-             src="https://www.fit2trade.com/wp-content/uploads/2023/03/Fit2Trade-making-workplaces-better-logo-1.png"
-             alt="Fit2Trade" />
-        <p class="ft-brand-copy">One system, one login. AI-powered compliance, safety and training for frontline industries.</p>
-        <div class="ft-social">
-          <a href="https://www.facebook.com/people/Fit2Trade/100088522757472/" class="ft-soc" aria-label="Facebook" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      <div class="container footer-bottom">
+        <span>
+          ©
+          <span data-current-year>
+            2026
+          </span>
+          Fit2Trade Ltd.
+        </span>
+        <span>
+          32 Fitzwilliam Street Upper, Dublin 2, Ireland
+        </span>
+        <nav class="footer-social" aria-label="Fit2Trade social media">
+          <a href="https://www.linkedin.com/company/fit2trade/" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.4 7.6H2V21h3.4V7.6ZM3.7 2A2 2 0 1 0 3.7 6a2 2 0 0 0 0-4Zm8.2 5.6H8.6V21H12v-6.6c0-1.7.3-3.4 2.5-3.4 2.2 0 2.2 2 2.2 3.5V21H20v-7.3c0-3.6-.8-6.4-5-6.4-1.9 0-3.1 1-3.7 2h-.1V7.6h-3.3V21h3.4v-6.6c0-1.7.3-3.4 2.5-3.4 2.2 0 2.2 2 2.2 3.5V21h3.4v-7.3c0-3.6-.8-6.4-5-6.4-1.9 0-3.1 1-3.7 2h-.1V7.6h-3.3v.1Z"/></svg>
           </a>
-          <a href="https://x.com/fit2_trade" class="ft-soc" aria-label="X" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://www.instagram.com/fit2_trade/" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
           </a>
-          <a href="https://www.linkedin.com/company/fit2trade" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://www.facebook.com/100088522757472/" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V11H7.3v3h2.8v8h3.4Z"/></svg>
           </a>
-        </div>
+          <a href="https://x.com/fit2_trade" target="_blank" rel="noopener noreferrer" aria-label="Fit2Trade on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+          </a>
+        </nav>
       </div>
-
-      <div>
-        <p class="ft-col-title">Company</p>
-        <ul class="ft-links">
-          <li><a href="/about/"            class="ft-link">About us</a></li>
-          <li><a href="/about/our-values/" class="ft-link">Our Values</a></li>
-          <li><a href="/about/team/"       class="ft-link">Meet the Team</a></li>
-          <li><a href="/careers/"          class="ft-link">Careers</a></li>
-          <li><a href="/sustainability/"   class="ft-link">Sustainability</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="ft-col-title">Info</p>
-        <ul class="ft-links">
-          <li><a href="/contact/"             class="ft-link">Contact us</a></li>
-          <li><a href="/faqs/"                class="ft-link">FAQs</a></li>
-          <li><a href="/about/why-fit2trade/" class="ft-link">Why Fit2Trade</a></li>
-          <li><a href="/about/clients/"       class="ft-link">Clients</a></li>
-          <li><a href="/blog/"                class="ft-link">Blog</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="ft-col-title">Security &amp; IT</p>
-        <ul class="ft-links">
-          <li><a href="/about/security/"     class="ft-link">Security &amp; Privacy</a></li>
-          <li><a href="/about/trust-portal/" class="ft-link">Trust Portal</a></li>
-          <li><a href="/about/ethics/"       class="ft-link">Ethics Statement</a></li>
-          <li><a href="/api-docs/"           class="ft-link">API Documentation</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="ft-col-title">Legal</p>
-        <ul class="ft-links">
-          <li><a href="/terms/"          class="ft-link">Terms &amp; Conditions</a></li>
-          <li><a href="/privacy/"        class="ft-link">Privacy Policy</a></li>
-          <li><a href="/cookie-policy/"  class="ft-link">Cookie Policy</a></li>
-          <li><a href="/subject-access/" class="ft-link">Subject Access Request</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="ft-bottom">
-      <p class="ft-copy">&copy; <span id="year"></span> Fit2Trade Ltd. All rights reserved.</p>
-      <nav class="ft-legal" aria-label="Legal links">
-        <a href="/privacy/">Privacy</a>
-        <a href="/terms/">Terms</a>
-        <a href="/cookie-policy/">Cookies</a>
-      </nav>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-</body>
+    </footer>
+    <!-- shared-footer:end -->
+    <script src="/assets/js/main.js" defer>
+    </script>
+  </body>
 </html>
