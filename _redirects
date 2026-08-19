@@ -93,3 +93,53 @@
 /2025/11/25/what-irish-credit-unions-need-to-know-about-the-digital-operational-resilience-act-dora/ /digital-operational-resilience-dora-for-credit-unions/ 301
 /2026/02/04/from-bricklayers-to-architects-designing-the-ai-ready-workforce/ /resources/blog/ 301
 /2026/02/04/stop-making-your-team-babysit-ai-the-case-for-the-augmented-architect/ /resources/blog/ 301
+
+# Sprint 09 production-cutover legacy preservation
+# Legacy learning and course families
+/compliance-courses-offices/                  /courses/                                      301
+/compliance-courses/*                         /courses/                                      301
+/business-skills/                             /courses/                                      301
+/business-skills/*                            /courses/                                      301
+/ai-courses/                                  /courses/                                      301
+/ai-courses/*                                 /courses/                                      301
+/enlight-future-skills-diploma/               /courses/                                      301
+
+# Legacy sector/product families
+/fit2care/                                    /solutions/healthcare-care/                     301
+/fit2care/*                                   /solutions/healthcare-care/                     301
+/fit2nurture/*                                /early-years/                                   301
+/solutions/travel-retail/                     /solutions/retail-convenience/                  301
+/fit2serve-hotels/                            /solutions/hospitality-travel/                  301
+/fit2serve/*                                  /solutions/hospitality-travel/                  301
+/embark-customized-onboarding/                /modules/learn/                                 301
+/enhance-customized-course-creation/          /modules/learn/                                 301
+/evidence-insurance-reduction-service/        /modules/ensure/                                301
+
+# Legacy AI product routes mapped to the closest supported capability
+/ai/aida/                                     /modules/ensure/hazard-maintenance-reporting/   301
+/ai/aidan/                                    /modules/ensure/risk-assessments/                301
+/ai/ailwin/                                   /modules/ensure/health-safety-audits/            301
+/ai/aino/                                     /resources/                                     301
+/ai/aio/                                      /platform/                                      301
+/ai/aisha/                                    /courses/                                       301
+
+# Legacy company routes
+/about-us/our-values/                         /company/                                       301
+/about-us/meet-the-team/                      /company/                                       301
+/about-us/clients/                            /company/                                       301
+/about-us/why-fit2trade/                      /company/                                       301
+/careers/                                     /company/                                       301
+
+# Legacy account/portal routes no longer used as marketing workflows
+/login-to-your-account/                       https://fit2trade.app/                           301!
+/account-creation/                            https://fit2trade.app/                           301!
+/safety-statement-inputs/                     /modules/ensure/safety-statements/               301
+
+# Partner routes retained through the consolidated Partners page
+/enter-time-attendance-software/              /partners/                                      301
+/partners/bizimply/                           /partners/                                      301
+/partners/lva/                                /partners/                                      301
+/partners/restaurant-and-hospitality-skillnet/ /partners/                                     301
+/become-a-partner/                            /partners/                                      301
+/partners/early-childhood-ireland/            /early-years/                                   301
+/partners/vfi/                                /solutions/hospitality-travel/                  301

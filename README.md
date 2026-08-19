@@ -34,4 +34,4 @@ Connect this repository to Netlify. Netlify reads `netlify.toml` and publishes t
 
 ## Forms
 
-Netlify detects two forms: `fit2trade-demo` and `early-years-access`. In Netlify, add an email notification for new form submissions and set the destination to `sinon@fit2trade.com`.
+Netlify detects two forms: `fit2trade-demo` and `early-years-access`. In Netlify, add an email notification for new form submissions and set the destination to `Simon@fit2trade.com`.
