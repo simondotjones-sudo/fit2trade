@@ -795,6 +795,47 @@ blockquote { max-width: 850px; margin: 10px 0 30px; font-size: clamp(36px,4.3vw,
   .module-related-inline > div { grid-template-columns: 1fr; }
 }
 
+/* Sprint 3.2 follow-up — Ensure capability discovery */
+.module-page--ensure .module-page-hero { padding-bottom: 22px; }
+.ensure-capability-nav-section { scroll-margin-top: 88px; padding: 0 0 18px; background: var(--paper); }
+.ensure-capability-nav { display: grid; overflow: hidden; border: 1px solid color-mix(in srgb,var(--accent) 20%,#dce1dc); border-radius: 24px; background: rgba(255,255,255,.72); grid-template-columns: minmax(205px,.9fr) minmax(0,3.8fr); box-shadow: 0 18px 44px rgba(23,30,26,.045); }
+.ensure-capability-nav-intro { display: flex; min-height: 132px; justify-content: center; flex-direction: column; border-right: 1px solid #e4e8e4; padding: 24px 28px; background: color-mix(in srgb,var(--accent) 5%,#fbfcfa); }
+.ensure-capability-nav-intro .eyebrow { margin-bottom: 8px; }
+.ensure-capability-nav-intro h2 { margin: 0; max-width: 205px; font-size: 19px; font-weight: 600; line-height: 1.08; letter-spacing: -.025em; }
+.ensure-capability-nav-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); }
+.ensure-capability-nav-grid a { display: grid; min-height: 66px; align-items: center; gap: 12px; border-right: 1px solid #e8ebe8; border-bottom: 1px solid #e8ebe8; padding: 14px 17px; color: var(--ink); font-size: 10px; font-weight: 650; line-height: 1.3; grid-template-columns: 1fr auto; transition: background .2s ease, color .2s ease; }
+.ensure-capability-nav-grid a:nth-child(4n) { border-right: 0; }
+.ensure-capability-nav-grid a:nth-child(n+5) { border-bottom: 0; }
+.ensure-capability-nav-grid a:hover { background: color-mix(in srgb,var(--accent) 6%,white); color: var(--module-accent-ink); }
+.ensure-capability-nav-grid a b { color: var(--module-accent-ink); font-size: 11px; font-weight: 500; transition: transform .2s ease; }
+.ensure-capability-nav-grid a:hover b { transform: translate(2px,-2px); }
+.ensure-capability-nav-grid a:focus-visible { position: relative; z-index: 1; outline: 3px solid color-mix(in srgb,var(--accent) 34%,transparent); outline-offset: -3px; }
+.module-page--ensure .module-problem-section { padding-top: 28px; }
+
+@media (max-width: 960px) {
+  .module-page--ensure .module-page-hero { padding-bottom: 30px; }
+  .ensure-capability-nav { grid-template-columns: 1fr; }
+  .ensure-capability-nav-intro { min-height: 0; border-right: 0; border-bottom: 1px solid #e4e8e4; padding: 20px 24px; }
+  .ensure-capability-nav-intro h2 { max-width: none; }
+  .ensure-capability-nav-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+
+@media (max-width: 700px) {
+  .ensure-capability-nav-section { padding-bottom: 18px; }
+  .ensure-capability-nav-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ensure-capability-nav-grid a:nth-child(4n) { border-right: 1px solid #e8ebe8; }
+  .ensure-capability-nav-grid a:nth-child(2n) { border-right: 0; }
+  .ensure-capability-nav-grid a:nth-child(n+5) { border-bottom: 1px solid #e8ebe8; }
+  .ensure-capability-nav-grid a:nth-child(n+7) { border-bottom: 0; }
+  .module-page--ensure .module-problem-section { padding-top: 42px; }
+}
+
+@media (max-width: 420px) {
+  .ensure-capability-nav-grid { grid-template-columns: 1fr; }
+  .ensure-capability-nav-grid a, .ensure-capability-nav-grid a:nth-child(2n), .ensure-capability-nav-grid a:nth-child(4n) { min-height: 54px; border-right: 0; border-bottom: 1px solid #e8ebe8; padding: 12px 16px; }
+  .ensure-capability-nav-grid a:last-child { border-bottom: 0; }
+}
+
 /* Sprint 3.2 — Ensure specialist capability pages */
 .ensure-capability-links { display: grid; gap: 7px; margin-top: 24px; }
 .ensure-capability-links a { position: relative; padding: 8px 18px 8px 0; border-top: 1px solid #e8ebe8; color: var(--module-accent-ink); font-size: 10px; font-weight: 650; line-height: 1.35; }
