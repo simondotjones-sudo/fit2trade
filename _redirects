@@ -9,9 +9,10 @@
 /solutions/hospitality/       /solutions/hospitality-travel/   301
 /solutions/healthcare/        /solutions/healthcare-care/      301
 /solutions/childcare/         /solutions/childcare-education/  301
+/early-years/                  /solutions/childcare-education/  301!
 /solutions/credit-unions/     /credit-union-compliance/        301
 /dora-compliance-credit-unions/ /digital-operational-resilience-dora-for-credit-unions/ 301
-/fit2nurture/early-years-ireland/ /early-years/                 301
+/fit2nurture/early-years-ireland/ /solutions/childcare-education/ 301
 /about/                       /company/                        301
 /contact/                     /book-demo/                      301
 /contact-us/                  /book-demo/                      301
@@ -51,7 +52,7 @@
 /engage-employee-engagement-platform/     /modules/engage/                               301
 /elevate-employee-wellbeing-program/      /pricing/                                      301
 /products/elevate/                        /pricing/                                      301
-/fit2nurture/                              /early-years/                                  301
+/fit2nurture/                              /solutions/childcare-education/                    301
 /fit2govern/                               /solutions/public-sector/                      301
 /fit2play/                                 /solutions/sport-membership/                   301
 /gaa-clubs/                                /solutions/sport-membership/                   301
@@ -109,7 +110,7 @@
 # Legacy sector/product families
 /fit2care/                                    /solutions/healthcare-care/                     301
 /fit2care/*                                   /solutions/healthcare-care/                     301
-/fit2nurture/*                                /early-years/                                   301
+/fit2nurture/*                                /solutions/childcare-education/                    301
 /solutions/travel-retail/                     /solutions/retail-convenience/                  301
 /fit2serve-hotels/                            /solutions/hospitality-travel/                  301
 /fit2serve/*                                  /solutions/hospitality-travel/                  301
@@ -143,5 +144,5 @@
 /partners/lva/                                /partners/                                      301
 /partners/restaurant-and-hospitality-skillnet/ /partners/                                     301
 /become-a-partner/                            /partners/                                      301
-/partners/early-childhood-ireland/            /early-years/                                   301
+/partners/early-childhood-ireland/            /solutions/childcare-education/                    301
 /partners/vfi/                                /solutions/hospitality-travel/                  301
