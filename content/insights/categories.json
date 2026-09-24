@@ -1,0 +1,10 @@
+[
+  {"slug":"workplace-safety","label":"Workplace safety","active":true},
+  {"slug":"risk-assessments","label":"Risk assessments","active":true},
+  {"slug":"chemical-safety","label":"Chemical safety","active":true},
+  {"slug":"incidents-near-misses","label":"Incidents & near misses","active":true},
+  {"slug":"training-competence","label":"Training & competence","active":true},
+  {"slug":"contractor-safety","label":"Contractor safety","active":true},
+  {"slug":"sds-builder","label":"SDS Builder","active":false},
+  {"slug":"jha-studio","label":"JHA Studio","active":false}
+]

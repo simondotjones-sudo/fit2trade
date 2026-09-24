@@ -51,7 +51,7 @@ def public_pages() -> list[Path]:
     pages: list[Path] = []
     for path in ROOT.rglob("*.html"):
         relative = path.relative_to(ROOT)
-        if relative.as_posix() in EXCLUDED_PAGES or relative.parts[0] == "partials":
+        if relative.as_posix() in EXCLUDED_PAGES or relative.parts[0] in {"partials", "content", "_site"}:
             continue
         pages.append(path)
     return sorted(pages)
